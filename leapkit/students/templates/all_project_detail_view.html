@@ -1,0 +1,63 @@
+{% extends "student_layouts/student_layout.html" %}
+{% comment %}
+	# This root template is meant for creating the basic layout for all views that can be viewed without logging in.
+	#
+	#
+	#
+	#
+	#
+{% endcomment %}
+
+{% block title %} {{ project.title }} {% endblock %}
+
+{% block content %}
+    <div class="container">
+        {% if project.studentproject %}
+            {% include 'layout/student_project_detail.html' %}
+            <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 container-block text-center">
+                <div class="bottom-content" data-step="4"
+                     data-intro="Finally, the contact button lets you write a message to the project owner, with any relevant file attached.">
+                    {% if project.open_for_applications %}
+                        <a class="btn btn-primary btn-fill"
+                           href="{% url 'students:send_email' project.slug %}">Contact {{ project.studentproject.project_owner.get_full_name }}</a>
+                    {% else %}
+                        <p> The student has had enough applications for this project, and are not receiving any more
+                            collaboration requests</p>
+                    {% endif %}
+                </div>
+            </div>
+
+        {% elif project.companyproject %}
+            {% include 'layout/company_project_detail.html' %}
+            <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 container-block text-center">
+                <div class="bottom-content" data-step="4"
+                     data-intro="Finally, the contact button lets you write a message to the project owner, with any relevant file attached.">
+                    {% if project.open_for_applications %}
+                        <a class="btn btn-primary btn-fill"
+                           href="{% url 'students:send_email' project.slug %}">Contact {{ project.companyproject.project_owner.name }}</a>
+                    {% else %}
+                        <p> The company has had enough applications for this project, and are not receiving any more
+                            collaboration requests</p>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+
+    </div>
+{% endblock %}
+
+{% block user_onbording %}
+    {% if user.student.times_logged_in == 1 and request.session.project_detail == 0 %}
+        <script>
+            function startTour() {
+                var tour = introJs();
+                tour.setOption('tooltipPosition', 'auto');
+                tour.setOption('positionPrecedence', ['left', 'right', 'bottom', 'top'])
+                tour.start()
+            }
+            $(document).ready(function () {
+                startTour();
+            });
+        </script>
+    {% endif %}
+{% endblock %}

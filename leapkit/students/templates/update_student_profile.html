@@ -1,0 +1,14 @@
+{% extends "student_layouts/student_layout.html" %}
+
+{% block title %} Update profile {% endblock %}
+
+{% block content %}
+    <div class="col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 update-profile-form-container">
+        <div class="form">
+            {% load crispy_forms_tags %}
+            <form action="{{ studentprofile.get_absolute_update_url }}" enctype="multipart/form-data" method="post">
+                {% crispy form %}
+            </form>
+        </div>
+    </div>
+{% endblock %}

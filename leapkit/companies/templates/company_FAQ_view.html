@@ -1,0 +1,30 @@
+{% extends "company_layouts/company_layout.html" %}
+{% comment %}
+	# This root template is meant for creating the basic layout for all views that can be viewed without logging in.
+	#
+	#
+	#
+	#
+	#
+{% endcomment %}
+
+{% block title %} FAQ {% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-lg-10 col-md-offset-1 container-block">
+            <h2 class="text-center">Frequently Asked Questions</h2>
+            {% for question in faquestion_list %}
+                <div class="divider"></div>
+                <h3>{{ question.question }}</h3>
+                <p>{{ question.answer }}</p>
+            {% empty %}
+                <h4 class="text-center">There are currently no questions </h4>
+            {% endfor %}
+            <div class="divider"></div>
+            <p class="text-center">If you could not find an answer to your question, feel free to contact us via email:
+                <a href="mailto:contact@leapkit.com"> contact@leapkit.com</a></p>
+        </div>
+
+    </div>
+{% endblock %}

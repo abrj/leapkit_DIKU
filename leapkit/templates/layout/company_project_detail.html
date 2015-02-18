@@ -1,0 +1,241 @@
+<div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 container-block">
+    <div class="row top-content">
+        <h1 class="text-center">{{ project.title }}</h1>
+    </div>
+    <div class="row header-content"  data-step="1" data-intro="Here you see general information about what the project owner is looking for">
+         <h2 class="text-center">Project details</h2>
+         <div class="col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1 project-details">
+            <div class="small-container">
+                {% if project.start_date %}
+                    <h4><i class="fa fa-calendar"></i> Start
+                        <small>{{ project.start_date }}</small>
+                    </h4>
+                {% endif %}
+                {% if project.end_date %}
+                    <h4><i class="fa fa-calendar"></i> End
+                        <small>{{ project.end_date }}</small>
+                    </h4>
+                {% endif %}
+                {% if project.end_date and project.start_date %}
+                    <h4><i class="fa fa-calendar"></i> Length
+                        <small>{{ project.get_project_length }}</small>
+                    </h4>
+                {% endif %}
+                {% if project.students_needed %}
+                    <h4><i class="fa fa-graduation-cap"></i> Nr of students
+                        <small>{{ project.students_needed }}</small>
+                    </h4>
+                {% endif %}
+                {% if project.companyproject.resume_required == "Y" %}
+                    <h4><i class="fa fa-file"></i> Resume
+                        <small>Required</small>
+                    </h4>
+                {% else %}
+                    <h4><i class="fa fa-file"></i> Resume
+                        <small>Not Required</small>
+                    </h4>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-md-5 col-lg-5  project-details">
+            <h4><i class="fa fa-university"></i> Project Scope
+            {% if project.companyproject.thesis_or_internship_required == "A" %}
+                    <small>All students can apply</small>
+            {% elif project.companyproject.thesis_or_internship_required == "B" %}
+                    <small>Bachelor Thesis only</small>
+            {% elif project.companyproject.thesis_or_internship_required == "C" %}
+                    <small>Course projects</small>
+            {% elif project.companyproject.thesis_or_internship_required == "M" %}
+                    <small>Master Thesis only</small>
+            {% elif project.companyproject.thesis_or_internship_required == "BM" %}
+                    <small>Master & Bachelor Thesis</small>
+            {% elif project.companyproject.thesis_or_internship_required == "I" %}
+                    <small>Internship only</small>
+            {% endif %}
+            </h4>
+
+            {% if project.companyproject.payment == "P" %}
+                <h4><i class="fa fa-money"></i> Payment
+                    <small>This project is payed</small>
+                </h4>
+            {% elif project.companyproject.payment == "NP" %}
+                <h4><i class="fa fa-money"></i> Payment
+                    <small>This project is not payed</small>
+                </h4>
+            {% endif %}
+
+            {% if project.companyproject.web_page %}
+                <h4>
+                    <a href="{{ project.companyproject.web_page.url }}"  target="_blank">
+                        <i class="fa fa-globe"></i> Website
+                    </a>
+                </h4>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="row">
+        <div class="bottom-content"  data-step="2" data-intro="Here you see the description of the project">
+            <h3>Short Decsription</h3>
+            {{ project.short_description|linebreaks }}
+            <div class="divider"></div>
+            <h3>Full Description</h3>
+            {{ project.full_description|linebreaks }}
+        </div>
+        {% if project.project_document %}
+            <div class="container">
+                <h3>Project File</h3>
+                <a href="{{ project.project_document.url }}" class="black-link" target="_blank">
+                    <div class="col-md-2 col-lg-2 text-center">
+                         <i class="fa fa-file  h1"></i>
+                        <p class="text-center">{{ project.get_project_document_name }}</p>
+                    </div>
+                </a>
+            </div>
+        {% endif %}
+    </div>
+    <div class="divider"></div>
+    <div class="row">
+         <div class="bottom-content" data-step="3" data-intro="This is the job functions you can aspect to work on in the project">
+            <h3>Specific Job Functions</h3>
+            <ul>
+                {% for job_function in project.job_functions.all %}
+                    <li>
+                        <small>{{ job_function.name }} </small>
+                    </li>
+                {% empty %}
+                    <p>
+                        <small> No job functions have been specified</small>
+                    </p>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="row">
+         <div class="bottom-content">
+            <h3>Amount of Hands on Time with companies</h3>
+            <p>The company have agreed to spend {{ project.companyproject.involvement }} hours per month</p>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <h3 class="bottom-content">Other Information</h3>
+            </div>
+            <div class="row">
+                    <div class="col-md-3 col-lg-3">
+                        <p><strong>Relevant Level of Education</strong></p>
+                    </div>
+                    <div class="col-md-3 col-lg-3">
+                        {% if project.education_requirements == "ALL" %}
+                            <p>
+                                <small>Bachelor & Master Students</small>
+                            </p>
+                        {% elif project.education_requirements == "BSC" %}
+                            <p>
+                                <small>For Bachelor Students Only</small>
+                            </p>
+                        {% elif project.education_requirements == "MSC" %}
+                            <p>
+                                <small>For Master Students Only</small>
+                            </p>
+                        {% endif %}
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-lg-3">
+                    <p><strong>Relevant Universities</strong></p>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    {% for university in project.university_requirements.all %}
+                        <p>
+                            <small>{{ university.name }} </small>
+                        </p>
+                    {% empty %}
+                        <p>
+                            <small> No universities have been specified</small>
+                        </p>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-lg-3">
+                    <p><strong>Relevant Lines of Study</strong></p>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    {% for line_of_study in project.related_lines_of_study.all %}
+                        <p>
+                            <small>{{ line_of_study.name }} </small>
+                        </p>
+                    {% empty %}
+                        <p>
+                            <small> No lines of study have been specified</small>
+                        </p>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <p>
+                        <strong >
+                            <i class="fa fa-file-text-o"></i>  NDA
+                            <span class="btn btn-link" data-toggle="tooltip" title="non-disclosure agreement" data-placement="right">?</span>
+                        </strong>
+                    </p>
+                </div>
+
+                <div class="col-md-3">
+                    {% if project.companyproject.nda_required == "Y" %}
+                        <p>
+                            Required
+                        </p>
+                    {% elif project.companyproject.nda_required == "N" %}
+                        <p>
+                            <small>Not Required</small>
+                        </p>
+
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="row">
+        <h2 class="text-center"> About the Company</h2>
+        {% if project.companyproject.project_owner.logo %}
+            <div class="col-md-4 col-lg-4">
+                <div class="header-image">
+                    <img src="{{ project.companyproject.project_owner.logo.url }}" alt="image for {{ project.title }}">
+                </div>
+            </div>
+        {% endif %}
+        <div class="col-md-6 col-lg-6">
+            <h4><strong>Name:</strong> {{ project.companyproject.project_owner.name }}</h4>
+            {% if project.companyproject.project_owner.year_founded %}
+                <h4><strong>Year founded:</strong> {{ project.companyproject.project_owner.year_founded }}</h4>
+            {% endif %}
+            {% if project.companyproject.project_owner.year_founded %}
+                <h4><strong>Address:</strong> {{ project.companyproject.project_owner.address }}</h4>
+            {% endif %}
+
+        </div>
+        <div class="col-md-12 col-lg-12">
+            {% if  project.companyproject.project_owner.overview  %}
+                <h3>Company Overview</h3>
+                {{ project.companyproject.project_owner.overview|linebreaks }}
+            {% endif %}
+            {% if  project.companyproject.project_owner.about  %}
+                <h3>About {{ project.companyproject.project_owner.name }}</h3>
+                {{ project.companyproject.project_owner.about|linebreaks }}
+            {% endif %}
+            {% if  project.companyproject.project_owner.mission  %}
+                <h3>Company Mission</h3>
+                {{ project.companyproject.project_owner.mission|linebreaks }}
+            {% endif %}
+        </div>
+    </div>
+</div>

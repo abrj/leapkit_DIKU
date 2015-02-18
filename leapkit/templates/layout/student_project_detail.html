@@ -1,0 +1,186 @@
+ <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 container-block">
+    <div class="row top-content">
+        <h1 class="text-center">{{ project.title }}</h1>
+    </div>
+    <div class="row header-content"  data-step="1" data-intro="Here you see general information about what the project owner is looking for">
+         <h2 class="text-center">Project details</h2>
+        <div class="col-md-5 col-md-offset-1 col-lg-5 col-lg-offset-1 project-details">
+            <div class="small-container">
+                {% if project.start_date %}
+                    <h4><i class="fa fa-calendar"></i> Start
+                        <small>{{ project.start_date }}</small>
+                    </h4>
+                {% endif %}
+                {% if project.end_date %}
+                    <h4><i class="fa fa-calendar"></i> End
+                        <small>{{ project.end_date }}</small>
+                    </h4>
+                {% endif %}
+                {% if project.end_date and project.start_date %}
+                    <h4><i class="fa fa-calendar"></i> Length
+                        <small>{{ project.get_project_length }}</small>
+                    </h4>
+                {% endif %}
+
+            </div>
+        </div>
+        <div class="col-md-5 col-lg-5  project-details">
+            {% if project.students_needed %}
+                    <h4><i class="fa fa-graduation-cap"></i> Students needed
+                        <small>{{ project.students_needed }}</small>
+                    </h4>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="row">
+        <div class="bottom-content"  data-step="2" data-intro="Here you see the description of the project">
+            <h3>Short Decsription</h3>
+            {{ project.short_description|linebreaks }}
+            <div class="divider"></div>
+            <h3>Full Description</h3>
+            {{ project.full_description|linebreaks }}
+        </div>
+        {% if project.project_document %}
+            <div class="container">
+                <h3>Project File</h3>
+                <a href="{{ project.project_document.url }}" class="black-link" target="_blank">
+                    <div class="col-md-2 col-lg-2 text-center">
+                         <i class="fa fa-file  h1"></i>
+                        <p class="text-center">{{ project.get_project_document_name }}</p>
+                    </div>
+                </a>
+            </div>
+
+        {% endif %}
+    </div>
+    <div class="divider"></div>
+    <div class="row">
+         <div class="bottom-content" data-step="3" data-intro="This is the job functions you can aspect to work on in the project">
+            <h3 >Specific Job Functions</h3>
+            <ul>
+                {% for job_function in project.job_functions.all %}
+                    <li>
+                        <small>{{ job_function.name }} </small>
+                    </li>
+                {% empty %}
+                    <p>
+                        <small> No job functions have been specified</small>
+                    </p>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="row">
+        <div class="container">
+            <div class="row">
+                <h3 class="bottom-content">Other Information</h3>
+            </div>
+            <div class="row">
+                    <div class="col-md-3 col-lg-3">
+                        <p><strong>Relevant Level of Education</strong></p>
+                    </div>
+                    <div class="col-md-3 col-lg-3">
+                        {% if project.education_requirements == "ALL" %}
+                            <p>
+                                <small>Bachelor & Master Students</small>
+                            </p>
+                        {% elif project.education_requirements == "BSC" %}
+                            <p>
+                                <small>For Bachelor Students Only</small>
+                            </p>
+                        {% elif project.education_requirements == "MSC" %}
+                            <p>
+                                <small>For Master Students Only</small>
+                            </p>
+                        {% endif %}
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-lg-3">
+                    <p><strong>Relevant Universities</strong></p>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    {% for university in project.university_requirements.all %}
+                        <p>
+                            <small>{{ university.name }} </small>
+                        </p>
+                    {% empty %}
+                        <p>
+                            <small> No universities have been specified</small>
+                        </p>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-lg-3">
+                    <p><strong>Relevant Lines of Study</strong></p>
+                </div>
+                <div class="col-md-3 col-lg-3">
+                    {% for line_of_study in project.related_lines_of_study.all %}
+                        <p>
+                            <small>{{ line_of_study.name }} </small>
+                        </p>
+                    {% empty %}
+                        <p>
+                            <small> No lines of study have been specified</small>
+                        </p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="divider"></div>
+    <div class="row">
+        <h2 class="text-center"> About the Student</h2>
+        <div class="col-md-6 col-lg-6">
+            {% if project.studentproject.project_owner.image %}
+            <div class="col-md-6 col-lg-6">
+                <div class="header-image">
+                    <img src="{{ project.studentproject.project_owner.image.url }}" alt="image for {{ project.title }}">
+                </div>
+            </div>
+            {% endif %}
+            <div class="col-md-6 col-lg-6">
+            <h4><strong><i class="fa fa-user"></i></strong> {{ project.studentproject.project_owner.get_full_name }}</h4>
+                {% if project.studentproject.project_owner.education_level == "BSC" %}
+                    <h4><strong><i class="fa fa-graduation-cap"></i></strong> Bachelor Student </h4>
+                {% elif project.studentproject.project_Owner.education_level == "MSC" %}
+                    <h4><strong><i class="fa fa-graduation-cap"></i></strong> Master Student </h4>
+                {% endif %}
+                {% if project.studentproject.project_owner.cv %}
+                        <a href="{{ project.studentproject.project_owner.cv.url }}" class="black-link" target="_blank"><h4><li class="fa fa-file"></li> CV</h4></a>
+                {% endif %}
+            </div>
+
+        </div>
+
+        <div class="col-md-6 col-lg-6">
+            {% if project.studentproject.project_owner.institution.logo %}
+                <div class="col-md-6 col-lg-6">
+                    <div class="header-image">
+                        <img src="{{ project.studentproject.project_owner.institution.logo.url }}" alt="image for {{ project.title }}">
+                    </div>
+                </div>
+            {% endif %}
+            <div class="col-md-6 col-lg-6">
+                {% if project.studentproject.project_owner.institution.name %}
+                    <h4><strong><i class="fa fa-university"></i></strong> <small>{{ project.studentproject.project_owner.institution.name }}</small></h4>
+                {% endif %}
+                {% if project.studentproject.project_owner.institution.address %}
+                    <h4><strong><i class="fa fa-location-arrow"></i></strong> <small>{{ project.studentproject.project_owner.institution.address }}</small></h4>
+                {% endif %}
+            </div>
+
+        </div>
+        {% if project.studentproject.project_owner.description %}
+        <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+            <h3 class="text-center">Description</h3>
+            {{ project.studentproject.project_owner.description|linebreaks }}
+        </div>
+        {% endif %}
+    </div>
+</div>

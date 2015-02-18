@@ -1,0 +1,119 @@
+.three-reasons {
+  margin-top: 5%;
+}
+
+.three-reasons .number {
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid $gray-light;
+  margin-bottom: 3%;
+}
+
+.three-reasons .number p {
+  padding-top: 12px;
+  color: $gray-light;
+}
+
+.img-src {
+  position: relative;
+}
+
+.header-text {
+  position: absolute;
+  bottom: 225px;
+  color: #FFF;
+}
+
+.get-started-button {
+  margin-top: 10px;
+  font-size: 1.1em;
+  width: 200px;
+  text-transform: uppercase;
+}
+
+.start-index {
+  margin-top: 5%;
+}
+
+.three-reasons {
+  margin-top: 5%;
+}
+
+.three-reasons .number {
+  text-align: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid $gray-light;
+  margin-bottom: 3%;
+}
+
+.three-reasons .number p {
+  padding-top: 12px;
+  color: $gray-light;
+}
+
+.info-box {
+  margin-top: 10%;
+  padding: 5%;
+  background-color: $gray-lighter;
+  min-height: 250px;
+}
+
+.get-company-pricing-link {
+  text-transform: uppercase;
+  background-color: $brand-primary;
+  text-align: center;
+  padding: 2.5%;
+  margin-bottom: 5%;
+  color: #FFF;
+}
+
+.info-icon {
+  font-size: 4em;
+  margin-bottom: 0px;
+  margin-top: 7.5%;
+}
+
+.info-link {
+  color: $brand-primary;
+}
+
+.info-link:hover {
+  color: $brand-primary;
+}
+
+.image-row {
+  margin-top: 5%;
+  position: relative;
+  width: 100%;
+  min-height: 544px;
+  min-height: 544px;
+}
+
+.image-row .full-width-image {
+  width: 100%;
+  height: 100%;
+}
+
+.image-row .image-text {
+  position: absolute;
+  bottom: 0;
+  height: 50%;
+  width: 30%;
+  background-color: #FFF;
+  z-index: 99;
+  padding: 2%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.image-row .image-text-right {
+  right: 5%;
+}
+
+.image-row .image-text-left {
+  left: 5%;
+}

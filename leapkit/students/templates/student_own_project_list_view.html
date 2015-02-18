@@ -1,0 +1,94 @@
+{% extends "student_layouts/student_layout.html" %}
+{% comment %}
+	# This root template is meant for creating the basic layout for all views that can be viewed without logging in.
+	#
+	#
+	#
+	#
+	#
+{% endcomment %}
+
+{% block title %} Projects {% endblock %}
+
+{% block content %}
+
+    <div class="row">
+
+        <div class="col-md-8 col-md-offset-2 col-lg-8 col-md-offset-2 container-block" data-step="1"
+             data-intro="This is where all your porjects are shown, when they are published and shown to other users">
+            <h2 class="text-center"> Published Projects</h2>
+            {% for project in published_projects %}
+                <a href="{% url 'students:student_project_details' project.slug %}" class="block-link">
+                    <div class="container">
+                        <div class="col-md-2 col-lg-2">
+                            <div class="logo contact-person">
+                                {% if project.project_owner.institution.logo %}
+                                    <img src="{{ project.project_owner.institution.logo.url }}"
+                                         alt="Image of the contact person">
+                                    <p class=" text-center margin-top-1"> {{ project.contact_person }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 border-left">
+                            <h4 class="">{{ project.title }}</h4>
+
+                            <p> {{ project.short_description }}</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="divider"></div>
+            {% empty %}
+                <h4 class="text-center">You have no published projects </h4>
+            {% endfor %}
+        </div>
+        <div class="col-md-2 col-lg-2 text-center  margin-top-1">
+            <a href="{% url 'students:create_student_project' %}" class="btn btn-block btn-primary" data-step="3"
+               data-intro="This is where you can create new projects"> New project</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 col-lg-8 col-md-offset-2 container-block" data-step="2"
+             data-intro="This is where all your drafts are, these are only shown to you">
+            <h2 class="text-center"> Drafts</h2>
+            {% for project in drafts %}
+                <a href="{% url 'students:student_project_details' project.slug %}" class="block-link">
+                    <div class="container">
+                        <div class="col-md-2 col-lg-2">
+                            <div class="logo contact-person">
+                                {% if project.project_owner.institution.logo %}
+                                    <img src="{{ project.project_owner.institution.logo.url }}"
+                                         alt="Image of the contact person">
+                                    <p class=" text-center margin-top-1"> {{ project.contact_person }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-6 border-left">
+                            <h4 class="">{{ project.title }}</h4>
+
+                            <p> {{ project.short_description }}</p>
+                        </div>
+                    </div>
+                </a>
+                <div class="divider"></div>
+            {% empty %}
+                <h4 class="text-center"> You have not created any drafts </h4>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block user_onbording %}
+    {% if user.student.times_logged_in == 1 and request.session.own_projects_views == 0 %}
+        <script>
+            function startTour() {
+                var tour = introJs();
+                tour.setOption('tooltipPosition', 'auto');
+                tour.setOption('positionPrecedence', ['left', 'right', 'bottom', 'top'])
+                tour.start()
+            }
+            $(document).ready(function () {
+                startTour();
+            });
+        </script>
+    {% endif %}
+{% endblock %}

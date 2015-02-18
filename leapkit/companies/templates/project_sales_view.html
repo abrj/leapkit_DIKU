@@ -1,0 +1,126 @@
+{% extends "company_layouts/company_layout.html" %}
+
+{% block title %} Buy Projects {% endblock %}
+
+
+{% block content %}
+
+    <div class="container general-container">
+        <div class="row">
+            <div class="col-md-4 ">
+                {% include 'layout/start_up_pricing_panel.html' %}
+                <button id="lauch_package_button" class="btn btn-lg btn-block btn-fill btn-info">Purchase</button>
+            </div>
+            <div class="col-md-4">
+                {% include 'layout/standard_pricing_panel.html' %}
+                <button id="space_package_button" class="btn btn-lg btn-block btn-fill btn-primary">Purchase</button>
+            </div>
+            <div class="col-md-4">
+                {% include 'layout/enterprise_pricing_panel.html' %}
+                <button id="light_package_button" class="btn btn-lg btn-block btn-fill btn-info">Purchase</button>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block hidden %}
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content row">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <h2 class="text-center"> Terms of Usage</h2>
+
+                    <p> By clicking the "Purchase" I agree to the terms of use
+                        and I agree on the price listed below, which will be charged through an invoice sent to the
+                        e-mail connected to my company's profile.
+                        I also confirm that I am legally responsible for this commitment.
+
+                    </p>
+
+                    <p>The amount of projects listed below, will be available until <strong>31st of January
+                        2015</strong></p>
+
+                    <p>
+                        To read all terms of use <a href="{% url 'companies:company_terms_of_usage' %}" target="_blank">click
+                        here</a>
+                    </p>
+
+                    <div class="terms-agreement-box">
+                        <h4 class="pull-left no-margin-top"> I agree on the terms of usage, and to pay the price listed below   </h4>
+
+                        <div class="switch pull-left"
+                             data-on-label="<i class='fa fa-check'></i>"
+                             data-off-label="<i class='fa fa-times'></i>">
+                            <input type="checkbox" id="terms_checkbox"/>
+                        </div>
+
+                    </div>
+
+                    <table class="table">
+                        <tr>
+                            <th>Number of projects</th>
+                            <td id="table_number_of_projects"></td>
+                        </tr>
+                        <tr>
+                            <th>Price</th>
+                            <td id="table_price"></td>
+                        </tr>
+                    </table>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="form">
+                        {% load crispy_forms_tags %}
+                        <form action="{% url 'companies:project_pricing' company.slug %}" role="form" method="post">
+                            {% crispy form %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js_files %}
+    <script type="text/javascript">
+
+        function update(nrOfProjects, price) {
+            $("input[name='projects_available']").val(nrOfProjects);
+            $("#table_number_of_projects").html(nrOfProjects);
+            $("#table_price").html(price + " DKK");
+
+        }
+
+        $(document).ready(function () {
+            $("#terms_checkbox").change(function (event) {
+                var submit = $("#submit-id-submit");
+                this.checked ? submit.attr("disabled", false) : submit.attr("disabled", true);
+            });
+
+            $("#lauch_package_button").click(function (event) {
+                update(1, 2495);
+                $('#myModal').modal('toggle')
+                return false; //<---- move it here
+            });
+
+            $("#space_package_button").click(function (event) {
+                update(3, 4995);
+                $('#myModal').modal('toggle')
+                return false; //<---- move it here
+            });
+
+            $("#light_package_button").click(function (event) {
+                update(10, 14495);
+                $('#myModal').modal('toggle')
+                return false; //<---- move it here
+            });
+
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,188 @@
+{% extends "company_layouts/company_layout.html" %}
+{% comment %}
+	# This root template is meant for creating the basic layout for all views that can be viewed without logging in.
+	#
+	#
+	#
+	#
+	#
+{% endcomment %}
+
+{% block title %} {{ request.session.user_name }} {% endblock %}
+
+{% block navigation_header %}
+    <li><a href="{% url 'companies:handbook' %}" data-step="8"
+           data-intro="Click here to go to the project handbook. It’s our ever-expanding user manual for Leapkit. If you don’t find what you’re looking for here, don’t hesitate to contact us."><i
+            class="fa fa-book"></i> Handbook </a></li>
+    <li><a href="{% url 'companies:list_projects' %}" data-step="9"
+           data-intro="Click here to go to your project overview. It shows the status of your current projects and lets you create new projects. "><i
+            class="fa fa-briefcase"></i> Projects</a></li>
+    <li class="dropdown user-options">
+        <a href="{% url 'companies:profile' request.session.user_slug %}" data-step="10"
+           data-intro="This button takes you back to your profile. The dropdown menu lets you read more about Leapkit, such as FAQ and terms of use."> {{ request.session.user_name }}
+            <b class="caret"></b> </a>
+        <ul class="dropdown-menu">
+            <li><a href="{% url 'companies:update_profile' request.session.user_slug %}">Edit Profile</a></li>
+            <li><a href="{% url 'companies:change_password' request.session.user_id %}">Change password</a></li>
+            <li><a href="{% url 'companies:company_FAQ' %}">FAQ</a></li>
+            <li><a href="{% url 'companies:company_feedback' %}">Feedback</a></li>
+            <li><a href="{% url 'companies:company_terms_of_usage' %}">Terms & Conditions</a></li>
+            <li><a href="{% url 'companies:log_out' %}">Log out</a></li>
+        </ul>
+    </li>
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="col-md-2 col-lg-2 left-meta-container left-container ">
+        <div class="logo">
+            {% if profile.logo %}
+                <img src="{{ profile.logo.url }}"
+                     alt="{{ company.name }} logo">
+            {% endif %}
+        </div>
+
+        <div class="meta col-md-12 col-lg-12">
+            <div class="divider"></div>
+            <h4 class="text-center"> {{ request.session.user_name }}</h4>
+
+            <div class="divider"></div>
+            <h4 class="text-center"><strong>{{ profile.industry }}</strong> <br>
+                <small>Industry</small>
+            </h4>
+            <ul class="list-group">
+                {% if profile.country %}
+                    <li class="list-group-item text-center"><strong>Country</strong><br> {{ profile.country }}</li>
+
+                {% endif %}
+                {% if profile.address %}
+                    <li class="list-group-item text-center"><strong>Address</strong><br> {{ profile.address }}</li>
+
+                {% endif %}
+                {% if profile.year_founded %}
+                    <li class="list-group-item text-center"><strong>Founded</strong><br> {{ profile.year_founded }}</li>
+
+                {% endif %}
+                {% if profile.company_size %}
+                    <li class="list-group-item text-center"><strong>Size</strong><br> {{ profile.company_size }}</li>
+                {% endif %}
+            </ul>
+            <div class="divider"></div>
+            {% if profile.website %}
+                <div class="text-center">
+                    <a href="{{ profile.website }}" target="_blank"><i class="fa fa-globe"></i> Website </a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="col-md-8 col-lg-8 main-profile-container">
+        <div class="main-profile-container-block" data-step="1"
+             data-intro="Here you can see how many projects you have access to, and how many projects you have published">
+            <div class="top-content">
+                <h4> Projects </h4>
+            </div>
+            <div class="main-information">
+                <h5>Projects available: <strong>{{ profile.projects_available }}</strong></h5>
+                <h5>Projects published: <strong>{{ published_projects|length }}</strong></h5>
+                <h5>Projects created: <strong>{{ project_list|length }}</strong></h5>
+            </div>
+        </div>
+        <div data-step="5" data-intro="This information will be shown to students when they view your projects.">
+            <div class="main-profile-container-block" data-step="2"
+                 data-intro="Overview is an introduction to your company in just a few lines. ">
+                <div class="top-content">
+                    <h4> Overview </h4>
+                </div>
+                <div class="main-information">
+                    {% if profile.overview %}
+                        {{ profile.overview|linebreaks }}
+                    {% else %}
+                        <p>No information has been provided</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="main-profile-container-block" data-step="3"
+                 data-intro="This is where you can tell about what you do in your company in more detail">
+                <div class="top-content">
+                    <h4> About </h4>
+                </div>
+                <div class="main-information">
+                    {% if profile.about %}
+                        {{ profile.about|linebreaks }}
+                    {% else %}
+                        <p>No information has been provided</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="main-profile-container-block" data-step="4"
+                 data-intro="The Mission field is your chance to tell why you do it! ">
+                <div class="top-content">
+                    <h4> Mission </h4>
+                </div>
+                <div class="main-information">
+                    {% if profile.mission %}
+                        {{ profile.mission|linebreaks }}
+                    {% else %}
+                        <p>No information has been provided</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2 col-lg-2 right-meta-container">
+        <a href="{% url 'companies:update_profile' company.slug %}" class="btn btn-primary btn-block text-upper"
+           data-step="6" data-intro="Click here to edit your profile.">EDIT Profile</a>
+        <a href="{% url 'companies:project_pricing' company.slug %}" class="btn btn-primary btn-block text-upper"
+           data-step="7" data-intro="Click here to get access to more projects">Buy Projects</a>
+    </div>
+
+
+{% endblock %}
+
+{% block user_onbording %}
+    {% if company.times_logged_in == 1 and request.session.profile_views == 0 %}
+        <script>
+            function startTour() {
+                $('#onboard_modal').modal('toggle');
+                var tour = introJs();
+                tour.setOption('tooltipPosition', 'auto');
+                tour.setOption('positionPrecedence', ['left', 'right', 'bottom', 'top'])
+                tour.start()
+            }
+            $(document).ready(function () {
+                $('#onboard_modal').modal('toggle');
+            });
+        </script>
+    {% endif %}
+{% endblock %}
+
+{% block hidden %}
+    <!-- Modal -->
+    <div class="modal fade" id="onboard_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content row">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <h2 class="text-center"> Welcome {{ request.session.user_name }}!</h2>
+
+                    <p class="text-center">
+                        Congratulations on your Leapkit profile. To get started, let's take a quick tour!
+                    </p>
+
+                </div>
+                <div class="modal-footer text-center">
+                    <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
+                        <a class="btn btn-primary btn-fill text-center btn-block" href="javascript:void(0);"
+                           onclick="javascript:startTour();;">Start Tour</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

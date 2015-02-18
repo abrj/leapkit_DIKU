@@ -1,0 +1,26 @@
+{% extends "student_layouts/student_layout.html" %}
+{% comment %}
+	# This root template is meant for creating the basic layout for all views that can be viewed without logging in.
+	#
+	#
+	#
+	#
+	#
+{% endcomment %}
+
+{% block content %}
+    <div class="row col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2 container-block">
+        <h2 class="text-center">We want your opinion!</h2>
+
+        <p>We are a small company that is just getting started, and there is plenty of room to improve.
+            If you encounter problems or have suggestions for new features that would help you, then please email us on
+            <a href="mailto:contact@leapkit.com">contact@leapkit.com</a> or fill out the form below </p>
+
+        <div class="form">
+            <form action="{% url 'students:student_feedback' %}" role="form" method="POST">
+                {% load crispy_forms_tags %}
+                {% crispy form %}
+            </form>
+        </div>
+    </div>
+{% endblock %}

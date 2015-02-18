@@ -1,0 +1,90 @@
+.stamp {
+    border-style: solid;
+    border-width: 0 100px 50px 0;
+    float: right;
+    height: 0px;
+    width: 0px;
+    -ms-transform: rotate(360deg); /* IE 9 */
+    -o-transform: rotate(360deg); /* Opera 10.5 */
+    -webkit-transform: rotate(360deg); /* Safari and Chrome */
+    transform: rotate(360deg);
+}
+.listing {
+    background: #fff;
+    border: 1px solid #ddd;
+    margin: 15px 0;
+    overflow: hidden;
+    max-height: 150px;
+
+    &:hover {
+    border-width: 2px;
+    margin: 14px 0;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    }
+}
+
+.listing-radius {
+    border-radius: 7px;
+}
+.listing-danger {
+    border-color: $brand-danger;
+
+  .stamp {
+    border-color: transparent $brand-danger transparent transparent;
+  }
+}
+
+.listing-success {
+    border-color: $brand-success;
+
+  .stamp {
+    border-color: transparent $brand-success transparent transparent;
+  }
+}
+.listing-default {
+    border-color: #999999;
+
+  .stamp {
+    border-color: transparent #999999 transparent transparent;
+  }
+}
+.listing-primary {
+    border-color: $brand-primary;
+
+  .stamp {
+    border-color: transparent $brand-primary transparent transparent;
+  }
+}
+.listing-info {
+    border-color: $brand-info;
+
+  .stamp {
+    border-color: transparent $brand-info transparent transparent;
+  }
+}
+.listing-warning {
+    border-color: $brand-warning;
+
+  .stamp {
+    border-color: transparent $brand-warning transparent transparent;
+  }
+}
+
+.stamp-text {
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    right: -65px;
+    top: 4px;
+    white-space: nowrap;
+}
+.listing-content {
+    padding: 0 20px 10px;
+}

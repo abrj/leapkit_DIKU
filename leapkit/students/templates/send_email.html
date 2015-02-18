@@ -1,0 +1,10 @@
+{% extends "student_layouts/student_layout.html" %}
+
+{% block content %}
+    <div class="col-md-10 col-md-offset-1 container-block">
+        <form action="{% url 'students:send_email'  project.slug %}" method="post" enctype="multipart/form-data">
+            {% load crispy_forms_tags %}
+            {% crispy form %}
+        </form>
+    </div>
+{% endblock %}

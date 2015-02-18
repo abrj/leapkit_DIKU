@@ -1,0 +1,35 @@
+{% extends "base/base_with_image.html" %}
+{% comment %}
+	# This root template is meant for creating the basic layout for all views that can be viewed without logging in.
+	# It manages all the links in the navigation section, and loads all CSS and JavaScript needed.
+	#
+{% endcomment %}
+
+{% load staticfiles %}
+
+{% block css_files %}
+    <link rel="stylesheet" type="text/css" href="{% static 'root/css/root.min.css' %}">
+{% endblock %}
+
+{% block home_logo %} {% url 'home' %}{% endblock %}
+
+
+{% block nav_right %}
+    <li class="dropdown {% block more_dropdown %} {% endblock %}">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"> </b></a>
+        <ul class="dropdown-menu">
+            <li><a href="{% url 'project_pricing' %}">Pricing</a></li>
+            <li><a href="{% url 'contact_leapkit' %}">Contact</a></li>
+            <li><a href="{% url 'FAQ' %}">FAQ</a></li>
+            <li><a href="{% url 'about_leapkit' %}">About</a></li>
+            <li><a href="{% url 'terms_of_usage' %}">Terms & Conditions</a></li>
+        </ul>
+    </li>
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Login <b class="caret"> </b></a>
+        <ul class="dropdown-menu">
+            <li><a href="{% url 'students:log_in_check' %}">Student</a></li>
+            <li><a href="{% url 'companies:log_in_check' %}">Company</a></li>
+        </ul>
+    </li>
+{% endblock %}

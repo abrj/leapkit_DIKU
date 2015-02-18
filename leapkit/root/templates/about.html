@@ -1,0 +1,413 @@
+{% extends "_layouts/root_layout.html" %}
+{% load staticfiles %}
+{% comment %}
+	# This root template is meant for creating the basic layout for all views that can be viewed without logging in.
+	#
+	#
+	#
+	#
+	#
+{% endcomment %}
+
+{% block title %} About {% endblock %}
+
+
+
+{% block header_image %}
+    <div class="img-src" style="background-image: url('{% static 'root/images/profiles/group.png' %}')"></div>
+{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+        <div class="col-xs-12 col-md-6 col-md-offset-4">
+            <ul class="nav nav-pills about-pills  about-tap col-sm-12 col-md-12">
+                <li class="active"><a href="#leapkit" data-toggle="tab">Leapkit</a></li>
+                <li><a href="#team" data-toggle="tab">The Team</a></li>
+                <li><a href="#future" data-toggle="tab">What is it?</a></li>
+                <li><a href="#something" data-toggle="tab">Careers</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2">
+    <div class="tab-content">
+    <div class="tab-pane active" id="leapkit">
+        <h2>A school project, became serious</h2>
+
+        <p>
+            Leapkit started as a school project in August 2013, on the leading Business School in Denmark, Copenhagen
+            Business School. The idea was received with such enthusiasm by teachers and the university in general, we
+            decided to reach out to other universities and hear if they were equally interested. The overall response
+            was extremely positive, so we continued working on the project, now as a real company, after the school
+            project officially ended.</p>
+
+        <p>So, based on our experiences and our research we started thinking about this problem could be solved. We
+            ended up with a platform that should work like a matchmaking site, this time for companies searching
+            students to engage in their projects and vice versa. We also wanted the element of projects across
+            universities so students from different fields could work together on projects and complement each other
+            skills... And Leapkit was born </p>
+
+        <h2>Our mission</h2>
+
+        <p>
+            We have taken the responsibilities to integrate realistic and practical projects in higher education in the
+            easiest and simplest way. Our mission is to increase the
+            possibility for students to work with companies and students from different fields and thereby contributing
+            to a better education.</p>
+    </div>
+    <div class="tab-pane" id="team">
+    <div class="founder-profile">
+        <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="cover">
+                            <img src="{% static 'root/images/profiles/rotating_card_thumb.png' %}"/>
+                        </div>
+                        <div class="user">
+                            <img class="img-circle"
+                                 src="{% static 'root/images/profiles/jens.png' %}"/>
+                        </div>
+                        <div class="content">
+                            <div class="main-content">
+                                <h3 class="name">Jens Nielsen</h3>
+
+                            </div>
+                            <div class="footer">
+                                <div class="school">
+                                    <h5>CEO</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end front panel -->
+                    <div class="back">
+                        <div class="header">
+                            <h5 class="motto">"Just do it!"</h5>
+                        </div>
+                        <div class="content">
+                            <div class="main-content">
+                                <h5><i class="fa fa-map-marker fa-fw text-muted"></i> Copenhagen,
+                                    Denmark</h5>
+                                <h5><i class="fa fa-building-o fa-fw text-muted"></i> Leapkit Inc. </h5>
+                                <h5><i class="fa fa-envelope-o fa-fw text-muted"></i> Jeni@leapkit.com
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <div class="social-links text-center">
+                                <a href="https://www.linkedin.com/profile/view?id=297403559" class="linkedin"
+                                   target="_blank"><i
+                                        class="fa fa-linkedin fa-fw"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end back panel -->
+                </div>
+                <!-- end card -->
+            </div>
+            <!-- end card-container -->
+        </div>
+        <!-- end col sm 3 -->
+    </div>
+
+
+    <div class="founder-profile">
+        <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="cover">
+                            <img src="{% static 'root/images/profiles/rotating_card_thumb.png' %}"/>
+                        </div>
+                        <div class="user">
+                            <img class="img-circle" src="{% static 'root/images/profiles/kris.png' %}"/>
+                        </div>
+                        <div class="content">
+                            <div class="main-content">
+                                <h3 class="name">Kristijonas Lukse</h3>
+
+                            </div>
+                            <div class="footer">
+                                <div class="school">
+                                    <h5>Marketing Communications</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end front panel -->
+                    <div class="back">
+                        <div class="header">
+                            <h5 class="motto">"Conceive – Believe – Achieve"</h5>
+                        </div>
+                        <div class="content">
+                            <div class="main-content">
+                                <h5><i class="fa fa-map-marker fa-fw text-muted"></i> Copenhagen, Denmark</h5>
+                                <h5><i class="fa fa-building-o fa-fw text-muted"></i> Leapkit Inc. </h5>
+                                <h5><i class="fa fa-envelope-o fa-fw text-muted"></i> krlu@leapkit.com</h5>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <div class="social-links text-center">
+                                <a href="https://www.linkedin.com/profile/view?id=95344867" class="linkedin"
+                                   target="_blank"><i
+                                        class="fa fa-linkedin fa-fw"></i></a>
+                                <a href="https://twitter.com/luksekris" class="twitter" target="_blank"><i
+                                        class="fa fa-twitter fa-fw"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end back panel -->
+                </div>
+                <!-- end card -->
+            </div>
+            <!-- end card-container -->
+        </div>
+        <!-- end col sm 3 -->
+    </div>
+    <div class="founder-profile">
+        <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="cover">
+                            <img src="{% static 'root/images/profiles/rotating_card_thumb.png' %}"/>
+                        </div>
+                        <div class="user">
+                            <img class="img-circle"
+                                 src="{% static 'root/images/profiles/mikkel.png' %}"/>
+                        </div>
+                        <div class="content">
+                            <div class="main-content">
+                                <h3 class="name">Mikkel Vilstrup</h3>
+
+                            </div>
+                            <div class="footer">
+                                <div class="school">
+                                    <h5>Software Developer</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end front panel -->
+                    <div class="back">
+                        <div class="header">
+                            <h5 class="motto">"Sucking at something is the first step to becoming sorta good at
+                                something"</h5>
+                        </div>
+                        <div class="content">
+                            <div class="main-content">
+                                <h5><i class="fa fa-map-marker fa-fw text-muted"></i> Copenhagen, Denmark</h5>
+                                <h5><i class="fa fa-building-o fa-fw text-muted"></i> Leapkit Inc. </h5>
+                                <h5><i class="fa fa-envelope-o fa-fw text-muted"></i> mivi@leapkit.com
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <div class="social-links text-center">
+                                <a href="https://www.linkedin.com/in/mikkelvilstrup" class="linkedin" target="_blank"><i
+                                        class="fa fa-linkedin fa-fw"></i></a>
+                                <a href="https://twitter.com/MVilstrup" class="twitter" target="_blank"><i
+                                        class="fa fa-twitter fa-fw"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end back panel -->
+                </div>
+                <!-- end card -->
+            </div>
+            <!-- end card-container -->
+        </div>
+        <!-- end col sm 3 -->
+    </div>
+    <div class="founder-profile">
+        <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="cover">
+                            <img src="{% static 'root/images/profiles/rotating_card_thumb.png' %}"/>
+                        </div>
+                        <div class="user">
+                            <img class="img-circle"
+                                 src="{% static 'root/images/profiles/oliver.png' %}"/>
+                        </div>
+                        <div class="content">
+                            <div class="main-content">
+                                <h3 class="name">Oliver Hvidt</h3>
+                            </div>
+                            <div class="footer">
+                                <div class="school">
+                                    <h5>Advisory Board</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end front panel -->
+                    <div class="back">
+                        <div class="header">
+                            <h5 class="motto">"There is no way to happiness, happiness is the way!"</h5>
+                        </div>
+                        <div class="content">
+                            <div class="main-content">
+                                <h5><i class="fa fa-map-marker fa-fw text-muted"></i> Copenhagen, Denmark</h5>
+                                <h5><i class="fa fa-building-o fa-fw text-muted"></i> Leapkit Inc. </h5>
+                                <h5><i class="fa fa-envelope-o fa-fw text-muted"></i> olhv@leapkit.com
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <div class="social-links text-center">
+                                <a href="https://www.linkedin.com/profile/view?id=241841701" class="linkedin"
+                                   target="_blank"><i
+                                        class="fa fa-linkedin fa-fw"></i></a>
+                                <a href="https://twitter.com/oliverhvidt" class="twitter" target="_blank"><i
+                                        class="fa fa-twitter fa-fw"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end back panel -->
+                </div>
+                <!-- end card -->
+            </div>
+            <!-- end card-container -->
+        </div>
+        <!-- end col sm 3 -->
+    </div>
+    <div class="founder-profile">
+        <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="cover">
+                            <img src="{% static 'root/images/profiles/rotating_card_thumb.png' %}"/>
+                        </div>
+                        <div class="user">
+                            <img class="img-circle"
+                                 src="{% static 'root/images/profiles/nicklas.png' %}"/>
+                        </div>
+                        <div class="content">
+                            <div class="main-content">
+                                <h3 class="name">Nicklas Jarnel</h3>
+
+                            </div>
+                            <div class="footer">
+                                <div class="school">
+                                    <h5>Advisory Board</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end front panel -->
+                    <div class="back">
+                        <div class="header">
+                            <h5 class="motto">"Limits, like fears, are often just an illusion!"</h5>
+                        </div>
+                        <div class="content">
+                            <div class="main-content">
+                                <h5><i class="fa fa-map-marker fa-fw text-muted"></i> Copenhagen, Denmark</h5>
+                                <h5><i class="fa fa-building-o fa-fw text-muted"></i> Leapkit Inc. </h5>
+                                <h5><i class="fa fa-envelope-o fa-fw text-muted"></i> nija@leapkit.com
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <div class="social-links text-center">
+                                <a href="https://www.linkedin.com/profile/view?id=90839776" class="linkedin"
+                                   target="_blank"><i
+                                        class="fa fa-linkedin fa-fw"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end back panel -->
+                </div>
+                <!-- end card -->
+            </div>
+            <!-- end card-container -->
+        </div>
+        <!-- end col sm 3 -->
+    </div>
+
+
+    <div class="divider"></div>
+
+    <div class="founder-profile">
+        <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-md-4 col-md-offset-0 col-lg-4 col-lg-offset-0">
+            <div class="card-container">
+                <div class="card">
+                    <div class="front">
+                        <div class="cover">
+                            <img src="{% static 'root/images/profiles/rotating_card_thumb.png' %}"/>
+                        </div>
+                        <div class="user">
+                            <img class="img-circle" src="{% static 'root/images/profiles/berglind.png' %}"/>
+                        </div>
+                        <div class="content">
+                            <div class="main-content">
+                                <h3 class="name">Berglind Jóns</h3>
+
+                            </div>
+                            <div class="footer">
+                                <div class="school">
+                                    <h5>Design Intern</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end front panel -->
+                    <div class="back">
+                        <div class="header">
+                            <h5 class="motto">"Where There’s a will, There’s a way!"</h5>
+                        </div>
+                        <div class="content">
+                            <div class="main-content">
+                                <h5><i class="fa fa-map-marker fa-fw text-muted"></i> Copenhagen, Denmark</h5>
+                                <h5><i class="fa fa-building-o fa-fw text-muted"></i> Leapkit Inc. </h5>
+                                <h5><i class="fa fa-envelope-o fa-fw text-muted"></i> bejo@leapkit.com</h5>
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <div class="social-links text-center">
+                                <a href="https://www.linkedin.com/in/berglindjons" class="linkedin" target="_blank"><i
+                                        class="fa fa-linkedin fa-fw"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end back panel -->
+                </div>
+                <!-- end card -->
+            </div>
+            <!-- end card-container -->
+        </div>
+        <!-- end col sm 3 -->
+    </div>
+    </div>
+
+
+    <div class="tab-pane" id="future">
+        <h2>What is Leapkit?</h2>
+
+        <p>
+            At Leapkit you can search for students to participate in your school projects, as well as search through
+            school projects that you can contribute in! In other words, Leapkit gives you an opportunity to join forces
+            with students from different fields, thereby placing your school projects in another dimension. With this
+            approach your project becomes a kick-ass experience with a kick-ass outcome! It most likely leads to your
+            first entrepreneurial leap!
+
+        <p>Another possibility on Leapkit is a search of projects uploaded by companies. Companies are searching for
+            students to solve cases and projects like never before. Instead of doing a school product regarding a
+            made-up scene, you can use an actual case from an actual company. And who knows - they might hire you based
+            on the case you just solved..</p>
+    </div>
+    <div class="tab-pane" id="something">
+        <h2>Want to work with us?</h2>
+
+        <p>There are no jobs available at the moment, but feel free to send us an email anyway </p>
+    </div>
+    </div>
+    </div>
+    </div>
+
+{% endblock %}

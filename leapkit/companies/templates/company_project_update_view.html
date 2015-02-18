@@ -1,0 +1,29 @@
+{% extends "company_layouts/company_layout.html" %}
+{% comment %}
+	# This root template is meant for creating the basic layout for all views that can be viewed without logging in.
+	#
+	#
+	#
+	#
+	#
+{% endcomment %}
+
+{% block title %} {{ companyproject.name }} {% endblock %}
+
+{% block content %}
+    <div class="">
+        <div class="container">
+            <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 company-project-form">
+                <h2 class="text-center">Project creation</h2>
+
+                <div class="form">
+                    {% load crispy_forms_tags %}
+                    <form action="{% url 'companies:update_project' companyproject.slug %}" method="POST" role="form"
+                          enctype="multipart/form-data">
+                        {% crispy form %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

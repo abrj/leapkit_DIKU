@@ -1,0 +1,44 @@
+{% extends "base/base_logged_in.html" %}
+{% comment %}
+	# This root template is meant for creating the basic layout for all views that can be viewed without logging in.
+	# It manages all the links in the navigation section, and loads all CSS and JavaScript needed.
+	#
+{% endcomment %}
+
+{% load staticfiles %}
+
+{% block css_files %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'companies/css/companies.min.css' %}">
+
+{% endblock %}
+
+{% block js_files %}
+    <script type="text/javascript" src="{% static 'root/js/intro.js' %}"></script>
+{% endblock %}
+
+{% block home_logo %} {% url 'companies:profile' request.session.user_slug %}{% endblock %}
+
+
+{% block nav_right %}
+    {% block navigation_header %}
+        <li><a href="{% url 'companies:handbook' %}"><i class="fa fa-book"></i> Handbook </a></li>
+        <li><a href="{% url 'companies:list_projects' %}"><i class="fa fa-briefcase"></i> Projects</a></li>
+        <li class="dropdown user-options">
+            <a href="{% url 'companies:profile' request.session.user_slug %}"> {{ request.session.user_name }} <b
+                    class="caret"></b> </a>
+            <ul class="dropdown-menu">
+                <li><a href="{% url 'companies:update_profile' request.session.user_slug %}">Edit Profile</a></li>
+                <li><a href="{% url 'companies:change_password' request.session.user_id %}">Change password</a></li>
+                <li><a href="{% url 'companies:company_FAQ' %}">FAQ</a></li>
+                <li><a href="{% url 'companies:company_feedback' %}">Feedback</a></li>
+                <li><a href="{% url 'companies:company_terms_of_usage' %}">Terms & Conditions</a></li>
+                <li><a href="{% url 'companies:log_out' %}">Log out</a></li>
+            </ul>
+        </li>
+    {% endblock %}
+{% endblock %}
+
+{% block hidden %}
+
+{% endblock %}
