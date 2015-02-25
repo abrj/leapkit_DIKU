@@ -3,17 +3,17 @@ Setup Guide
 
  - Make a folder (fx. leapkit)
 
- - Create a virtual environment: ```virtualenv epita-venv```
+ - Create a virtual environment: ```virtualenv epita-venv```(På arch: ```virtualenv epita-venv/python2.7```
  - Start a project with the code: ```django-admin.py startproject leapkit```
  - Go into this new folder and delete the folder with the name leapkit
- - ```git pull leapkit``` (omdøb folderen til "leapkit". Tak Martin)
+ - ```git pull leapkit``` (omdøb folderen til "leapkit".)
  - ```cd leapkit```
  - ```vagrant up```
  - ```vagrant ssh```
  - ```./postinstall.sh```
  - ```sudo apt-get update && sudo apt-get dist-upgrade```
  - ```sudo apt-get build-dep python-imaging```
- - ```sudo apt-get install vim```
+ - ```sudo apt-get install vim``` (eller valgfri editor)
  - ```sudo apt-get install libjpeg62 libjpeg62-dev```
  - ```sudo ln -s /usr/lib/i386-linux-gnu/libz.so /usr/lib/libz.so```
  - ```sudo ln -s /usr/lib/i386-linux-gnu/libjpeg.so /usr/lib/libjpeg.so```
