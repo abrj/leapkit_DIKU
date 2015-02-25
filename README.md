@@ -15,7 +15,7 @@ Setup Guide
  - ```sudo apt-get build-dep python-imaging```
  - ```sudo apt-get install vim``` (eller valgfri editor)
  - ```sudo apt-get install libjpeg62 libjpeg62-dev```
- - ```sudo ln -s /usr/lib/i386-linux-gnu/libz.so /usr/lib/libz.so sudo ln -s /usr/lib/i386-linux-gnu/libjpeg.so /usr/lib/libjpeg.so sudo ln -s /usr/lib/i386-linux-gnu/libfreetype.so /usr/liblibfreetype.so```
+ - ```sudo ln -s /usr/lib/i386-linux-gnu/libz.so /usr/lib/libz.so & sudo ln -s /usr/lib/i386-linux-gnu/libjpeg.so /usr/lib/libjpeg.so & sudo ln -s /usr/lib/i386-linux-gnu/libfreetype.so /usr/liblibfreetype.so```
  - ```sudo apt-get install python-pip```
  - ```cd /vagrant/```
  - ```sudo pip install -r requirements.txt```
