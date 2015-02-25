@@ -10,7 +10,7 @@ Setup Guide
  - ```cd leapkit```
  - ```vagrant up```
  - ```vagrant ssh```
- - ```./postinstall.sh```
+ - ```sudo ./postinstall.sh```
  - ```sudo apt-get update && sudo apt-get dist-upgrade```
  - ```sudo apt-get build-dep python-imaging```
  - ```sudo apt-get install vim``` (eller valgfri editor)
