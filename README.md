@@ -26,7 +26,12 @@ Setup Guide
  - ```./manage.py runserver 0.0.0.0:8080```
  - Kan herefter tilgås ved```http://localhost:8080/```
 
-Virker stadig ikke helt...
+Database Setup
+==============
+ - ```sudo -u postgres psql```
+ - ```postgres=# create user leapkit_user createdb createuser password '12345q';```
+ - ```postgres=# create database leapkit_db owner leapkit_user;```
+ - TODO: Create tables. (Shouldn't Django do this?)
 
 Django
 ======
