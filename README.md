@@ -31,9 +31,16 @@ Database Setup
  - ```sudo -u postgres psql```
  - ```postgres=# create user leapkit_user createdb createuser password '12345q';```
  - ```postgres=# create database leapkit_db owner leapkit_user;```
- - ```python manage.py syncdb```
- - ```python manage.py migrate```
- - TODO : Finish.
+ - ```./manage.py syncdb```
+ - ```./manage.py migrate```
+ - ```./manage.py migrate geographic_info```
+ - ```./manage.py migrate institutions```
+ - ```./manage.py migrate projects``` 
+ - ```./manage.py migrate``` (Yes, agian.)
+
+Populate Database
+=================
+**TODO: Get data to the tables (instritutions are missing for instance.)**
 
 Django
 ======
