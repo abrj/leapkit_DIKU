@@ -13,7 +13,7 @@ Setup Guide
  - ```./postinstall.sh```
  - ```sudo apt-get update && sudo apt-get dist-upgrade```
  - ```sudo apt-get build-dep python-imaging```
- - ```sudo apt-get install vim``` (eller valgfri editor)
+ - ```sudo apt-get install vim```
  - ```sudo apt-get install libjpeg62 libjpeg62-dev```
  - ```sudo ln -s /usr/lib/i386-linux-gnu/libz.so /usr/lib/libz.so```
  - ```sudo ln -s /usr/lib/i386-linux-gnu/libjpeg.so /usr/lib/libjpeg.so```
