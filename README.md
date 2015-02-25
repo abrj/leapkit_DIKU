@@ -24,6 +24,7 @@ Setup Guide
  - ```sudo apt-get install python-psycopg2```
  - ```sudo apt-get install postgresql```
  - ```./manage.py runserver 0.0.0.0:8080```
+ - Kan herefter tilgås ved```http://localhost:8080/```
 
 Virker stadig ikke helt...
 
