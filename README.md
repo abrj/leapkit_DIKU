@@ -1,3 +1,47 @@
+Setup Guide
+===========
+
+ - Make a folder (fx. leapkit)
+
+ - Create a virtual environment: ```virtualenv epita-venv```(På arch: ```virtualenv epita-venv/python2``` )
+ - Start a project with the code: ```django-admin.py startproject leapkit```
+ - Go into this new folder and delete the folder with the name leapkit
+ - ```git clone git@github.com:martinnj/leapkit```
+ - ```cd leapkit```
+ - ```vagrant up```
+ - ```vagrant ssh```
+ - ```sudo ./postinstall.sh```
+ - ```sudo apt-get update && sudo apt-get dist-upgrade```
+ - ```sudo apt-get build-dep python-imaging```
+ - ```sudo apt-get install vim``` (eller valgfri editor)
+ - ```sudo apt-get install libjpeg62 libjpeg62-dev```
+ - ```sudo ln -s /usr/lib/i386-linux-gnu/libz.so /usr/lib/libz.so & sudo ln -s /usr/lib/i386-linux-gnu/libjpeg.so /usr/lib/libjpeg.so & sudo ln -s /usr/lib/i386-linux-gnu/libfreetype.so /usr/liblibfreetype.so```
+ - ```sudo apt-get install python-pip```
+ - ```cd /vagrant/```
+ - ```sudo pip install -r requirements.txt```
+ - ```cd leapkit```
+ - ```cp leapkit/settings/base_settings_local.py leapkit/settings/base_settings.py```  (fucking dumt)
+ - ```sudo apt-get install python-psycopg2```
+ - ```sudo apt-get install postgresql```
+ - ```./manage.py runserver 0.0.0.0:8080```
+ - Kan herefter tilgås ved```http://localhost:8080/```
+
+Database Setup
+==============
+ - ```sudo -u postgres psql```
+ - ```postgres=# create user leapkit_user createdb createuser password '12345q';```
+ - ```postgres=# create database leapkit_db owner leapkit_user;```
+ - ```./manage.py syncdb```
+ - ```./manage.py migrate```
+ - ```./manage.py migrate geographic_info```
+ - ```./manage.py migrate institutions```
+ - ```./manage.py migrate projects``` 
+ - ```./manage.py migrate``` (Yes, agian.)
+
+Populate Database
+=================
+**TODO: Get data to the tables (instritutions are missing for instance.)**
+
 Django
 ======
 
