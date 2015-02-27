@@ -23,8 +23,6 @@ Setup Guide
  - ```cp leapkit/settings/base_settings_local.py leapkit/settings/base_settings.py```  (fucking dumt)
  - ```sudo apt-get install python-psycopg2```
  - ```sudo apt-get install postgresql```
- - ```./manage.py runserver 0.0.0.0:8080```
- - Kan herefter tilgås ved```http://localhost:8080/```
 
 Database Setup
 ==============
@@ -41,6 +39,11 @@ Database Setup
 Populate Database
 =================
 **TODO: Get data to the tables (instritutions are missing for instance.)**
+
+Starting Leapkit Solution
+=========================
+ - ```./manage.py runserver 0.0.0.0:8080```
+ - Kan herefter tilgås på [http://localhost:8080/](http://localhost:8080/)
 
 Django
 ======
