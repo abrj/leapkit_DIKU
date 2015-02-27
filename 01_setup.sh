@@ -16,6 +16,6 @@ sudo apt-get install python-pip
 sudo pip install -r requirements.txt
 
 cd leapkit
-cp leapkit/settings/base_settings_local.py leapkit/settings/base_settings.py (fucking dumt)
+cp leapkit/settings/base_settings_local.py leapkit/settings/base_settings.py
 sudo apt-get install python-psycopg2
 sudo apt-get install postgresql
