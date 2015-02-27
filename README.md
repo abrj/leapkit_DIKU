@@ -12,7 +12,7 @@ Setup Guide
  - ```vagrant ssh```
  - ```sudo ./postinstall.sh```
  - ```cd /vagrant/```
- - ```./01_setup.sh```
+ - ```./leapkit/01_setup.sh```
 
 
 Database Setup
@@ -20,7 +20,7 @@ Database Setup
  - ```sudo -u postgres psql```
  - ```postgres=# create user leapkit_user createdb createuser password '12345q';```
  - ```postgres=# create database leapkit_db owner leapkit_user;```
- - ```./02_db.sh```
+ - ```./leapkit/02_db.sh```
 
 Populate Database
 =================
