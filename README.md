@@ -15,7 +15,7 @@ Setup Guide
  - ```sudo apt-get build-dep python-imaging```
  - ```sudo apt-get install vim``` (eller valgfri editor)
  - ```sudo apt-get install libjpeg62 libjpeg62-dev```
- - ```sudo ln -s /usr/lib/i386-linux-gnu/libz.so /usr/lib/libz.so sudo ln -s /usr/lib/i386-linux-gnu/libjpeg.so /usr/lib/libjpeg.so sudo ln -s /usr/lib/i386-linux-gnu/libfreetype.so /usr/liblibfreetype.so```
+ - ```sudo ln -s /usr/lib/i386-linux-gnu/libz.so /usr/lib/libz.so & sudo ln -s /usr/lib/i386-linux-gnu/libjpeg.so /usr/lib/libjpeg.so & sudo ln -s /usr/lib/i386-linux-gnu/libfreetype.so /usr/liblibfreetype.so```
  - ```sudo apt-get install python-pip```
  - ```cd /vagrant/```
  - ```sudo pip install -r requirements.txt```
@@ -23,10 +23,27 @@ Setup Guide
  - ```cp leapkit/settings/base_settings_local.py leapkit/settings/base_settings.py```  (fucking dumt)
  - ```sudo apt-get install python-psycopg2```
  - ```sudo apt-get install postgresql```
- - ```./manage.py runserver 0.0.0.0:8080```
- - Kan herefter tilgås ved```http://localhost:8080/```
 
-Virker stadig ikke helt...
+Database Setup
+==============
+ - ```sudo -u postgres psql```
+ - ```postgres=# create user leapkit_user createdb createuser password '12345q';```
+ - ```postgres=# create database leapkit_db owner leapkit_user;```
+ - ```./manage.py syncdb```
+ - ```./manage.py migrate```
+ - ```./manage.py migrate geographic_info```
+ - ```./manage.py migrate institutions```
+ - ```./manage.py migrate projects``` 
+ - ```./manage.py migrate``` (Yes, agian.)
+
+Populate Database
+=================
+**TODO: Get data to the tables (instritutions are missing for instance.)**
+
+Starting Leapkit Solution
+=========================
+ - ```./manage.py runserver 0.0.0.0:8080```
+ - Kan herefter tilgås på [http://localhost:8080/](http://localhost:8080/)
 
 Django
 ======
