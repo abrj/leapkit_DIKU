@@ -21,15 +21,19 @@ Database Setup
  - ```postgres=# create user leapkit_user createdb createuser password '12345q';```
  - ```postgres=# create database leapkit_db owner leapkit_user;```
  - ```./leapkit/02_db.sh```
-
-Populate Database
-=================
-**TODO: Get data to the tables (instritutions are missing for instance.)**
-
+ 
 Starting Leapkit Solution
 =========================
  - ```./manage.py runserver 0.0.0.0:8080```
- - Kan herefter tilgås på [http://localhost:8080/](http://localhost:8080/)
+ - Leapkit is now available on [http://localhost:8080/](http://localhost:8080/)
+
+Populate Database
+=================
+ - Open the admin panel for the app [http://localhost:8080/admin](http://localhost:8080/admin)
+ - Log in with the auth_user you created when Django asked you earlier. I bet you wished you wrote that down huh? :)
+ - To add students we need an institution they can enroll with. Add one here: [http://localhost:8080/admin/institutions/institution/](http://localhost:8080/admin/institutions/institution/)
+ - Similarly, companies need an industry to be created, create one here: [http://localhost:8080/admin/companies/industry/](http://localhost:8080/admin/companies/industry/)
+ - You are now ready to create student and company profiles with Leapkit :)
 
 
 
