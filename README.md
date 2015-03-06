@@ -1,11 +1,7 @@
 Setup Guide
 ===========
 
- - Make a folder (fx. leapkit)
-
- - Create a virtual environment: ```virtualenv epita-venv```(På arch: ```virtualenv epita-venv/python2``` )
- - Start a project with the code: ```django-admin.py startproject leapkit```
- - Go into this new folder and delete the folder with the name leapkit
+ - Go to the folder where you want to store the solution.
  - ```git clone git@github.com:martinnj/leapkit```
  - ```cd leapkit```
  - ```vagrant up```
