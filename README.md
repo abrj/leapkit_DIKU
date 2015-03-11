@@ -32,8 +32,15 @@ Populate Database
  - You are now ready to create student and company profiles with Leapkit :)
 
 
+Running Unit Tests
+==================
+ - Either Run a build test form Jenkins or see next step.
+ - ```cd leapkit/unittests/``` Any unit tests should be created in this folder.
+ - ```py.test```
 
-
+Running Test in/with Jango
+=====================
+ - *TOOD*
 
 
 
