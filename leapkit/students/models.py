@@ -320,3 +320,50 @@ class StudentProject(Project):
     project_owner = models.ForeignKey(Student)
     objects = StudentProjectManager()
 
+class LinkedInProfile(models.Model):
+    """
+    This model is used to represent a students LinkedIn information.
+    """
+    # The userid/link to a specific user
+    leapkituser = models.ForeignKey(User)
+
+    # Last time the data was modified/updated.
+    modified = models.DateTimeField(auto_now_add=True)
+
+    # Profile ID from linkedIn.
+    linkedin_id = models.IntegerField()
+
+    # Name information from LinkedIn
+    firstName =  models.TextField()
+    maidenName = models.TextField()
+    lastName = models.TextField()
+
+    # Misc information from LinkedIn
+    location = models.TextField()
+    specialities = models.TextField()
+    positions = models.TextField()
+    pictureUrl = models.TextField()
+    publicProfileUrl = models.TextField()
+
+class Language(models.Model):
+   lang_id = models.IntegerField()
+   name = models.CharField(max_length = 30)
+   level = models.CharField(max_length = 30)
+   person = models.ForeignKey(LinkedInProfile)
+
+class Course(models.Model):
+   course_id  = models.IntegerField()
+   name = models.CharField(max_length = 81)
+   person = models.ForeignKey(LinkedInProfile)
+
+class Skill(models.Model):
+   skill_id = models.IntegerField()
+   name = models.CharField(max_length = 81)
+   person = models.ForeignKey(LinkedInProfile)
+
+class Education(models.Model):
+   edu_id = models.IntegerField()
+   schoolName = models.CharField(max_length=100)
+   fieldOfStudy = models.CharField(max_length=100)
+   degree = models.CharField(max_length=100)
+   person = models.ForeignKey(LinkedInProfile)
