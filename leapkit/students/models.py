@@ -329,7 +329,7 @@ class LinkedInProfile(models.Model):
     leapkituser = models.OneToOneField(User)
 
     # Last time the data was modified/updated.
-    modified = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField('modified', auto_now=True)
 
     # Profile ID from linkedIn.
     linkedin_id = models.IntegerField()

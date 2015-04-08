@@ -5,7 +5,6 @@ from models import Student, StudentProject, LinkedInProfile
 class LinkedInProfileAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['leapkituser',
-                           #'modified',
                            'linkedin_id',
                            'firstName',
                            'maidenName',
@@ -18,7 +17,8 @@ class LinkedInProfileAdmin(admin.ModelAdmin):
                            ]}),
     ]
 
-    list_display = ('leapkituser', 'firstName', 'lastName')
+    readonly_fields = ('modified',)
+    list_display = ('leapkituser', 'firstName', 'lastName', 'modified')
     search_fields = ['leapkituser', 'firstName']
     list_filter = ['location','specialities']
 
