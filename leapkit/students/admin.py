@@ -1,6 +1,30 @@
 from django.contrib import admin
 
-from models import Student, StudentProject
+from models import Student, StudentProject, LinkedInProfile
+
+class LinkedInProfileAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None, {'fields': ['leapkituser',
+                           'modified',
+                           'linkedin_id',
+                           'firstName',
+                           'maidenName',
+                           'lastName',
+                           'location',
+                           'specialities',
+                           'position',
+                           'pictureUrl',
+                           'publicProfileUrl'
+                           ]}),
+    ]
+
+    list_display = ('leapkituser', 'firstName', 'lastName', 'modified')
+    search_fields = ['leapkituser', 'firstName']
+    list_filter = ['location','specialities']
+
+
+admin.site.register(LinkedInProfile, LinkedInProfileAdmin)
+
 
 
 class StudentAdmin(admin.ModelAdmin):
