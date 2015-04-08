@@ -320,3 +320,89 @@ class StudentProject(Project):
     project_owner = models.ForeignKey(Student)
     objects = StudentProjectManager()
 
+class LinkedInProfile(models.Model):
+    """
+    This model is used to represent a students LinkedIn information.
+    """
+    # The userid/link to a specific user
+    leapkituser = models.OneToOneField(User)
+
+    # Last time the data was modified/updated.
+    modified = models.DateTimeField(auto_now_add=True)
+
+    # Profile ID from linkedIn.
+    linkedin_id = models.IntegerField()
+
+    # Name information from LinkedIn
+    firstName =  models.TextField()
+    maidenName = models.TextField()
+    lastName = models.TextField()
+
+    # Misc information from LinkedIn
+    location = models.TextField()
+    specialities = models.TextField()
+    positions = models.TextField()
+    pictureUrl = models.TextField()
+    publicProfileUrl = models.TextField()
+
+class Language(models.Model):
+   lang_id = models.IntegerField()
+   name = models.CharField(max_length = 30)
+   level = models.CharField(max_length = 30)
+   profile = models.ForeignKey(LinkedInProfile)
+
+class Course(models.Model):
+   course_id  = models.IntegerField()
+   name = models.CharField(max_length = 81)
+   profile = models.ForeignKey(LinkedInProfile)
+
+class Skill(models.Model):
+   skill_id = models.IntegerField()
+   name = models.CharField(max_length = 81)
+   profile = models.ForeignKey(LinkedInProfile)
+
+class Education(models.Model):
+   edu_id = models.IntegerField()
+   schoolName = models.CharField(max_length=100)
+   fieldOfStudy = models.CharField(max_length=100)
+   degree = models.CharField(max_length=100)
+   profile = models.ForeignKey(LinkedInProfile)
+
+def insertLinkedInProfile(p, User):
+    profile = LinkedInProfile(leapkituser = User,
+                              linkedin_id = int(p.id),
+                              firstname = p.firstName,
+                              maidenName = p.maidenName,
+                              lastName = p.lastName,
+                              headline = p.headline,
+                              location = p.location,
+                              industry = p.industry,
+                              summary = p.summary,
+                              specialities = p.specialities,
+                              positions = p.positions,
+                              pictureUrl = p.pictureUrl,
+                              publicProfileUrl = p.publicProfileUrl,
+                              formattedName = p.formattedName,
+                              phoneticFirstName = p.phoneticFirstName,
+                              phoneticLastName = p.phoneticLastName,
+                              formattedPhoneticName = p.formattedPhoneticName)
+    profile.save()
+
+    for s in p.skills:
+        ski = Skill(skill_id = int(s.id), name = s.name, profile = profile)
+        ski.save()
+
+    for l in p.languages:
+        lang = Language(lang_id = int(l.id), name = l.name, level = l.Level,
+                profile = profile)
+        lang.save()
+
+    for e in p.educations:
+        edu = Education(edu_id = int(e.id), schoolname = e.schoolName,
+                fieldOfStudy = e.fieldOfStudy, degree = e.degree,
+                profile = profile)
+        edu.save()
+
+    for c in p.courses:
+        cou = Course(course_id = int(c.id), name = c.name, profile = profile)
+        c.save()
