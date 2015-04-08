@@ -325,7 +325,7 @@ class LinkedInProfile(models.Model):
     This model is used to represent a students LinkedIn information.
     """
     # The userid/link to a specific user
-    leapkituser = models.ForeignKey(User)
+    leapkituser = models.OneToOneField(User)
 
     # Last time the data was modified/updated.
     modified = models.DateTimeField(auto_now_add=True)
