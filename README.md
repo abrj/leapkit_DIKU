@@ -16,6 +16,7 @@ Database Setup
  - ```sudo -u postgres psql```
  - ```postgres=# create user leapkit_user createdb createuser password '12345q';```
  - ```postgres=# create database leapkit_db owner leapkit_user;```
+ - ```postgres=# \q```
  - ```./02_db.sh```
  
 Starting Leapkit Solution
