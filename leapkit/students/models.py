@@ -321,6 +321,7 @@ class StudentProject(Project):
     objects = StudentProjectManager()
 
 class LinkedInProfile(models.Model):
+
     """
     This model is used to represent a students LinkedIn information.
     """
@@ -344,6 +345,15 @@ class LinkedInProfile(models.Model):
     positions = models.TextField()
     pictureUrl = models.TextField()
     publicProfileUrl = models.TextField()
+
+    def __unicode__(self):
+        return self.get_full_name()
+
+    def get_full_name(self):
+        """
+        :return: First name + last name, with a space in between
+        """
+        return "%s %s" % (self.firstName, self.lastName)
 
 class Language(models.Model):
    lang_id = models.IntegerField()
