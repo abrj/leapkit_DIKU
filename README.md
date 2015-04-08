@@ -14,9 +14,13 @@ Setup Guide
 Database Setup
 ==============
  - ```sudo -u postgres psql```
- - ```postgres=# create user leapkit_user createdb createuser password '12345q';```
- - ```postgres=# create database leapkit_db owner leapkit_user;```
+ - ```postgres=# CREATE USER leapkit_user CREATEDB CREATEUSER PASSWORD '12345q';```
+ - ```postgres=# CREATE DATABASE leapkit_db OWNER leapkit_user ENCODING 'UTF8' LC_COLLATE 'en_US.UTF8' LC_CTYPE 'en_US.UTF-8' TEMPLATE template0;```
+ - ```postgres=# \q```
+ - ```sudo -u postgres psql leapkit_db < dump.sql``` (The dump is not in the repo for obvius reasons.)
  - ```./02_db.sh```
+ - If the Django authuser gets deleted by the dump rewrite, add a new one using:
+ - ```python leapkit/manage.py createsuperuser```
  
 Starting Leapkit Solution
 =========================
