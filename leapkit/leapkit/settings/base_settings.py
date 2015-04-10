@@ -383,4 +383,3 @@ LOGGING = {
 }
 
 logging.config.dictConfig(LOGGING)
-#logging.info("\n\n\n\n\n\nHEJ DER!!!\n\n\n\n\n\n")
