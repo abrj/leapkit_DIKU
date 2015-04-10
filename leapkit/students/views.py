@@ -18,6 +18,7 @@ from queries.forms import ContactForm
 from projects.models import Project
 from institutions.models import Institution, FieldOfStudy
 
+import linkedin_connector
 
 """
     ------------------------------------------------------------------------
@@ -506,3 +507,10 @@ def login_check(request):
 
 def student_sign_up_success(request, slug):
     return redirect(reverse("students:profile", args=(slug, )))
+
+def test(k):
+    #redirect('www. google.com')
+    linkedin_url = linkedin_connector.linkedin_get_url(k)
+
+    return HttpResponseRedirect(linkedin_url)
+    #return HttpResponseRedirect('http://www.google.com')
