@@ -415,4 +415,4 @@ def insertLinkedInProfile(p, User):
 
     for c in p.courses:
         cou = Course(course_id = int(c.id), name = c.name, profile = profile)
-        c.save()
+        cou.save()
