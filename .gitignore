@@ -58,4 +58,4 @@ target/
 dump.sql
 
 # Vagrant working files
-.vagrant
+.vagrant/*
