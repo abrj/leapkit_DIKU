@@ -56,3 +56,6 @@ target/
 # SQL files
 *.sql
 dump.sql
+
+# Vagrant working files
+.vagrant
