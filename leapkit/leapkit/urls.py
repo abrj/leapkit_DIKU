@@ -29,7 +29,7 @@ urlpatterns = patterns('',
                        url(r'^companies/', include('companies.urls', namespace="companies")),
 
 
-                       url('', include('students.urls', namespace="test")),
+                       #url('', include('students.urls', namespace="test")),
 
                        url(r'^admin/', include(admin.site.urls)),
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT

@@ -18,6 +18,7 @@ from queries.forms import ContactForm
 from projects.models import Project
 from institutions.models import Institution, FieldOfStudy
 
+import logging
 import linkedin_connector
 
 """
@@ -508,12 +509,33 @@ def login_check(request):
 def student_sign_up_success(request, slug):
     return redirect(reverse("students:profile", args=(slug, )))
 
-def test(k):
-    #redirect('www. google.com')
-    linkedin_url = linkedin_connector.linkedin_get_url(k)
+def linkedin_redirect(request):
+    #logging.error(request)
+    #logging.error("\nrequest.user = " + str(request.user))
+    try:
+        #path = request.META['HTTP_REFERER']
+        slug = Student.objects.get(user=request.user).slug
+        #path = 'http://www.leapkit.com?u=' + slug
+        path = 'http://' + request.META['HTTP_HOST'] + '/students/stage?u=' + slug
+        #logging.error("\nurl:" + path)
+        linkedin_url = linkedin_connector.linkedin_get_url(path)
+    except:
+        return redirect(reverse("students:log_in"))
+    
 
     return HttpResponseRedirect(linkedin_url)
     #return HttpResponseRedirect('http://www.google.com')
 
-def stage():
-    pass
+def stage(request):
+    #logging.error(request)
+    slug = request.GET['u']
+    code = request.GET['code']
+    return_url = 'http://' + request.META['HTTP_HOST'] + request.path + '?u=' + slug
+    success = linkedin_connector.linkedin_extract(code, return_url)
+    if not success:
+        pass
+        #TODO in no success cases - inform user???
+    
+    #TODO other python, i.e. update db
+
+    return redirect(reverse("students:profile", args=(slug, )))
