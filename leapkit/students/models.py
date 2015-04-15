@@ -380,7 +380,7 @@ class Education(models.Model):
    profile = models.ForeignKey(LinkedInProfile)
 
 def insertLinkedInProfile(p_json, User):
-    p = fromFile(p_json) # Converts json data to the desired structure
+    p = fromString(p_json) # Converts json data to the desired structure
     profile = LinkedInProfile(leapkituser = User,
                               linkedin_id = int(p.id),
                               firstname = p.firstName,
