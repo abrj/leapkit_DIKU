@@ -12,8 +12,6 @@ __API_KEY = '75yv7bexwfjovt' #Leapkit unique API/Consumer key
 __API_SECRET = 'Jz3ElgF0hj1RAjb3' #Leapkit unique Secret key/Consumer Secret
 __RETURN_URL = 'http://www.leapkit.com'
 
-FILE_NAME = 'linkedInResult.json'
-
 
 
 # Returns url to our linkedin application.
