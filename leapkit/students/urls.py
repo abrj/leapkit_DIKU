@@ -1,5 +1,11 @@
 from django.conf.urls import patterns, url
 
+from django.views.generic.base import RedirectView
+
+from django.http import HttpResponseRedirect
+
+
+
 from . import views
 
 
@@ -42,4 +48,12 @@ urlpatterns = patterns('',
                        url(r'^profile/update/(?P<slug>[a-z0-9-]+)/$', views.UpdateStudentProfileView.as_view(),
                            name='update_student_profile'),
                        url(r'^profile/(?P<slug>[a-z0-9-]+)/$', views.StudentView.as_view(), name='profile'),
+                       #url('www.google.com', views.test, name='test'),
+                       #url('', RedirectView.as_view(url='www.google.com', permanent=False), name='test'),
+                       #url(r'^$', views.test, name='test'),
+
+                       #url(r'^test/$', views.test, name='test'), #works
+                       url(r'test', views.test, name='test'), #works
+                       #url(r'^profile/(?P<slug>[a-z0-9-]+)/$', views.test, name='test'),
+                       url(r'stage', views.test, name='test'), #works
 )

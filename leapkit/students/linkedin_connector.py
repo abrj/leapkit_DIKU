@@ -16,7 +16,7 @@ __RETURN_URL = 'http://www.leapkit.com'
 
 # Returns url to our linkedin application.
 # Takes a return url to be redirected to after linkedin login.
-def linkedin_get_url(return_url = 'http://www.leapkit.com'):
+def linkedin_get_url(return_url = __RETURN_URL):
     authentication = linkedin.LinkedInAuthentication(__API_KEY, 
                                                      __API_SECRET, 
                                                      return_url, 
@@ -90,4 +90,3 @@ def linkedin_extract(redirect_uri, return_url):
         return 0
 
     return 1
-

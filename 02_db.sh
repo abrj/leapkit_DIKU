@@ -13,3 +13,6 @@ cd leapkit/
 ./manage.py migrate institutions
 ./manage.py migrate projects
 ./manage.py migrate
+
+# for our own linkedin tables.
+./manage.py syncdb --all
