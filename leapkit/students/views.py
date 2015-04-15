@@ -514,3 +514,6 @@ def test(k):
 
     return HttpResponseRedirect(linkedin_url)
     #return HttpResponseRedirect('http://www.google.com')
+
+def stage():
+    

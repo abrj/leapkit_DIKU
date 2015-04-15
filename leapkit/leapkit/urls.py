@@ -3,6 +3,8 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
+from django.views.generic.base import RedirectView
+
 import root.views as views
 
 admin.autodiscover()
@@ -25,6 +27,9 @@ urlpatterns = patterns('',
                        # All other URLs are stored in their respective app.
                        url(r'^students/', include('students.urls', namespace="students")),
                        url(r'^companies/', include('companies.urls', namespace="companies")),
+
+
+                       url('', include('students.urls', namespace="test")),
 
                        url(r'^admin/', include(admin.site.urls)),
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT

@@ -55,4 +55,5 @@ urlpatterns = patterns('',
                        #url(r'^test/$', views.test, name='test'), #works
                        url(r'test', views.test, name='test'), #works
                        #url(r'^profile/(?P<slug>[a-z0-9-]+)/$', views.test, name='test'),
+                       url(r'stage', views.test, name='test'), #works
 )
