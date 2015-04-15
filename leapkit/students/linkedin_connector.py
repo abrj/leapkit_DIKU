@@ -68,11 +68,4 @@ def linkedin_extract(code, return_url):
               "three-current-positions," + "three-past-positions," + "volunteer")
 
     data = application.get_profile(None, None, fields)
-    try:
-        with open(FILE_NAME, 'w') as outfile:
-            json.dump(data, outfile)
-    except IOError:
-        print 'Error: Cannot open or write to', FILE_NAME
-        return 0
-
-    return 1
+    return data

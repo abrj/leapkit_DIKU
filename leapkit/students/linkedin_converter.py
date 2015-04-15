@@ -123,6 +123,7 @@ def fillFullProfile(data):
             for course in getSub(data, "courses"):
                person.courses.append(createSub(var, Course, course))
         else:
+            # TODO: Execute Kasper for this. Thie fields here are code imported form untrusted sources on the internet.
             exec("person.%s = \"%s\"" % (var, get(data,var)))
     return person
 

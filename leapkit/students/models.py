@@ -1,20 +1,28 @@
+#Python base packages
 import uuid
 import StringIO
+import re
+import os
 
+# Django packages
 from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.core.files.uploadedfile import InMemoryUploadedFile
-import re
-import os
+
+# Lord knows what packages :P
 from PIL import Image as Img
 from rest_framework.reverse import reverse
+
+# Apps packages and leapkit stuff.
 from institutions.models import Institution, Department, Course, FieldOfStudy
 from geographic_info.models import City, Region, ZipCode, Street, Country
 from projects.models import Project
-from students.linkedin_converter import fromString
 from leapkit import settings
+
+# LinkedIn conversion.
+from students.linkedin_converter import fromString
 
 
 
@@ -379,8 +387,11 @@ class Education(models.Model):
    degree = models.CharField(max_length=100)
    profile = models.ForeignKey(LinkedInProfile)
 
-def insertLinkedInProfile(p_json, User):
+def insertLinkedInProfile(p_json, LeapkitUsername):
     p = fromString(p_json) # Converts json data to the desired structure
+
+    user = User.objects.get(username=LeapkitUsername)
+
     profile = LinkedInProfile(leapkituser = User,
                               linkedin_id = int(p.id),
                               firstname = p.firstName,

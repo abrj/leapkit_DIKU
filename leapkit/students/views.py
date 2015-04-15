@@ -11,7 +11,7 @@ from django.views.generic import DetailView, CreateView, FormView, UpdateView, L
 from braces.views import LoginRequiredMixin
 
 from forms import StudentCreationForm, StudentLogInForm, ChangeUserPassword, StudentForm, StudentProjectForm, EmailForm
-from models import Student, StudentProject
+from models import Student, StudentProject, insertLinkedInProfile
 from companies.models import CompanyProject
 from queries.models import FAQuestion, UserQuestion
 from queries.forms import ContactForm
@@ -531,11 +531,16 @@ def stage(request):
     slug = request.GET['u']
     code = request.GET['code']
     return_url = 'http://' + request.META['HTTP_HOST'] + request.path + '?u=' + slug
-    success = linkedin_connector.linkedin_extract(code, return_url)
-    if not success:
+    data = linkedin_connector.linkedin_extract(code, return_url)
+    if len(data) <= 1:
         pass
         #TODO in no success cases - inform user???
-    
-    #TODO other python, i.e. update db
+    logging.error(data)
+
+    LeapkitUsername = request.user
+    # TODO: Redo the insert function to work with a dict instead of the data string. It's much more fun and secure.
+    insertLinkedInProfile(str(data), LeapkitUsername)
+
+
 
     return redirect(reverse("students:profile", args=(slug, )))
