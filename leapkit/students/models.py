@@ -13,6 +13,7 @@ from rest_framework.reverse import reverse
 from institutions.models import Institution, Department, Course, FieldOfStudy
 from geographic_info.models import City, Region, ZipCode, Street, Country
 from projects.models import Project
+from students.linkedin_converter import fromString
 from leapkit import settings
 
 
@@ -378,7 +379,8 @@ class Education(models.Model):
    degree = models.CharField(max_length=100)
    profile = models.ForeignKey(LinkedInProfile)
 
-def insertLinkedInProfile(p, User):
+def insertLinkedInProfile(p_json, User):
+    p = fromString(p_json) # Converts json data to the desired structure
     profile = LinkedInProfile(leapkituser = User,
                               linkedin_id = int(p.id),
                               firstname = p.firstName,

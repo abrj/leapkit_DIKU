@@ -17,7 +17,7 @@ FILE_NAME = 'linkedInResult.json'
 
 # Returns url to our linkedin application.
 # Takes a return url to be redirected to after linkedin login.
-def linkedin_get_url(return_url = 'http://www.leapkit.com'):
+def linkedin_get_url(return_url = __RETURN_URL):
     authentication = linkedin.LinkedInAuthentication(__API_KEY, 
                                                      __API_SECRET, 
                                                      return_url, 
