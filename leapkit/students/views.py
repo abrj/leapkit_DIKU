@@ -516,4 +516,4 @@ def test(k):
     #return HttpResponseRedirect('http://www.google.com')
 
 def stage():
-    
+    pass
