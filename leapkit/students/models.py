@@ -393,7 +393,7 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
     user = User.objects.get(username=LeapkitUsername)
 
     profile = LinkedInProfile(leapkituser = User,
-                              linkedin_id = int(p.id),
+                              linkedin_id = int(p.pid),
                               firstname = p.firstName,
                               maidenName = p.maidenName,
                               lastName = p.lastName,
@@ -412,20 +412,20 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
     profile.save()
 
     for s in p.skills:
-        ski = Skill(skill_id = int(s.id), name = s.name, profile = profile)
+        ski = Skill(skill_id = int(s.sid), name = s.name, profile = profile)
         ski.save()
 
     for l in p.languages:
-        lang = Language(lang_id = int(l.id), name = l.name, level = l.Level,
+        lang = Language(lang_id = int(l.lid), name = l.name, level = l.Level,
                 profile = profile)
         lang.save()
 
     for e in p.educations:
-        edu = Education(edu_id = int(e.id), schoolname = e.schoolName,
+        edu = Education(edu_id = int(e.eid), schoolname = e.schoolName,
                 fieldOfStudy = e.fieldOfStudy, degree = e.degree,
                 profile = profile)
         edu.save()
 
     for c in p.courses:
-        cou = Course(course_id = int(c.id), name = c.name, profile = profile)
+        cou = Course(course_id = int(c.cid), name = c.name, profile = profile)
         cou.save()

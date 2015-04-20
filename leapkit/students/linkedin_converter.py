@@ -7,7 +7,7 @@ import ast
 ##############################
 
 class Person(object):
-    id = None
+    pid = None
     firstName = None
     maidenName = None
     lastName = None
@@ -24,7 +24,7 @@ class Person(object):
     languages = None
 
     def __str__(self):
-        ret = "id = " + self.id + "\nname = " + self.firstName + " " + self.maidenName + " " + self.lastName + ".\n"
+        ret = "pid = " + self.pid + "\nname = " + self.firstName + " " + self.maidenName + " " + self.lastName + ".\n"
         ret += "\nSkills:"
         for skill in self.skills:
             ret += str(skill)
@@ -41,30 +41,30 @@ class Person(object):
         # return ""
 
 class Language(object):
-    id = None
+    lid = None
     name = None
     level = None
 
     def __str__(self):
-        return "    id = " + self.id + "\n    name = " + self.name + "\n    proficiency = " + self.level + "\n\n"
+        return "    lid = " + self.lid + "\n    name = " + self.name + "\n    proficiency = " + self.level + "\n\n"
 
 class Course(object):
-    id  = None
+    cid  = None
     name   = None
     number  = None
 
     def __str__(self):
-        return "    id = " + self.id + "\n    name = " + self.name + "\n    number = " + self.number
+        return "    cid = " + self.cid + "\n    name = " + self.name + "\n    number = " + self.number
 
 class Skill(object):
-    id = None
+    cid = None
     name = None
 
     def __str__(self):
-        return "    id = " + self.id + ", name = " + self.name + "\n"
+        return "    cid = " + self.cid + ", name = " + self.name + "\n"
 
 class Education(object):
-    id = None
+    eid = None
     schoolName = None
     fieldOfStudy = None
     startDate = None
@@ -74,7 +74,7 @@ class Education(object):
     notes = None
 
     def __str__(self):
-        return "    id = " + self.id + ": " + self.degree + " in " + self.fieldOfStudy + " from " + self.schoolName + "\n"
+        return "    eid = " + self.eid + ": " + self.degree + " in " + self.fieldOfStudy + " from " + self.schoolName + "\n"
 
 ################################
 ##      Helper Functions      ##
@@ -133,12 +133,14 @@ def createSub(name, className, data):
     classInstance = className()
     for var in variables:
         if(var[-4:] == "Date"):
+            # TODO: More exec, it's not okay.
             exec("classInstance.%s = \"%s\"" % (var, formatDate(get(data,var))))
         elif(var == "name" and (name == "languages" or name == "skills" or name == "publishers")):
             classInstance.name = data[name[:-1]][var]
         elif(var == "level" and name == "languages" and "proficiency" in data):
             classInstance.level = data["proficiency"][var]
         else:
+            # TODO: More exec.
             exec("classInstance.%s = \"%s\"" % (var,get(data,var)))
     return classInstance
 
