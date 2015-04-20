@@ -47,7 +47,7 @@ class Language(object):
     level = None
 
     def __str__(self):
-        return "    lid = " + self.lid + "\n    name = " + self.name + "\n    proficiency = " + self.level + "\n\n"
+        return "    lid = " + self.lid + "\n    name = " + self.name + "\n level = " + self.level + "\n\n"
 
 class Course(object):
     cid  = None
@@ -58,7 +58,7 @@ class Course(object):
         return "    cid = " + self.cid + "\n    name = " + self.name + "\n    number = " + self.number
 
 class Skill(object):
-    cid = None
+    sid = None
     name = None
 
     def __str__(self):

@@ -7,7 +7,6 @@ class LinkedInProfileAdmin(admin.ModelAdmin):
         (None, {'fields': ['leapkituser',
                            'linkedin_id',
                            'firstName',
-                           'maidenName',
                            'lastName',
                            'location',
                            'specialities',
