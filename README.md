@@ -1,3 +1,6 @@
+Hello Silence my old friend,
+I've come to talk with you again
+
 Setup Guide
 ===========
 
