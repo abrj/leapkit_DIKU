@@ -3,6 +3,7 @@ import uuid
 import StringIO
 import re
 import os
+import logging
 
 # Django packages
 from django.contrib.auth.models import User
@@ -341,7 +342,7 @@ class LinkedInProfile(models.Model):
     modified = models.DateTimeField('modified', auto_now=True)
 
     # Profile ID from linkedIn.
-    linkedin_id = models.IntegerField()
+    linkedin_id = models.TextField()
 
     # Name information from LinkedIn
     firstName =  models.TextField()
@@ -392,23 +393,18 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
 
     user = User.objects.get(username=LeapkitUsername)
 
-    profile = LinkedInProfile(leapkituser = User,
-                              linkedin_id = int(p.pid),
-                              firstname = p.firstName,
+    logging.error("\n\n =============== \n" + str(p))
+
+    profile = LinkedInProfile(leapkituser = user,
+                              linkedin_id = p.pid,
+                              firstName = p.firstName,
                               maidenName = p.maidenName,
                               lastName = p.lastName,
-                              headline = p.headline,
                               location = p.location,
-                              industry = p.industry,
-                              summary = p.summary,
                               specialities = p.specialities,
                               positions = p.positions,
                               pictureUrl = p.pictureUrl,
-                              publicProfileUrl = p.publicProfileUrl,
-                              formattedName = p.formattedName,
-                              phoneticFirstName = p.phoneticFirstName,
-                              phoneticLastName = p.phoneticLastName,
-                              formattedPhoneticName = p.formattedPhoneticName)
+                              publicProfileUrl = p.publicProfileUrl)
     profile.save()
 
     for s in p.skills:

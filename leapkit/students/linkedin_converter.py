@@ -1,6 +1,7 @@
 import json
 from pprint import pprint
 import ast
+import logging
 
 ##############################
 ##      Data Structure      ##
@@ -107,6 +108,10 @@ def fillFullProfile(data):
     """Creates a person based on the data"""
     variables = [s for s in dir(Person) if s[0] != '_']
     person = createPerson()
+    logging.error("\n\n")
+    logging.error(data)
+    logging.error("\n\n")
+    logging.error(variables)
     for var in variables:
         if(var == "languages"):
            for language in getSub(data,"languages"):
@@ -122,9 +127,35 @@ def fillFullProfile(data):
         elif(var == "courses"):
             for course in getSub(data, "courses"):
                person.courses.append(createSub(var, Course, course))
+        elif(var == "pid"):
+            if(var in data.keys()):
+                person.pid = data["id"]
+        elif(var == "firstName"):
+            if(var in data.keys()):
+                person.firstName = data["firstName"]
+        elif(var == "maidenName"):
+            if(var in data.keys()):
+                person.maidenName = data["maidenName"]
+        elif(var == "lastName"):
+            if(var in data.keys()):
+                person.lastName = data["lastName"]
+        elif(var == "location"):
+            if(var in data.keys()):
+                person.location = data["location"]
+        elif(var == "specialities"):
+            if(var in data.keys()):
+                person.specialities = data["specialities"]
+        elif(var == "positions"):
+            if(var in data.keys()):
+                person.positions = data["positions"]
+        elif(var == "pictureUrl"):
+            if(var in data.keys()):
+                person.pictureUrl = data["pictureUrl"]
+        elif(var == "publicProfileUrl"):
+            if(var in data.keys()):
+                person.publicProfileUrl = data["publicProfileUrl"]
         else:
-            # TODO: Execute Kasper for this. Thie fields here are code imported form untrusted sources on the internet.
-            exec("person.%s = \"%s\"" % (var, get(data,var)))
+            continue
     return person
 
 def createSub(name, className, data):
