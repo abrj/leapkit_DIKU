@@ -392,6 +392,9 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
 
     user = User.objects.get(username=LeapkitUsername)
 
+    logging.error("SE MIG HEJ HEJ HEJ")
+    logging.error(p.languages[0])
+
     if LinkedInProfile.objects.filter(leapkituser = user):
         profile = LinkedInProfile.objects.get(leapkituser=user)
         profile.__dict__.update(linkedin_id = p.pid,
