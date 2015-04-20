@@ -392,33 +392,65 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
 
     user = User.objects.get(username=LeapkitUsername)
 
-    profile = LinkedInProfile(leapkituser = user,
-                              linkedin_id = p.pid,
-                              firstName = p.firstName,
-                              lastName = p.lastName,
-                              location = p.location,
-                              specialities = p.specialities,
-                              positions = p.positions,
-                              pictureUrl = p.pictureUrl,
-                              publicProfileUrl = p.publicProfileUrl)
-    logging.error(profile)
-    profile.save()
+    if LinkedInProfile.objects.filter(leapkituser = user):
+        profile = LinkedInProfile.objects.get(leapkituser=user)
+        profile.__dict__.update(linkedin_id = p.pid,
+                                  firstName = p.firstName,
+                                  lastName = p.lastName,
+                                  location = p.location,
+                                  specialities = p.specialities,
+                                  positions = p.positions,
+                                  pictureUrl = p.pictureUrl,
+                                  publicProfileUrl = p.publicProfileUrl)
 
-    for s in p.skills:
-        ski = Skill(skill_id = s.sid, name = s.name, profile = profile)
-        ski.save()
+        for s in p.skills:
+            ski = Skill(skill_id = s.sid, name = s.name, profile = profile)
+            ski.save()
 
-    for l in p.languages:
-        lang = Language(lang_id = l.lid, name = l.name, level = l.level,
-                profile = profile)
-        lang.save()
+        for l in p.languages:
+            lang = Language(lang_id = l.lid, name = l.name, level = l.level,
+                    profile = profile)
+            lang.save()
 
-    for e in p.educations:
-        edu = Education(edu_id = e.eid, schoolName = e.schoolName,
-                fieldOfStudy = e.fieldOfStudy, degree = e.degree,
-                profile = profile)
-        edu.save()
+        for e in p.educations:
+            edu = Education(edu_id = e.eid, schoolName = e.schoolName,
+                    fieldOfStudy = e.fieldOfStudy, degree = e.degree,
+                    profile = profile)
+            edu.save()
 
-    for c in p.courses:
-        cou = Course(course_id = c.cid, name = c.name, profile = profile)
-        cou.save()
+        for c in p.courses:
+            cou = Course(course_id = c.cid, name = c.name, profile = profile)
+            cou.save()
+
+
+    else:
+        profile = LinkedInProfile(leapkituser = user,
+                                  linkedin_id = p.pid,
+                                  firstName = p.firstName,
+                                  lastName = p.lastName,
+                                  location = p.location,
+                                  specialities = p.specialities,
+                                  positions = p.positions,
+                                  pictureUrl = p.pictureUrl,
+                                  publicProfileUrl = p.publicProfileUrl)
+        logging.error(profile)
+        profile.save()
+
+        for s in p.skills:
+            ski = Skill(skill_id = s.sid, name = s.name, profile = profile)
+            ski.save()
+
+        for l in p.languages:
+            lang = Language(lang_id = l.lid, name = l.name, level = l.level,
+                    profile = profile)
+            lang.save()
+
+        for e in p.educations:
+            edu = Education(edu_id = e.eid, schoolName = e.schoolName,
+                    fieldOfStudy = e.fieldOfStudy, degree = e.degree,
+                    profile = profile)
+            edu.save()
+
+        for c in p.courses:
+            cou = Course(course_id = c.cid, name = c.name, profile = profile)
+            cou.save()
