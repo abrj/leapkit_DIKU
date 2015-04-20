@@ -128,8 +128,11 @@ def fillFullProfile(data):
             for course in getSub(data, "courses"):
                person.courses.append(createSub(var, Course, course))
         elif(var == "pid"):
-            if(var in data.keys()):
-                person.pid = data["id"]
+            logging.error("Checking for PID\n")
+            logging.error(data.keys())
+            if(u'id' in data.keys()):
+                logging.error("Inserting pid:" + data[u"id"])
+                person.pid = data[u"id"]
         elif(var == "firstName"):
             if(var in data.keys()):
                 person.firstName = data["firstName"]

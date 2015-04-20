@@ -346,7 +346,6 @@ class LinkedInProfile(models.Model):
 
     # Name information from LinkedIn
     firstName =  models.TextField()
-    maidenName = models.TextField()
     lastName = models.TextField()
 
     # Misc information from LinkedIn
@@ -393,12 +392,9 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
 
     user = User.objects.get(username=LeapkitUsername)
 
-    logging.error("\n\n =============== \n" + str(p))
-
     profile = LinkedInProfile(leapkituser = user,
                               linkedin_id = p.pid,
                               firstName = p.firstName,
-                              maidenName = p.maidenName,
                               lastName = p.lastName,
                               location = p.location,
                               specialities = p.specialities,
