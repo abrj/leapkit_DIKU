@@ -1,19 +1,29 @@
+#Python base packages
 import uuid
 import StringIO
+import re
+import os
+import logging
 
+# Django packages
 from django.contrib.auth.models import User
 from django.core.mail import EmailMessage
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.core.files.uploadedfile import InMemoryUploadedFile
-import re
-import os
+
+# Lord knows what packages :P
 from PIL import Image as Img
 from rest_framework.reverse import reverse
+
+# Apps packages and leapkit stuff.
 from institutions.models import Institution, Department, Course, FieldOfStudy
 from geographic_info.models import City, Region, ZipCode, Street, Country
 from projects.models import Project
 from leapkit import settings
+
+# LinkedIn conversion.
+from students.linkedin_converter import fromString
 
 
 
@@ -329,22 +339,21 @@ class LinkedInProfile(models.Model):
     leapkituser = models.OneToOneField(User)
 
     # Last time the data was modified/updated.
-    modified = models.DateTimeField(auto_now_add=True)
+    modified = models.DateTimeField('modified', auto_now=True)
 
     # Profile ID from linkedIn.
-    linkedin_id = models.IntegerField()
+    linkedin_id = models.TextField()
 
     # Name information from LinkedIn
     firstName =  models.TextField()
-    maidenName = models.TextField()
     lastName = models.TextField()
 
     # Misc information from LinkedIn
-    location = models.TextField()
-    specialities = models.TextField()
-    positions = models.TextField()
-    pictureUrl = models.TextField()
-    publicProfileUrl = models.TextField()
+    location = models.TextField(null=True, blank=True)
+    specialities = models.TextField(null=True, blank=True)
+    positions = models.TextField(null=True, blank=True)
+    pictureUrl = models.TextField(null=True, blank=True)
+    publicProfileUrl = models.TextField(null=True, blank=True)
 
     def __unicode__(self):
         return self.get_full_name()
@@ -356,63 +365,95 @@ class LinkedInProfile(models.Model):
         return "%s %s" % (self.firstName, self.lastName)
 
 class Language(models.Model):
-   lang_id = models.IntegerField()
+   lang_id = models.TextField()
    name = models.CharField(max_length = 30)
    level = models.CharField(max_length = 30)
    profile = models.ForeignKey(LinkedInProfile)
 
 class Course(models.Model):
-   course_id  = models.IntegerField()
+   course_id  = models.TextField()
    name = models.CharField(max_length = 81)
    profile = models.ForeignKey(LinkedInProfile)
 
 class Skill(models.Model):
-   skill_id = models.IntegerField()
+   skill_id = models.TextField()
    name = models.CharField(max_length = 81)
    profile = models.ForeignKey(LinkedInProfile)
 
 class Education(models.Model):
-   edu_id = models.IntegerField()
+   edu_id = models.TextField()
    schoolName = models.CharField(max_length=100)
    fieldOfStudy = models.CharField(max_length=100)
    degree = models.CharField(max_length=100)
    profile = models.ForeignKey(LinkedInProfile)
 
-def insertLinkedInProfile(p, User):
-    profile = LinkedInProfile(leapkituser = User,
-                              linkedin_id = int(p.id),
-                              firstname = p.firstName,
-                              maidenName = p.maidenName,
-                              lastName = p.lastName,
-                              headline = p.headline,
-                              location = p.location,
-                              industry = p.industry,
-                              summary = p.summary,
-                              specialities = p.specialities,
-                              positions = p.positions,
-                              pictureUrl = p.pictureUrl,
-                              publicProfileUrl = p.publicProfileUrl,
-                              formattedName = p.formattedName,
-                              phoneticFirstName = p.phoneticFirstName,
-                              phoneticLastName = p.phoneticLastName,
-                              formattedPhoneticName = p.formattedPhoneticName)
-    profile.save()
+def insertLinkedInProfile(p_json, LeapkitUsername):
+    p = fromString(p_json) # Converts json data to the desired structure
 
-    for s in p.skills:
-        ski = Skill(skill_id = int(s.id), name = s.name, profile = profile)
-        ski.save()
+    user = User.objects.get(username=LeapkitUsername)
 
-    for l in p.languages:
-        lang = Language(lang_id = int(l.id), name = l.name, level = l.Level,
-                profile = profile)
-        lang.save()
+    logging.error("SE MIG HEJ HEJ HEJ")
+    logging.error(p.languages[0])
 
-    for e in p.educations:
-        edu = Education(edu_id = int(e.id), schoolname = e.schoolName,
-                fieldOfStudy = e.fieldOfStudy, degree = e.degree,
-                profile = profile)
-        edu.save()
+    if LinkedInProfile.objects.filter(leapkituser = user):
+        profile = LinkedInProfile.objects.get(leapkituser=user)
+        profile.__dict__.update(linkedin_id = p.pid,
+                                  firstName = p.firstName,
+                                  lastName = p.lastName,
+                                  location = p.location,
+                                  specialities = p.specialities,
+                                  positions = p.positions,
+                                  pictureUrl = p.pictureUrl,
+                                  publicProfileUrl = p.publicProfileUrl)
 
-    for c in p.courses:
-        cou = Course(course_id = int(c.id), name = c.name, profile = profile)
-        c.save()
+        for s in p.skills:
+            ski = Skill(skill_id = s.sid, name = s.name, profile = profile)
+            ski.save()
+
+        for l in p.languages:
+            lang = Language(lang_id = l.lid, name = l.name, level = l.level,
+                    profile = profile)
+            lang.save()
+
+        for e in p.educations:
+            edu = Education(edu_id = e.eid, schoolName = e.schoolName,
+                    fieldOfStudy = e.fieldOfStudy, degree = e.degree,
+                    profile = profile)
+            edu.save()
+
+        for c in p.courses:
+            cou = Course(course_id = c.cid, name = c.name, profile = profile)
+            cou.save()
+
+
+    else:
+        profile = LinkedInProfile(leapkituser = user,
+                                  linkedin_id = p.pid,
+                                  firstName = p.firstName,
+                                  lastName = p.lastName,
+                                  location = p.location,
+                                  specialities = p.specialities,
+                                  positions = p.positions,
+                                  pictureUrl = p.pictureUrl,
+                                  publicProfileUrl = p.publicProfileUrl)
+        logging.error(profile)
+        profile.save()
+
+        for s in p.skills:
+            ski = Skill(skill_id = s.sid, name = s.name, profile = profile)
+            ski.save()
+
+        for l in p.languages:
+            lang = Language(lang_id = l.lid, name = l.name, level = l.level,
+                    profile = profile)
+            lang.save()
+
+        for e in p.educations:
+            edu = Education(edu_id = e.eid, schoolName = e.schoolName,
+                    fieldOfStudy = e.fieldOfStudy, degree = e.degree,
+                    profile = profile)
+            edu.save()
+
+        for c in p.courses:
+            cou = Course(course_id = c.cid, name = c.name, profile = profile)
+            cou.save()

@@ -11,13 +11,15 @@ from django.views.generic import DetailView, CreateView, FormView, UpdateView, L
 from braces.views import LoginRequiredMixin
 
 from forms import StudentCreationForm, StudentLogInForm, ChangeUserPassword, StudentForm, StudentProjectForm, EmailForm
-from models import Student, StudentProject
+from models import Student, StudentProject, insertLinkedInProfile
 from companies.models import CompanyProject
 from queries.models import FAQuestion, UserQuestion
 from queries.forms import ContactForm
 from projects.models import Project
 from institutions.models import Institution, FieldOfStudy
 
+import logging
+import linkedin_connector
 
 """
     ------------------------------------------------------------------------
@@ -505,4 +507,40 @@ def login_check(request):
 
 
 def student_sign_up_success(request, slug):
+    return redirect(reverse("students:profile", args=(slug, )))
+
+def linkedin_redirect(request):
+    #logging.error(request)
+    #logging.error("\nrequest.user = " + str(request.user))
+    try:
+        #path = request.META['HTTP_REFERER']
+        slug = Student.objects.get(user=request.user).slug
+        #path = 'http://www.leapkit.com?u=' + slug
+        path = 'http://' + request.META['HTTP_HOST'] + '/students/stage?u=' + slug
+        #logging.error("\nurl:" + path)
+        linkedin_url = linkedin_connector.linkedin_get_url(path)
+    except:
+        return redirect(reverse("students:log_in"))
+    
+
+    return HttpResponseRedirect(linkedin_url)
+    #return HttpResponseRedirect('http://www.google.com')
+
+def stage(request):
+    #logging.error(request)
+    slug = request.GET['u']
+    code = request.GET['code']
+    return_url = 'http://' + request.META['HTTP_HOST'] + request.path + '?u=' + slug
+    data = linkedin_connector.linkedin_extract(code, return_url)
+    if len(data) <= 1:
+        pass
+        #TODO in no success cases - inform user???
+    logging.error(data)
+
+    LeapkitUsername = request.user
+    # TODO: Redo the insert function to work with a dict instead of the data string. It's much more fun and secure.
+    insertLinkedInProfile(str(data), LeapkitUsername)
+
+
+
     return redirect(reverse("students:profile", args=(slug, )))
