@@ -7,7 +7,7 @@ sudo apt-get dist-upgrade
 
 # Install dependencies
 sudo apt-get build-dep python-imaging
-sudo apt-get install vim emacs libjpeg62 libjpeg62-dev python-pip python-psycopg2 postgresql
+sudo apt-get install vim libjpeg62 libjpeg62-dev python-pip python-psycopg2 postgresql
 
 # Do magic linking.
 sudo ln -s /usr/lib/i386-linux-gnu/libz.so /usr/lib/libz.so
