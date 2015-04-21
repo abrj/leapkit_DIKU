@@ -34,7 +34,7 @@ class Person(object):
             "    lid = " + str(language.lid) + ", name = " + language.name + "\n level = " + language.level + "\n"
         ret += "\nEducations:\n"
         for education in self.educations:
-            ret += "    eid = " + str(education.eid) + ", degree = " + education.degree + " in " + education.fieldOfStudy +"\n"#+ " from " + education.schoolName + "\n"
+            ret += "    eid = " + str(education.eid) + ", degree = " + education.degree + " in " + education.fieldOfStudy +"\n"
         ret += "\nCourses:\n"
         for course in self.courses:
             ret += "    cid = " + str(course.cid) + ", name = " + course.name + "\n"
@@ -45,22 +45,22 @@ class Language(object):
     name = ""
     level = ""
 
-    def __str__(self):
-        return "    lid = " + str(self.lid) + "\n    name = " + self.name + "\n level = " + self.level + "\n\n"
+    # def __str__(self):
+        # return "    lid = " + str(self.lid) + "\n    name = " + self.name + "\n level = " + self.level + "\n\n"
 
 class Course(object):
     cid  = ""
     name   = ""
 
-    def __str__(self):
-        return "    cid = " + str(self.cid) + "\n    name = " + self.name + "\n    number = " + self.number
+    # def __str__(self):
+        # return "    cid = " + str(self.cid) + "\n    name = " + self.name + "\n"
 
 class Skill(object):
     sid = ""
     name = ""
 
-    def __str__(self):
-        return "    cid = " + str(self.sid) + ", name = " + self.name + "\n"
+    # def __str__(self):
+        # return "    cid = " + str(self.sid) + ", name = " + self.name + "\n"
 
 class Education(object):
     eid = ""
@@ -70,8 +70,8 @@ class Education(object):
     endDate = ""
     degree = ""
 
-    def __str__(self):
-        return "    eid = " + str(self.eid) + ": " + self.degree + " in " + self.fieldOfStudy + " from " + self.schoolName + "\n"
+    # def __str__(self):
+        # return "    eid = " + str(self.eid) + ": " + self.degree + " in " + self.fieldOfStudy + " from " + self.schoolName + "\n"
 
 ################################
 ##      Helper Functions      ##
