@@ -72,10 +72,28 @@
         </div>
         <div class="col-md-1">
         </div>
-        <div class="col-md-8 container-block" data-step="2" id="all_projects"
+        <div class="col-md-8 container-block" data-step="2" id="recommended_projects"
              data-intro="Here you see a list of all the projects on Leapkit. Projects with a briefcase symbol are uploaded by companies. Projects with a square cap are uploaded by students. Click a project to see more detailed information and how to get in contact.">
             <div class="tab-content">
-                <div class="tab-pane active" id="all_projects">
+                <div class="tab-pane active" id="recommended_projects">
+                    {{skillstrings}} <!-- FIXME REMOVE THIS :D ITS DEBUGGING -->
+                    {% for project in recommended_projects %}
+                        <div>
+                            <a class="block-link" href="{% url 'students:all_projects_detail' project.slug %}">
+                                {% if project.studentproject %}
+                                    {% include 'layout/student_project_list.html' %}
+                                {% endif %}
+
+                                {% if project.companyproject %}
+                                    {% include 'layout/company_project_list.html' %}
+                                {% endif %}
+                            </a>
+                        </div>
+                    {% empty %}
+                        <h2 class="text-center">There is no projects on this page</h2>
+                    {% endfor %}
+                </div>
+                <div class="tab-pane" id="all_projects">
                     {% for project in project_list %}
                         <div>
                             <a class="block-link" href="{% url 'students:all_projects_detail' project.slug %}">

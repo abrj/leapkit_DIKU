@@ -11,7 +11,7 @@ from django.views.generic import DetailView, CreateView, FormView, UpdateView, L
 from braces.views import LoginRequiredMixin
 
 from forms import StudentCreationForm, StudentLogInForm, ChangeUserPassword, StudentForm, StudentProjectForm, EmailForm
-from models import Student, StudentProject, insertLinkedInProfile
+from models import Student, StudentProject, insertLinkedInProfile, LinkedInProfile, Skill
 from companies.models import CompanyProject
 from queries.models import FAQuestion, UserQuestion
 from queries.forms import ContactForm
@@ -20,6 +20,7 @@ from institutions.models import Institution, FieldOfStudy
 
 import logging
 import linkedin_connector
+import matchmaking
 
 """
     ------------------------------------------------------------------------
@@ -92,7 +93,10 @@ class StudentOwnProjectListView(LoginRequiredMixin, ListView):
 
 
     def get_queryset(self, **kwargs):
+
+        logging.error("LALALALALA\n\n\n")
         project_list = StudentProject.objects.get_own_published_queryset(self.request.user.student)
+        logging.error("LALALALALA\n\n\n")
         return project_list
 
     def get_context_data(self, **kwargs):
@@ -133,6 +137,7 @@ class StudentProjectDetailView(LoginRequiredMixin, DetailView):
     model = Project
 
     def get_queryset(self):
+        logging.error("LALALALALA\n\n\n")
         project = Project.objects.filter(slug=self.kwargs['slug'])
         return project
 
@@ -205,9 +210,26 @@ class ListAllProjectsView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super(ListAllProjectsView, self).get_context_data(**kwargs)
+
+        #TODO
+        all_projects = Project.objects.filter(is_active=True, published=True)
+        linkedin_profile = LinkedInProfile.objects.filter(leapkituser=self.request.user)
+        skills = Skill.objects.filter(profile=linkedin_profile)
+        skillstrings = []
+        for skill in skills:
+            skillsstrings.append(skill.name)
+
+
+        context['skillstrings'] = skillstrings
+
+        recommended_projects = all_projects #FIXME : Use the recommended projects.
+        context['recommended_projects'] = recommended_projects
+
+        nr_of_recommended_projects = len(recommended_projects)
         nr_of_projects_count = Project.objects.filter(is_active=True, published=True).count()
         nr_of_company_projects = CompanyProject.objects.filter(is_active=True, published=True).count()
         nr_of_student_projects = StudentProject.objects.filter(is_active=True, published=True).count()
+        context['recommended_projects_count'] = nr_of_recommended_projects
         context['all_projects_count'] = nr_of_projects_count
         context['company_projects_count'] = nr_of_company_projects
         context['student_projects_count'] = nr_of_student_projects
