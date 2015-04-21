@@ -23,30 +23,30 @@ class LinkedInProfileAdmin(admin.ModelAdmin):
 admin.site.register(LinkedInProfile, LinkedInProfileAdmin)
 
 class SkillAdmin(admin.ModelAdmin):
-  fieldsets = [(None, {'fields' : ['skill_id', 'name', 'profile']}),]
-  list_display = ('skill_id', 'name', 'profile')
+  fieldsets = [(None, {'fields' : ['name', 'profile']}),]
+  list_display = ('name', 'profile')
   search_fields = ['name','profile']
 
 admin.site.register(Skill, SkillAdmin)
 
 class LanguageAdmin(admin.ModelAdmin):
-  fieldsets = [(None, {'fields' : ['lang_id', 'name', 'level','profile']}),]
-  list_display = ('lang_id', 'name', 'level', 'profile')
+  fieldsets = [(None, {'fields' : ['name', 'level','profile']}),]
+  list_display = ('name', 'level', 'profile')
   search_fields = ['name','level','profile']
 
 admin.site.register(Language, LanguageAdmin)
 
 class EducationAdmin(admin.ModelAdmin):
-    fieldsets = [(None, {'fields' : ['edu_id', 'schoolName', 'fieldOfStudy',
+    fieldsets = [(None, {'fields' : ['schoolName', 'fieldOfStudy',
         'degree', 'profile']}),]
-    list_display = ('edu_id', 'schoolName', 'fieldOfStudy', 'degree', 'profile')
+    list_display = ('schoolName', 'fieldOfStudy', 'degree', 'profile')
     search_fields = ['fieldOfStudy', 'degree', 'profile']
 
 admin.site.register(Education, EducationAdmin)
 
 class CourseAdmin(admin.ModelAdmin):
-    fieldsets = [(None, {'fields' : ['course_id', 'name', 'profile']}),]
-    list_display = ('course_id', 'name', 'profile')
+    fieldsets = [(None, {'fields' : ['name', 'profile']}),]
+    list_display = ('name', 'profile')
     search_fields = ['name', 'profile']
 
 admin.site.register(Course, CourseAdmin)
