@@ -8,7 +8,6 @@ class LinkedInProfileAdmin(admin.ModelAdmin):
                            'linkedin_id',
                            'firstName',
                            'lastName',
-                           'specialities',
                            'positions',
                            'pictureUrl',
                            'publicProfileUrl'
@@ -18,7 +17,6 @@ class LinkedInProfileAdmin(admin.ModelAdmin):
     readonly_fields = ('modified',)
     list_display = ('leapkituser', 'firstName', 'lastName', 'modified')
     search_fields = ['leapkituser', 'firstName']
-    list_filter = ['specialities']
 
 
 admin.site.register(LinkedInProfile, LinkedInProfileAdmin)
