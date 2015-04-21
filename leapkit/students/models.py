@@ -349,8 +349,6 @@ class LinkedInProfile(models.Model):
     lastName = models.TextField()
 
     # Misc information from LinkedIn
-    location = models.TextField(null=True, blank=True)
-    specialities = models.TextField(null=True, blank=True)
     positions = models.TextField(null=True, blank=True)
     pictureUrl = models.TextField(null=True, blank=True)
     publicProfileUrl = models.TextField(null=True, blank=True)
@@ -365,74 +363,91 @@ class LinkedInProfile(models.Model):
         return "%s %s" % (self.firstName, self.lastName)
 
 class Language(models.Model):
-   lang_id = models.TextField()
+   lang_id = models.IntegerField()
    name = models.CharField(max_length = 30)
    level = models.CharField(max_length = 30)
    profile = models.ForeignKey(LinkedInProfile)
 
 class Course(models.Model):
-   course_id  = models.TextField()
+   course_id  = models.IntegerField()
    name = models.CharField(max_length = 81)
    profile = models.ForeignKey(LinkedInProfile)
 
 class Skill(models.Model):
-   skill_id = models.TextField()
+   skill_id = models.IntegerField()
    name = models.CharField(max_length = 81)
    profile = models.ForeignKey(LinkedInProfile)
 
 class Education(models.Model):
-   edu_id = models.TextField()
+   edu_id = models.IntegerField()
    schoolName = models.CharField(max_length=100)
    fieldOfStudy = models.CharField(max_length=100)
    degree = models.CharField(max_length=100)
    profile = models.ForeignKey(LinkedInProfile)
 
 def insertLinkedInProfile(p_json, LeapkitUsername):
-    p = fromString(p_json) # Converts json data to the desired structure
+    p = fromString(p_json) # Converts json data to the 'desired' structure
 
     user = User.objects.get(username=LeapkitUsername)
 
-    logging.error("SE MIG HEJ HEJ HEJ")
+    logging.error("\n\nSE MIG HEJ HEJ HEJ\n\n")
+
     logging.error(p.languages[0])
+    logging.error(p.skills[0])
+    logging.error(p.educations[0])
+    logging.error(p.courses[0])
 
     if LinkedInProfile.objects.filter(leapkituser = user):
         profile = LinkedInProfile.objects.get(leapkituser=user)
         profile.__dict__.update(linkedin_id = p.pid,
                                   firstName = p.firstName,
                                   lastName = p.lastName,
-                                  location = p.location,
-                                  specialities = p.specialities,
                                   positions = p.positions,
                                   pictureUrl = p.pictureUrl,
                                   publicProfileUrl = p.publicProfileUrl)
 
+        try:
+            Skills.objects.filter(profile=profile).delete()
+        except:
+            logging.error("skills")
+        try:
+            Education.objects.filter(profile=profile).delete()
+        except:
+            logging.error("education")
+        try:
+            Language.objects.filter(profile=profile).delete()
+        except:
+            logging.error("language")
+        try:
+            Course.objects.filter(profile=profile).delete()
+        except:
+            logging.error("Course")
+
         for s in p.skills:
-            ski = Skill(skill_id = s.sid, name = s.name, profile = profile)
+            ski = Skill(skill_id = int(s.sid), name = s.name, profile = profile)
             ski.save()
 
         for l in p.languages:
-            lang = Language(lang_id = l.lid, name = l.name, level = l.level,
+            lang = Language(lang_id =int(l.lid), name = l.name, level = l.level,
                     profile = profile)
             lang.save()
 
         for e in p.educations:
-            edu = Education(edu_id = e.eid, schoolName = e.schoolName,
+            edu = Education(edu_id = int(e.eid), schoolName = e.schoolName,
                     fieldOfStudy = e.fieldOfStudy, degree = e.degree,
                     profile = profile)
             edu.save()
 
         for c in p.courses:
-            cou = Course(course_id = c.cid, name = c.name, profile = profile)
+            cou = Course(course_id = int(c.cid), name = c.name,
+                    profile = profile)
             cou.save()
-
 
     else:
         profile = LinkedInProfile(leapkituser = user,
                                   linkedin_id = p.pid,
                                   firstName = p.firstName,
                                   lastName = p.lastName,
-                                  location = p.location,
-                                  specialities = p.specialities,
                                   positions = p.positions,
                                   pictureUrl = p.pictureUrl,
                                   publicProfileUrl = p.publicProfileUrl)
