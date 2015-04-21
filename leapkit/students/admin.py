@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from models import Student, StudentProject, LinkedInProfile
+from models import Student, StudentProject, LinkedInProfile, Skill
 
 class LinkedInProfileAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -8,7 +8,6 @@ class LinkedInProfileAdmin(admin.ModelAdmin):
                            'linkedin_id',
                            'firstName',
                            'lastName',
-                           'location',
                            'specialities',
                            'positions',
                            'pictureUrl',
@@ -19,11 +18,17 @@ class LinkedInProfileAdmin(admin.ModelAdmin):
     readonly_fields = ('modified',)
     list_display = ('leapkituser', 'firstName', 'lastName', 'modified')
     search_fields = ['leapkituser', 'firstName']
-    list_filter = ['location','specialities']
+    list_filter = ['specialities']
 
 
 admin.site.register(LinkedInProfile, LinkedInProfileAdmin)
 
+class SkillAdmin(admin.ModelAdmin):
+  fieldsets = [(None, {'fields' : ['skill_id', 'name', 'profile']}),]
+  list_display = ('skill_id', 'name', 'profile')
+  search_fields = ['name','profile']
+
+admin.site.register(Skill, SkillAdmin)
 
 
 class StudentAdmin(admin.ModelAdmin):
