@@ -363,23 +363,19 @@ class LinkedInProfile(models.Model):
         return "%s %s" % (self.firstName, self.lastName)
 
 class Language(models.Model):
-   lang_id = models.IntegerField()
    name = models.CharField(max_length = 30)
    level = models.CharField(max_length = 30)
    profile = models.ForeignKey(LinkedInProfile)
 
 class Course(models.Model):
-   course_id  = models.IntegerField()
    name = models.CharField(max_length = 81)
    profile = models.ForeignKey(LinkedInProfile)
 
 class Skill(models.Model):
-   skill_id = models.IntegerField()
    name = models.CharField(max_length = 81)
    profile = models.ForeignKey(LinkedInProfile)
 
 class Education(models.Model):
-   edu_id = models.IntegerField()
    schoolName = models.CharField(max_length=100)
    fieldOfStudy = models.CharField(max_length=100)
    degree = models.CharField(max_length=100)
@@ -389,13 +385,6 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
     p = fromString(p_json) # Converts json data to the 'desired' structure
 
     user = User.objects.get(username=LeapkitUsername)
-
-    logging.error("\n\nSE MIG HEJ HEJ HEJ\n\n")
-
-    logging.error(p.languages)
-    logging.error(p.skills)
-    logging.error(p.educations)
-    logging.error(p.courses)
 
     if LinkedInProfile.objects.filter(leapkituser = user):
         profile = LinkedInProfile.objects.get(leapkituser=user)
@@ -409,38 +398,37 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
         try:
             Skill.objects.filter(profile=profile).delete()
         except:
-            logging.error("skills")
+            logging.error("Skills not deleted")
         try:
             Education.objects.filter(profile=profile).delete()
         except:
-            logging.error("education")
+            logging.error("Education not deleted")
         try:
             Language.objects.filter(profile=profile).delete()
         except:
-            logging.error("language")
+            logging.error("Language not deleted")
         try:
             Course.objects.filter(profile=profile).delete()
         except:
-            logging.error("Course")
+            logging.error("Course not deleted")
 
         for s in p.skills:
-            ski = Skill(skill_id = int(s.sid), name = s.name, profile = profile)
+            ski = Skill(name = s.name, profile = profile)
             ski.save()
 
         for l in p.languages:
-            lang = Language(lang_id =int(l.lid), name = l.name, level = l.level,
+            lang = Language(name = l.name, level = l.level,
                     profile = profile)
             lang.save()
 
         for e in p.educations:
-            edu = Education(edu_id = int(e.eid), schoolName = e.schoolName,
+            edu = Education(schoolName = e.schoolName,
                     fieldOfStudy = e.fieldOfStudy, degree = e.degree,
                     profile = profile)
             edu.save()
 
         for c in p.courses:
-            cou = Course(course_id = int(c.cid), name = c.name,
-                    profile = profile)
+            cou = Course(name = c.name, profile = profile)
             cou.save()
 
     else:
@@ -455,20 +443,20 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
         profile.save()
 
         for s in p.skills:
-            ski = Skill(skill_id = s.sid, name = s.name, profile = profile)
+            ski = Skill(name = s.name, profile = profile)
             ski.save()
 
         for l in p.languages:
-            lang = Language(lang_id = l.lid, name = l.name, level = l.level,
+            lang = Language(name = l.name, level = l.level,
                     profile = profile)
             lang.save()
 
         for e in p.educations:
-            edu = Education(edu_id = e.eid, schoolName = e.schoolName,
+            edu = Education(schoolName = e.schoolName,
                     fieldOfStudy = e.fieldOfStudy, degree = e.degree,
                     profile = profile)
             edu.save()
 
         for c in p.courses:
-            cou = Course(course_id = c.cid, name = c.name, profile = profile)
+            cou = Course(name = c.name, profile = profile)
             cou.save()
