@@ -8,74 +8,70 @@ import logging
 ##############################
 
 class Person(object):
-    pid = None
-    firstName = None
-    maidenName = None
-    lastName = None
-    location = None
-    specialities = None
-    positions = None
-    pictureUrl = None
-    publicProfileUrl = None
+    pid = "" 
+    firstName = ""
+    maidenName = ""
+    lastName = ""
+    location = ""
+    specialities = ""
+    positions = ""
+    pictureUrl = ""
+    publicProfileUrl = ""
 
     #Lists
-    skills = None
-    educations = None
-    courses = None
-    languages = None
+    skills = []
+    educations = []
+    courses = []
+    languages = []
 
     def __str__(self):
         ret = "pid = " + self.pid + "\nname = " + self.firstName + " " + self.maidenName + " " + self.lastName + ".\n"
-        ret += "\nSkills:"
+        ret += "\nSkills:\n"
         for skill in self.skills:
-            ret += str(skill)
-        ret += "\nLanguages:"
+            ret += "    cid = " + str(skill.sid) + ", name = " + skill.name + "\n"
+        ret += "\nLanguages:\n"
         for language in self.languages:
-            ret += str(language)
-        ret += "\nEducations:"
+            "    lid = " + str(language.lid) + ", name = " + language.name + "\n level = " + language.level + "\n"
+        ret += "\nEducations:\n"
         for education in self.educations:
-            ret += str(education)
-        ret += "\nCourses:"
+            ret += "    eid = " + str(education.eid) + ", degree = " + education.degree + " in " + education.fieldOfStudy +"\n"#+ " from " + education.schoolName + "\n"
+        ret += "\nCourses:\n"
         for course in self.courses:
-            ret += str(course)
+            ret += "    cid = " + str(course.cid) + ", name = " + course.name + "\n"
         return ret 
-        # return ""
 
 class Language(object):
-    lid = None
-    name = None
-    level = None
+    lid = ""
+    name = ""
+    level = ""
 
     def __str__(self):
-        return "    lid = " + self.lid + "\n    name = " + self.name + "\n level = " + self.level + "\n\n"
+        return "    lid = " + str(self.lid) + "\n    name = " + self.name + "\n level = " + self.level + "\n\n"
 
 class Course(object):
-    cid  = None
-    name   = None
-    number  = None
+    cid  = ""
+    name   = ""
 
     def __str__(self):
-        return "    cid = " + self.cid + "\n    name = " + self.name + "\n    number = " + self.number
+        return "    cid = " + str(self.cid) + "\n    name = " + self.name + "\n    number = " + self.number
 
 class Skill(object):
-    sid = None
-    name = None
+    sid = ""
+    name = ""
 
     def __str__(self):
-        return "    cid = " + self.cid + ", name = " + self.name + "\n"
+        return "    cid = " + str(self.sid) + ", name = " + self.name + "\n"
 
 class Education(object):
-    eid = None
-    schoolName = None
-    fieldOfStudy = None
-    startDate = None
-    endDate = None
-    degree = None
-    activities = None
-    notes = None
+    eid = ""
+    schoolName = ""
+    fieldOfStudy = ""
+    startDate = ""
+    endDate = ""
+    degree = ""
 
     def __str__(self):
-        return "    eid = " + self.eid + ": " + self.degree + " in " + self.fieldOfStudy + " from " + self.schoolName + "\n"
+        return "    eid = " + str(self.eid) + ": " + self.degree + " in " + self.fieldOfStudy + " from " + self.schoolName + "\n"
 
 ################################
 ##      Helper Functions      ##
@@ -108,10 +104,10 @@ def fillFullProfile(data):
     """Creates a person based on the data"""
     variables = [s for s in dir(Person) if s[0] != '_']
     person = createPerson()
-    logging.error("\n\n")
-    logging.error(data)
-    logging.error("\n\n")
-    logging.error(variables)
+    # logging.error("\n\n")
+    # logging.error(data)
+    # logging.error("\n\n")
+    # logging.error(variables)
     for var in variables:
         if(var == "languages"):
            for language in getSub(data,"languages"):
@@ -128,10 +124,10 @@ def fillFullProfile(data):
             for course in getSub(data, "courses"):
                person.courses.append(createSub(var, Course, course))
         elif(var == "pid"):
-            logging.error("Checking for PID\n")
-            logging.error(data.keys())
+            # logging.error("Checking for PID\n")
+            # logging.error(data.keys())
             if(u'id' in data.keys()):
-                logging.error("Inserting pid:" + data[u"id"])
+                # logging.error("Inserting pid:" + data[u"id"])
                 person.pid = data[u"id"]
         elif(var == "firstName"):
             if(var in data.keys()):
@@ -165,17 +161,35 @@ def createSub(name, className, data):
     """Fills a sublist"""
     variables = [s for s in dir(className) if s[0] != '_']
     classInstance = className()
+    # logging.error(variables)
     for var in variables:
-        if(var[-4:] == "Date"):
-            # TODO: More exec, it's not okay.
-            exec("classInstance.%s = \"%s\"" % (var, formatDate(get(data,var))))
+        if(var == "startDate"):
+            classInstance.startDate = formatDate(get(data, var))
+        elif(var == "endDate"):
+            classInstance.endDate = formatDate(get(data, var))
         elif(var == "name" and (name == "languages" or name == "skills" or name == "publishers")):
             classInstance.name = data[name[:-1]][var]
+        elif(var == "name" and name == "courses"):
+            classInstance.name = data[var]
+        elif(var == "cid"): 
+            classInstance.cid = data["id"]
+        elif(var == "sid"): 
+            classInstance.sid = data["id"]
+        elif(var == "lid"): 
+            classInstance.lid = data["id"]
+        elif(var == "eid"): 
+            classInstance.eid = data["id"]
         elif(var == "level" and name == "languages" and "proficiency" in data):
             classInstance.level = data["proficiency"][var]
+        elif(var == "schoolName"): 
+            classInstance.schoolName = data[var]
+        elif(var == "degree"): 
+            classInstance.degree= data[var]
+        elif(var == "fieldOfStudy"): 
+            classInstance.fieldOfStudy= data[var]
         else:
-            # TODO: More exec.
-            exec("classInstance.%s = \"%s\"" % (var,get(data,var)))
+            logging.error("Did not find class variable for " + var)
+            # exec("classInstance.%s = \"%s\"" % (var,get(data,var)))
     return classInstance
 
 def formatDate(data):
