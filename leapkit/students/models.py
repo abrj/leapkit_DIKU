@@ -392,10 +392,10 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
 
     logging.error("\n\nSE MIG HEJ HEJ HEJ\n\n")
 
-    logging.error(p.languages[0])
-    logging.error(p.skills[0])
-    logging.error(p.educations[0])
-    logging.error(p.courses[0])
+    logging.error(p.languages)
+    logging.error(p.skills)
+    logging.error(p.educations)
+    logging.error(p.courses)
 
     if LinkedInProfile.objects.filter(leapkituser = user):
         profile = LinkedInProfile.objects.get(leapkituser=user)
@@ -407,7 +407,7 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
                                   publicProfileUrl = p.publicProfileUrl)
 
         try:
-            Skills.objects.filter(profile=profile).delete()
+            Skill.objects.filter(profile=profile).delete()
         except:
             logging.error("skills")
         try:

@@ -9,9 +9,9 @@ class LinkedInProfileAdmin(admin.ModelAdmin):
                            'linkedin_id',
                            'firstName',
                            'lastName',
-                           'positions',
-                           'pictureUrl',
-                           'publicProfileUrl'
+#                          'positions',
+#                          'pictureUrl',
+#                          'publicProfileUrl'
                            ]}),
     ]
 
