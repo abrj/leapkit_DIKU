@@ -1,9 +1,7 @@
 """
 Django settings for leapkit project.
-
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
-
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
@@ -15,7 +13,7 @@ import sys
 from os.path import normpath, join
 import os
 
-import logging
+import logging, logging.config
 
 # #import dj_database_url
 
@@ -252,7 +250,7 @@ TEMPLATE_DIRS = (
 # the site admins on every HTTP 500 error when DEBUG=False.
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
-
+"""
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -276,7 +274,7 @@ LOGGING = {
         },
     }
 }
-
+"""
 
 # Messages settings
 MESSAGE_STORAGE = 'django.contrib.messages.storage.cookie.CookieStorage'
@@ -381,4 +379,21 @@ LOGGING = {
         },
     },
 }
+
+
+"""LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'stream': sys.__stdout__,
+        }
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'INFO'
+    }
+}"""
+
 logging.config.dictConfig(LOGGING)
