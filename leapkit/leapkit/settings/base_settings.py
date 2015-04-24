@@ -15,6 +15,8 @@ import sys
 from os.path import normpath, join
 import os
 
+import logging
+
 # #import dj_database_url
 
 DEBUG = True
