@@ -39,15 +39,17 @@ def strictCompare(string, stringList):
 #Note: boolean values False and True are considered to be 0 and 1, respectively,
 #except when converted to string.
 def containsStringCompare(string, stringList):
-    return any(string.lower() in s.lower()  for s in stringList)
+    return any(string.lower() in s.lower() for s in stringList)
+
+def skillsInDescription(skillList, full_description):
+    return any(skill.lower() in full_description[0].lower() for skill in skillList)
 
 
 
 
 #Returns list project names ordered by matching degree.
 #Only take skills into account, not languages, etc.
-def compareSkills(userSkills, projects):
-    stringComparefunction = strictCompare
+def compareSkills(userSkills, projects, stringComparefunction=strictCompare):
 
     sortedProjectList = [(projId, matchListsOfStrings(userSkills, projSkills, stringComparefunction) ) for projId, projSkills in projects]
     sortedProjectList.sort(key=lambda tup: tup[1], reverse=True)

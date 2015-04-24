@@ -20,7 +20,8 @@ from institutions.models import Institution, FieldOfStudy
 
 import logging
 import linkedin_connector
-import matchmaking
+from matchmaking import compareSkills, skillsInDescription
+
 
 """
     ------------------------------------------------------------------------
@@ -211,7 +212,6 @@ class ListAllProjectsView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super(ListAllProjectsView, self).get_context_data(**kwargs)
 
-        #TODO
         all_projects = Project.objects.filter(is_active=True, published=True)
         linkedin_profile = LinkedInProfile.objects.filter(leapkituser=self.request.user)
         skills = Skill.objects.filter(profile=linkedin_profile)
@@ -219,15 +219,19 @@ class ListAllProjectsView(LoginRequiredMixin, ListView):
         for skill in skills:
             skillstrings.append(skill.name)
 
-
-        context['skillstrings'] = skillstrings
         project_tuples = []
         for project in all_projects:
-            project_tuples.append((project.id, project.full_description))
+            project_tuples.append([project.id, [project.full_description]])
+
+        compare_result = compareSkills(skillstrings, project_tuples, skillsInDescription)
+        #context['compare_result'] = compare_result
 
 
+        recommended_projects = []#all_projects #FIXME : Use the recommended projects.
+        for tup in project_tuples:
+            pid = tup[0]
+            recommended_projects.append(Project.objects.get(id=pid))
 
-        recommended_projects = all_projects #FIXME : Use the recommended projects.
         context['recommended_projects'] = recommended_projects
 
         nr_of_recommended_projects = len(recommended_projects)
