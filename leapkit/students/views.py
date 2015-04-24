@@ -217,10 +217,15 @@ class ListAllProjectsView(LoginRequiredMixin, ListView):
         skills = Skill.objects.filter(profile=linkedin_profile)
         skillstrings = []
         for skill in skills:
-            skillsstrings.append(skill.name)
+            skillstrings.append(skill.name)
 
 
         context['skillstrings'] = skillstrings
+        project_tuples = []
+        for project in all_projects:
+            project_tuples.append((project.id, project.full_description))
+
+
 
         recommended_projects = all_projects #FIXME : Use the recommended projects.
         context['recommended_projects'] = recommended_projects
@@ -252,6 +257,7 @@ class ListAllProjectsView(LoginRequiredMixin, ListView):
 
 
         return context
+
 
 
 # @register.assignment_tag
