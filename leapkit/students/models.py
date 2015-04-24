@@ -385,8 +385,9 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
     p = fromString(p_json) # Converts json data to the 'desired' structure
 
     user = User.objects.get(username=LeapkitUsername)
-
+    """Checks if linkedin data already exists"""
     if LinkedInProfile.objects.filter(leapkituser = user):
+        """If exists, profile is updated"""
         profile = LinkedInProfile.objects.get(leapkituser=user)
         profile.__dict__.update(linkedin_id = p.pid,
                                   firstName = p.firstName,
@@ -395,6 +396,7 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
                                   pictureUrl = p.pictureUrl,
                                   publicProfileUrl = p.publicProfileUrl)
 
+        """Seemed useful at the time"""
         try:
             Skill.objects.filter(profile=profile).delete()
         except:
@@ -432,6 +434,7 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
             cou.save()
 
     else:
+        """Creates new LinkedInProfile"""
         profile = LinkedInProfile(leapkituser = user,
                                   linkedin_id = p.pid,
                                   firstName = p.firstName,
@@ -439,7 +442,6 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
                                   positions = p.positions,
                                   pictureUrl = p.pictureUrl,
                                   publicProfileUrl = p.publicProfileUrl)
-        logging.error(profile)
         profile.save()
 
         for s in p.skills:
