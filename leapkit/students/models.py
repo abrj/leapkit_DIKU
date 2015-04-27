@@ -359,7 +359,7 @@ class LinkedInProfile(models.Model):
         """
         :return: First name + last name, with a space in between
         """
-        return "%s %s" % (self.firstName, self.lastNae)
+        return "%s %s" % (self.firstName, self.lastName)
 
 class Language(models.Model):
    name = models.CharField(max_length = 30)
@@ -413,10 +413,10 @@ class Position(models.Model):
    profile = models.ForeignKey(LinkedInProfile)
 
    def __unicode__(self):
-       return self.get_fieldOfStudy()
+       return self.get_jobtitle()
 
-   def get_fieldOfStudy(self):
-       return "%s" % (self.fieldOfStudy)
+   def get_jobtitle(self):
+       return "%s" % (self.jobtitle)
 
 def insertLinkedInProfile(p_json, LeapkitUsername):
     p = fromString(p_json) # Converts json data to the 'desired' structure
@@ -490,10 +490,10 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
                                   publicProfileUrl = p.publicProfileUrl)
         profile.save()
 
-        for p in p.positions:
-            pos = Position(startDate = p.startDate, endDate = p.endDate,
-                    company = p.company, jobtitle = p.title,
-                    isCurrent = p.isCurrent, profile = profile)
+        for ps in p.positions:
+            pos = Position(startDate = ps.startDate, endDate = ps.endDate,
+                    company = ps.company, jobtitle = ps.title,
+                    isCurrent = ps.isCurrent, profile = profile)
             pos.save()
 
         for s in p.skills:
