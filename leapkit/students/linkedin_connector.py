@@ -12,11 +12,12 @@ __API_KEY = '75yv7bexwfjovt' #Leapkit unique API/Consumer key
 __API_SECRET = 'Jz3ElgF0hj1RAjb3' #Leapkit unique Secret key/Consumer Secret
 __RETURN_URL = 'http://www.leapkit.com'
 
+FILE_NAME = 'linkedInResult.json'
 
 
 # Returns url to our linkedin application.
 # Takes a return url to be redirected to after linkedin login.
-def linkedin_get_url(return_url = 'http://www.leapkit.com'):
+def linkedin_get_url(return_url = __RETURN_URL):
     authentication = linkedin.LinkedInAuthentication(__API_KEY, 
                                                      __API_SECRET, 
                                                      return_url, 
@@ -28,34 +29,19 @@ def linkedin_get_url(return_url = 'http://www.leapkit.com'):
 
 
 # Returns 1 if extraction was successful, otherwise 0.
-# Takes the given redirect uri, i.e. the LinkedIn url in browser after login.
-# Takes the return_url used in the linkedin_get_url
-def linkedin_extract(redirect_uri, return_url):
-    #assumes linkedin_url is correct if not empty
-    if redirect_uri == "":
-        print "Error: Invalid redirect_uri. redirect_uri is empty. Exiting"
-        return 0
-
-    query = urlparse.urlparse(redirect_uri).query #Parse uri
-    url_dict = urlparse.parse_qs(query)
-
-    if 'code' not in url_dict:
-        print "Error: Code not found in redirect uri. Exiting"
-        return 0
-
-    authentication_code = url_dict['code'] #Get code
-
+# Takes the given code from the GET section of the redirect uri, i.e. the 
+# LinkedIn url in browser after login.
+# Takes the return_url used in the linkedin_get_url to establish connection to 
+# LinkedIn. Can be omitted by converting these methods to objects.
+def linkedin_extract(code, return_url):
     authentication = linkedin.LinkedInAuthentication(__API_KEY, 
                                                      __API_SECRET, 
                                                      return_url, 
                                                      linkedin.PERMISSIONS
                                                         .enums.values())
-
-    authentication.authorization_code = authentication_code #Set auth_code, lib does not do this smartly..
-
+    authentication.authorization_code = code #Set auth_code, lib does not do this smartly..
     authentication.get_access_token() #Needed to access linkedin account info.
     application = linkedin.LinkedInApplication(authentication) #Now get access
-
 
     # Extract user information
     # Only extract skills:
@@ -82,11 +68,4 @@ def linkedin_extract(redirect_uri, return_url):
               "three-current-positions," + "three-past-positions," + "volunteer")
 
     data = application.get_profile(None, None, fields)
-    try:
-        with open(FILE_NAME, 'w') as outfile:
-            json.dump(data, outfile)
-    except IOError:
-        print 'Error: Cannot open or write to', FILE_NAME
-        return 0
-
-    return 1
+    return data
