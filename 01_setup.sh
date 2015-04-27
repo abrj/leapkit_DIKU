@@ -3,11 +3,11 @@
 # update base system.
 sudo apt-get -y update
 sudo apt-get -y upgrade
-sudo apt-get - ydist-upgrade
+sudo apt-get -y dist-upgrade
 
 # Install dependencies
-sudo apt-get -y build-dep python-imaging
-sudo apt-get -y install vim emacs libjpeg62 libjpeg62-dev python-pip python-psycopg2 postgresql
+sudo apt-get -y install build-dep python-imaging
+sudo apt-get -y install libjpeg62 libjpeg62-dev python-pip python-psycopg2 postgresql
 
 # Do magic linking.
 sudo ln -s /usr/lib/i386-linux-gnu/libz.so /usr/lib/libz.so
