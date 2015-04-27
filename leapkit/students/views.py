@@ -53,15 +53,14 @@ class StudentView(LoginRequiredMixin, DetailView):
 
         context['project_list'] = project_list
         context['published_projects'] = project_list.filter(published=True)
-
-        linked = LinkedInProfile.objects.get(leapkituser=self.request.user)
-
-        context['linked'] = linked
-        context['skills'] = Skill.objects.filter(profile=linked)
-        context['educations'] = Education.objects.filter(profile=linked)
-        context['languages'] = Language.objects.filter(profile=linked)
-        context['courses'] = Course.objects.filter(profile=linked)
-        context['positions'] = Position.objects.filter(profile=linked)
+        if LinkedInProfile.objects.filter(leapkituser=self.request.user):
+            linked = LinkedInProfile.objects.get(leapkituser=self.request.user)
+            context['linked'] = linked
+            context['skills'] = Skill.objects.filter(profile=linked)
+            context['educations'] = Education.objects.filter(profile=linked)
+            context['languages'] = Language.objects.filter(profile=linked)
+            context['courses'] = Course.objects.filter(profile=linked)
+            context['positions'] = Position.objects.filter(profile=linked)
 
         return context
 

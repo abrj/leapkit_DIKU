@@ -359,7 +359,7 @@ class LinkedInProfile(models.Model):
         """
         :return: First name + last name, with a space in between
         """
-        return "%s %s" % (self.firstName, self.lastName)
+        return "%s %s" % (self.firstName, self.lastNae)
 
 class Language(models.Model):
    name = models.CharField(max_length = 30)
@@ -405,11 +405,11 @@ class Education(models.Model):
        return "%s" % (self.fieldOfStudy)
 
 class Position(models.Model):
-   startDate = models.CharField(max_length=100)
-   endDate = models.CharField(max_length=100)
+   startDate = models.CharField(max_length=20)
+   endDate = models.CharField(max_length=20)
    company = models.CharField(max_length=100)
    jobtitle = models.CharField(max_length=100)
-   current = models.BooleanField(default=False)
+   isCurrent = models.BooleanField(default=False)
    profile = models.ForeignKey(LinkedInProfile)
 
    def __unicode__(self):
@@ -417,9 +417,6 @@ class Position(models.Model):
 
    def get_fieldOfStudy(self):
        return "%s" % (self.fieldOfStudy)
-
-
-
 
 def insertLinkedInProfile(p_json, LeapkitUsername):
     p = fromString(p_json) # Converts json data to the 'desired' structure
@@ -457,11 +454,11 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
         except:
             logging.error("Position not deleted")
 
-        for p in p.positions:
-            pos = Position(startDate = p.startDate, company = p.company,
-                    jobtitle = p.title, current = p.current, profile = profile)
+        for ps in p.positions:
+            pos = Position(startDate = ps.startDate, endDate = ps.endDate,
+                    company = ps.company, jobtitle = ps.title,
+                    isCurrent = ps.isCurrent, profile = profile)
             pos.save()
-
 
         for s in p.skills:
             ski = Skill(name = s.name, profile = profile)
@@ -483,6 +480,7 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
             cou.save()
 
     else:
+#        try:
         """Creates new LinkedInProfile"""
         profile = LinkedInProfile(leapkituser = user,
                                   linkedin_id = p.pid,
@@ -493,8 +491,9 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
         profile.save()
 
         for p in p.positions:
-            pos = Position(startDate = p.startDate, company = p.company,
-                    jobtitle = p.title, current = p.current, profile = profile)
+            pos = Position(startDate = p.startDate, endDate = p.endDate,
+                    company = p.company, jobtitle = p.title,
+                    isCurrent = p.isCurrent, profile = profile)
             pos.save()
 
         for s in p.skills:
@@ -515,3 +514,12 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
         for c in p.courses:
             cou = Course(name = c.name, profile = profile)
             cou.save()
+
+#        except:
+#            LinkedInProfile.objects.filter(leapkituser=user).delete()
+#            Skill.objects.filter(profile=profile).delete()
+#            Education.objects.filter(profile=profile).delete()
+#            Language.objects.filter(profile=profile).delete()
+#            Course.objects.filter(profile=profile).delete()
+#            Position.objects.filter(profile=profile).delete()
+
