@@ -97,10 +97,7 @@ class StudentOwnProjectListView(LoginRequiredMixin, ListView):
 
 
     def get_queryset(self, **kwargs):
-
-        logging.error("LALALALALA\n\n\n")
         project_list = StudentProject.objects.get_own_published_queryset(self.request.user.student)
-        logging.error("LALALALALA\n\n\n")
         return project_list
 
     def get_context_data(self, **kwargs):
@@ -141,7 +138,6 @@ class StudentProjectDetailView(LoginRequiredMixin, DetailView):
     model = Project
 
     def get_queryset(self):
-        logging.error("LALALALALA\n\n\n")
         project = Project.objects.filter(slug=self.kwargs['slug'])
         return project
 
