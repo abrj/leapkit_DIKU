@@ -14,11 +14,11 @@ class Person(object):
     lastName = ""
     location = ""
     specialities = ""
-    positions = ""
     pictureUrl = ""
     publicProfileUrl = ""
 
     #Lists
+    positions = []
     skills = []
     educations = []
     courses = []
@@ -35,6 +35,9 @@ class Person(object):
         ret += "\nEducations:\n"
         for education in self.educations:
             ret += "    eid = " + str(education.eid) + ", degree = " + education.degree + " in " + education.fieldOfStudy +"\n"
+        ret += "\nPositions:\n"
+        for position in self.positions:
+            ret += "    pid = " + str(position.pid) + ", isCurrent = " + str(position.isCurrent) + ", starter " + position.startDate + " and ended " + position.endDate + " worked for company " + position.company + "\n" + "        title was: " + position.title + "\n"
         ret += "\nCourses:\n"
         for course in self.courses:
             ret += "    cid = " + str(course.cid) + ", name = " + course.name + "\n"
@@ -44,6 +47,16 @@ class Language(object):
     lid = ""
     name = ""
     level = ""
+
+class Position(object):
+    endDate = ""
+    startDate = ""
+    isCurrent = ""
+    pid = ""
+
+    company = ""
+    title = ""
+    summary = ""
 
     # def __str__(self):
         # return "    lid = " + str(self.lid) + "\n    name = " + self.name + "\n level = " + self.level + "\n\n"
@@ -98,6 +111,7 @@ def createPerson():
     person.languages = []
     person.educations = []
     person.courses = []
+    person.positions = []
     return person
 
 def fillFullProfile(data):
@@ -117,6 +131,10 @@ def fillFullProfile(data):
            for education in getSub(data,"educations"):
                classInstance = createSub(var, Education, education)
                person.educations.append(classInstance)
+        elif(var == "positions"):
+           for position in getSub(data,"positions"):
+               classInstance = createSub(var, Position, position)
+               person.positions.append(classInstance)
         elif(var == "skills"):
             for skill in getSub(data, "skills"):
                person.skills.append(createSub(var, Skill, skill))
@@ -144,9 +162,6 @@ def fillFullProfile(data):
         elif(var == "specialities"):
             if(var in data.keys()):
                 person.specialities = data["specialities"]
-        elif(var == "positions"):
-            if(var in data.keys()):
-                person.positions = data["positions"]
         elif(var == "pictureUrl"):
             if(var in data.keys()):
                 person.pictureUrl = data["pictureUrl"]
@@ -167,6 +182,8 @@ def createSub(name, className, data):
             classInstance.startDate = formatDate(get(data, var))
         elif(var == "endDate"):
             classInstance.endDate = formatDate(get(data, var))
+        elif(var == "isCurrent" and name == "positions"):
+            classInstance.isCurrent= data[var]
         elif(var == "name" and (name == "languages" or name == "skills" or name == "publishers")):
             classInstance.name = data[name[:-1]][var]
         elif(var == "name" and name == "courses"):
@@ -179,6 +196,8 @@ def createSub(name, className, data):
             classInstance.lid = data["id"]
         elif(var == "eid"): 
             classInstance.eid = data["id"]
+        elif(var == "pid"): 
+            classInstance.pid = data["id"]
         elif(var == "level" and name == "languages" and "proficiency" in data):
             classInstance.level = data["proficiency"][var]
         elif(var == "schoolName"): 
@@ -187,9 +206,14 @@ def createSub(name, className, data):
             classInstance.degree= data[var]
         elif(var == "fieldOfStudy"): 
             classInstance.fieldOfStudy= data[var]
+        elif(var == "title"): 
+            classInstance.title = data[var]
+        elif(var == "summary"): 
+            classInstance.summary = data[var]
+        elif(var == "company"): 
+            classInstance.company = data[var]["name"]
         else:
             logging.error("Did not find class variable for " + var)
-            # exec("classInstance.%s = \"%s\"" % (var,get(data,var)))
     return classInstance
 
 def formatDate(data):
