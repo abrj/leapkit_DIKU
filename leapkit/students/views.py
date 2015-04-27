@@ -11,7 +11,7 @@ from django.views.generic import DetailView, CreateView, FormView, UpdateView, L
 from braces.views import LoginRequiredMixin
 
 from forms import StudentCreationForm, StudentLogInForm, ChangeUserPassword, StudentForm, StudentProjectForm, EmailForm
-from models import Student, StudentProject, insertLinkedInProfile, LinkedInProfile, Skill
+from models import Student, StudentProject, insertLinkedInProfile, LinkedInProfile, Skill, Language, Education, Course
 from companies.models import CompanyProject
 from queries.models import FAQuestion, UserQuestion
 from queries.forms import ContactForm
@@ -57,6 +57,7 @@ class StudentView(LoginRequiredMixin, DetailView):
         linked = LinkedInProfile.objects.get(leapkituser=self.request.user)
 
         context['linked'] = linked
+        #context['skills'] = Skill.objects.get(profile=linked)
 
         return context
 

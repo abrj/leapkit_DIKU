@@ -362,27 +362,48 @@ class LinkedInProfile(models.Model):
         """
         return "%s %s" % (self.firstName, self.lastName)
 
-    def get_all(self):
-        return "%s" % (self.linked_in)
-
 class Language(models.Model):
    name = models.CharField(max_length = 30)
    level = models.CharField(max_length = 30)
    profile = models.ForeignKey(LinkedInProfile)
 
+   def __unicode__(self):
+       return self.get_language()
+
+   def get_language(self):
+       return "%s" % (self.name)
+
 class Course(models.Model):
    name = models.CharField(max_length = 81)
    profile = models.ForeignKey(LinkedInProfile)
 
+   def __unicode__(self):
+       return self.get_course()
+
+   def get_course(self):
+       return "%s" % (self.name)
+
 class Skill(models.Model):
    name = models.CharField(max_length = 81)
    profile = models.ForeignKey(LinkedInProfile)
+
+   def __unicode__(self):
+       return self.get_skill()
+
+   def get_skill(self):
+       return "%s" % (self.name)
 
 class Education(models.Model):
    schoolName = models.CharField(max_length=100)
    fieldOfStudy = models.CharField(max_length=100)
    degree = models.CharField(max_length=100)
    profile = models.ForeignKey(LinkedInProfile)
+
+   def __unicode__(self):
+       return self.get_fieldOfStudy()
+
+   def get_fieldOfStudy(self):
+       return "%s" % (self.fieldOfStudy)
 
 def insertLinkedInProfile(p_json, LeapkitUsername):
     p = fromString(p_json) # Converts json data to the 'desired' structure

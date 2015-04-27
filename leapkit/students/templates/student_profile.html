@@ -105,7 +105,21 @@
                 </div>
                 <div class="main-information">
                     {% if linked %}
+
+                        {{ linked.modfied|linebreaks }}
+                        {{ linked.linkedin_id|linebreaks }}
                         {{ linked|linebreaks }}
+                        {{ linked.positions|linebreaks }}
+                        {{ linked.pictureUrl|linebreaks }}
+                        {{ linked.publicProfileUrl|linebreaks }}
+                
+                        {% for skill in skills %}
+                          <div>
+                            {{ skill.name|linebreaks }}
+                          </div>
+                        {% empty %}
+                          <h2 class="text-center">YOU SUCK, BITCH</h2>
+                        {% endfor %}
                     {% else %}
                         <p>You have not fetched data yet</p>
                     {% endif %}
