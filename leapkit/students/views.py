@@ -11,7 +11,7 @@ from django.views.generic import DetailView, CreateView, FormView, UpdateView, L
 from braces.views import LoginRequiredMixin
 
 from forms import StudentCreationForm, StudentLogInForm, ChangeUserPassword, StudentForm, StudentProjectForm, EmailForm
-from models import Student, StudentProject, insertLinkedInProfile
+from models import Student, StudentProject, insertLinkedInProfile, LinkedInProfile, Skill, Language, Education, Course
 from companies.models import CompanyProject
 from queries.models import FAQuestion, UserQuestion
 from queries.forms import ContactForm
@@ -20,6 +20,8 @@ from institutions.models import Institution, FieldOfStudy
 
 import logging
 import linkedin_connector
+from matchmaking import compareSkills, containsStringCompare
+
 
 """
     ------------------------------------------------------------------------
@@ -52,8 +54,12 @@ class StudentView(LoginRequiredMixin, DetailView):
         context['project_list'] = project_list
         context['published_projects'] = project_list.filter(published=True)
 
-        return context
+        linked = LinkedInProfile.objects.get(leapkituser=self.request.user)
 
+        context['linked'] = linked
+        #context['skills'] = Skill.objects.get(profile=linked)
+
+        return context
 
 class UpdateStudentProfileView(LoginRequiredMixin, UpdateView):
     template_name = "update_student_profile.html"
@@ -205,9 +211,50 @@ class ListAllProjectsView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super(ListAllProjectsView, self).get_context_data(**kwargs)
+
+        ###############################
+        # BEGINNING OF PROTOTYPE CODE #
+        ###############################
+
+        # Yes the below code is a hack, proof of concept stuff.
+        # The list breaks when you switch tabs.
+
+        all_projects = Project.objects.filter(is_active=True, published=True)
+        linkedin_profile = LinkedInProfile.objects.filter(leapkituser=self.request.user)
+        skills = Skill.objects.filter(profile=linkedin_profile)
+        skillstrings = []
+        for skill in skills:
+            skillstrings.append(skill.name)
+
+        project_tuples = []
+        for project in all_projects:
+            project_tuples.append([project.id, project.full_description.split()])
+
+        compare_result = compareSkills(skillstrings, project_tuples, containsStringCompare)
+        #context['compare_result'] = compare_result
+
+
+        recommended_projects = []#all_projects #FIXME : Use the recommended projects.
+        #debug_list = []
+        for tup in compare_result:
+            pid = tup[0]
+            recommended_projects.append(Project.objects.get(id=pid))
+            #debug_list.append([pid, Project.objects.get(id=pid)])
+
+
+
+        #context['debug_list'] = debug_list
+        context['recommended_projects'] = recommended_projects
+
+        #########################
+        # END OF PROTOTYPE CODE #
+        #########################
+
+        nr_of_recommended_projects = len(recommended_projects)
         nr_of_projects_count = Project.objects.filter(is_active=True, published=True).count()
         nr_of_company_projects = CompanyProject.objects.filter(is_active=True, published=True).count()
         nr_of_student_projects = StudentProject.objects.filter(is_active=True, published=True).count()
+        context['recommended_projects_count'] = nr_of_recommended_projects
         context['all_projects_count'] = nr_of_projects_count
         context['company_projects_count'] = nr_of_company_projects
         context['student_projects_count'] = nr_of_student_projects
@@ -230,6 +277,7 @@ class ListAllProjectsView(LoginRequiredMixin, ListView):
 
 
         return context
+
 
 
 # @register.assignment_tag

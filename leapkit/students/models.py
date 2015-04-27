@@ -4,6 +4,7 @@ import StringIO
 import re
 import os
 import logging
+import json
 
 # Django packages
 from django.contrib.auth.models import User
@@ -362,42 +363,64 @@ class LinkedInProfile(models.Model):
         """
         return "%s %s" % (self.firstName, self.lastName)
 
+    def get_positions(self):
+      """
+      Returns the positions as a dict.
+      FIXME: Test and finish.
+      """
+      return JSONDecoder().decode(self.positions)
+
+
 class Language(models.Model):
-   lang_id = models.IntegerField()
    name = models.CharField(max_length = 30)
    level = models.CharField(max_length = 30)
    profile = models.ForeignKey(LinkedInProfile)
 
+   def __unicode__(self):
+       return self.get_language()
+
+   def get_language(self):
+       return "%s" % (self.name)
+
 class Course(models.Model):
-   course_id  = models.IntegerField()
    name = models.CharField(max_length = 81)
    profile = models.ForeignKey(LinkedInProfile)
+
+   def __unicode__(self):
+       return self.get_course()
+
+   def get_course(self):
+       return "%s" % (self.name)
 
 class Skill(models.Model):
-   skill_id = models.IntegerField()
    name = models.CharField(max_length = 81)
    profile = models.ForeignKey(LinkedInProfile)
 
+   def __unicode__(self):
+       return self.get_skill()
+
+   def get_skill(self):
+       return "%s" % (self.name)
+
 class Education(models.Model):
-   edu_id = models.IntegerField()
    schoolName = models.CharField(max_length=100)
    fieldOfStudy = models.CharField(max_length=100)
    degree = models.CharField(max_length=100)
    profile = models.ForeignKey(LinkedInProfile)
 
+   def __unicode__(self):
+       return self.get_fieldOfStudy()
+
+   def get_fieldOfStudy(self):
+       return "%s" % (self.fieldOfStudy)
+
 def insertLinkedInProfile(p_json, LeapkitUsername):
     p = fromString(p_json) # Converts json data to the 'desired' structure
 
     user = User.objects.get(username=LeapkitUsername)
-
-    logging.error("\n\nSE MIG HEJ HEJ HEJ\n\n")
-
-    logging.error(p.languages[0])
-    logging.error(p.skills[0])
-    logging.error(p.educations[0])
-    logging.error(p.courses[0])
-
+    """Checks if linkedin data already exists"""
     if LinkedInProfile.objects.filter(leapkituser = user):
+        """If exists, profile is updated"""
         profile = LinkedInProfile.objects.get(leapkituser=user)
         profile.__dict__.update(linkedin_id = p.pid,
                                   firstName = p.firstName,
@@ -406,44 +429,45 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
                                   pictureUrl = p.pictureUrl,
                                   publicProfileUrl = p.publicProfileUrl)
 
+        """Seemed useful at the time"""
         try:
-            Skills.objects.filter(profile=profile).delete()
+            Skill.objects.filter(profile=profile).delete()
         except:
-            logging.error("skills")
+            logging.error("Skills not deleted")
         try:
             Education.objects.filter(profile=profile).delete()
         except:
-            logging.error("education")
+            logging.error("Education not deleted")
         try:
             Language.objects.filter(profile=profile).delete()
         except:
-            logging.error("language")
+            logging.error("Language not deleted")
         try:
             Course.objects.filter(profile=profile).delete()
         except:
-            logging.error("Course")
+            logging.error("Course not deleted")
 
         for s in p.skills:
-            ski = Skill(skill_id = int(s.sid), name = s.name, profile = profile)
+            ski = Skill(name = s.name, profile = profile)
             ski.save()
 
         for l in p.languages:
-            lang = Language(lang_id =int(l.lid), name = l.name, level = l.level,
+            lang = Language(name = l.name, level = l.level,
                     profile = profile)
             lang.save()
 
         for e in p.educations:
-            edu = Education(edu_id = int(e.eid), schoolName = e.schoolName,
+            edu = Education(schoolName = e.schoolName,
                     fieldOfStudy = e.fieldOfStudy, degree = e.degree,
                     profile = profile)
             edu.save()
 
         for c in p.courses:
-            cou = Course(course_id = int(c.cid), name = c.name,
-                    profile = profile)
+            cou = Course(name = c.name, profile = profile)
             cou.save()
 
     else:
+        """Creates new LinkedInProfile"""
         profile = LinkedInProfile(leapkituser = user,
                                   linkedin_id = p.pid,
                                   firstName = p.firstName,
@@ -451,24 +475,23 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
                                   positions = p.positions,
                                   pictureUrl = p.pictureUrl,
                                   publicProfileUrl = p.publicProfileUrl)
-        logging.error(profile)
         profile.save()
 
         for s in p.skills:
-            ski = Skill(skill_id = s.sid, name = s.name, profile = profile)
+            ski = Skill(name = s.name, profile = profile)
             ski.save()
 
         for l in p.languages:
-            lang = Language(lang_id = l.lid, name = l.name, level = l.level,
+            lang = Language(name = l.name, level = l.level,
                     profile = profile)
             lang.save()
 
         for e in p.educations:
-            edu = Education(edu_id = e.eid, schoolName = e.schoolName,
+            edu = Education(schoolName = e.schoolName,
                     fieldOfStudy = e.fieldOfStudy, degree = e.degree,
                     profile = profile)
             edu.save()
 
         for c in p.courses:
-            cou = Course(course_id = c.cid, name = c.name, profile = profile)
+            cou = Course(name = c.name, profile = profile)
             cou.save()
