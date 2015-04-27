@@ -20,7 +20,7 @@ from institutions.models import Institution, FieldOfStudy
 
 import logging
 import linkedin_connector
-from matchmaking import compareSkills, skillsInDescription
+from matchmaking import compareSkills, containsStringCompare
 
 
 """
@@ -212,6 +212,13 @@ class ListAllProjectsView(LoginRequiredMixin, ListView):
     def get_context_data(self, **kwargs):
         context = super(ListAllProjectsView, self).get_context_data(**kwargs)
 
+        ###############################
+        # BEGINNING OF PROTOTYPE CODE #
+        ###############################
+
+        # Yes the below code is a hack, proof of concept stuff.
+        # The list breaks when you switch tabs.
+
         all_projects = Project.objects.filter(is_active=True, published=True)
         linkedin_profile = LinkedInProfile.objects.filter(leapkituser=self.request.user)
         skills = Skill.objects.filter(profile=linkedin_profile)
@@ -221,18 +228,27 @@ class ListAllProjectsView(LoginRequiredMixin, ListView):
 
         project_tuples = []
         for project in all_projects:
-            project_tuples.append([project.id, [project.full_description]])
+            project_tuples.append([project.id, project.full_description.split()])
 
-        compare_result = compareSkills(skillstrings, project_tuples, skillsInDescription)
+        compare_result = compareSkills(skillstrings, project_tuples, containsStringCompare)
         #context['compare_result'] = compare_result
 
 
         recommended_projects = []#all_projects #FIXME : Use the recommended projects.
-        for tup in project_tuples:
+        #debug_list = []
+        for tup in compare_result:
             pid = tup[0]
             recommended_projects.append(Project.objects.get(id=pid))
+            #debug_list.append([pid, Project.objects.get(id=pid)])
 
+
+
+        #context['debug_list'] = debug_list
         context['recommended_projects'] = recommended_projects
+
+        #########################
+        # END OF PROTOTYPE CODE #
+        #########################
 
         nr_of_recommended_projects = len(recommended_projects)
         nr_of_projects_count = Project.objects.filter(is_active=True, published=True).count()

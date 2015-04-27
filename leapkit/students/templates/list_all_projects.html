@@ -76,7 +76,8 @@
              data-intro="Here you see a list of all the projects on Leapkit. Projects with a briefcase symbol are uploaded by companies. Projects with a square cap are uploaded by students. Click a project to see more detailed information and how to get in contact.">
             <div class="tab-content">
                 <div class="tab-pane active" id="recommended_projects">
-                    <!--{{compare_result}}--> <!-- FIXME REMOVE THIS :D ITS DEBUGGING -->
+                    <!--{{compare_result}}
+                    {{debug_list}}--> <!-- DEBU INFO -->
                     {% for project in recommended_projects %}
                         <div>
                             <a class="block-link" href="{% url 'students:all_projects_detail' project.slug %}">
