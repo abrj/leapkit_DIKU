@@ -106,17 +106,25 @@
                 <div class="main-information">
                     {% if linked %}
 
-                        MODIFIED: {{ linked.modfied|linebreaks }}
+                        MODIFIED: {{ linked.modified|linebreaks }}
                         ID: {{ linked.linkedin_id|linebreaks }}
                         NAME: {{ linked|linebreaks }}
-                        POSITIONS: {{ linked.positions|linebreaks }} <!-- TODO: Positions is currently a string of json, that's no good. -->
-                        <!--{{ linked.pictureUrl|linebreaks }}
-                        {{ linked.publicProfileUrl|linebreaks }} Images are not really worth it are they?-->
-                
-                        SKILLS:
-                        <div><p>
+                        SKILLS: <br/>
                         {% for skill in skills %}
-                            {{ skill.name }}, 
+                            {{ skill.name }},
+                        LANGUAGES: <br/> 
+                        {% for lan in languages %}
+                            {{ lan.name }},
+                        EDUCATIONS: <br/>
+                        {% for edu in educations %}
+                            {{ edu.schoolName }},{{ edu.fieldOfStudy }},{{edu.degree }},
+                        COURSES: <br/>
+                        {% for cou in courses %}
+                            {{ cou.name }},
+                        POSITIONS: <br/>
+                        {% for pos in positions %}
+                            {{ pos.jobtitle }},{{ edu.company }},
+                       <div><p>
                         {% endfor %}
                         </p></div>
                     {% else %}

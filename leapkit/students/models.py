@@ -350,7 +350,6 @@ class LinkedInProfile(models.Model):
     lastName = models.TextField()
 
     # Misc information from LinkedIn
-    positions = models.TextField(null=True, blank=True)
     pictureUrl = models.TextField(null=True, blank=True)
     publicProfileUrl = models.TextField(null=True, blank=True)
 
@@ -362,14 +361,6 @@ class LinkedInProfile(models.Model):
         :return: First name + last name, with a space in between
         """
         return "%s %s" % (self.firstName, self.lastName)
-
-    def get_positions(self):
-      """
-      Returns the positions as a dict.
-      FIXME: Test and finish.
-      """
-      return JSONDecoder().decode(self.positions)
-
 
 class Language(models.Model):
    name = models.CharField(max_length = 30)
@@ -414,6 +405,23 @@ class Education(models.Model):
    def get_fieldOfStudy(self):
        return "%s" % (self.fieldOfStudy)
 
+class Position(models.Model):
+   startDate = models.CharField(max_length=100)
+   endDate = models.CharField(max_length=100)
+   company = models.CharField(max_length=100)
+   jobtitle = models.CharField(max_length=100)
+   current = models.BooleanField(default=False)
+   profile = models.ForeignKey(LinkedInProfile)
+
+   def __unicode__(self):
+       return self.get_fieldOfStudy()
+
+   def get_fieldOfStudy(self):
+       return "%s" % (self.fieldOfStudy)
+
+
+
+
 def insertLinkedInProfile(p_json, LeapkitUsername):
     p = fromString(p_json) # Converts json data to the 'desired' structure
 
@@ -425,7 +433,6 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
         profile.__dict__.update(linkedin_id = p.pid,
                                   firstName = p.firstName,
                                   lastName = p.lastName,
-                                  positions = p.positions,
                                   pictureUrl = p.pictureUrl,
                                   publicProfileUrl = p.publicProfileUrl)
 
@@ -446,6 +453,16 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
             Course.objects.filter(profile=profile).delete()
         except:
             logging.error("Course not deleted")
+        try:
+            Position.objects.filter(profile=profile).delete()
+        except:
+            logging.error("Position not deleted")
+
+        for p in p.positions:
+            pos = Position(startDate = p.startDate, company = p.company,
+                    jobtitle = p.title, current = p.current, profile = profile)
+            pos.save()
+
 
         for s in p.skills:
             ski = Skill(name = s.name, profile = profile)
@@ -472,10 +489,14 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
                                   linkedin_id = p.pid,
                                   firstName = p.firstName,
                                   lastName = p.lastName,
-                                  positions = p.positions,
                                   pictureUrl = p.pictureUrl,
                                   publicProfileUrl = p.publicProfileUrl)
         profile.save()
+
+        for p in p.positions:
+            pos = Position(startDate = p.startDate, company = p.company,
+                    jobtitle = p.title, current = p.current, profile = profile)
+            pos.save()
 
         for s in p.skills:
             ski = Skill(name = s.name, profile = profile)
