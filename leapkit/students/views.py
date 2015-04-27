@@ -54,8 +54,11 @@ class StudentView(LoginRequiredMixin, DetailView):
         context['project_list'] = project_list
         context['published_projects'] = project_list.filter(published=True)
 
-        return context
+        linked = LinkedInProfile.objects.get(leapkituser=self.request.user)
 
+        context['linked'] = linked
+
+        return context
 
 class UpdateStudentProfileView(LoginRequiredMixin, UpdateView):
     template_name = "update_student_profile.html"

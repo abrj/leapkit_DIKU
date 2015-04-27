@@ -104,8 +104,8 @@
                     <h4> LinkedIn data </h4>
                 </div>
                 <div class="main-information">
-                    {% if profile.description %}
-                        {{ profile.description|linebreaks }}
+                    {% if linked %}
+                        {{ linked|linebreaks }}
                     {% else %}
                         <p>You have not fetched data yet</p>
                     {% endif %}

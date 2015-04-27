@@ -362,6 +362,9 @@ class LinkedInProfile(models.Model):
         """
         return "%s %s" % (self.firstName, self.lastName)
 
+    def get_all(self):
+        return "%s" % (self.linked_in)
+
 class Language(models.Model):
    name = models.CharField(max_length = 30)
    level = models.CharField(max_length = 30)
