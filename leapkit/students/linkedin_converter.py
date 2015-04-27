@@ -149,7 +149,7 @@ def fillFullProfile(data):
                 person.pid = data[u"id"]
         elif(var == "firstName"):
             if(var in data.keys()):
-                person.firstName = data["firstName"]
+                person.firstName = get(data,"firstName")
         elif(var == "maidenName"):
             if(var in data.keys()):
                 person.maidenName = data["maidenName"]
@@ -183,11 +183,11 @@ def createSub(name, className, data):
         elif(var == "endDate"):
             classInstance.endDate = formatDate(get(data, var))
         elif(var == "isCurrent" and name == "positions"):
-            classInstance.isCurrent= data[var]
+            classInstance.isCurrent= get(data,var)
         elif(var == "name" and (name == "languages" or name == "skills" or name == "publishers")):
             classInstance.name = data[name[:-1]][var]
         elif(var == "name" and name == "courses"):
-            classInstance.name = data[var]
+            classInstance.name = get(data,var)
         elif(var == "cid"): 
             classInstance.cid = data["id"]
         elif(var == "sid"): 
@@ -201,17 +201,17 @@ def createSub(name, className, data):
         elif(var == "level" and name == "languages" and "proficiency" in data):
             classInstance.level = data["proficiency"][var]
         elif(var == "schoolName"): 
-            classInstance.schoolName = data[var]
+            classInstance.schoolName = get(data,var)
         elif(var == "degree"): 
-            classInstance.degree= data[var]
+            classInstance.degree= get(data,var)
         elif(var == "fieldOfStudy"): 
-            classInstance.fieldOfStudy= data[var]
+            classInstance.fieldOfStudy= get(data,var)
         elif(var == "title"): 
-            classInstance.title = data[var]
+            classInstance.title = get(data,var)
         elif(var == "summary"): 
-            classInstance.summary = data[var]
+            classInstance.summary = get(data,var)
         elif(var == "company"): 
-            classInstance.company = data[var]["name"]
+            classInstance.company = get(get(data,var),"name")
         else:
             logging.error("Did not find class variable for " + var)
     return classInstance
