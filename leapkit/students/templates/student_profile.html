@@ -106,21 +106,22 @@
                 <div class="main-information">
                     {% if linked %}
 
-                        MODIFIED: {{ linked.modfied|linebreaks }}
-                        ID: {{ linked.linkedin_id|linebreaks }}
-                        NAME: {{ linked|linebreaks }}
-                        POSITIONS: {{ linked.positions|linebreaks }} <!-- TODO: Positions is currently a string of json, that's no good. -->
-                        <!--{{ linked.pictureUrl|linebreaks }}
-                        {{ linked.publicProfileUrl|linebreaks }} Images are not really worth it are they?-->
+                        {{ linked.modfied|linebreaks }}
+                        {{ linked.linkedin_id|linebreaks }}
+                        {{ linked|linebreaks }}
+                        {{ linked.positions|linebreaks }}
+                        {{ linked.pictureUrl|linebreaks }}
+                        {{ linked.publicProfileUrl|linebreaks }}
                 
-                        SKILLS:
-                        <div><p>
                         {% for skill in skills %}
-                            {{ skill.name }}, 
+                          <div>
+                            {{ skill.name|linebreaks }}
+                          </div>
+                        {% empty %}
+                          <h2 class="text-center">YOU SUCK, BITCH</h2>
                         {% endfor %}
-                        </p></div>
                     {% else %}
-                        <p>You have not fetched data from LinkedIn yet</p>
+                        <p>You have not fetched data yet</p>
                     {% endif %}
                 </div>
             </div>

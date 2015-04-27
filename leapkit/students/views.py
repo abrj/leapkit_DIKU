@@ -55,10 +55,9 @@ class StudentView(LoginRequiredMixin, DetailView):
         context['published_projects'] = project_list.filter(published=True)
 
         linked = LinkedInProfile.objects.get(leapkituser=self.request.user)
-        # TODO: The positions in the profile are one long JSON string, this should be parsed first.
 
         context['linked'] = linked
-        context['skills'] = Skill.objects.filter(profile=linked)
+        #context['skills'] = Skill.objects.get(profile=linked)
 
         return context
 
