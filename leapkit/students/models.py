@@ -4,7 +4,6 @@ import StringIO
 import re
 import os
 import logging
-import json
 
 # Django packages
 from django.contrib.auth.models import User
@@ -362,14 +361,6 @@ class LinkedInProfile(models.Model):
         :return: First name + last name, with a space in between
         """
         return "%s %s" % (self.firstName, self.lastName)
-
-    def get_positions(self):
-      """
-      Returns the positions as a dict.
-      FIXME: Test and finish.
-      """
-      return JSONDecoder().decode(self.positions)
-
 
 class Language(models.Model):
    name = models.CharField(max_length = 30)
