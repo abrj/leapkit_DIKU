@@ -1,31 +1,55 @@
 from django.contrib import admin
 
-from models import Student, StudentProject, LinkedInProfile
+from models import (Student, StudentProject, LinkedInProfile, Skill, Language,
+    Course, Education)
 
 class LinkedInProfileAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['leapkituser',
                            'linkedin_id',
                            'firstName',
-                           'maidenName',
                            'lastName',
-                           'location',
-                           'specialities',
-                           'positions',
-                           'pictureUrl',
-                           'publicProfileUrl'
+#                          'positions',
+#                          'pictureUrl',
+#                          'publicProfileUrl'
                            ]}),
     ]
 
     readonly_fields = ('modified',)
     list_display = ('leapkituser', 'firstName', 'lastName', 'modified')
     search_fields = ['leapkituser', 'firstName']
-    list_filter = ['location','specialities']
 
 
 admin.site.register(LinkedInProfile, LinkedInProfileAdmin)
 
+class SkillAdmin(admin.ModelAdmin):
+  fieldsets = [(None, {'fields' : ['name', 'profile']}),]
+  list_display = ('name', 'profile')
+  search_fields = ['name','profile']
 
+admin.site.register(Skill, SkillAdmin)
+
+class LanguageAdmin(admin.ModelAdmin):
+  fieldsets = [(None, {'fields' : ['name', 'level','profile']}),]
+  list_display = ('name', 'level', 'profile')
+  search_fields = ['name','level','profile']
+
+admin.site.register(Language, LanguageAdmin)
+
+class EducationAdmin(admin.ModelAdmin):
+    fieldsets = [(None, {'fields' : ['schoolName', 'fieldOfStudy',
+        'degree', 'profile']}),]
+    list_display = ('schoolName', 'fieldOfStudy', 'degree', 'profile')
+    search_fields = ['fieldOfStudy', 'degree', 'profile']
+
+admin.site.register(Education, EducationAdmin)
+
+class CourseAdmin(admin.ModelAdmin):
+    fieldsets = [(None, {'fields' : ['name', 'profile']}),]
+    list_display = ('name', 'profile')
+    search_fields = ['name', 'profile']
+
+admin.site.register(Course, CourseAdmin)
 
 class StudentAdmin(admin.ModelAdmin):
     fieldsets = [

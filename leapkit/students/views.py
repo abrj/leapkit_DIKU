@@ -11,14 +11,17 @@ from django.views.generic import DetailView, CreateView, FormView, UpdateView, L
 from braces.views import LoginRequiredMixin
 
 from forms import StudentCreationForm, StudentLogInForm, ChangeUserPassword, StudentForm, StudentProjectForm, EmailForm
-from models import Student, StudentProject
+from models import Student, StudentProject, insertLinkedInProfile, LinkedInProfile, Skill, Language, Education, Course
 from companies.models import CompanyProject
 from queries.models import FAQuestion, UserQuestion
 from queries.forms import ContactForm
 from projects.models import Project
 from institutions.models import Institution, FieldOfStudy
 
+import logging
 import linkedin_connector
+from matchmaking import compareSkills, containsStringCompare
+
 
 """
     ------------------------------------------------------------------------
@@ -51,8 +54,13 @@ class StudentView(LoginRequiredMixin, DetailView):
         context['project_list'] = project_list
         context['published_projects'] = project_list.filter(published=True)
 
-        return context
+        linked = LinkedInProfile.objects.get(leapkituser=self.request.user)
+        # TODO: The positions in the profile are one long JSON string, this should be parsed first.
 
+        context['linked'] = linked
+        context['skills'] = Skill.objects.filter(profile=linked)
+
+        return context
 
 class UpdateStudentProfileView(LoginRequiredMixin, UpdateView):
     template_name = "update_student_profile.html"
@@ -204,9 +212,50 @@ class ListAllProjectsView(LoginRequiredMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super(ListAllProjectsView, self).get_context_data(**kwargs)
+
+        ###############################
+        # BEGINNING OF PROTOTYPE CODE #
+        ###############################
+
+        # Yes the below code is a hack, proof of concept stuff.
+        # The list breaks when you switch tabs.
+
+        all_projects = Project.objects.filter(is_active=True, published=True)
+        linkedin_profile = LinkedInProfile.objects.filter(leapkituser=self.request.user)
+        skills = Skill.objects.filter(profile=linkedin_profile)
+        skillstrings = []
+        for skill in skills:
+            skillstrings.append(skill.name)
+
+        project_tuples = []
+        for project in all_projects:
+            project_tuples.append([project.id, project.full_description.split()])
+
+        compare_result = compareSkills(skillstrings, project_tuples, containsStringCompare)
+        #context['compare_result'] = compare_result
+
+
+        recommended_projects = []#all_projects #FIXME : Use the recommended projects.
+        #debug_list = []
+        for tup in compare_result:
+            pid = tup[0]
+            recommended_projects.append(Project.objects.get(id=pid))
+            #debug_list.append([pid, Project.objects.get(id=pid)])
+
+
+
+        #context['debug_list'] = debug_list
+        context['recommended_projects'] = recommended_projects
+
+        #########################
+        # END OF PROTOTYPE CODE #
+        #########################
+
+        nr_of_recommended_projects = len(recommended_projects)
         nr_of_projects_count = Project.objects.filter(is_active=True, published=True).count()
         nr_of_company_projects = CompanyProject.objects.filter(is_active=True, published=True).count()
         nr_of_student_projects = StudentProject.objects.filter(is_active=True, published=True).count()
+        context['recommended_projects_count'] = nr_of_recommended_projects
         context['all_projects_count'] = nr_of_projects_count
         context['company_projects_count'] = nr_of_company_projects
         context['student_projects_count'] = nr_of_student_projects
@@ -229,6 +278,7 @@ class ListAllProjectsView(LoginRequiredMixin, ListView):
 
 
         return context
+
 
 
 # @register.assignment_tag
@@ -508,9 +558,38 @@ def login_check(request):
 def student_sign_up_success(request, slug):
     return redirect(reverse("students:profile", args=(slug, )))
 
-def test(k):
-    #redirect('www. google.com')
-    linkedin_url = linkedin_connector.linkedin_get_url(k)
+def linkedin_redirect(request):
+    #logging.error(request)
+    #logging.error("\nrequest.user = " + str(request.user))
+    try:
+        #path = request.META['HTTP_REFERER']
+        slug = Student.objects.get(user=request.user).slug
+        #path = 'http://www.leapkit.com?u=' + slug
+        path = 'http://' + request.META['HTTP_HOST'] + '/students/stage?u=' + slug
+        #logging.error("\nurl:" + path)
+        linkedin_url = linkedin_connector.linkedin_get_url(path)
+    except:
+        return redirect(reverse("students:log_in"))
+    
 
     return HttpResponseRedirect(linkedin_url)
     #return HttpResponseRedirect('http://www.google.com')
+
+def stage(request):
+    #logging.error(request)
+    slug = request.GET['u']
+    code = request.GET['code']
+    return_url = 'http://' + request.META['HTTP_HOST'] + request.path + '?u=' + slug
+    data = linkedin_connector.linkedin_extract(code, return_url)
+    if len(data) <= 1:
+        pass
+        #TODO in no success cases - inform user???
+    logging.error(data)
+
+    LeapkitUsername = request.user
+    # TODO: Redo the insert function to work with a dict instead of the data string. It's much more fun and secure.
+    insertLinkedInProfile(str(data), LeapkitUsername)
+
+
+
+    return redirect(reverse("students:profile", args=(slug, )))

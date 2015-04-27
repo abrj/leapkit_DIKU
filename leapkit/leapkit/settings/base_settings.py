@@ -1,9 +1,7 @@
 """
 Django settings for leapkit project.
-
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
-
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
@@ -323,7 +321,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST_USER = 'no_reply@leapkit.com'
 EMAIL_HOST_PASSWORD = 'DjsjKA12'
 DEFAULT_FROM_EMAIL = 'no_reply@leapkit.com'
-"""
+
+DJANGO_LOG_LEVEL = DEBUG
+
 # Loggin functionality
 LOGGING = {
     'version': 1,
@@ -336,6 +336,9 @@ LOGGING = {
         'verbose': {
             'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
         },
+        'simple': {
+            'format': '[%(asctime)s] - %(levelname)s :  %(message)s'
+        },
     },
     'handlers': {
         'opbeat': {
@@ -346,9 +349,19 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
             'formatter': 'verbose'
+        },
+        'debug_handler': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
         }
     },
     'loggers': {
+        'debug_logger': {
+            'level': 'DEBUG',
+            'handlers': ['debug_handler'],
+            'propagate': False
+        },
         'django.db.backends': {
             'level': 'ERROR',
             'handlers': ['console'],
@@ -366,10 +379,11 @@ LOGGING = {
         },
     },
 }
-"""
 
-LOGGING = {
+
+"""LOGGING = {
     'version': 1,
+    'disable_existing_loggers': True,
     'handlers': {
         'console': {
             'class': 'logging.StreamHandler',
@@ -380,6 +394,6 @@ LOGGING = {
         'handlers': ['console'],
         'level': 'INFO'
     }
-}
+}"""
 
 logging.config.dictConfig(LOGGING)
