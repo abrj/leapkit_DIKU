@@ -4,7 +4,6 @@ import StringIO
 import re
 import os
 import logging
-import json
 
 # Django packages
 from django.contrib.auth.models import User
