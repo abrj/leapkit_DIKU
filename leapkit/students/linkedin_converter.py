@@ -149,25 +149,25 @@ def fillFullProfile(data):
                 person.pid = data[u"id"]
         elif(var == "firstName"):
             if(var in data.keys()):
-                person.firstName = data["firstName"]
+                person.firstName = get(data,"firstName")
         elif(var == "maidenName"):
             if(var in data.keys()):
-                person.maidenName = data["maidenName"]
+                person.maidenName = get(data,"maidenName")
         elif(var == "lastName"):
             if(var in data.keys()):
-                person.lastName = data["lastName"]
+                person.lastName = get(data,"lastName")
         elif(var == "location"):
             if(var in data.keys()):
-                person.location = data["location"]
+                person.location = get(data,"location")
         elif(var == "specialities"):
             if(var in data.keys()):
-                person.specialities = data["specialities"]
+                person.specialities = get(data,"specialities")
         elif(var == "pictureUrl"):
             if(var in data.keys()):
-                person.pictureUrl = data["pictureUrl"]
+                person.pictureUrl = get(data,"pictureUrl")
         elif(var == "publicProfileUrl"):
             if(var in data.keys()):
-                person.publicProfileUrl = data["publicProfileUrl"]
+                person.publicProfileUrl = get(data,"publicProfileUrl")
         else:
             continue
     return person
@@ -183,35 +183,35 @@ def createSub(name, className, data):
         elif(var == "endDate"):
             classInstance.endDate = formatDate(get(data, var))
         elif(var == "isCurrent" and name == "positions"):
-            classInstance.isCurrent= data[var]
+            classInstance.isCurrent= get(data,var)
         elif(var == "name" and (name == "languages" or name == "skills" or name == "publishers")):
-            classInstance.name = data[name[:-1]][var]
+            classInstance.name = get(get(data,name[:-1]),var)
         elif(var == "name" and name == "courses"):
-            classInstance.name = data[var]
+            classInstance.name = get(data,var)
         elif(var == "cid"): 
-            classInstance.cid = data["id"]
+            classInstance.cid = get(data,"id")
         elif(var == "sid"): 
-            classInstance.sid = data["id"]
+            classInstance.sid = get(data,"id")
         elif(var == "lid"): 
-            classInstance.lid = data["id"]
+            classInstance.lid = get(data,"id")
         elif(var == "eid"): 
-            classInstance.eid = data["id"]
+            classInstance.eid = get(data,"id")
         elif(var == "pid"): 
-            classInstance.pid = data["id"]
+            classInstance.pid = get(data,"id")
         elif(var == "level" and name == "languages" and "proficiency" in data):
-            classInstance.level = data["proficiency"][var]
+            classInstance.level = get(get(data,"proficiency"),var)
         elif(var == "schoolName"): 
-            classInstance.schoolName = data[var]
+            classInstance.schoolName = get(data,var)
         elif(var == "degree"): 
-            classInstance.degree= data[var]
+            classInstance.degree= get(data,var)
         elif(var == "fieldOfStudy"): 
-            classInstance.fieldOfStudy= data[var]
+            classInstance.fieldOfStudy= get(data,var)
         elif(var == "title"): 
-            classInstance.title = data[var]
+            classInstance.title = get(data,var)
         elif(var == "summary"): 
-            classInstance.summary = data[var]
+            classInstance.summary = get(data,var)
         elif(var == "company"): 
-            classInstance.company = data[var]["name"]
+            classInstance.company = get(get(data,var),"name")
         else:
             logging.error("Did not find class variable for " + var)
     return classInstance

@@ -103,22 +103,42 @@
                 <div class="top-content">
                     <h4> LinkedIn data </h4>
                 </div>
-                <div class="main-information">
-                    {% if linked %}
+                    <div class="main-information">
+                      {% if linked %}
 
-                        MODIFIED: {{ linked.modfied|linebreaks }}
-                        ID: {{ linked.linkedin_id|linebreaks }}
-                        NAME: {{ linked|linebreaks }}
-                        POSITIONS: {{ linked.positions|linebreaks }} <!-- TODO: Positions is currently a string of json, that's no good. -->
-                        <!--{{ linked.pictureUrl|linebreaks }}
-                        {{ linked.publicProfileUrl|linebreaks }} Images are not really worth it are they?-->
-                
-                        SKILLS:
-                        <div><p>
-                        {% for skill in skills %}
-                            {{ skill.name }}, 
-                        {% endfor %}
-                        </p></div>
+                          MODIFIED: {{ linked.modified|linebreaks }}
+                          ID: {{ linked.linkedin_id|linebreaks }}
+                          NAME: {{ linked|linebreaks }}
+                          SKILLS: <br/>
+                          <div><p>
+                            {% for skill in skills %}
+                                {{ skill.name }},
+                            {% endfor %}
+                          </p></div>
+                          LANGUAGES: <br/>
+                          <div><p>
+                          {% for lan in languages %}
+                              {{ lan.name }},
+                          {% endfor %}
+                          </p></div>
+                          EDUCATIONS: <br/>
+                          <div><p>                       
+                            {% for edu in educations %}
+                              {{ edu.schoolName }},{{ edu.fieldOfStudy }},{{edu.degree }},
+                            {% endfor %}  
+                          </p></div>
+                          COURSES: <br/>
+                          <div><p>                      
+                            {% for cou in courses %}
+                                {{ cou.name }},
+                            {% endfor %}
+                          </p></div>
+                          POSITIONS: <br/>
+                          <div><p>                      
+                            {% for pos in positions %}
+                              {{ pos.jobtitle }},{{ pos.company }},
+                            {% endfor %}
+                          </div></p>
                     {% else %}
                         <p>You have not fetched data from LinkedIn yet</p>
                     {% endif %}
