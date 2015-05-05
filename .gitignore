@@ -59,3 +59,4 @@ dump.sql
 
 # Vagrant working files
 .vagrant/*
+leapkit/students/lir.json
