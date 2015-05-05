@@ -11,7 +11,7 @@ from django.views.generic import DetailView, CreateView, FormView, UpdateView, L
 from braces.views import LoginRequiredMixin
 
 from forms import StudentCreationForm, StudentLogInForm, ChangeUserPassword, StudentForm, StudentProjectForm, EmailForm
-from models import Student, StudentProject, insertLinkedInProfile, LinkedInProfile, Skill, Language, Education, Course
+from models import Student, StudentProject, insertLinkedInProfile, LinkedInProfile, Skill, Language, Education, Course, Position
 from companies.models import CompanyProject
 from queries.models import FAQuestion, UserQuestion
 from queries.forms import ContactForm
@@ -53,12 +53,14 @@ class StudentView(LoginRequiredMixin, DetailView):
 
         context['project_list'] = project_list
         context['published_projects'] = project_list.filter(published=True)
-
-        linked = LinkedInProfile.objects.get(leapkituser=self.request.user)
-        # TODO: The positions in the profile are one long JSON string, this should be parsed first.
-
-        context['linked'] = linked
-        context['skills'] = Skill.objects.filter(profile=linked)
+        if LinkedInProfile.objects.filter(leapkituser=self.request.user):
+            linked = LinkedInProfile.objects.get(leapkituser=self.request.user)
+            context['linked'] = linked
+            context['skills'] = Skill.objects.filter(profile=linked)
+            context['educations'] = Education.objects.filter(profile=linked)
+            context['languages'] = Language.objects.filter(profile=linked)
+            context['courses'] = Course.objects.filter(profile=linked)
+            context['positions'] = Position.objects.filter(profile=linked)
 
         return context
 
