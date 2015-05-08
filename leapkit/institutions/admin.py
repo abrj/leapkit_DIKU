@@ -1,7 +1,8 @@
 from django.contrib import admin
 
 # Register your models here.
-from models import Institution, Course, Department, Professor, FieldOfStudy
+from models import (Institution, Course, Department, Professor, FieldOfStudy,
+        Skill)
 
 
 class InstitutionAdmin(admin.ModelAdmin):
@@ -90,3 +91,13 @@ class LineOfStudyAdmin(admin.ModelAdmin):
 
 
 admin.site.register(FieldOfStudy, LineOfStudyAdmin)
+
+class SkillAdmin(admin.ModelAdmin):
+    fieldsets = [
+        (None, {'fields' : ['name', 'fieldOfStudy']}),
+    ]
+    list_display = ('name', 'fieldOfStudy')
+    search_fields = ('name', 'fieldOfStudy')
+    list_filter = ['name', 'fieldOfStudy']
+
+admin.site.register(Skill, SkillAdmin)
