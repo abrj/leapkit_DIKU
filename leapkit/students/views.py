@@ -51,7 +51,11 @@ class StudentView(LoginRequiredMixin, DetailView):
         context['profile'] = Student.objects.get(user=self.request.user)
         project_list = StudentProject.objects.get_own_projects(self.request.user.student)
 
+        logger = logging.getLogger("debug_logger")
+        logger.debug("STUDENTVIEW: Assigning project list in context.")
+
         context['project_list'] = project_list
+        logger.debug(project_list)
         context['published_projects'] = project_list.filter(published=True)
         if LinkedInProfile.objects.filter(leapkituser=self.request.user):
             linked = LinkedInProfile.objects.get(leapkituser=self.request.user)
@@ -101,6 +105,8 @@ class StudentOwnProjectListView(LoginRequiredMixin, ListView):
 
 
     def get_queryset(self, **kwargs):
+        logger = logging.getLogger("debug_logger")
+        logger.debug("STUDENTOWNPROJECTLISTVIEW: Assigning project list in context.")
         project_list = StudentProject.objects.get_own_published_queryset(self.request.user.student)
         return project_list
 
@@ -241,8 +247,10 @@ class ListAllProjectsView(LoginRequiredMixin, ListView):
         #debug_list = []
         for tup in compare_result:
             pid = tup[0]
-            recommended_projects.append(Project.objects.get(id=pid))
-            #debug_list.append([pid, Project.objects.get(id=pid)])
+            score = tup[1]
+            if float(score) >= 0.05: # Only show projects that have a 5% match or higher.
+                recommended_projects.append(Project.objects.get(id=pid))
+                #debug_list.append([pid, Project.objects.get(id=pid)])
 
 
 
@@ -257,7 +265,7 @@ class ListAllProjectsView(LoginRequiredMixin, ListView):
         nr_of_projects_count = Project.objects.filter(is_active=True, published=True).count()
         nr_of_company_projects = CompanyProject.objects.filter(is_active=True, published=True).count()
         nr_of_student_projects = StudentProject.objects.filter(is_active=True, published=True).count()
-        context['recommended_projects_count'] = nr_of_recommended_projects
+        #context['recommended_projects_count'] = nr_of_recommended_projects
         context['all_projects_count'] = nr_of_projects_count
         context['company_projects_count'] = nr_of_company_projects
         context['student_projects_count'] = nr_of_student_projects
