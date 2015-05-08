@@ -1,0 +1,78 @@
+{% extends "_layouts/root_layout.html" %}
+{% load staticfiles %}
+{% comment %}
+	# This root template is meant for creating the basic layout for all views that can be viewed without logging in.
+	#
+	#
+	#
+	#
+	#
+{% endcomment %}
+
+{% block title %} Contact {% endblock %}
+
+{% block header_image %}
+    <div class="img-src" style="background-image: url('{% static 'root/images/writing.jpg' %}')"></div>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-4 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+            <h3 class=" contact-title">Contact information</h3>
+
+            <div class="contact-info">
+                <div>
+                    <strong>Denmark</strong><br>
+                    <span class="hq-info">Leapkit Headquarters</span> <br>
+                    Tagensvej 100, 4th floor <br>
+                    2200 Copenhagen N <br>
+                    Denmark <br>
+                    Email: <a href="mailto:contact@leapkit.com">contact@leapkit.com</a> <br>
+                </div>
+                <ul class="social-icons col-md-6 col-xs-3 col-sm-3">
+                    <li><a href="https://www.facebook.com/leapkit" target="_blank" class="fa fa-facebook-square"></a>
+                    </li>
+                    <li><a href="https://www.twitter.com/leapkit" target="_blank" class="fa fa-twitter-square"></a></li>
+                    <li><a href="https://www.linkedin.com/company/leapkit" target="_blank"
+                           class="fa fa-linkedin-square"></a></li>
+                </ul>
+            </div>
+
+            <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+            <div style="overflow:hidden;height:300px;width:400px;">
+                <div id="gmap_canvas" style="height:300px;width:400px;"></div>
+                <style>#gmap_canvas img {
+                    max-width: none !important;
+                    background: none !important
+                }</style>
+                <a class="google-map-code" id="get-map-data"></a></div>
+            <script type="text/javascript"> function init_map() {
+                var myOptions = {zoom: 14, center: new google.maps.LatLng(55.7033359, 12.547895899999958), mapTypeId: google.maps.MapTypeId.ROADMAP};
+                map = new google.maps.Map(document.getElementById("gmap_canvas"), myOptions);
+                marker = new google.maps.Marker({map: map, position: new google.maps.LatLng(55.7033359, 12.547895899999958)});
+                infowindow = new google.maps.InfoWindow({content: "<b>Leapkit HQ</b><br/>Tagensvej 100<br/>2200 Copenhagen N" });
+                google.maps.event.addListener(marker, "click", function () {
+                    infowindow.open(map, marker);
+                });
+                infowindow.open(map, marker);
+            }
+            google.maps.event.addDomListener(window, 'load', init_map);
+            </script>
+
+        </div>
+        <div class=" col-md-6 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1  contact-table-div">
+            <div class="row">
+                <h3 class="text-center"> Contact us directly</h3>
+            </div>
+            <div class="row col-md-10 col-md-offset-1">
+                <div class="form">
+                    <form action="{% url 'contact_leapkit' %}" role="form" method="POST">
+                        {% load crispy_forms_tags %}
+                        {% crispy form %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="{% static 'root/js/quill/setup.js' %}"></script>
+{% endblock %}

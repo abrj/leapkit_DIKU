@@ -1,0 +1,44 @@
+{% extends "base/base_logged_in.html" %}
+{% comment %}
+	# This root template is meant for creating the basic layout for all views that can be viewed without logging in.
+	# It manages all the links in the navigation section, and loads all CSS and JavaScript needed.
+	#
+{% endcomment %}
+
+{% load staticfiles %}
+
+{% block css_files %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'students/css/students.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'root/js/chosen_v1.2.0/chosen.css' %}">
+
+{% endblock %}
+
+{% block js_files %}
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'root/js/intro.js' %}"></script>
+    <script type="text/javascript" src="{% static 'root/js/chosen_v1.2.0/chosen.jquery.js' %}"></script>
+{% endblock %}
+
+
+{% block nav_right %}
+    {% block navigation_header %}
+        <li><a href="{% url 'students:create_student_project' %}"> New project</a></li>
+        <li><a href="{% url 'students:all_projects' %}">Search Projects</a></li>
+        <li><a href="{% url 'students:own_student_projects' %}">Own Projects</a></li>
+        <li class="dropdown user-options">
+            <a href="{% url 'students:profile' request.session.user_slug %}"> {{ request.session.user_name }}
+                <b class="caret"></b> </a>
+            <ul class="dropdown-menu">
+                <li><a href="{% url 'students:update_student_profile' request.session.user_slug %}">Edit Profile</a>
+                </li>
+                <li><a href="{% url 'students:students_FAQ' %}">FAQ</a></li>
+                <li><a href="{% url 'students:student_feedback' %}">Feedback</a></li>
+                <li><a href="{% url 'students:students_terms_of_usage' %}">Terms & Conditions</a></li>
+                <li><a href="{% url 'students:change_password' request.session.user_id %}">Change password</a></li>
+                <li><a href="{% url 'students:log_out' %}">Log out</a></li>
+            </ul>
+        </li>
+    {% endblock %}
+{% endblock %}
+

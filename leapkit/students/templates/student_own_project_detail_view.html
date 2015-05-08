@@ -1,0 +1,54 @@
+{% extends "student_layouts/student_layout.html" %}
+{% comment %}
+	# This root template is meant for creating the basic layout for all views that can be viewed without logging in.
+	#
+	#
+	#
+	#
+	#
+{% endcomment %}
+
+{% block title %} {{ project.studentproject.name }} {% endblock %}
+
+{% block content %}
+    <div class="container ">
+        <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 container-block">
+            <div class="row top-content">
+                <a href="{% url 'students:update_student_project' project.slug %}"
+                   class="btn btn-primary btn-fill col-md-1 col-lg-1 col-md-offset-1 col-lg-offset-1 pull-right">
+                    Update
+                </a>
+                {% if not project.open_for_applications %}
+                    <a href="{% url 'students:alter_contact_option' project.slug %}"
+                       class="btn btn-warning  btn-fill col-md-2 col-lg-2 col-md-offset-1 col-lg-offset-1 pull-right">
+                        Allow Contact
+                    </a>
+                {% else %}
+                    <a href="{% url 'students:alter_contact_option' project.slug %}"
+                       class="btn btn-warning btn-fill col-md-2 col-lg-2 col-md-offset-1 col-lg-offset-1 pull-right">
+                        Disallow Contact
+                    </a>
+                {% endif %}
+                <a href="{% url 'students:delete_student_project' project.slug %}"
+                   class="btn btn-danger btn-fill col-md-1 col-lg-1 col-md-offset-1 col-lg-offset-1 pull-right">
+                    Delete
+                </a>
+            </div>
+        </div>
+        {% include 'layout/student_project_detail.html' %}
+        <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 container-block">
+            <h4>Contact Info</h4>
+
+            <p>This contact information is not visible to other users, but used to forward their messages to you </p>
+            <ul>
+                <li>{{ project.contact_email }}</li>
+                {% if project.contact_phone %}
+                    <li>{{ project.contact_phone }}</li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    </div>
+
+{% endblock %}
+

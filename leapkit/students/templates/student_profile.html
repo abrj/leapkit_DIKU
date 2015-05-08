@@ -1,0 +1,207 @@
+{% extends "student_layouts/student_layout.html" %}
+{% comment %}
+	# This root template is meant for creating the basic layout for all views that can be viewed without logging in.
+	#
+	#
+	#
+	#
+	#
+{% endcomment %}
+
+{% block title %} Profile {% endblock %}
+
+
+{% block navigation_header %}
+    <li><a href="{% url 'students:create_student_project' %}" data-step="4"
+           data-intro="This button takes you to “project creation” where you can upload project ideas. This helps you find students with the complementary skills that your project needs, such as engineering, design or market research.">
+        New project</a></li>
+    <li><a href="{% url 'students:all_projects' %}" data-step="5"
+           data-intro="This button takes you to the list of the projects on Leapkit, both from companies and other students. You can read more about the projects and apply those that fit your educational needs!">Search
+        Projects</a></li>
+    <li><a href="{% url 'students:own_student_projects' %}" data-step="6"
+           data-intro="This button takes you to an overview of your own projects and lets you edit or delete them.">Own
+        Projects</a></li>
+    <li class="dropdown user-options">
+        <a href="{% url 'students:profile' request.session.user_slug %}" data-step="7"
+           data-intro="This button takes you back to your profile. The dropdown menu lets you read more about Leapkit, such as FAQ and terms of use."> {{ request.session.user_name }}
+            <b class="caret"></b> </a>
+        <ul class="dropdown-menu">
+            <li><a href="{% url 'students:update_student_profile' request.session.user_slug %}">Edit Profile</a></li>
+            <li><a href="{% url 'students:students_FAQ' %}">FAQ</a></li>
+            <li><a href="{% url 'students:student_feedback' %}">Feedback</a></li>
+            <li><a href="{% url 'students:students_terms_of_usage' %}">Terms & Conditions</a></li>
+            <li><a href="{% url 'students:change_password' request.session.user_id %}">Change password</a></li>
+            <li><a href="{% url 'students:log_out' %}">Log out</a></li>
+        </ul>
+    </li>
+{% endblock %}
+
+
+{% block content %}
+    <div>
+        <div class="col-md-2 col-lg-2 left-meta-container left-container">
+            <div class="profile-picture">
+                {% if profile.image %}
+                    <img src="{{ profile.image.url }}"
+                         alt="{{ student.name }} image">
+                {% endif %}
+            </div>
+
+            <div class="meta col-md-12 col-lg-12">
+                <h4 class="text-center">{{ request.session.user_name }}</h4>
+
+                <div class="divider"></div>
+                <h4 class="text-center">{{ profile.institution }} <br>
+                    <small>Institution</small>
+                </h4>
+                <div class="divider"></div>
+                <ul class="list-group">
+                    {% if profile.country %}
+                        <li class="list-group-item"><strong>Country</strong><br> {{ profile.country }}</li>
+                    {% endif %}
+                    {% if profile.date_of_birth %}
+                        <li class="list-group-item"><strong>Birth Date</strong><br> {{ profile.date_of_birth }}</li>
+                    {% endif %}
+                    {% if profile.line_of_study %}
+                        <li class="list-group-item"><strong>Line of Study</strong><br> {{ profile.line_of_study }}</li>
+                    {% endif %}
+                    {% if profile.cv %}
+                        <li class="list-group-item"><a href="{{ profile.cv.url }}" target="_blank" class="black-link"><i
+                                class="fa fa-file"></i> CV </a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8 col-lg-8 main-profile-container">
+            <div class="main-profile-container-block" data-step="1"
+                   data-intro='This is the project section, where you can see the amount of projects you have created, and how many you have published'>
+                <div class="top-content">
+                    <h4> Student Projects </h4>
+                </div>
+                <div class="main-information">
+                    <h5>Projects published: <strong>{{ published_projects|length }}</strong></h5>
+                    <h5>Projects created: <strong>{{ project_list|length }}</strong></h5>
+                </div>
+            </div>
+
+            <div class="main-profile-container-block" data-step="2"
+                   data-intro='This is where you can see your description. This will be shown to other students when you make a project.'>
+                <div class="top-content">
+                    <h4> Description </h4>
+                </div>
+                <div class="main-information">
+                    {% if profile.description %}
+                        {{ profile.description|linebreaks }}
+                    {% else %}
+                        <p>No information has been provided</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="main-profile-container-block" data-step="3"
+                   data-intro='Linkedin Data'>
+                <div class="top-content">
+                    <h4> LinkedIn data </h4>
+                </div>
+                    <div class="main-information">
+                      {% if linked %}
+
+                          MODIFIED: {{ linked.modified|linebreaks }}
+                          ID: {{ linked.linkedin_id|linebreaks }}
+                          NAME: {{ linked|linebreaks }}
+                          SKILLS: <br/>
+                          <div><p>
+                            {% for skill in skills %}
+                                {{ skill.name }},
+                            {% endfor %}
+                          </p></div>
+                          LANGUAGES: <br/>
+                          <div><p>
+                          {% for lan in languages %}
+                              {{ lan.name }},
+                          {% endfor %}
+                          </p></div>
+                          EDUCATIONS: <br/>
+                          <div><p>                       
+                            {% for edu in educations %}
+                              {{ edu.schoolName }},{{ edu.fieldOfStudy }},{{edu.degree }},
+                            {% endfor %}  
+                          </p></div>
+                          COURSES: <br/>
+                          <div><p>                      
+                            {% for cou in courses %}
+                                {{ cou.name }},
+                            {% endfor %}
+                          </p></div>
+                          POSITIONS: <br/>
+                          <div><p>                      
+                            {% for pos in positions %}
+                              {{ pos.jobtitle }},{{ pos.company }},
+                            {% endfor %}
+                          </div></p>
+                    {% else %}
+                        <p>You have not fetched data from LinkedIn yet</p>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-2 col-lg-2 side-meta-container right-meta-container">
+            <div class="main-information">
+                <a href="{% url 'students:update_student_profile' student.slug %}" data-step="3"
+                   data-intro='Improve your profile in “Edit profile” to increase the chance of people applying to your projects!'
+                   class="btn btn-primary text-upper btn-block">EDIT PROFILE</a>
+                <a href="{% url 'students:linkedin_redirect' %}" data-step="3"
+                   data-intro='Extract information from your LinkedIn account'
+                   class="btn btn-primary text-upper btn-block">Connect To LinkedIn</a>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block user_onbording %}
+    {% if student.times_logged_in == 1 and request.session.profile_views == 0 %}
+        <script>
+            function startTour() {
+                $('#onboard_modal').modal('toggle');
+                var tour = introJs();
+                tour.setOption('tooltipPosition', 'auto');
+                tour.setOption('positionPrecedence', ['left', 'right', 'bottom', 'top'])
+                tour.start()
+            }
+            $(document).ready(function () {
+                $('#onboard_modal').modal('toggle');
+            });
+        </script>
+    {% endif %}
+{% endblock %}
+
+{% block hidden %}
+    <!-- Modal -->
+    <div class="modal fade" id="onboard_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content row">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <h2 class="text-center"> Welcome {{ request.session.user_name }}!</h2>
+
+                    <p class="text-center">
+                        Congratulations on your Leapkit profile. To get started, let's take a quick tour!
+                    </p>
+
+                </div>
+                <div class="modal-footer text-center">
+                    <div class="col-sm-4 col-sm-offset-4 col-md-4 col-md-offset-4 col-lg-4 col-lg-offset-4">
+                        <a class="btn btn-primary btn-fill text-center btn-block" href="javascript:void(0);"
+                           onclick="javascript:startTour();;">Start Tour</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

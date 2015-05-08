@@ -1,0 +1,56 @@
+{% extends "company_layouts/company_layout.html" %}
+{% comment %}
+	# This root template is meant for creating the basic layout for all views that can be viewed without logging in.
+	#
+	#
+	#
+	#
+	#
+{% endcomment %}
+
+{% block title %} {{ request.session.user_name }} {% endblock %}
+
+{% block content %}
+    <div class="">
+        <div class="container">
+            <div class="col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1 company-project-form">
+                <h2 class="text-center">Welcome to Project Creation!</h2>
+
+                <p> If this is your first Leapkit project, we recommend a quick scroll-down through the tool, to get an
+                    overview before starting. If you are in doubt about what to fill in, hover your cursor over the
+                    question mark (?) by the header to expand the explanation. </p>
+
+                <p>Further information can be found in the Project Creation Handbook and our FAQ-section. Please do not
+                    hesitate to contact <a href="mailto:support@leapkit.com"> support@leapkit.com </a> for any help or
+                    feedback</p>
+
+                <div class="form">
+                    {% load crispy_forms_tags %}
+                    <form action="{% url 'companies:create_project' %}" method="POST" role="form"
+                          enctype="multipart/form-data">
+                        {% crispy form %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block user_onbording %}
+    {% load staticfiles %}
+    <script type="text/javascript" src="{% static 'companies/js/intro_tour.js' %}"></script>
+    {% if user.company.times_logged_in == 1 and request.session.create_project_views == 0 %}
+        <script>
+            function startTour() {
+                var tour = introJs();
+                tour.setOption('tooltipPosition', 'auto');
+                tour.setOption('positionPrecedence', ['left', 'right', 'bottom', 'top'])
+                tour.start()
+            }
+            $(document).ready(function () {
+                startTour();
+            });
+        </script>
+    {% endif %}
+{% endblock %}

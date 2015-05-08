@@ -1,0 +1,66 @@
+.main {
+  padding-top: 6.5%;
+  padding-bottom: 6.5%;
+  background-color: #FFFFFF;
+  position: relative;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.text-upper {
+  text-transform: uppercase;
+}
+
+.contact-table-div {
+  border-left: 1px solid #e7e7e7;
+}
+
+.social-icons {
+  display: inline-block;
+}
+
+.social-icons li {
+  display: inline-block;
+  font-size: 1.8em;
+  margin-left: 5%;
+  margin-right: 5%;
+  float: left;
+}
+
+.social-icons li a {
+  color: $gray-light;
+}
+
+.social-icons li a:hover {
+  color: $brand-primary;
+}
+
+.main-wrapper {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+.block-link {
+  color: $gray-darker;
+}
+
+.block-link:hover {
+  color: $gray-darker;
+}
+
+.divider {
+  margin-top: 10%;
+  margin-bottom: 5%;
+  border-top: 2px solid #F5F8F9;
+}
+
+.no-margin-top {
+  margin-top: 0;
+}
+
+
+
+
+

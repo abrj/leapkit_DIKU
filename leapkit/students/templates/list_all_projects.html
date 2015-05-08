@@ -1,0 +1,301 @@
+{% extends "student_layouts/student_layout.html" %}
+{% comment %}
+	# This root template is meant for creating the basic layout for all views that can be viewed without logging in.
+	#
+	#
+	#
+	#
+	#
+{% endcomment %}
+
+{% block title %} Projects {% endblock %}
+
+{% load bootstrap_pagination %}
+
+{% block content %}
+    <div class="">
+        <div class="row">
+            <div class="row">
+            <div class="col-xs-12 col-md-8 col-md-offset-4 nav-pills-group">
+                <ul class="nav nav-pills about-tap" data-step="1"
+                    data-intro="Here you can choose to see only company or student projects.">
+                    <li class="active"><a href="#recommended_projects" data-toggle="tab">Recommended Projects <span
+                            class="badge">{{ recommended_projects_count }}</span></a></li>
+                    <li><a href="#all_projects" data-toggle="tab">All Projects <span
+                            class="badge">{{ all_projects_count }}</span></a></li>
+                    <li><a href="#company_projects" data-toggle="tab">Company projects <span
+                            class="badge">{{ company_projects_count }}</span></a></li>
+                    <li><a href="#student_projects" data-toggle="tab">Student projects <span
+                            class="badge">{{ student_projects_count }}</span></a></li>
+                </ul>
+        </div>
+</div>
+                </div>
+        <div class="col-md-1">
+        </div>
+        <div class="row">
+        <div class="col-md-2  container-block" data-step="2" id="filter">
+            <div class="bs-example">
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Lines of study</a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse in">
+                <div class="panel-body">
+                  <ul style="list-style-type:none" class="nav-block accordion-content search-menu-longlist" id="positions">
+                      <form id="valueCheckboxes">
+                     {% for studyLine in lines_of_studyList %}
+                      <li class="nav-sub" >
+                            <div class="nav-item-inner">
+                                <span class="list-item">
+                                <label form="types-2">
+                                    <input id="types-2" type="checkbox" onclick='filterProjectList(this)' name="MyBox" value="{{ studyLine }}">&nbsp;{{ studyLine }}</label>
+                              </span>
+                            </div>
+                        </li>
+                      {% endfor %}
+                  </form>
+                  </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{#                <select class="chosen" id="universities" multiple="true">#}
+{#                </select>#}
+{#                <select class="chosen" id="lines_of_study" multiple="true">#}
+{#                </select>#}
+
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-8 container-block" data-step="2" id="recommended_projects"
+             data-intro="Here you see a list of all the projects on Leapkit. Projects with a briefcase symbol are uploaded by companies. Projects with a square cap are uploaded by students. Click a project to see more detailed information and how to get in contact.">
+            <div class="tab-content">
+                <div class="tab-pane active" id="recommended_projects">
+                    <!--{{compare_result}}
+                    {{debug_list}}--> <!-- DEBU INFO -->
+                    {% for project in recommended_projects %}
+                        <div>
+                            <a class="block-link" href="{% url 'students:all_projects_detail' project.slug %}">
+                                {% if project.studentproject %}
+                                    {% include 'layout/student_project_list.html' %}
+                                {% endif %}
+
+                                {% if project.companyproject %}
+                                    {% include 'layout/company_project_list.html' %}
+                                {% endif %}
+                            </a>
+                        </div>
+                    {% empty %}
+                        <h2 class="text-center">There is no projects on this page</h2>
+                    {% endfor %}
+                </div>
+                <div class="tab-pane" id="all_projects">
+                    {% for project in project_list %}
+                        <div>
+                            <a class="block-link" href="{% url 'students:all_projects_detail' project.slug %}">
+                                {% if project.studentproject %}
+                                    {% include 'layout/student_project_list.html' %}
+                                {% endif %}
+
+                                {% if project.companyproject %}
+                                    {% include 'layout/company_project_list.html' %}
+                                {% endif %}
+                            </a>
+                        </div>
+                    {% empty %}
+                        <h2 class="text-center">There is no projects on this page</h2>
+                    {% endfor %}
+                </div>
+                <div class="tab-pane" id="company_projects">
+                    {% for project in project_list %}
+                        {% if project.companyproject %}
+                            <a class="block-link" href="{% url 'students:all_projects_detail' project.slug %}">
+                                {% include 'layout/company_project_list.html' %}
+                            </a>
+                        {% endif %}
+                    {% empty %}
+                        <h2 class="text-center">There is no company projects on this page</h2>
+                    {% endfor %}
+                </div>
+                <div class="tab-pane" id="student_projects">
+                    {% for project in project_list %}
+                        {% if project.studentproject %}
+                            <a class="block-link" href="{% url 'students:all_projects_detail' project.slug %}">
+                                {% include 'layout/student_project_list.html' %}
+                            </a>
+                        {% endif %}
+                    {% empty %}
+                        <h2 class="text-center">There is no student projects on this page</h2>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="text-center">
+            {% if is_paginated %}
+                {% bootstrap_paginate page_obj range=5 url_view_name="students:all_projects_paginated" %}
+            {% endif %}
+        </div>
+    </div>
+
+<style type="text/css">
+    input {
+    vertical-align: -2px;
+}
+</style>
+{% endblock %}
+
+{% block user_onbording %}
+
+
+        <script>
+            function startTour() {
+                var tour = introJs();
+                tour.setOption('tooltipPosition', 'auto');
+                tour.setOption('positionPrecedence', ['left', 'right', 'bottom', 'top'])
+                tour.start()
+            }
+            $(document).ready(function () {
+             {% if user.student.times_logged_in == 1  and request.session.all_projects_views == 0 %}
+                startTour();
+             {% endif %}
+            });
+
+
+
+
+           //Function to fill filter form with options
+{#           jQuery(document).ready(function(){#}
+{#               var institutions = "{{ institutionsList }}";#}
+{#               var institutionList = institutions.split(";");#}
+{#               var optionList = document.getElementById("universities");#}
+{#               for(i = 0; i<institutionList.length; i++){#}
+{#                  var option = document.createElement("option");#}
+{#                   if(institutionList[i] == ""){ //Skipping the last element of the list#}
+{#                       break;#}
+{#                   }#}
+{#                  option.text = institutionList[i];#}
+{#                  optionList.add(option);#}
+{#               }#}
+{#	           jQuery("#universities").chosen();#}
+{##}
+{#               var lines_of_study = " {{ lines_of_studyList }}"#}
+{#               var lines_of_studyList = lines_of_study.split(";");#}
+{#               optionList = document.getElementById("lines_of_study");#}
+{#               for(i = 0; i<lines_of_studyList.length; i++){#}
+{#                  var option = document.createElement("option");#}
+{#                   if(lines_of_studyList[i] == ""){ //Skipping the last element of the list#}
+{#                       break;#}
+{#                   }#}
+{#                  option.text = lines_of_studyList[i];#}
+{#                  optionList.add(option);#}
+{#               }#}
+{#               jQuery("#lines_of_study").chosen();#}
+{##}
+{#            });#}
+
+
+          //Called when user selects or deselects an option
+          $(".chosen").on('change', function(e) {
+            // triggers when whole value changed
+              var universityValues = $('#universities').val();
+              var lines_of_studyValues = $('#lines_of_study').val();
+              if(universityValues == null && lines_of_studyValues == null){
+                  showAllProjects();
+                  return;
+              }
+
+              else if(universityValues != null && lines_of_studyValues == null){
+                  searchValues = universityValues;
+
+              }
+              else if(universityValues == null && lines_of_studyValues != null){
+                  searchValues = lines_of_studyValues;
+              }
+
+              else if(universityValues != null && lines_of_studyValues != null){
+                     searchValues = universityValues.concat(lines_of_studyValues);
+              }
+              //alert(searchValues);
+              filterProjectList(searchValues)
+          });
+
+
+        var checkedValues = [];
+
+        function filterProjectList(checkedValue) {
+            var checkedValue = checkedValue.value;
+
+            //Adding
+            //console.log("indexOf checkedValue " + checkedValues.indexOf(checkedValue) + " value " + checkedValue);
+            var item = checkedValues.indexOf(checkedValue);
+            if(item == -1){
+                checkedValues.push(checkedValue);
+                console.log("added " + checkedValue);
+            }
+            //Removing
+            else{
+                checkedValues.splice(item, 1);
+                console.log("removed " + checkedValue);
+            }
+
+            //Skip the comparision
+            if(checkedValues.length == 0){
+                showAllProjects();
+                return;
+            }
+            var projects = document.getElementById('all_projects').getElementsByClassName('block-link');
+
+            //console.log(projects.length);
+            for(var i = 0; i<projects.length;i++){
+                    var projectValues = projects[i].getElementsByTagName('li');
+                    //start by hiding the project
+                    projects[i].style.display = 'none';
+                    //console.log("number of checked values " + checkedValues.length);
+                    for(var j = 0; j<checkedValues.length; j++) {
+                            console.log("#####");
+                            console.log("value " + checkedValues[j]);
+                            for (var l = 0; l < projectValues.length; l++) {
+                                console.log("project value " + projectValues[l].innerText);
+                                if (projectValues[l].innerText == checkedValues[j]) {
+                                    console.log("show this project");
+                                    projects[i].style.display = "block";
+                                }
+                            }
+                        }
+            }
+        }
+        //is used to make all checkboxes unchecked, if user uses the back-button in browser
+       window.onload = showAllProjects();
+
+        function showAllProjects(){
+             uncheckAll();
+             var projects = document.getElementById('all_projects').getElementsByClassName('block-link');
+                for(var i = 0; i<projects.length;i++){
+                    projects[i].style.display = "block";
+                }
+
+        }
+
+        //Unchecks all checkboxes
+        function uncheckAll()
+        {
+          var checkboxes = [];
+          checkboxes = document.getElementsByTagName('input');
+          for (var i=0; i<checkboxes.length; i++)  {
+            if (checkboxes[i].type == 'checkbox')   {
+              checkboxes[i].checked = false;
+            }
+          }
+        }
+
+
+
+
+        </script>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "_layouts/root_layout_without_image.html" %}
+{% load staticfiles %}
+{% comment %}
+	# This root template is meant for creating the basic layout for all views that can be viewed without logging in.
+	#
+	#
+	#
+	#
+	#
+{% endcomment %}
+
+{% block title %} Pricing {% endblock %}
+
+
+{% block content %}
+    <div class="col-md-12 col-sm-12 col-xs-12 FAQ-header">
+        <h1 class="text-center"> Pricing Solutions</h1>
+    </div>
+
+    <div class="container general-container">
+        <div class="row">
+            <div class="col-md-4 ">
+                {% include 'layout/start_up_pricing_panel.html' %}
+            </div>
+            <div class="col-md-4">
+                {% include 'layout/standard_pricing_panel.html' %}
+            </div>
+            <div class="col-md-4">
+                {% include 'layout/enterprise_pricing_panel.html' %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

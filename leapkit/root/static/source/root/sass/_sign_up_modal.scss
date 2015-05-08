@@ -1,0 +1,35 @@
+/*
+    ------------------ Sign up Model CSS -------------
+*/
+
+.modal-body {
+  height: 500px;
+}
+
+.modal-divider-vertical {
+  height: 80%;
+  border-left: 1px solid #F5F8F9;
+  width: 1px;
+}
+
+.modal-company {
+  border-left: 1px solid #777777;
+}
+
+.modal-company,
+.modal-student {
+  height: 90%;
+  margin-top: 2%;
+}
+
+.modal-body .modal-text {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 2%;
+}
+
+.fa.model-dot {
+  font-size: 12px;
+  line-height: 16px;
+  padding-right: 10px;
+}

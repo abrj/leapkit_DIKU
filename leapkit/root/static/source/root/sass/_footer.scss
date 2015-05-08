@@ -1,0 +1,48 @@
+/*
+    -------------   This section is to make sure the footer is always in the bottom of the page
+*/
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin: 0 0 50px; /* bottom = footer height */
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+}
+
+footer {
+  border-top: 1px solid #e7e7e7;
+}
+
+footer .container {
+  padding-top: 1%;
+}
+
+.footer-links li {
+  display: inline-block;
+  margin-right: 1.5%;
+  float: left;
+}
+
+.footer-links li a {
+  color: $gray;
+}
+
+.footer-links li a:hover {
+  color: $brand-primary;
+}
+
+.leapkit-copyright {
+  float: right;
+  text-align: right;
+  color: $gray;
+}

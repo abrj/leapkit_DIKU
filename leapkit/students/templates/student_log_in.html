@@ -1,0 +1,26 @@
+{% extends "_layouts/root_layout_without_image.html" %}
+{% comment %}
+	# This root template is meant for creating the basic layout for all views that can be viewed without logging in.
+	#
+	#
+	#
+	#
+	#
+{% endcomment %}
+
+{% block title %} Sign Up {% endblock %}
+
+{% block content %}
+    <div class="row">
+        {% load crispy_forms_tags %}
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <h2 class="text-center"> Login as student </h2>
+                {% crispy form %}
+                <p class="text-center pull-right">Don't have a profile? <br><a href="{% url 'students:sign_up' %}">Sign
+                    up here</a></p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

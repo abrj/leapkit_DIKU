@@ -1,0 +1,37 @@
+<div class="listing listing-primary">
+    <div class="stamp">
+        <div class="stamp-text"><i class="fa fa-briefcase"></i></div>
+    </div>
+    <div class="listing-content">
+        <div class="row">
+            {% if project.companyproject.project_owner.logo %}
+                <div class="project-image col-md-2 col-lg-2">
+                    <img src="{{ project.companyproject.project_owner.logo.url }}" class="image-tumbnail">
+                </div>
+            {% endif %}
+            <div class="col-md-5 col-lg-5">
+                <h3 >{{ project.title }}</h3>
+                <p>{{ project.short_description }}</p>
+            </div>
+            <div class="col-md-2 col-lg-2 ">
+                {% if project.education_requirements == "BSC" %}
+                    <h4>Bachelor Students Only</h4>
+                {% elif project.education_requirements == "MSC"  %}
+                    <h4>Master Students Only</h4>
+                {% else %}
+                    <h4>Bachelor & Master Students</h4>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+    <!--This information is NOT showed on the page, but only used in the filter functions-->
+    <div id="filter_info_list" style="display:none;">
+        {% for university in project.university_requirements.all %}
+            <li class="university">{{ university }}</li>
+        {% endfor %}
+    {% for line_of_study in project.related_lines_of_study.all %}
+            <li class="lines_of_study">{{ line_of_study }}</li>
+        {% endfor %}
+    </div>
+</div>

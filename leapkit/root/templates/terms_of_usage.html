@@ -1,0 +1,20 @@
+{% extends "_layouts/root_layout_without_image.html" %}
+{% load staticfiles %}
+{% comment %}
+	# This root template is meant for creating the basic layout for all views that can be viewed without logging in.
+	#
+	#
+	#
+	#
+	#
+{% endcomment %}
+
+{% block title %} Terms of Usage {% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1">
+            {% include 'layout/terms_of_usage_template.html' %}
+        </div>
+    </div>
+{% endblock %}
