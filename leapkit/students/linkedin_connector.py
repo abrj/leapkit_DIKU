@@ -15,9 +15,12 @@ __RETURN_URL = 'http://www.leapkit.com'
 FILE_NAME = 'linkedInResult.json'
 
 
-# Returns url to our linkedin application.
-# Takes a return url to be redirected to after linkedin login.
+
 def linkedin_get_url(return_url = __RETURN_URL):
+    """
+    Returns url to our linkedin application.
+    Takes a return url to be redirected to after linkedin login.
+    """
     authentication = linkedin.LinkedInAuthentication(__API_KEY, 
                                                      __API_SECRET, 
                                                      return_url, 
@@ -28,12 +31,15 @@ def linkedin_get_url(return_url = __RETURN_URL):
     return authentication.authorization_url
 
 
-# Returns 1 if extraction was successful, otherwise 0.
-# Takes the given code from the GET section of the redirect uri, i.e. the 
-# LinkedIn url in browser after login.
-# Takes the return_url used in the linkedin_get_url to establish connection to 
-# LinkedIn. Can be omitted by converting these methods to objects.
+
 def linkedin_extract(code, return_url):
+    """
+    Returns 1 if extraction was successful, otherwise 0.
+    Takes the given code from the GET section of the redirect uri, i.e. the 
+    LinkedIn url in browser after login.
+    Takes the return_url used in the linkedin_get_url to establish connection to 
+    LinkedIn. Can be omitted by converting these methods to objects.
+    """
     authentication = linkedin.LinkedInAuthentication(__API_KEY, 
                                                      __API_SECRET, 
                                                      return_url, 
