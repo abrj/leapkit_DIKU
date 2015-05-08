@@ -591,10 +591,12 @@ def stage(request):
     LeapkitUsername = request.user
     # TODO: Redo the insert function to work with a dict instead of the data string. It's much more fun and secure.
     if insertLinkedInProfile(str(data), LeapkitUsername):
-        messages.add_message(request, messages.SUCCESS, "You rock",
+        messages.add_message(request, messages.SUCCESS, "Successfully extracted
+                data from LinkedIn",
                 extra_tags="alert-success")
     else:
-        messages.add_message(request, messages.ERROR, "You suck",
+        messages.add_message(request, messages.ERROR, "Failed to extract data
+                from LinkedIn",
                 extra_tags="alert-danger")
 
 
