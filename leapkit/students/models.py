@@ -419,107 +419,106 @@ class Position(models.Model):
        return "%s" % (self.jobtitle)
 
 def insertLinkedInProfile(p_json, LeapkitUsername):
-    p = fromString(p_json) # Converts json data to the 'desired' structure
+    try:
+        p = fromString(p_json) # Converts json data to the 'desired' structure
 
-    user = User.objects.get(username=LeapkitUsername)
-    """Checks if linkedin data already exists"""
-    if LinkedInProfile.objects.filter(leapkituser = user):
-        """If exists, profile is updated"""
-        profile = LinkedInProfile.objects.get(leapkituser=user)
-        profile.__dict__.update(linkedin_id = p.pid,
-                                  firstName = p.firstName,
-                                  lastName = p.lastName,
-                                  pictureUrl = p.pictureUrl,
-                                  publicProfileUrl = p.publicProfileUrl)
+        user = User.objects.get(username=LeapkitUsername)
+        """Checks if linkedin data already exists"""
+        if LinkedInProfile.objects.filter(leapkituser = user):
+            """If exists, profile is updated"""
+            profile = LinkedInProfile.objects.get(leapkituser=user)
+            profile.__dict__.update(linkedin_id = p.pid,
+                                      firstName = p.firstName,
+                                      lastName = p.lastName,
+                                      pictureUrl = p.pictureUrl,
+                                      publicProfileUrl = p.publicProfileUrl)
 
-        """Seemed useful at the time"""
-        try:
-            Skill.objects.filter(profile=profile).delete()
-        except:
-            logging.error("Skills not deleted")
-        try:
-            Education.objects.filter(profile=profile).delete()
-        except:
-            logging.error("Education not deleted")
-        try:
-            Language.objects.filter(profile=profile).delete()
-        except:
-            logging.error("Language not deleted")
-        try:
-            Course.objects.filter(profile=profile).delete()
-        except:
-            logging.error("Course not deleted")
-        try:
-            Position.objects.filter(profile=profile).delete()
-        except:
-            logging.error("Position not deleted")
+            """Seemed useful at the time"""
+            try:
+                Skill.objects.filter(profile=profile).delete()
+            except:
+                logging.error("Skills not deleted")
+            try:
+                Education.objects.filter(profile=profile).delete()
+            except:
+                logging.error("Education not deleted")
+            try:
+                Language.objects.filter(profile=profile).delete()
+            except:
+                logging.error("Language not deleted")
+            try:
+                Course.objects.filter(profile=profile).delete()
+            except:
+                logging.error("Course not deleted")
+            try:
+                Position.objects.filter(profile=profile).delete()
+            except:
+                logging.error("Position not deleted")
 
-        for ps in p.positions:
-            pos = Position(startDate = ps.startDate, endDate = ps.endDate,
-                    company = ps.company, jobtitle = ps.title,
-                    isCurrent = ps.isCurrent, profile = profile)
-            pos.save()
+            for ps in p.positions:
+                pos = Position(startDate = ps.startDate, endDate = ps.endDate,
+                        company = ps.company, jobtitle = ps.title,
+                        isCurrent = ps.isCurrent, profile = profile)
+                pos.save()
 
-        for s in p.skills:
-            ski = Skill(name = s.name, profile = profile)
-            ski.save()
+            for s in p.skills:
+                ski = Skill(name = s.name, profile = profile)
+                ski.save()
 
-        for l in p.languages:
-            lang = Language(name = l.name, level = l.level,
-                    profile = profile)
-            lang.save()
+            for l in p.languages:
+                lang = Language(name = l.name, level = l.level,
+                        profile = profile)
+                lang.save()
 
-        for e in p.educations:
-            edu = Education(schoolName = e.schoolName,
-                    fieldOfStudy = e.fieldOfStudy, degree = e.degree,
-                    profile = profile)
-            edu.save()
+            for e in p.educations:
+                edu = Education(schoolName = e.schoolName,
+                        fieldOfStudy = e.fieldOfStudy, degree = e.degree,
+                        profile = profile)
+                edu.save()
 
-        for c in p.courses:
-            cou = Course(name = c.name, profile = profile)
-            cou.save()
+            for c in p.courses:
+                cou = Course(name = c.name, profile = profile)
+                cou.save()
 
-    else:
+            return True
+
+        else:
 #        try:
-        """Creates new LinkedInProfile"""
-        profile = LinkedInProfile(leapkituser = user,
-                                  linkedin_id = p.pid,
-                                  firstName = p.firstName,
-                                  lastName = p.lastName,
-                                  pictureUrl = p.pictureUrl,
-                                  publicProfileUrl = p.publicProfileUrl)
-        profile.save()
+            """Creates new LinkedInProfile"""
+            profile = LinkedInProfile(leapkituser = user,
+                                      linkedin_id = p.pid,
+                                      firstName = p.firstName,
+                                      lastName = p.lastName,
+                                      pictureUrl = p.pictureUrl,
+                                      publicProfileUrl = p.publicProfileUrl)
+            profile.save()
 
-        for ps in p.positions:
-            pos = Position(startDate = ps.startDate, endDate = ps.endDate,
-                    company = ps.company, jobtitle = ps.title,
-                    isCurrent = ps.isCurrent, profile = profile)
-            pos.save()
+            for ps in p.positions:
+                pos = Position(startDate = ps.startDate, endDate = ps.endDate,
+                        company = ps.company, jobtitle = ps.title,
+                        isCurrent = ps.isCurrent, profile = profile)
+                pos.save()
 
-        for s in p.skills:
-            ski = Skill(name = s.name, profile = profile)
-            ski.save()
+            for s in p.skills:
+                ski = Skill(name = s.name, profile = profile)
+                ski.save()
 
-        for l in p.languages:
-            lang = Language(name = l.name, level = l.level,
-                    profile = profile)
-            lang.save()
+            for l in p.languages:
+                lang = Language(name = l.name, level = l.level,
+                        profile = profile)
+                lang.save()
 
-        for e in p.educations:
-            edu = Education(schoolName = e.schoolName,
-                    fieldOfStudy = e.fieldOfStudy, degree = e.degree,
-                    profile = profile)
-            edu.save()
+            for e in p.educations:
+                edu = Education(schoolName = e.schoolName,
+                        fieldOfStudy = e.fieldOfStudy, degree = e.degree,
+                        profile = profile)
+                edu.save()
 
-        for c in p.courses:
-            cou = Course(name = c.name, profile = profile)
-            cou.save()
+            for c in p.courses:
+                cou = Course(name = c.name, profile = profile)
+                cou.save()
 
-#        except:
-#            LinkedInProfile.objects.filter(leapkituser=user).delete()
-#            Skill.objects.filter(profile=profile).delete()
-#            Education.objects.filter(profile=profile).delete()
-#            Language.objects.filter(profile=profile).delete()
-#            Course.objects.filter(profile=profile).delete()
-#            Position.objects.filter(profile=profile).delete()
+            return True
+    except:
+        return False
 

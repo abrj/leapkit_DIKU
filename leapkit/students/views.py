@@ -572,7 +572,7 @@ def linkedin_redirect(request):
         linkedin_url = linkedin_connector.linkedin_get_url(path)
     except:
         return redirect(reverse("students:log_in"))
-    
+
 
     return HttpResponseRedirect(linkedin_url)
     #return HttpResponseRedirect('http://www.google.com')
@@ -590,7 +590,12 @@ def stage(request):
 
     LeapkitUsername = request.user
     # TODO: Redo the insert function to work with a dict instead of the data string. It's much more fun and secure.
-    insertLinkedInProfile(str(data), LeapkitUsername)
+    if insertLinkedInProfile(str(data), LeapkitUsername):
+        messages.add_message(request, messages.SUCCESS, "You rock",
+                extra_tags="alert-success")
+    else:
+        messages.add_message(request, messages.ERROR, "You suck",
+                extra_tags="alert-danger")
 
 
 
