@@ -26,7 +26,7 @@ def matchListsOfStrings(sourceList, targetList, compareFun):
     for skill in sourceList:
         matchSum += compareFun(skill, targetList)
 
-    return float(matchSum) / len(sourceList)
+    return matchSum
 
 
 
