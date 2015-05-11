@@ -432,6 +432,7 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
                                       lastName = p.lastName,
                                       pictureUrl = p.pictureUrl,
                                       publicProfileUrl = p.publicProfileUrl)
+            profile.save()
 
             # Seemed useful at the time
             try:
