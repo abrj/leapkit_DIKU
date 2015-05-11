@@ -25,7 +25,9 @@ class StudentProfileTest(TestCase):
 
     def test_student_profile_creation(self):
         profile = self.create_profile()
+        self.test_user_exists(profile)
 
+    def test_user_exists(self, profile):
         self.assertTrue(isinstance(profile, StudentProfile))
         self.assertEquals(profile.__unicode__(), "%s %s" % (profile.first_name, profile.last_name))
         self.assertTrue(profile.is_active)
