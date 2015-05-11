@@ -8,6 +8,7 @@ sudo apt-get -y dist-upgrade
 # Install dependencies
 sudo apt-get -y build-dep python-imaging
 sudo apt-get -y install vim libjpeg62 libjpeg62-dev python-pip python-psycopg2 postgresql
+sudo apt-get -y install virtualbox-guest-additions
 
 # Do magic linking.
 sudo ln -s /usr/lib/i386-linux-gnu/libz.so /usr/lib/libz.so
