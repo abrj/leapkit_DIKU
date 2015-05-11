@@ -150,3 +150,15 @@ class FieldOfStudy(models.Model):
         ordering = ['name', ]
         verbose_name = "Field of Study"
         verbose_name_plural = "Fields of Study"
+
+class Skill(models.Model):
+    name = models.CharField(max_length = 81)
+    fieldOfStudy = models.ForeignKey(FieldOfStudy)
+
+    def __unicode__(self):
+        return self.get_skill()
+
+    def get_skill(self):
+        return "%s" % (self.name)
+
+

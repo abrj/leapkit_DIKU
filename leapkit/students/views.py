@@ -51,7 +51,11 @@ class StudentView(LoginRequiredMixin, DetailView):
         context['profile'] = Student.objects.get(user=self.request.user)
         project_list = StudentProject.objects.get_own_projects(self.request.user.student)
 
+        logger = logging.getLogger("debug_logger")
+        logger.debug("STUDENTVIEW: Assigning project list in context.")
+
         context['project_list'] = project_list
+        logger.debug(project_list)
         context['published_projects'] = project_list.filter(published=True)
         if LinkedInProfile.objects.filter(leapkituser=self.request.user):
             linked = LinkedInProfile.objects.get(leapkituser=self.request.user)
@@ -101,6 +105,8 @@ class StudentOwnProjectListView(LoginRequiredMixin, ListView):
 
 
     def get_queryset(self, **kwargs):
+        logger = logging.getLogger("debug_logger")
+        logger.debug("STUDENTOWNPROJECTLISTVIEW: Assigning project list in context.")
         project_list = StudentProject.objects.get_own_published_queryset(self.request.user.student)
         return project_list
 
@@ -241,8 +247,10 @@ class ListAllProjectsView(LoginRequiredMixin, ListView):
         #debug_list = []
         for tup in compare_result:
             pid = tup[0]
-            recommended_projects.append(Project.objects.get(id=pid))
-            #debug_list.append([pid, Project.objects.get(id=pid)])
+            score = tup[1]
+            if float(score) >= 0.05: # Only show projects that have a 5% match or higher.
+                recommended_projects.append(Project.objects.get(id=pid))
+                #debug_list.append([pid, Project.objects.get(id=pid)])
 
 
 
@@ -257,7 +265,7 @@ class ListAllProjectsView(LoginRequiredMixin, ListView):
         nr_of_projects_count = Project.objects.filter(is_active=True, published=True).count()
         nr_of_company_projects = CompanyProject.objects.filter(is_active=True, published=True).count()
         nr_of_student_projects = StudentProject.objects.filter(is_active=True, published=True).count()
-        context['recommended_projects_count'] = nr_of_recommended_projects
+        #context['recommended_projects_count'] = nr_of_recommended_projects
         context['all_projects_count'] = nr_of_projects_count
         context['company_projects_count'] = nr_of_company_projects
         context['student_projects_count'] = nr_of_student_projects
@@ -572,7 +580,7 @@ def linkedin_redirect(request):
         linkedin_url = linkedin_connector.linkedin_get_url(path)
     except:
         return redirect(reverse("students:log_in"))
-    
+
 
     return HttpResponseRedirect(linkedin_url)
     #return HttpResponseRedirect('http://www.google.com')
@@ -590,7 +598,13 @@ def stage(request):
 
     LeapkitUsername = request.user
     # TODO: Redo the insert function to work with a dict instead of the data string. It's much more fun and secure.
-    insertLinkedInProfile(str(data), LeapkitUsername)
+    if insertLinkedInProfile(str(data), LeapkitUsername):
+        messages.add_message(request, messages.SUCCESS,
+                "Successfully extracted data from LinkedIn",
+                extra_tags="alert-success")
+    else:
+        messages.add_message(request, messages.ERROR,
+            ("Failed to extract data from LinkedIn"), extra_tags="alert-danger")
 
 
 
