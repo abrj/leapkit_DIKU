@@ -15,8 +15,8 @@ def matchListsOfStrings(sourceList, targetList, compareFun):
     emptyString = ""
     while emptyString in sourceList:
         sourceList.remove(emptyString) 
-    while emptyString in targetList:
-        targetList.remove(emptyString)
+    #while emptyString in targetList:
+    #    targetList.remove(emptyString)
 
     if not sourceList or not targetList:
         return -1
@@ -56,6 +56,17 @@ def compareSkills(userSkills, projects, stringComparefunction=strictCompare):
 
     return sortedProjectList
     
+
+#Returns list project names ordered by matching degree.
+#Only take skills into account, not languages, etc.
+def compareSkillsFullString(userSkills, projects):
+
+    userSkillsWithSpaces = list(filter(lambda s : " " in s, userSkills))
+
+    sortedProjectList = [(projId, matchListsOfStrings(userSkills, projSkills, strictCompare) +  matchListsOfStrings(userSkillsWithSpaces, projDescription, containsStringCompare)) for projId, projSkills, projDescription in projects]
+    sortedProjectList.sort(key=lambda tup: tup[1], reverse=True)
+
+    return sortedProjectList
 
 
 

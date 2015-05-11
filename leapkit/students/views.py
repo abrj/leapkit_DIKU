@@ -20,7 +20,7 @@ from institutions.models import Institution, FieldOfStudy
 
 import logging
 import linkedin_connector
-from matchmaking import compareSkills, containsStringCompare
+from matchmaking import compareSkillsFullString
 
 
 """
@@ -237,9 +237,9 @@ class ListAllProjectsView(LoginRequiredMixin, ListView):
 
         project_tuples = []
         for project in all_projects:
-            project_tuples.append([project.id, project.full_description.split()])
+            project_tuples.append([project.id, project.full_description.split(), project.full_description])
 
-        compare_result = compareSkills(skillstrings, project_tuples, containsStringCompare)
+        compare_result = compareSkillsFullString(skillstrings, project_tuples)
         #context['compare_result'] = compare_result
 
 
@@ -248,7 +248,7 @@ class ListAllProjectsView(LoginRequiredMixin, ListView):
         for tup in compare_result:
             pid = tup[0]
             score = tup[1]
-            if float(score) >= 0.05: # Only show projects that have a 5% match or higher.
+            if score > 0: # Only show projects that have a 5% match or higher.
                 recommended_projects.append(Project.objects.get(id=pid))
                 #debug_list.append([pid, Project.objects.get(id=pid)])
 
