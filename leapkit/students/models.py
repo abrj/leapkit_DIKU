@@ -362,6 +362,9 @@ class LinkedInProfile(models.Model):
         return "%s %s" % (self.firstName, self.lastName)
 
 class Language(models.Model):
+  """
+  Model that represents a language on LinkedIn.
+  """
    name = models.CharField(max_length = 30)
    level = models.CharField(max_length = 30)
    profile = models.ForeignKey(LinkedInProfile)
@@ -373,6 +376,9 @@ class Language(models.Model):
        return "%s" % (self.name)
 
 class Course(models.Model):
+  """
+  Model that represents a course on LinkedIn.
+  """
    name = models.CharField(max_length = 81)
    profile = models.ForeignKey(LinkedInProfile)
 
@@ -383,6 +389,9 @@ class Course(models.Model):
        return "%s" % (self.name)
 
 class Skill(models.Model):
+  """
+  Model that represents a skill on LinkedIn.
+  """
    name = models.CharField(max_length = 81)
    profile = models.ForeignKey(LinkedInProfile)
 
@@ -393,6 +402,9 @@ class Skill(models.Model):
        return "%s" % (self.name)
 
 class Education(models.Model):
+  """
+  Model that represents a education on LinkedIn.
+  """
    schoolName = models.CharField(max_length=100)
    fieldOfStudy = models.CharField(max_length=100)
    degree = models.CharField(max_length=100)
@@ -405,6 +417,9 @@ class Education(models.Model):
        return "%s" % (self.fieldOfStudy)
 
 class Position(models.Model):
+  """
+  Model that represents a job position on LinkedIn.
+  """
    startDate = models.CharField(max_length=20)
    endDate = models.CharField(max_length=20)
    company = models.CharField(max_length=100)
@@ -419,6 +434,10 @@ class Position(models.Model):
        return "%s" % (self.jobtitle)
 
 def insertLinkedInProfile(p_json, LeapkitUsername):
+  """
+  Takes a JSON string and a LeapkitUsername and parses the JSON string for
+  usefull data and inserts it into the database using the supplied username.
+  """
     try:
         p = fromString(p_json) # Converts json data to the 'desired' structure
 
@@ -484,7 +503,6 @@ def insertLinkedInProfile(p_json, LeapkitUsername):
             return True
 
         else:
-#        try:
             # Creates new LinkedInProfile
             profile = LinkedInProfile(leapkituser = user,
                                       linkedin_id = p.pid,
