@@ -244,7 +244,6 @@ class ListAllProjectsView(LoginRequiredMixin, ListView):
         # generate a list of project ID's and their respective match rating.
         compare_result = compareSkillsFullString(skillstrings, project_tuples)
 
-
         # Go through the results one by one and add the full project object for
         # any project that had a higher score than 0.
         recommended_projects = []
