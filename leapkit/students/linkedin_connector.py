@@ -8,11 +8,12 @@ import contextlib
 import urlparse
 import json
 
+#TODO: Replace with Leapkits own creds.
 __API_KEY = '75yv7bexwfjovt' #Leapkit unique API/Consumer key
 __API_SECRET = 'Jz3ElgF0hj1RAjb3' #Leapkit unique Secret key/Consumer Secret
 __RETURN_URL = 'http://www.leapkit.com'
 
-FILE_NAME = 'linkedInResult.json'
+#FILE_NAME = 'linkedInResult.json'
 
 
 
