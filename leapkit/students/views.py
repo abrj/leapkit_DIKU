@@ -219,53 +219,46 @@ class ListAllProjectsView(LoginRequiredMixin, ListView):
         return projects
 
     def get_context_data(self, **kwargs):
+        """
+        Builds the context that is needed for the project list to display the
+        relevant projects.
+        """
         context = super(ListAllProjectsView, self).get_context_data(**kwargs)
 
-        ###############################
-        # BEGINNING OF PROTOTYPE CODE #
-        ###############################
-
-        # Yes the below code is a hack, proof of concept stuff.
-        # The list breaks when you switch tabs.
-
         all_projects = Project.objects.filter(is_active=True, published=True)
+
+        # Retrieve the skills from the relevant linkedin profile.
         linkedin_profile = LinkedInProfile.objects.filter(leapkituser=self.request.user)
         skills = Skill.objects.filter(profile=linkedin_profile)
         skillstrings = []
         for skill in skills:
             skillstrings.append(skill.name)
 
+        # Create a list of tubles on the form:
+        # [project ID, [project Description (split by spaces)], Project Description.]
         project_tuples = []
         for project in all_projects:
             project_tuples.append([project.id, project.full_description.split(), project.full_description])
 
+        # Call the matchmaking functions (from the module matchmaking.py) to
+        # generate a list of project ID's and their respective match rating.
         compare_result = compareSkillsFullString(skillstrings, project_tuples)
-        #context['compare_result'] = compare_result
 
 
-        recommended_projects = []#all_projects #FIXME : Use the recommended projects.
-        #debug_list = []
+        # Go through the results one by one and add the full project object for
+        # any project that had a higher score than 0.
+        recommended_projects = []
         for tup in compare_result:
             pid = tup[0]
             score = tup[1]
-            if score > 0: # Only show projects that have a 5% match or higher.
+            if score > 0:
                 recommended_projects.append(Project.objects.get(id=pid))
-                #debug_list.append([pid, Project.objects.get(id=pid)])
 
-
-
-        #context['debug_list'] = debug_list
         context['recommended_projects'] = recommended_projects
 
-        #########################
-        # END OF PROTOTYPE CODE #
-        #########################
-
-        nr_of_recommended_projects = len(recommended_projects)
         nr_of_projects_count = Project.objects.filter(is_active=True, published=True).count()
         nr_of_company_projects = CompanyProject.objects.filter(is_active=True, published=True).count()
         nr_of_student_projects = StudentProject.objects.filter(is_active=True, published=True).count()
-        #context['recommended_projects_count'] = nr_of_recommended_projects
         context['all_projects_count'] = nr_of_projects_count
         context['company_projects_count'] = nr_of_company_projects
         context['student_projects_count'] = nr_of_student_projects
@@ -568,7 +561,17 @@ def login_check(request):
 def student_sign_up_success(request, slug):
     return redirect(reverse("students:profile", args=(slug, )))
 
+
+"""
+    -------------------------------------------------------------------------
+    Below this section are all the views used to handle contact with LinkedIn
+    -------------------------------------------------------------------------
+"""
+
 def linkedin_redirect(request):
+    """
+    Redirects the user to a login form in LinkedIn to retrieve a sign in code.
+    """
     #logging.error(request)
     #logging.error("\nrequest.user = " + str(request.user))
     try:
@@ -583,9 +586,13 @@ def linkedin_redirect(request):
 
 
     return HttpResponseRedirect(linkedin_url)
-    #return HttpResponseRedirect('http://www.google.com')
 
 def stage(request):
+    """
+    Creates a connection to LinkedIn and retrieves the users LinkedIn profile
+    information in a JSON format and then parses the information and saves it in
+    the local database before returning to the students profile pages.
+    """
     #logging.error(request)
     slug = request.GET['u']
     code = request.GET['code']
