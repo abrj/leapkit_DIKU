@@ -10,23 +10,22 @@ import logging
 class Person(object):
     """A person is used to structure a json string"""
 
-    def __init__(self):
-        """Constructor that initiates all the basic person values"""
-        self.pid = "" 
-        self.firstName = ""
-        self.maidenName = ""
-        self.lastName = ""
-        self.location = ""
-        self.specialities = ""
-        self.pictureUrl = ""
-        self.publicProfileUrl = ""
+    """Constructor that initiates all the basic person values"""
+    pid = "" 
+    firstName = ""
+    maidenName = ""
+    lastName = ""
+    location = ""
+    specialities = ""
+    pictureUrl = ""
+    publicProfileUrl = ""
 
-        #Lists
-        self.positions = []
-        self.skills = []
-        self.educations = []
-        self.courses = []
-        self.languages = []
+    #Lists
+    positions = []
+    skills = []
+    educations = []
+    courses = []
+    languages = []
 
     def __str__(self):
         """Returns a string with all information from that user"""
@@ -51,53 +50,48 @@ class Person(object):
 class Language(object):
     """A Language is used to hold the languages and profifiency the person knows."""
 
-    def __init__(self):
-        """Constructor that initiates all the basic language values"""
-        self.lid = ""
-        self.name = ""
-        self.level = ""
+    """Constructor that initiates all the basic language values"""
+    lid = ""
+    name = ""
+    level = ""
 
 class Position(object):
     """A Position is used to hold the company positions and employment dration a person knows."""
 
-    def __init__(self):
-        """Constructor that initiates all the basic position values"""
-        self.endDate = ""
-        self.startDate = ""
-        self.isCurrent = ""
-        self.pid = ""
-        self.company = ""
-        self.title = ""
-        self.summary = ""
+    """Constructor that initiates all the basic position values"""
+    endDate = ""
+    startDate = ""
+    isCurrent = ""
+    pid = ""
+    company = ""
+    title = ""
+    summary = ""
 
 class Course(object):
     """A Course is used to hold what courses a person has completed."""
 
-    def __init__(self):
-        """Constructor that initiates all the basic course values"""
-        self.cid  = ""
-        self.name   = ""
+    """Constructor that initiates all the basic course values"""
+    cid  = ""
+    name   = ""
 
 class Skill(object):
     """Skill is used to hold what skills a person has."""
 
-    def __init__(self):
-        """Constructor that initiates all the basic skill values"""
-        self.sid = ""
-        self.name = ""
+    """Constructor that initiates all the basic skill values"""
+    sid = ""
+    name = ""
 
 class Education(object):
     """Education hold what educations a person has completed, what degree it
     gives and from where it was given."""
 
-    def __init__(self):
-        """Constructor that initiates all the basic education values"""
-        self.eid = ""
-        self.schoolName = ""
-        self.fieldOfStudy = ""
-        self.startDate = ""
-        self.endDate = ""
-        self.degree = ""
+    """Constructor that initiates all the basic education values"""
+    eid = ""
+    schoolName = ""
+    fieldOfStudy = ""
+    startDate = ""
+    endDate = ""
+    degree = ""
 
 ################################
 ##      Helper Functions      ##
