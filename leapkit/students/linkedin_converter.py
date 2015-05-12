@@ -8,23 +8,28 @@ import logging
 ##############################
 
 class Person(object):
-    pid = "" 
-    firstName = ""
-    maidenName = ""
-    lastName = ""
-    location = ""
-    specialities = ""
-    pictureUrl = ""
-    publicProfileUrl = ""
+    """A person is used to structure a json string"""
 
-    #Lists
-    positions = []
-    skills = []
-    educations = []
-    courses = []
-    languages = []
+    def __init__(self):
+        """Constructor that initiates all the basic person values"""
+        self.pid = "" 
+        self.firstName = ""
+        self.maidenName = ""
+        self.lastName = ""
+        self.location = ""
+        self.specialities = ""
+        self.pictureUrl = ""
+        self.publicProfileUrl = ""
+
+        #Lists
+        self.positions = []
+        self.skills = []
+        self.educations = []
+        self.courses = []
+        self.languages = []
 
     def __str__(self):
+        """Returns a string with all information from that user"""
         ret = "pid = " + self.pid + "\nname = " + self.firstName + " " + self.maidenName + " " + self.lastName + ".\n"
         ret += "\nSkills:\n"
         for skill in self.skills:
@@ -44,47 +49,55 @@ class Person(object):
         return ret 
 
 class Language(object):
-    lid = ""
-    name = ""
-    level = ""
+    """A Language is used to hold the languages and profifiency the person knows."""
+
+    def __init__(self):
+        """Constructor that initiates all the basic language values"""
+        self.lid = ""
+        self.name = ""
+        self.level = ""
 
 class Position(object):
-    endDate = ""
-    startDate = ""
-    isCurrent = ""
-    pid = ""
+    """A Position is used to hold the company positions and employment dration a person knows."""
 
-    company = ""
-    title = ""
-    summary = ""
-
-    # def __str__(self):
-        # return "    lid = " + str(self.lid) + "\n    name = " + self.name + "\n level = " + self.level + "\n\n"
+    def __init__(self):
+        """Constructor that initiates all the basic position values"""
+        self.endDate = ""
+        self.startDate = ""
+        self.isCurrent = ""
+        self.pid = ""
+        self.company = ""
+        self.title = ""
+        self.summary = ""
 
 class Course(object):
-    cid  = ""
-    name   = ""
+    """A Course is used to hold what courses a person has completed."""
 
-    # def __str__(self):
-        # return "    cid = " + str(self.cid) + "\n    name = " + self.name + "\n"
+    def __init__(self):
+        """Constructor that initiates all the basic course values"""
+        self.cid  = ""
+        self.name   = ""
 
 class Skill(object):
-    sid = ""
-    name = ""
+    """Skill is used to hold what skills a person has."""
 
-    # def __str__(self):
-        # return "    cid = " + str(self.sid) + ", name = " + self.name + "\n"
+    def __init__(self):
+        """Constructor that initiates all the basic skill values"""
+        self.sid = ""
+        self.name = ""
 
 class Education(object):
-    eid = ""
-    schoolName = ""
-    fieldOfStudy = ""
-    startDate = ""
-    endDate = ""
-    degree = ""
+    """Education hold what educations a person has completed, what degree it
+    gives and from where it was given."""
 
-    # def __str__(self):
-        # return "    eid = " + str(self.eid) + ": " + self.degree + " in " + self.fieldOfStudy + " from " + self.schoolName + "\n"
+    def __init__(self):
+        """Constructor that initiates all the basic education values"""
+        self.eid = ""
+        self.schoolName = ""
+        self.fieldOfStudy = ""
+        self.startDate = ""
+        self.endDate = ""
+        self.degree = ""
 
 ################################
 ##      Helper Functions      ##
@@ -118,10 +131,6 @@ def fillFullProfile(data):
     """Creates a person based on the data"""
     variables = [s for s in dir(Person) if s[0] != '_']
     person = createPerson()
-    # logging.error("\n\n")
-    # logging.error(data)
-    # logging.error("\n\n")
-    # logging.error(variables)
     for var in variables:
         if(var == "languages"):
            for language in getSub(data,"languages"):
@@ -142,10 +151,7 @@ def fillFullProfile(data):
             for course in getSub(data, "courses"):
                person.courses.append(createSub(var, Course, course))
         elif(var == "pid"):
-            # logging.error("Checking for PID\n")
-            # logging.error(data.keys())
             if(u'id' in data.keys()):
-                # logging.error("Inserting pid:" + data[u"id"])
                 person.pid = data[u"id"]
         elif(var == "firstName"):
             if(var in data.keys()):
@@ -173,10 +179,9 @@ def fillFullProfile(data):
     return person
 
 def createSub(name, className, data):
-    """Fills a sublist"""
+    """Fills a sublist name with the information given in the data json string"""
     variables = [s for s in dir(className) if s[0] != '_']
     classInstance = className()
-    # logging.error(variables)
     for var in variables:
         if(var == "startDate"):
             classInstance.startDate = formatDate(get(data, var))
@@ -217,7 +222,7 @@ def createSub(name, className, data):
     return classInstance
 
 def formatDate(data):
-    """Formates a date"""
+    """Formates a date from a json string into the format m/y"""
     if data is "":
         return data
     return str(get(data,"month")) + "/" + str(get(data, "year"))
