@@ -1,16 +1,21 @@
 #!/bin/env python2
 
-#import operator
+"""@matchmaking 
+
+This package implements the needed functionaloty to match projects with a student.
+"""
+
 
 ############### HELPER METHODS ###############
 
-#Returns the degree of match between the given list of source and target 
-#strings.
-#Returns -1 if any list is empty.
-#Takes a compare function compareFun, which takes a single string s and a target 
-#list l of strings s_i. It must return 1 if s matches any target string s_i, 
-#otherwise 0.
 def matchListsOfStrings(sourceList, targetList, compareFun):
+    """
+    Matches a list of strings (sourceList) to another list of strings 
+    (targetList) using a given comparison function (compareFun).
+
+    The function returns the number of matches found as an integer.
+    The function will return -1 if any of the lists are empty.
+    """
     #Clear for empty strings and test for empty lists.
     emptyString = ""
     while emptyString in sourceList:
@@ -29,27 +34,26 @@ def matchListsOfStrings(sourceList, targetList, compareFun):
     return matchSum
 
 
-
-
-#Returns 1 if string is equal to a string in stringList, otherwise 0.
 def strictCompare(string, stringList):
+    """Returns 1 if string is equal to a string in stringList, otherwise 0."""
     return any(string.lower() == s.lower() for s in stringList)
 
-#Returns 1 if string is contained in a string in stringList, otherwise 0.
-#Note: boolean values False and True are considered to be 0 and 1, respectively,
-#except when converted to string.
 def containsStringCompare(string, stringList):
+    """
+    Returns 1 if string is contained in a string in stringList, otherwise 0.
+    Note: boolean values False and True are considered to be 0 and 1,
+    respectively, except when converted to string.
+    """
     return any(string.lower() in s.lower() for s in stringList)
 
-def skillsInDescription(skillList, full_description):
-    return any(skill.lower() in full_description[0].lower() for skill in skillList)
 
-
-
-
-#Returns list project names ordered by matching degree.
-#Only take skills into account, not languages, etc.
 def compareSkills(userSkills, projects, stringComparefunction=strictCompare):
+    """
+    Returns list project names ordered by matching degree.
+    Only take skills into account, not languages, etc.
+
+    Defaults to using strictCompare if no other function is given.
+    """
 
     sortedProjectList = [(projId, matchListsOfStrings(userSkills, projSkills, stringComparefunction) ) for projId, projSkills in projects]
     sortedProjectList.sort(key=lambda tup: tup[1], reverse=True)
@@ -57,9 +61,13 @@ def compareSkills(userSkills, projects, stringComparefunction=strictCompare):
     return sortedProjectList
     
 
-#Returns list project names ordered by matching degree.
-#Only take skills into account, not languages, etc.
 def compareSkillsFullString(userSkills, projects):
+    """
+    Returns list project names ordered by matching degree.
+    Only take skills into account, not languages, etc.
+
+    Used for comparing skills when there is a chance that some skills have a space.
+    """
 
     userSkillsWithSpaces = list(filter(lambda s : " " in s, userSkills))
 
@@ -74,10 +82,17 @@ def compareSkillsFullString(userSkills, projects):
 # Used for testing purposes
 
 def parseSkills(line):
+    """
+    Returns the line split by "|".
+    """
     return line.split("|")
 
 
 def loadProjects(path):
+    """
+    Opens the file specified by path and returns it as a list of tubles on the
+    form (project_id, [skills]).
+    """
     projects = []
     for line in open(path):
         fields = line.strip().split("::")
@@ -88,6 +103,10 @@ def loadProjects(path):
     return projects
 
 def loadUser(path):
+    """
+    Opens the file specified by path and parses it and returns a list of
+    strings.
+    """
     skills = []
     for line in open(path): #should only run once
         fields = line.strip().split("::")
@@ -96,10 +115,14 @@ def loadUser(path):
 
 #Prints projects
 def printProjects(projects):
+    """
+    Pretty prints how a project matched with a student.
+    """
     for projId, d in projects:
         print "Project:", projId, "with match degree:", d
 
 
+# Used for showcase purposes. Ignore this.
 if __name__ == "__main__":
     import sys
     n = len(sys.argv)
