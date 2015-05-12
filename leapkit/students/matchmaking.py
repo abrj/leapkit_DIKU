@@ -35,7 +35,9 @@ def matchListsOfStrings(sourceList, targetList, compareFun):
 
 
 def strictCompare(string, stringList):
-    """Returns 1 if string is equal to a string in stringList, otherwise 0."""
+    """
+    Returns 1 if string is equal to a string in stringList, otherwise 0.
+    """
     return any(string.lower() == s.lower() for s in stringList)
 
 def containsStringCompare(string, stringList):
