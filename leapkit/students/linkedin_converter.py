@@ -3,14 +3,9 @@ from pprint import pprint
 import ast
 import logging
 
-##############################
-##      Data Structure      ##
-##############################
-
 class Person(object):
     """A person is used to structure a json string"""
 
-    """Constructor that initiates all the basic person values"""
     pid = "" 
     firstName = ""
     maidenName = ""
@@ -50,7 +45,6 @@ class Person(object):
 class Language(object):
     """A Language is used to hold the languages and profifiency the person knows."""
 
-    """Constructor that initiates all the basic language values"""
     lid = ""
     name = ""
     level = ""
@@ -58,7 +52,6 @@ class Language(object):
 class Position(object):
     """A Position is used to hold the company positions and employment dration a person knows."""
 
-    """Constructor that initiates all the basic position values"""
     endDate = ""
     startDate = ""
     isCurrent = ""
@@ -70,14 +63,12 @@ class Position(object):
 class Course(object):
     """A Course is used to hold what courses a person has completed."""
 
-    """Constructor that initiates all the basic course values"""
     cid  = ""
     name   = ""
 
 class Skill(object):
     """Skill is used to hold what skills a person has."""
 
-    """Constructor that initiates all the basic skill values"""
     sid = ""
     name = ""
 
@@ -85,7 +76,6 @@ class Education(object):
     """Education hold what educations a person has completed, what degree it
     gives and from where it was given."""
 
-    """Constructor that initiates all the basic education values"""
     eid = ""
     schoolName = ""
     fieldOfStudy = ""
