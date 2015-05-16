@@ -1,0 +1,4 @@
+var namespacecompanies_1_1migrations_1_10008__auto____del__field__company__address____add__field__company__countryaddress =
+[
+    [ "Migration", "classcompanies_1_1migrations_1_10008__auto____del__field__company__address____add__field__company__countryaddress_1_1_migration.html", "classcompanies_1_1migrations_1_10008__auto____del__field__company__address____add__field__company__countryaddress_1_1_migration" ]
+];

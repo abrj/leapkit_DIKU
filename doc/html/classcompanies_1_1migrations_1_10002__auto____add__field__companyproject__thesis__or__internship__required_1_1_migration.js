@@ -1,0 +1,5 @@
+var classcompanies_1_1migrations_1_10002__auto____add__field__companyproject__thesis__or__internship__required_1_1_migration =
+[
+    [ "backwards", "classcompanies_1_1migrations_1_10002__auto____add__field__companyproject__thesis__or__internship__required_1_1_migration.html#a1b74d74c92a6936ac4d742944df49f78", null ],
+    [ "forwards", "classcompanies_1_1migrations_1_10002__auto____add__field__companyproject__thesis__or__internship__required_1_1_migration.html#a8705bee12c5f0bc405fd22dc1f2f185e", null ]
+];

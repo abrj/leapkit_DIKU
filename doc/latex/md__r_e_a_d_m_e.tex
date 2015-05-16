@@ -1,0 +1,252 @@
+
+\begin{DoxyItemize}
+\item Go to the folder where you want to store the solution.
+\item {\ttfamily git clone git@github.\-com\-:martinnj/leapkit}
+\item {\ttfamily cd leapkit}
+\item {\ttfamily vagrant up}
+\item {\ttfamily vagrant ssh}
+\item {\ttfamily sudo ./postinstall.sh}
+\item {\ttfamily cd /vagrant/}
+\item {\ttfamily ./01\-\_\-setup.sh}
+\end{DoxyItemize}
+
+\section*{Database Setup }
+
+
+\begin{DoxyItemize}
+\item {\ttfamily sudo -\/u postgres psql}
+\item {\ttfamily postgres=\# C\-R\-E\-A\-T\-E U\-S\-E\-R leapkit\-\_\-user C\-R\-E\-A\-T\-E\-D\-B C\-R\-E\-A\-T\-E\-U\-S\-E\-R P\-A\-S\-S\-W\-O\-R\-D '12345q';}
+\item {\ttfamily postgres=\# C\-R\-E\-A\-T\-E D\-A\-T\-A\-B\-A\-S\-E leapkit\-\_\-db O\-W\-N\-E\-R leapkit\-\_\-user E\-N\-C\-O\-D\-I\-N\-G 'U\-T\-F8' L\-C\-\_\-\-C\-O\-L\-L\-A\-T\-E 'en\-\_\-\-U\-S.\-U\-T\-F8' L\-C\-\_\-\-C\-T\-Y\-P\-E 'en\-\_\-\-U\-S.\-U\-T\-F-\/8' T\-E\-M\-P\-L\-A\-T\-E template0;}
+\item {\ttfamily postgres=\# \textbackslash{}q}
+\item {\ttfamily sudo -\/u postgres psql leapkit\-\_\-db $<$ dump.\-sql} (The dump is not in the repo for obvius reasons.)
+\item {\ttfamily ./02\-\_\-db.sh}
+\item If the Django authuser gets deleted by the dump rewrite, add a new one using\-:
+\item {\ttfamily python \hyperlink{manage_8py}{leapkit/manage.\-py} createsuperuser}
+\end{DoxyItemize}
+
+\section*{Starting Leapkit Solution }
+
+
+\begin{DoxyItemize}
+\item {\ttfamily ./manage.py runserver 0.\-0.\-0.\-0\-:8080}
+\item Leapkit is now available on \href{http://localhost:8080/}{\tt http\-://localhost\-:8080/}
+\end{DoxyItemize}
+
+\section*{Populate Database }
+
+
+\begin{DoxyItemize}
+\item Open the admin panel for the app \href{http://localhost:8080/admin}{\tt http\-://localhost\-:8080/admin}
+\item Log in with the auth\-\_\-user you created when Django asked you earlier. I bet you wished you wrote that down huh? \-:)
+\item To add students we need an institution they can enroll with. Add one here\-: \href{http://localhost:8080/admin/institutions/institution/}{\tt http\-://localhost\-:8080/admin/institutions/institution/}
+\item Similarly, companies need an industry to be created, create one here\-: \href{http://localhost:8080/admin/companies/industry/}{\tt http\-://localhost\-:8080/admin/companies/industry/}
+\item You are now ready to create student and company profiles with Leapkit \-:)
+\end{DoxyItemize}
+
+\section*{Running Unit Tests }
+
+
+\begin{DoxyItemize}
+\item Either Run a build test form Jenkins or see next step.
+\item {\ttfamily cd leapkit/unittests/} Any unit tests should be created in this folder.
+\item {\ttfamily py.\-test}
+\end{DoxyItemize}
+
+\section*{Running Test in/with Jango }
+
+
+\begin{DoxyItemize}
+\item {\itshape T\-O\-O\-D}
+\end{DoxyItemize}
+
+\section*{Django }
+
+This repository is meant as a working environment for the E\-P\-I\-T\-A 2014 R\-I\-P project.
+
+\subsection*{Getting started }
+
+To get started with this project work you need to do the following
+
+
+\begin{DoxyEnumerate}
+\item Install {\bfseries python 2.\-7} on your computer
+\item Install {\bfseries pip}
+\item Install {\bfseries virtualenv}
+\item Create a virtual environment\-: {\bfseries virtualenv epita-\/venv}
+\item Start a project with the code\-: {\bfseries \hyperlink{django-admin_8py}{django-\/admin.\-py} startproject choose-\/a-\/name} (e.\-g leapkit)
+\item Go into this new folder and delete the folder with the name you just chose (e.\-g leapkit)
+\item Start git, and pull everything from this repository
+\item Write\-: {\bfseries pip install -\/r requirements.\-txt} to install all the needed external apps
+\end{DoxyEnumerate}
+
+\subsection*{Database }
+
+The database is currently S\-Q\-Llite since this makes it easier to work on on multiple computers
+
+\begin{TabularC}{2}
+\hline
+\rowcolor{lightgray}{\bf Name }&\PBS\centering {\bf Value  }\\\cline{1-2}
+User name\-: &\PBS\centering test \\\cline{1-2}
+Email\-: &\PBS\centering \href{mailto:test@test.dk}{\tt test@test.\-dk} \\\cline{1-2}
+Password\-: &\PBS\centering test \\\cline{1-2}
+\end{TabularC}
+
+
+\subsection*{Important Information }
+
+Bootstrap and J\-Query is installed as apps, because it makes it easier to allow their usage in all parts of the websites.
+
+In all apps there is a test directory, all test made should be put into this directory and be named \char`\"{}test\-\_\-\char`\"{} + name of the part of the program it test (e.\-g {\bfseries test\-\_\-model}, {\bfseries test\-\_\-view}).
+
+All apps contain a folder called {\bfseries static}. This is for static files such as {\bfseries C\-S\-S}, {\bfseries Java\-Script}, {\bfseries Images} etc. However, they need to be placed inside another folder with the same name as the app itself. I have added such a folder already. If custom C\-S\-S is needed it would then have to be placed inside a folder called {\bfseries css}.
+
+All {\bfseries H\-T\-M\-L} files will need to be put inside the {\bfseries templates folder}, also included in all apps. If any of the html folders are used as templates, they should be included in a folder called $\ast$$\ast$\-\_\-layouts$\ast$$\ast$ inside {\bfseries templates}.
+
+For specific information about django, most can be found on djangos website\-: \href{https://docs.djangoproject.com/en/1.6/contents}{\tt https\-://docs.\-djangoproject.\-com/en/1.\-6/contents}
+
+\subsubsection*{Other notes}
+
+In the template folder of each app, there is a folder called \-\_\-layout. In this there will be a base template for all views in the given app. I recommend that all C\-S\-S files and J\-S files should be loaded from this template. It means that all C\-S\-S files and J\-S files are loaded once, which might cause a loading spike once, but it is faster than loaded a new file in every template. On top of this, it will enable us to use some cool Java\-Script that makes the website look more responsive, by starting the loading process as soon as the mouse hovers over a link. (\href{http://www.instantclick.io}{\tt http\-://www.\-instantclick.\-io})
+
+\subsubsection*{Information sources}
+
+\paragraph*{Working with the views}
+
+
+\begin{DoxyEnumerate}
+\item \href{https://docs.djangoproject.com/en/1.6/topics/templates/}{\tt https\-://docs.\-djangoproject.\-com/en/1.\-6/topics/templates/} (Information about how to design flexible templates)
+\item \href{https://docs.djangoproject.com/en/1.6/topics/http/shortcuts/}{\tt https\-://docs.\-djangoproject.\-com/en/1.\-6/topics/http/shortcuts/} (Shortcut functions that makes it easy to do regular tasks)
+\item \href{https://docs.djangoproject.com/en/1.6/topics/class-based-views/}{\tt https\-://docs.\-djangoproject.\-com/en/1.\-6/topics/class-\/based-\/views/} (How to use class based views)
+\item \href{https://docs.djangoproject.com/en/1.6/topics/forms/}{\tt https\-://docs.\-djangoproject.\-com/en/1.\-6/topics/forms/} (Working with forms in Django)
+\item \href{https://docs.djangoproject.com/en/1.6/topics/pagination/}{\tt https\-://docs.\-djangoproject.\-com/en/1.\-6/topics/pagination/} (Pagination in Django)
+\item \href{https://docs.djangoproject.com/en/1.6/howto/static-files/}{\tt https\-://docs.\-djangoproject.\-com/en/1.\-6/howto/static-\/files/} (Working with static files)
+\end{DoxyEnumerate}
+
+\paragraph*{Third party libraries used}
+
+
+\begin{DoxyEnumerate}
+\item \href{http://django-crispy-forms.readthedocs.org/en/latest/index.html}{\tt http\-://django-\/crispy-\/forms.\-readthedocs.\-org/en/latest/index.\-html} (making it easier to manage forms)
+\item \href{http://django-floppyforms.readthedocs.org/en/latest/}{\tt http\-://django-\/floppyforms.\-readthedocs.\-org/en/latest/} (improving form layout)
+\item \href{http://django-braces.readthedocs.org/en/latest/index.html}{\tt http\-://django-\/braces.\-readthedocs.\-org/en/latest/index.\-html} (Making plugin mixing easy)
+\item \href{http://south.readthedocs.org/en/latest/}{\tt http\-://south.\-readthedocs.\-org/en/latest/} (Improving database management)
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item \href{http://quilljs.com/}{\tt http\-://quilljs.\-com/} (For great styling messages)
+\end{DoxyEnumerate}
+
+\paragraph*{Bootstrap design inspiration}
+
+
+\begin{DoxyEnumerate}
+\item \href{http://builtwithbootstrap.com/}{\tt http\-://builtwithbootstrap.\-com/}
+\item \href{http://lovebootstrap.com/}{\tt http\-://lovebootstrap.\-com/}
+\item \href{http://spyrestudios.com/40-websites-built-with-the-twitter-bootstrap-framework/}{\tt http\-://spyrestudios.\-com/40-\/websites-\/built-\/with-\/the-\/twitter-\/bootstrap-\/framework/}
+\item \href{http://designgeekz.com/15-best-bootstrap-tools-for-designers/}{\tt http\-://designgeekz.\-com/15-\/best-\/bootstrap-\/tools-\/for-\/designers/}
+\item \href{http://untame.net/2012/09/15-incredible-sites-built-with-twitter-bootstrap/}{\tt http\-://untame.\-net/2012/09/15-\/incredible-\/sites-\/built-\/with-\/twitter-\/bootstrap/}
+\end{DoxyEnumerate}
+
+\paragraph*{Email}
+
+
+\begin{DoxyEnumerate}
+\item \href{https://docs.djangoproject.com/en/1.6/topics/email/}{\tt https\-://docs.\-djangoproject.\-com/en/1.\-6/topics/email/} (Sending emails with Django)
+\end{DoxyEnumerate}
+
+\paragraph*{Login and security}
+
+
+\begin{DoxyEnumerate}
+\item \href{https://docs.djangoproject.com/en/1.6/topics/auth/}{\tt https\-://docs.\-djangoproject.\-com/en/1.\-6/topics/auth/} (User Authentication)
+\item \href{https://docs.djangoproject.com/en/1.6/topics/http/sessions/}{\tt https\-://docs.\-djangoproject.\-com/en/1.\-6/topics/http/sessions/} (Working with sessions in Django)
+\item \href{https://docs.djangoproject.com/en/1.6/topics/security/}{\tt https\-://docs.\-djangoproject.\-com/en/1.\-6/topics/security/} (Security in Django)
+\end{DoxyEnumerate}
+
+\paragraph*{Working with files}
+
+
+\begin{DoxyEnumerate}
+\item \href{https://docs.djangoproject.com/en/1.6/topics/http/file-uploads/}{\tt https\-://docs.\-djangoproject.\-com/en/1.\-6/topics/http/file-\/uploads/} (File uploading)
+\item \href{https://docs.djangoproject.com/en/1.6/topics/files/}{\tt https\-://docs.\-djangoproject.\-com/en/1.\-6/topics/files/} (Handle files)
+\end{DoxyEnumerate}
+
+\paragraph*{Testing in Django}
+
+
+\begin{DoxyEnumerate}
+\item \href{https://docs.djangoproject.com/en/1.6/topics/testing/overview/}{\tt https\-://docs.\-djangoproject.\-com/en/1.\-6/topics/testing/overview/} \href{https://docs.djangoproject.com/en/1.6/topics/testing/tools/}{\tt https\-://docs.\-djangoproject.\-com/en/1.\-6/topics/testing/tools/} \href{https://docs.djangoproject.com/en/1.6/topics/testing/advanced/}{\tt https\-://docs.\-djangoproject.\-com/en/1.\-6/topics/testing/advanced/}
+\end{DoxyEnumerate}
+
+Selenium is installed and can be used for testing, for more information and tutorials, here are some links\-:
+
+
+\begin{DoxyEnumerate}
+\item \href{http://lincolnloop.com/blog/introduction-django-selenium-testing/}{\tt http\-://lincolnloop.\-com/blog/introduction-\/django-\/selenium-\/testing/}
+\item \href{http://blog.wercker.com/2013/11/28/django-selenium.html}{\tt http\-://blog.\-wercker.\-com/2013/11/28/django-\/selenium.\-html}
+\item \href{http://www.realpython.com/blog/python/django-1-6-test-driven-development/}{\tt http\-://www.\-realpython.\-com/blog/python/django-\/1-\/6-\/test-\/driven-\/development/}
+\end{DoxyEnumerate}
+
+\paragraph*{Multiple languages}
+
+
+\begin{DoxyEnumerate}
+\item \href{https://docs.djangoproject.com/en/1.6/topics/i18n/translation/#translating-url-patterns}{\tt https\-://docs.\-djangoproject.\-com/en/1.\-6/topics/i18n/translation/\#translating-\/url-\/patterns} (Best practises for multiple languages)
+\end{DoxyEnumerate}
+
+\paragraph*{Comments}
+
+
+\begin{DoxyEnumerate}
+\item \href{https://code.djangoproject.com/wiki/UsingFreeComment}{\tt https\-://code.\-djangoproject.\-com/wiki/\-Using\-Free\-Comment} (Django's build in comment library)
+\end{DoxyEnumerate}
+
+\paragraph*{Searching}
+
+
+\begin{DoxyEnumerate}
+\item \href{http://haystacksearch.org}{\tt http\-://haystacksearch.\-org}
+\end{DoxyEnumerate}
+
+\subsubsection*{Payment systems that work in Denmark}
+
+
+\begin{DoxyEnumerate}
+\item 2\-Checkout
+\item Authorize.\-net
+\item {\bfseries Braintree}
+\item e\-Pay
+\item P\-A\-Y\-M\-I\-L\-L
+\item Quickpay
+\item World\-Pay
+\end{DoxyEnumerate}
+
+I personally have only heard good things about {\bfseries Braintree}, and there is no cost for the first 50.\-000\$ the company makes.
+
+\href{https://www.braintreepayments.com/docs/python/guide/overview}{\tt https\-://www.\-braintreepayments.\-com/docs/python/guide/overview} (Working with Braintree in Python)
+
+\subsection*{Commands that are good to know }
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries \hyperlink{django-admin_8py}{django-\/admin.\-py} startproject name-\/of-\/project}
+\item {\bfseries python \hyperlink{manage_8py}{manage.\-py} startapp name-\/of-\/app}
+\item {\bfseries python \hyperlink{manage_8py}{manage.\-py} syncdb} (To sync the database)
+\item {\bfseries python \hyperlink{manage_8py}{manage.\-py} test} (to run standard django tests)
+\item {\bfseries python \hyperlink{manage_8py}{manage.\-py} test --settings=leapkit.\-settings.\-testing} (to make sure to use the settings defined in testing.\-py)
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item {\bfseries coverage run \hyperlink{manage_8py}{manage.\-py} test} (better way to run tests)
+\item {\bfseries coverage report} (To create a report showing how much of the program your tests covers)
+\item {\bfseries coverage html} (to create a html site showing which parts of your code is tested and which parts that still need to be tests)
+\end{DoxyEnumerate}
+
+\subsection*{Git Commands}
+
+
+\begin{DoxyEnumerate}
+\item {\bfseries git init} (to create a git repository)
+\item {\bfseries git remote add origin \href{https://github.com/MVilstrup/EPITA.git}{\tt https\-://github.\-com/\-M\-Vilstrup/\-E\-P\-I\-T\-A.\-git}} (To add the remote branch with the name origin)
+\item {\bfseries git pull origin} (To pull all the code from github to your folder)
+\item {\bfseries git push -\/u origin master} (To push your changes to github, for the first time)
+\item {\bfseries git push origin master} (to push your changes to github the rest of the project) 
+\end{DoxyEnumerate}

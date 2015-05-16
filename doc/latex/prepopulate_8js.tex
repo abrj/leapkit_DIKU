@@ -1,0 +1,44 @@
+\hypertarget{prepopulate_8js}{\section{leapkit/static/admin/js/prepopulate.js File Reference}
+\label{prepopulate_8js}\index{leapkit/static/admin/js/prepopulate.\-js@{leapkit/static/admin/js/prepopulate.\-js}}
+}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+function \hyperlink{jquery_8init_8js_a5d0aa9b95d8a7b71511a47bcd5b04bf9}{django} \hyperlink{prepopulate_8js_a553f19986e9326c0174e07c1700f214b}{j\-Query}
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{prepopulate_8js_a553f19986e9326c0174e07c1700f214b}{\index{prepopulate.\-js@{prepopulate.\-js}!j\-Query@{j\-Query}}
+\index{j\-Query@{j\-Query}!prepopulate.js@{prepopulate.\-js}}
+\subsubsection[{j\-Query}]{\setlength{\rightskip}{0pt plus 5cm}function {\bf django} j\-Query}}\label{prepopulate_8js_a553f19986e9326c0174e07c1700f214b}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+\{
+    $.fn.prepopulate = \textcolor{keyword}{function}(dependencies, maxLength) \{
+        
+        \textcolor{keywordflow}{return} this.\hyperlink{root_2static_2root_2js_2bootstrap_2jquery-ui-1_810_84_8custom_8min_8js_a4195f9b3a1a6e34d9e977c2c195131f8}{each}(\textcolor{keyword}{function}() \{
+            var field = $(\textcolor{keyword}{this});
+
+            field.data(\textcolor{stringliteral}{'\_changed'}, \textcolor{keyword}{false});
+            field.change(\textcolor{keyword}{function}() \{
+                field.data(\textcolor{stringliteral}{'\_changed'}, \textcolor{keyword}{true});
+            \});
+
+            var populate = \textcolor{keyword}{function} () \{
+                
+                \textcolor{keywordflow}{if} (field.data(\textcolor{stringliteral}{'\_changed'}) == \textcolor{keyword}{true}) \textcolor{keywordflow}{return};
+ 
+                var values = [];
+                $.each(dependencies, \textcolor{keyword}{function}(\hyperlink{root_2static_2root_2js_2bootstrap_2jquery-ui-1_810_84_8custom_8min_8js_aba29173262d28394924f99eb2ed5b31b}{i}, field) \{
+                  \textcolor{keywordflow}{if} ($(field).val().length > 0) \{
+                      values.push($(field).val());
+                  \}
+                \})
+                field.val(URLify(values.join(\textcolor{charliteral}{' '}), maxLength));
+            \};
+
+            $(dependencies.join(\textcolor{charliteral}{','})).keyup(populate).change(populate).focus(populate);
+        \});
+    \}
+\end{DoxyCode}

@@ -1,0 +1,80 @@
+\hypertarget{classroot_1_1migrations_1_10001__initial_1_1_migration}{\section{root.\-migrations.0001\-\_\-initial.Migration Class Reference}
+\label{classroot_1_1migrations_1_10001__initial_1_1_migration}\index{root.\-migrations.\-0001\-\_\-initial.\-Migration@{root.\-migrations.\-0001\-\_\-initial.\-Migration}}
+}
+Inheritance diagram for root.\-migrations.0001\-\_\-initial.Migration\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classroot_1_1migrations_1_10001__initial_1_1_migration}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classroot_1_1migrations_1_10001__initial_1_1_migration_a41ecac65c20e8b8f48d7b847c7086ea2}{forwards}
+\item 
+def \hyperlink{classroot_1_1migrations_1_10001__initial_1_1_migration_abc0510471524dc0a83bdd5424529e50b}{backwards}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+dictionary \hyperlink{classroot_1_1migrations_1_10001__initial_1_1_migration_ac9f282ca5eb3697057ec3c78480c77d7}{models}
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classroot_1_1migrations_1_10001__initial_1_1_migration_abc0510471524dc0a83bdd5424529e50b}{\index{root\-::migrations\-::0001\-\_\-initial\-::\-Migration@{root\-::migrations\-::0001\-\_\-initial\-::\-Migration}!backwards@{backwards}}
+\index{backwards@{backwards}!root::migrations::0001_initial::Migration@{root\-::migrations\-::0001\-\_\-initial\-::\-Migration}}
+\subsubsection[{backwards}]{\setlength{\rightskip}{0pt plus 5cm}def root.\-migrations.\-0001\-\_\-initial.\-Migration.\-backwards (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{orm}
+\end{DoxyParamCaption}
+)}}\label{classroot_1_1migrations_1_10001__initial_1_1_migration_abc0510471524dc0a83bdd5424529e50b}
+\hypertarget{classroot_1_1migrations_1_10001__initial_1_1_migration_a41ecac65c20e8b8f48d7b847c7086ea2}{\index{root\-::migrations\-::0001\-\_\-initial\-::\-Migration@{root\-::migrations\-::0001\-\_\-initial\-::\-Migration}!forwards@{forwards}}
+\index{forwards@{forwards}!root::migrations::0001_initial::Migration@{root\-::migrations\-::0001\-\_\-initial\-::\-Migration}}
+\subsubsection[{forwards}]{\setlength{\rightskip}{0pt plus 5cm}def root.\-migrations.\-0001\-\_\-initial.\-Migration.\-forwards (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{orm}
+\end{DoxyParamCaption}
+)}}\label{classroot_1_1migrations_1_10001__initial_1_1_migration_a41ecac65c20e8b8f48d7b847c7086ea2}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classroot_1_1migrations_1_10001__initial_1_1_migration_ac9f282ca5eb3697057ec3c78480c77d7}{\index{root\-::migrations\-::0001\-\_\-initial\-::\-Migration@{root\-::migrations\-::0001\-\_\-initial\-::\-Migration}!models@{models}}
+\index{models@{models}!root::migrations::0001_initial::Migration@{root\-::migrations\-::0001\-\_\-initial\-::\-Migration}}
+\subsubsection[{models}]{\setlength{\rightskip}{0pt plus 5cm}dictionary root.\-migrations.\-0001\-\_\-initial.\-Migration.\-models\hspace{0.3cm}{\ttfamily [static]}}}\label{classroot_1_1migrations_1_10001__initial_1_1_migration_ac9f282ca5eb3697057ec3c78480c77d7}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+1 = \{
+2         \textcolor{stringliteral}{u'root.question'}: \{
+3             \textcolor{stringliteral}{'Meta'}: \{\textcolor{stringliteral}{'ordering'}: \textcolor{stringliteral}{"['subject', 'question']"}, \textcolor{stringliteral}{'object\_name'}: \textcolor{stringliteral}{'Question'}\},
+4             \textcolor{stringliteral}{'answer'}: (\textcolor{stringliteral}{'django.db.models.fields.TextField'}, [], \{\}),
+5             \textcolor{stringliteral}{'created'}: (\textcolor{stringliteral}{'django.db.models.fields.DateTimeField'}, [], \{\textcolor{stringliteral}{'auto\_now\_add'}: \textcolor{stringliteral}{'True'}, \textcolor{stringliteral}{'blank'}: \textcolor{stringliteral}{'
+      True'}\}),
+6             \textcolor{stringliteral}{u'id'}: (\textcolor{stringliteral}{'django.db.models.fields.AutoField'}, [], \{\textcolor{stringliteral}{'primary\_key'}: \textcolor{stringliteral}{'True'}\}),
+7             \textcolor{stringliteral}{'modified'}: (\textcolor{stringliteral}{'django.db.models.fields.DateTimeField'}, [], \{\textcolor{stringliteral}{'auto\_now\_add'}: \textcolor{stringliteral}{'True'}, \textcolor{stringliteral}{'blank'}: \textcolor{stringliteral}{'
+      True'}\}),
+8             \textcolor{stringliteral}{'question'}: (\textcolor{stringliteral}{'django.db.models.fields.CharField'}, [], \{\textcolor{stringliteral}{'max\_length'}: \textcolor{stringliteral}{'200'}\}),
+9             \textcolor{stringliteral}{'subject'}: (\textcolor{stringliteral}{'django.db.models.fields.CharField'}, [], \{\textcolor{stringliteral}{'default'}: \textcolor{stringliteral}{"'S'"}, \textcolor{stringliteral}{'max\_length'}: \textcolor{stringliteral}{'1'}\})
+10         \},
+11         \textcolor{stringliteral}{u'root.userquery'}: \{
+12             \textcolor{stringliteral}{'Meta'}: \{\textcolor{stringliteral}{'ordering'}: \textcolor{stringliteral}{"['created']"}, \textcolor{stringliteral}{'object\_name'}: \textcolor{stringliteral}{'UserQuery'}\},
+13             \textcolor{stringliteral}{'answer'}: (\textcolor{stringliteral}{'django.db.models.fields.TextField'}, [], \{\textcolor{stringliteral}{'default'}: \textcolor{stringliteral}{"''"}\}),
+14             \textcolor{stringliteral}{'body'}: (\textcolor{stringliteral}{'django.db.models.fields.TextField'}, [], \{\}),
+15             \textcolor{stringliteral}{'created'}: (\textcolor{stringliteral}{'django.db.models.fields.DateTimeField'}, [], \{\textcolor{stringliteral}{'auto\_now\_add'}: \textcolor{stringliteral}{'True'}, \textcolor{stringliteral}{'blank'}: \textcolor{stringliteral}{'
+      True'}\}),
+16             \textcolor{stringliteral}{'email'}: (\textcolor{stringliteral}{'django.db.models.fields.EmailField'}, [], \{\textcolor{stringliteral}{'max\_length'}: \textcolor{stringliteral}{'100'}\}),
+17             \textcolor{stringliteral}{'has\_been\_answered'}: (\textcolor{stringliteral}{'django.db.models.fields.BooleanField'}, [], \{\textcolor{stringliteral}{'default'}: \textcolor{stringliteral}{'False'}\}),
+18             \textcolor{stringliteral}{u'id'}: (\textcolor{stringliteral}{'django.db.models.fields.AutoField'}, [], \{\textcolor{stringliteral}{'primary\_key'}: \textcolor{stringliteral}{'True'}\}),
+19             \textcolor{stringliteral}{'modified'}: (\textcolor{stringliteral}{'django.db.models.fields.DateTimeField'}, [], \{\textcolor{stringliteral}{'auto\_now\_add'}: \textcolor{stringliteral}{'True'}, \textcolor{stringliteral}{'blank'}: \textcolor{stringliteral}{'
+      True'}\}),
+20             \textcolor{stringliteral}{'name'}: (\textcolor{stringliteral}{'django.db.models.fields.CharField'}, [], \{\textcolor{stringliteral}{'max\_length'}: \textcolor{stringliteral}{'20'}\})
+21         \}
+22     \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+leapkit/root/migrations/\hyperlink{root_2migrations_20001__initial_8py}{0001\-\_\-initial.\-py}\end{DoxyCompactItemize}

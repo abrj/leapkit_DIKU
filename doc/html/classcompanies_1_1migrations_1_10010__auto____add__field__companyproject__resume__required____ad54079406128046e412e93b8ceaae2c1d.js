@@ -1,0 +1,5 @@
+var classcompanies_1_1migrations_1_10010__auto____add__field__companyproject__resume__required____ad54079406128046e412e93b8ceaae2c1d =
+[
+    [ "backwards", "classcompanies_1_1migrations_1_10010__auto____add__field__companyproject__resume__required____ad54079406128046e412e93b8ceaae2c1d.html#a62e3dde2003fe6e89fc47cc1735d475f", null ],
+    [ "forwards", "classcompanies_1_1migrations_1_10010__auto____add__field__companyproject__resume__required____ad54079406128046e412e93b8ceaae2c1d.html#a0bbfbea3246bc918b9427f0212b8f44c", null ]
+];

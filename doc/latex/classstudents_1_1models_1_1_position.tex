@@ -1,0 +1,79 @@
+\hypertarget{classstudents_1_1models_1_1_position}{\section{students.\-models.\-Position Class Reference}
+\label{classstudents_1_1models_1_1_position}\index{students.\-models.\-Position@{students.\-models.\-Position}}
+}
+Inheritance diagram for students.\-models.\-Position\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classstudents_1_1models_1_1_position}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classstudents_1_1models_1_1_position_a9801bf25c27f58f0d7306f8df13b400e}{\-\_\-\-\_\-unicode\-\_\-\-\_\-}
+\item 
+def \hyperlink{classstudents_1_1models_1_1_position_ae6db8ec9d406188f652ec3d344f67f7b}{get\-\_\-jobtitle}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+tuple \hyperlink{classstudents_1_1models_1_1_position_ac2b78c8bf158e58d59783e6ec2a3507f}{start\-Date} = models.\-Char\-Field(max\-\_\-length=20)
+\item 
+tuple \hyperlink{classstudents_1_1models_1_1_position_ae2f7035f644cc07659733c538cc17672}{end\-Date} = models.\-Char\-Field(max\-\_\-length=20)
+\item 
+tuple \hyperlink{classstudents_1_1models_1_1_position_ac37b3ab263fab4dec8977add069b5bf6}{company} = models.\-Char\-Field(max\-\_\-length=100)
+\item 
+tuple \hyperlink{classstudents_1_1models_1_1_position_a20d8abf316914fea1d9f69d26c531759}{jobtitle} = models.\-Char\-Field(max\-\_\-length=100)
+\item 
+tuple \hyperlink{classstudents_1_1models_1_1_position_a5946dc44ba06da0bc7e92d7e2b3c3cab}{is\-Current} = models.\-Boolean\-Field(default=False)
+\item 
+tuple \hyperlink{classstudents_1_1models_1_1_position_ad2df3949444f644d538a93d7e829f9f7}{profile} = models.\-Foreign\-Key(\hyperlink{classstudents_1_1models_1_1_linked_in_profile}{Linked\-In\-Profile})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}Model that represents a job position on LinkedIn.
+\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\hypertarget{classstudents_1_1models_1_1_position_a9801bf25c27f58f0d7306f8df13b400e}{\index{students\-::models\-::\-Position@{students\-::models\-::\-Position}!\-\_\-\-\_\-unicode\-\_\-\-\_\-@{\-\_\-\-\_\-unicode\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-unicode\-\_\-\-\_\-@{\-\_\-\-\_\-unicode\-\_\-\-\_\-}!students::models::Position@{students\-::models\-::\-Position}}
+\subsubsection[{\-\_\-\-\_\-unicode\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}def students.\-models.\-Position.\-\_\-\-\_\-unicode\-\_\-\-\_\- (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classstudents_1_1models_1_1_position_a9801bf25c27f58f0d7306f8df13b400e}
+\hypertarget{classstudents_1_1models_1_1_position_ae6db8ec9d406188f652ec3d344f67f7b}{\index{students\-::models\-::\-Position@{students\-::models\-::\-Position}!get\-\_\-jobtitle@{get\-\_\-jobtitle}}
+\index{get\-\_\-jobtitle@{get\-\_\-jobtitle}!students::models::Position@{students\-::models\-::\-Position}}
+\subsubsection[{get\-\_\-jobtitle}]{\setlength{\rightskip}{0pt plus 5cm}def students.\-models.\-Position.\-get\-\_\-jobtitle (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classstudents_1_1models_1_1_position_ae6db8ec9d406188f652ec3d344f67f7b}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classstudents_1_1models_1_1_position_ac37b3ab263fab4dec8977add069b5bf6}{\index{students\-::models\-::\-Position@{students\-::models\-::\-Position}!company@{company}}
+\index{company@{company}!students::models::Position@{students\-::models\-::\-Position}}
+\subsubsection[{company}]{\setlength{\rightskip}{0pt plus 5cm}tuple students.\-models.\-Position.\-company = models.\-Char\-Field(max\-\_\-length=100)\hspace{0.3cm}{\ttfamily [static]}}}\label{classstudents_1_1models_1_1_position_ac37b3ab263fab4dec8977add069b5bf6}
+\hypertarget{classstudents_1_1models_1_1_position_ae2f7035f644cc07659733c538cc17672}{\index{students\-::models\-::\-Position@{students\-::models\-::\-Position}!end\-Date@{end\-Date}}
+\index{end\-Date@{end\-Date}!students::models::Position@{students\-::models\-::\-Position}}
+\subsubsection[{end\-Date}]{\setlength{\rightskip}{0pt plus 5cm}tuple students.\-models.\-Position.\-end\-Date = models.\-Char\-Field(max\-\_\-length=20)\hspace{0.3cm}{\ttfamily [static]}}}\label{classstudents_1_1models_1_1_position_ae2f7035f644cc07659733c538cc17672}
+\hypertarget{classstudents_1_1models_1_1_position_a5946dc44ba06da0bc7e92d7e2b3c3cab}{\index{students\-::models\-::\-Position@{students\-::models\-::\-Position}!is\-Current@{is\-Current}}
+\index{is\-Current@{is\-Current}!students::models::Position@{students\-::models\-::\-Position}}
+\subsubsection[{is\-Current}]{\setlength{\rightskip}{0pt plus 5cm}tuple students.\-models.\-Position.\-is\-Current = models.\-Boolean\-Field(default=False)\hspace{0.3cm}{\ttfamily [static]}}}\label{classstudents_1_1models_1_1_position_a5946dc44ba06da0bc7e92d7e2b3c3cab}
+\hypertarget{classstudents_1_1models_1_1_position_a20d8abf316914fea1d9f69d26c531759}{\index{students\-::models\-::\-Position@{students\-::models\-::\-Position}!jobtitle@{jobtitle}}
+\index{jobtitle@{jobtitle}!students::models::Position@{students\-::models\-::\-Position}}
+\subsubsection[{jobtitle}]{\setlength{\rightskip}{0pt plus 5cm}tuple students.\-models.\-Position.\-jobtitle = models.\-Char\-Field(max\-\_\-length=100)\hspace{0.3cm}{\ttfamily [static]}}}\label{classstudents_1_1models_1_1_position_a20d8abf316914fea1d9f69d26c531759}
+\hypertarget{classstudents_1_1models_1_1_position_ad2df3949444f644d538a93d7e829f9f7}{\index{students\-::models\-::\-Position@{students\-::models\-::\-Position}!profile@{profile}}
+\index{profile@{profile}!students::models::Position@{students\-::models\-::\-Position}}
+\subsubsection[{profile}]{\setlength{\rightskip}{0pt plus 5cm}tuple students.\-models.\-Position.\-profile = models.\-Foreign\-Key({\bf Linked\-In\-Profile})\hspace{0.3cm}{\ttfamily [static]}}}\label{classstudents_1_1models_1_1_position_ad2df3949444f644d538a93d7e829f9f7}
+\hypertarget{classstudents_1_1models_1_1_position_ac2b78c8bf158e58d59783e6ec2a3507f}{\index{students\-::models\-::\-Position@{students\-::models\-::\-Position}!start\-Date@{start\-Date}}
+\index{start\-Date@{start\-Date}!students::models::Position@{students\-::models\-::\-Position}}
+\subsubsection[{start\-Date}]{\setlength{\rightskip}{0pt plus 5cm}tuple students.\-models.\-Position.\-start\-Date = models.\-Char\-Field(max\-\_\-length=20)\hspace{0.3cm}{\ttfamily [static]}}}\label{classstudents_1_1models_1_1_position_ac2b78c8bf158e58d59783e6ec2a3507f}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+leapkit/students/\hyperlink{models_8py}{models.\-py}\end{DoxyCompactItemize}

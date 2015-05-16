@@ -1,0 +1,4 @@
+var namespaceprojects_1_1migrations_1_10011__auto____chg__field__project__students__needed =
+[
+    [ "Migration", "classprojects_1_1migrations_1_10011__auto____chg__field__project__students__needed_1_1_migration.html", "classprojects_1_1migrations_1_10011__auto____chg__field__project__students__needed_1_1_migration" ]
+];

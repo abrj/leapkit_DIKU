@@ -1,0 +1,4 @@
+var namespacequeries_1_1migrations_1_10002__auto____add__companyemailcontact =
+[
+    [ "Migration", "classqueries_1_1migrations_1_10002__auto____add__companyemailcontact_1_1_migration.html", "classqueries_1_1migrations_1_10002__auto____add__companyemailcontact_1_1_migration" ]
+];

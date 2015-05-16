@@ -1,0 +1,120 @@
+\hypertarget{classinstitutions_1_1models_1_1_course}{\section{institutions.\-models.\-Course Class Reference}
+\label{classinstitutions_1_1models_1_1_course}\index{institutions.\-models.\-Course@{institutions.\-models.\-Course}}
+}
+Inheritance diagram for institutions.\-models.\-Course\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classinstitutions_1_1models_1_1_course}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classinstitutions_1_1models_1_1_course_1_1_meta}{Meta}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classinstitutions_1_1models_1_1_course_ae81a94eaf906ab63a9356bd782a1275d}{\-\_\-\-\_\-unicode\-\_\-\-\_\-}
+\item 
+def \hyperlink{classinstitutions_1_1models_1_1_course_a554d8e8da0e728a3238a0423ea252fe8}{get\-\_\-course\-\_\-length}
+\item 
+def \hyperlink{classinstitutions_1_1models_1_1_course_a5ee420530f9580169688ef54e72d96c5}{month\-\_\-delta}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+tuple \hyperlink{classinstitutions_1_1models_1_1_course_ad5ebb3105c1d4829fa8c856135aabfba}{name} = models.\-Char\-Field(max\-\_\-length=100)
+\item 
+tuple \hyperlink{classinstitutions_1_1models_1_1_course_a1d57fe16fd6b01ef9b36012135ea21a2}{department} = models.\-Foreign\-Key(\hyperlink{classinstitutions_1_1models_1_1_department}{Department})
+\item 
+tuple \hyperlink{classinstitutions_1_1models_1_1_course_a9b1a2f74ce9382bd635dddd7439d0353}{start\-\_\-date} = models.\-Date\-Field()
+\item 
+tuple \hyperlink{classinstitutions_1_1models_1_1_course_a8ff56866cd201ac761e31c4723ff6759}{end\-\_\-date} = models.\-Date\-Field()
+\item 
+tuple \hyperlink{classinstitutions_1_1models_1_1_course_a422f0672536b39978a360ed6eb1a5712}{ects\-\_\-points} = models.\-Float\-Field()
+\item 
+tuple \hyperlink{classinstitutions_1_1models_1_1_course_a6c35db5cbc1f01d81fac65654377527e}{professor} = models.\-Foreign\-Key(\hyperlink{classinstitutions_1_1models_1_1_professor}{Professor})
+\item 
+tuple \hyperlink{classinstitutions_1_1models_1_1_course_a88b3f2a131e4fea9b878148e845d31bc}{language} = models.\-Char\-Field(max\-\_\-length=20, blank=True)
+\item 
+tuple \hyperlink{classinstitutions_1_1models_1_1_course_a224ad04ca2cfd87ee40892e9c4dd3652}{learning\-\_\-goals} = models.\-Text\-Field(blank=True)
+\item 
+tuple \hyperlink{classinstitutions_1_1models_1_1_course_a6e7537e93fc978769a7c1e5fcb543ff2}{description} = models.\-Text\-Field(blank=True)
+\item 
+tuple \hyperlink{classinstitutions_1_1models_1_1_course_a90d7f9bf44484a4ab54923d68801ab3e}{learning\-\_\-activities} = models.\-Text\-Field(blank=True)
+\item 
+tuple \hyperlink{classinstitutions_1_1models_1_1_course_ac211becffaff0a8f2a941f3376e61926}{obligatory\-\_\-activities} = models.\-Text\-Field(blank=True)
+\item 
+tuple \hyperlink{classinstitutions_1_1models_1_1_course_a129f61c6b671a8adef29a3e3560b8da2}{evaluation\-\_\-form} = models.\-Text\-Field(blank=True)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classinstitutions_1_1models_1_1_course_ae81a94eaf906ab63a9356bd782a1275d}{\index{institutions\-::models\-::\-Course@{institutions\-::models\-::\-Course}!\-\_\-\-\_\-unicode\-\_\-\-\_\-@{\-\_\-\-\_\-unicode\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-unicode\-\_\-\-\_\-@{\-\_\-\-\_\-unicode\-\_\-\-\_\-}!institutions::models::Course@{institutions\-::models\-::\-Course}}
+\subsubsection[{\-\_\-\-\_\-unicode\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}def institutions.\-models.\-Course.\-\_\-\-\_\-unicode\-\_\-\-\_\- (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classinstitutions_1_1models_1_1_course_ae81a94eaf906ab63a9356bd782a1275d}
+\hypertarget{classinstitutions_1_1models_1_1_course_a554d8e8da0e728a3238a0423ea252fe8}{\index{institutions\-::models\-::\-Course@{institutions\-::models\-::\-Course}!get\-\_\-course\-\_\-length@{get\-\_\-course\-\_\-length}}
+\index{get\-\_\-course\-\_\-length@{get\-\_\-course\-\_\-length}!institutions::models::Course@{institutions\-::models\-::\-Course}}
+\subsubsection[{get\-\_\-course\-\_\-length}]{\setlength{\rightskip}{0pt plus 5cm}def institutions.\-models.\-Course.\-get\-\_\-course\-\_\-length (
+\begin{DoxyParamCaption}
+\item[{}]{self}
+\end{DoxyParamCaption}
+)}}\label{classinstitutions_1_1models_1_1_course_a554d8e8da0e728a3238a0423ea252fe8}
+\hypertarget{classinstitutions_1_1models_1_1_course_a5ee420530f9580169688ef54e72d96c5}{\index{institutions\-::models\-::\-Course@{institutions\-::models\-::\-Course}!month\-\_\-delta@{month\-\_\-delta}}
+\index{month\-\_\-delta@{month\-\_\-delta}!institutions::models::Course@{institutions\-::models\-::\-Course}}
+\subsubsection[{month\-\_\-delta}]{\setlength{\rightskip}{0pt plus 5cm}def institutions.\-models.\-Course.\-month\-\_\-delta (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{start\-\_\-date, }
+\item[{}]{end\-\_\-date}
+\end{DoxyParamCaption}
+)}}\label{classinstitutions_1_1models_1_1_course_a5ee420530f9580169688ef54e72d96c5}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classinstitutions_1_1models_1_1_course_a1d57fe16fd6b01ef9b36012135ea21a2}{\index{institutions\-::models\-::\-Course@{institutions\-::models\-::\-Course}!department@{department}}
+\index{department@{department}!institutions::models::Course@{institutions\-::models\-::\-Course}}
+\subsubsection[{department}]{\setlength{\rightskip}{0pt plus 5cm}tuple institutions.\-models.\-Course.\-department = models.\-Foreign\-Key({\bf Department})\hspace{0.3cm}{\ttfamily [static]}}}\label{classinstitutions_1_1models_1_1_course_a1d57fe16fd6b01ef9b36012135ea21a2}
+\hypertarget{classinstitutions_1_1models_1_1_course_a6e7537e93fc978769a7c1e5fcb543ff2}{\index{institutions\-::models\-::\-Course@{institutions\-::models\-::\-Course}!description@{description}}
+\index{description@{description}!institutions::models::Course@{institutions\-::models\-::\-Course}}
+\subsubsection[{description}]{\setlength{\rightskip}{0pt plus 5cm}tuple institutions.\-models.\-Course.\-description = models.\-Text\-Field(blank=True)\hspace{0.3cm}{\ttfamily [static]}}}\label{classinstitutions_1_1models_1_1_course_a6e7537e93fc978769a7c1e5fcb543ff2}
+\hypertarget{classinstitutions_1_1models_1_1_course_a422f0672536b39978a360ed6eb1a5712}{\index{institutions\-::models\-::\-Course@{institutions\-::models\-::\-Course}!ects\-\_\-points@{ects\-\_\-points}}
+\index{ects\-\_\-points@{ects\-\_\-points}!institutions::models::Course@{institutions\-::models\-::\-Course}}
+\subsubsection[{ects\-\_\-points}]{\setlength{\rightskip}{0pt plus 5cm}tuple institutions.\-models.\-Course.\-ects\-\_\-points = models.\-Float\-Field()\hspace{0.3cm}{\ttfamily [static]}}}\label{classinstitutions_1_1models_1_1_course_a422f0672536b39978a360ed6eb1a5712}
+\hypertarget{classinstitutions_1_1models_1_1_course_a8ff56866cd201ac761e31c4723ff6759}{\index{institutions\-::models\-::\-Course@{institutions\-::models\-::\-Course}!end\-\_\-date@{end\-\_\-date}}
+\index{end\-\_\-date@{end\-\_\-date}!institutions::models::Course@{institutions\-::models\-::\-Course}}
+\subsubsection[{end\-\_\-date}]{\setlength{\rightskip}{0pt plus 5cm}tuple institutions.\-models.\-Course.\-end\-\_\-date = models.\-Date\-Field()\hspace{0.3cm}{\ttfamily [static]}}}\label{classinstitutions_1_1models_1_1_course_a8ff56866cd201ac761e31c4723ff6759}
+\hypertarget{classinstitutions_1_1models_1_1_course_a129f61c6b671a8adef29a3e3560b8da2}{\index{institutions\-::models\-::\-Course@{institutions\-::models\-::\-Course}!evaluation\-\_\-form@{evaluation\-\_\-form}}
+\index{evaluation\-\_\-form@{evaluation\-\_\-form}!institutions::models::Course@{institutions\-::models\-::\-Course}}
+\subsubsection[{evaluation\-\_\-form}]{\setlength{\rightskip}{0pt plus 5cm}tuple institutions.\-models.\-Course.\-evaluation\-\_\-form = models.\-Text\-Field(blank=True)\hspace{0.3cm}{\ttfamily [static]}}}\label{classinstitutions_1_1models_1_1_course_a129f61c6b671a8adef29a3e3560b8da2}
+\hypertarget{classinstitutions_1_1models_1_1_course_a88b3f2a131e4fea9b878148e845d31bc}{\index{institutions\-::models\-::\-Course@{institutions\-::models\-::\-Course}!language@{language}}
+\index{language@{language}!institutions::models::Course@{institutions\-::models\-::\-Course}}
+\subsubsection[{language}]{\setlength{\rightskip}{0pt plus 5cm}tuple institutions.\-models.\-Course.\-language = models.\-Char\-Field(max\-\_\-length=20, blank=True)\hspace{0.3cm}{\ttfamily [static]}}}\label{classinstitutions_1_1models_1_1_course_a88b3f2a131e4fea9b878148e845d31bc}
+\hypertarget{classinstitutions_1_1models_1_1_course_a90d7f9bf44484a4ab54923d68801ab3e}{\index{institutions\-::models\-::\-Course@{institutions\-::models\-::\-Course}!learning\-\_\-activities@{learning\-\_\-activities}}
+\index{learning\-\_\-activities@{learning\-\_\-activities}!institutions::models::Course@{institutions\-::models\-::\-Course}}
+\subsubsection[{learning\-\_\-activities}]{\setlength{\rightskip}{0pt plus 5cm}tuple institutions.\-models.\-Course.\-learning\-\_\-activities = models.\-Text\-Field(blank=True)\hspace{0.3cm}{\ttfamily [static]}}}\label{classinstitutions_1_1models_1_1_course_a90d7f9bf44484a4ab54923d68801ab3e}
+\hypertarget{classinstitutions_1_1models_1_1_course_a224ad04ca2cfd87ee40892e9c4dd3652}{\index{institutions\-::models\-::\-Course@{institutions\-::models\-::\-Course}!learning\-\_\-goals@{learning\-\_\-goals}}
+\index{learning\-\_\-goals@{learning\-\_\-goals}!institutions::models::Course@{institutions\-::models\-::\-Course}}
+\subsubsection[{learning\-\_\-goals}]{\setlength{\rightskip}{0pt plus 5cm}tuple institutions.\-models.\-Course.\-learning\-\_\-goals = models.\-Text\-Field(blank=True)\hspace{0.3cm}{\ttfamily [static]}}}\label{classinstitutions_1_1models_1_1_course_a224ad04ca2cfd87ee40892e9c4dd3652}
+\hypertarget{classinstitutions_1_1models_1_1_course_ad5ebb3105c1d4829fa8c856135aabfba}{\index{institutions\-::models\-::\-Course@{institutions\-::models\-::\-Course}!name@{name}}
+\index{name@{name}!institutions::models::Course@{institutions\-::models\-::\-Course}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}tuple institutions.\-models.\-Course.\-name = models.\-Char\-Field(max\-\_\-length=100)\hspace{0.3cm}{\ttfamily [static]}}}\label{classinstitutions_1_1models_1_1_course_ad5ebb3105c1d4829fa8c856135aabfba}
+\hypertarget{classinstitutions_1_1models_1_1_course_ac211becffaff0a8f2a941f3376e61926}{\index{institutions\-::models\-::\-Course@{institutions\-::models\-::\-Course}!obligatory\-\_\-activities@{obligatory\-\_\-activities}}
+\index{obligatory\-\_\-activities@{obligatory\-\_\-activities}!institutions::models::Course@{institutions\-::models\-::\-Course}}
+\subsubsection[{obligatory\-\_\-activities}]{\setlength{\rightskip}{0pt plus 5cm}tuple institutions.\-models.\-Course.\-obligatory\-\_\-activities = models.\-Text\-Field(blank=True)\hspace{0.3cm}{\ttfamily [static]}}}\label{classinstitutions_1_1models_1_1_course_ac211becffaff0a8f2a941f3376e61926}
+\hypertarget{classinstitutions_1_1models_1_1_course_a6c35db5cbc1f01d81fac65654377527e}{\index{institutions\-::models\-::\-Course@{institutions\-::models\-::\-Course}!professor@{professor}}
+\index{professor@{professor}!institutions::models::Course@{institutions\-::models\-::\-Course}}
+\subsubsection[{professor}]{\setlength{\rightskip}{0pt plus 5cm}tuple institutions.\-models.\-Course.\-professor = models.\-Foreign\-Key({\bf Professor})\hspace{0.3cm}{\ttfamily [static]}}}\label{classinstitutions_1_1models_1_1_course_a6c35db5cbc1f01d81fac65654377527e}
+\hypertarget{classinstitutions_1_1models_1_1_course_a9b1a2f74ce9382bd635dddd7439d0353}{\index{institutions\-::models\-::\-Course@{institutions\-::models\-::\-Course}!start\-\_\-date@{start\-\_\-date}}
+\index{start\-\_\-date@{start\-\_\-date}!institutions::models::Course@{institutions\-::models\-::\-Course}}
+\subsubsection[{start\-\_\-date}]{\setlength{\rightskip}{0pt plus 5cm}tuple institutions.\-models.\-Course.\-start\-\_\-date = models.\-Date\-Field()\hspace{0.3cm}{\ttfamily [static]}}}\label{classinstitutions_1_1models_1_1_course_a9b1a2f74ce9382bd635dddd7439d0353}
+
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+leapkit/institutions/\hyperlink{institutions_2models_8py}{models.\-py}\end{DoxyCompactItemize}

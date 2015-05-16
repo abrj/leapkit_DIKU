@@ -1,0 +1,60 @@
+\hypertarget{transition_8js}{\section{leapkit/root/static/source/main/js/transition.js File Reference}
+\label{transition_8js}\index{leapkit/root/static/source/main/js/transition.\-js@{leapkit/root/static/source/main/js/transition.\-js}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+function \hyperlink{transition_8js_a1f869ec6b1fa9940961fb14a72d20473}{transition\-End} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{static_2root_2js_2jquery-ui_8custom_8min_8js_a6b994a5676f34c0707c73fcd2a61d65d}{fn} \hyperlink{transition_8js_a2eb5ccc0cd870ff2cc5ce9b8d53cec48}{emulate\-Transition\-End}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{transition_8js_a1f869ec6b1fa9940961fb14a72d20473}{\index{transition.\-js@{transition.\-js}!transition\-End@{transition\-End}}
+\index{transition\-End@{transition\-End}!transition.js@{transition.\-js}}
+\subsubsection[{transition\-End}]{\setlength{\rightskip}{0pt plus 5cm}function transition\-End (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{transition_8js_a1f869ec6b1fa9940961fb14a72d20473}
+
+
+\subsection{Variable Documentation}
+\hypertarget{transition_8js_a2eb5ccc0cd870ff2cc5ce9b8d53cec48}{\index{transition.\-js@{transition.\-js}!emulate\-Transition\-End@{emulate\-Transition\-End}}
+\index{emulate\-Transition\-End@{emulate\-Transition\-End}!transition.js@{transition.\-js}}
+\subsubsection[{emulate\-Transition\-End}]{\setlength{\rightskip}{0pt plus 5cm}{\bf fn} emulate\-Transition\-End}}\label{transition_8js_a2eb5ccc0cd870ff2cc5ce9b8d53cec48}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function} (duration) \{
+        var called = \textcolor{keyword}{false}
+        var $el = \textcolor{keyword}{this}
+        $(\textcolor{keyword}{this}).one(\textcolor{stringliteral}{'bsTransitionEnd'}, \textcolor{keyword}{function} () \{
+            called = \textcolor{keyword}{true}
+        \})
+        var callback = \textcolor{keyword}{function} () \{
+            \textcolor{keywordflow}{if} (!called) $($el).\hyperlink{jquery-migrate-1_82_81_8min_8js_a239df7e8c2edd1a4de69f6e2752cf667}{trigger}($.support.transition.end)
+        \}
+        \hyperlink{root_2static_2root_2js_2global_8js_a7e9c3c02df6fc699beaa5f04629f615d}{setTimeout}(callback, duration)
+        return this
+    \}
+
+    $(function () \{
+        $.support.transition = \hyperlink{transition_8js_a1f869ec6b1fa9940961fb14a72d20473}{transitionEnd}()
+
+        \hyperlink{prism_8js_ab23c6eeb964a14d8e75a4dde77ffbbbf}{if} (!$.support.transition) return
+
+        $.event.special.bsTransitionEnd = \{
+            bindType: $.support.transition.end,
+            delegateType: $.support.transition.end,
+            handle: \textcolor{keyword}{function} (\hyperlink{root_2static_2root_2js_2bootstrap_2jquery-ui-1_810_84_8custom_8min_8js_a2c038346d47955cbe2cb91e338edd7e1}{e}) \{
+                \textcolor{keywordflow}{if} ($(\hyperlink{root_2static_2root_2js_2bootstrap_2jquery-ui-1_810_84_8custom_8min_8js_a2c038346d47955cbe2cb91e338edd7e1}{e}.target).is(\textcolor{keyword}{this})) \textcolor{keywordflow}{return} \hyperlink{root_2static_2root_2js_2bootstrap_2jquery-ui-1_810_84_8custom_8min_8js_a2c038346d47955cbe2cb91e338edd7e1}{e}.handleObj.handler.apply(\textcolor{keyword}{this}, arguments)
+            \}
+        \}
+    \})
+
+\}(\hyperlink{root_2static_2root_2js_2bootstrap_2bootstrap-datepicker_8js_add5237586d970a38a81f990e8eb28c6c}{jQuery})
+\end{DoxyCode}

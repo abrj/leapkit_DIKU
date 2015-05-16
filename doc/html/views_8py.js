@@ -1,0 +1,26 @@
+var views_8py =
+[
+    [ "StudentView", "classstudents_1_1views_1_1_student_view.html", "classstudents_1_1views_1_1_student_view" ],
+    [ "UpdateStudentProfileView", "classstudents_1_1views_1_1_update_student_profile_view.html", "classstudents_1_1views_1_1_update_student_profile_view" ],
+    [ "StudentOwnProjectListView", "classstudents_1_1views_1_1_student_own_project_list_view.html", "classstudents_1_1views_1_1_student_own_project_list_view" ],
+    [ "StudentProjectUpdateView", "classstudents_1_1views_1_1_student_project_update_view.html", "classstudents_1_1views_1_1_student_project_update_view" ],
+    [ "StudentProjectDetailView", "classstudents_1_1views_1_1_student_project_detail_view.html", "classstudents_1_1views_1_1_student_project_detail_view" ],
+    [ "StudentProjectCreationView", "classstudents_1_1views_1_1_student_project_creation_view.html", "classstudents_1_1views_1_1_student_project_creation_view" ],
+    [ "ListAllProjectsView", "classstudents_1_1views_1_1_list_all_projects_view.html", "classstudents_1_1views_1_1_list_all_projects_view" ],
+    [ "AllProjectDetailView", "classstudents_1_1views_1_1_all_project_detail_view.html", "classstudents_1_1views_1_1_all_project_detail_view" ],
+    [ "StudentFAQView", "classstudents_1_1views_1_1_student_f_a_q_view.html", "classstudents_1_1views_1_1_student_f_a_q_view" ],
+    [ "StudentFeedBack", "classstudents_1_1views_1_1_student_feed_back.html", "classstudents_1_1views_1_1_student_feed_back" ],
+    [ "StudentTermsOfUsage", "classstudents_1_1views_1_1_student_terms_of_usage.html", null ],
+    [ "SendMailView", "classstudents_1_1views_1_1_send_mail_view.html", "classstudents_1_1views_1_1_send_mail_view" ],
+    [ "StudentSignUpView", "classstudents_1_1views_1_1_student_sign_up_view.html", "classstudents_1_1views_1_1_student_sign_up_view" ],
+    [ "StudentLogInView", "classstudents_1_1views_1_1_student_log_in_view.html", "classstudents_1_1views_1_1_student_log_in_view" ],
+    [ "ChangePasswordView", "classstudents_1_1views_1_1_change_password_view.html", "classstudents_1_1views_1_1_change_password_view" ],
+    [ "all_projects_filter", "views_8py.html#a021cba8bff39e0d31e6a5357dba3e328", null ],
+    [ "linkedin_redirect", "views_8py.html#af8444fe95e002a6878c151fb4e34bfd9", null ],
+    [ "login_check", "views_8py.html#aa7b40de1ab2e0525b5b35e3c0f9e7a59", null ],
+    [ "sign_out_view", "views_8py.html#affe8eba083124fd78e3034290bdbf45f", null ],
+    [ "stage", "views_8py.html#a4b54ff72b1f36578d7f24ce2e8e0bcc0", null ],
+    [ "student_project_alter_contact_view", "views_8py.html#ae09ce1ee44f9b0abd1d61b02f8292b04", null ],
+    [ "student_project_delete_view", "views_8py.html#a6e2dff61ac7220b69daca0a08765fae8", null ],
+    [ "student_sign_up_success", "views_8py.html#a8b7d28a21ff72e17a9e1a234cd57bdc4", null ]
+];

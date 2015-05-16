@@ -1,0 +1,5 @@
+var classprojects_1_1migrations_1_10009__auto____add__field__project__project__document__description_1_1_migration =
+[
+    [ "backwards", "classprojects_1_1migrations_1_10009__auto____add__field__project__project__document__description_1_1_migration.html#a42c75e3641f82ab409de1b0999a1caf1", null ],
+    [ "forwards", "classprojects_1_1migrations_1_10009__auto____add__field__project__project__document__description_1_1_migration.html#ad9aff02a33d7ea3fb9d87c3c729842e6", null ]
+];

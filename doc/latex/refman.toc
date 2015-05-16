@@ -1,0 +1,544 @@
+\contentsline {chapter}{\numberline {1}Namespace Index}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Packages}{1}{section.1.1}
+\contentsline {chapter}{\numberline {2}Hierarchical Index}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Class Hierarchy}{3}{section.2.1}
+\contentsline {chapter}{\numberline {3}Class Index}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Class List}{5}{section.3.1}
+\contentsline {chapter}{\numberline {4}File Index}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}File List}{7}{section.4.1}
+\contentsline {chapter}{\numberline {5}Namespace Documentation}{9}{chapter.5}
+\contentsline {section}{\numberline {5.1}students Namespace Reference}{9}{section.5.1}
+\contentsline {section}{\numberline {5.2}students.\discretionary {-}{}{}admin Namespace Reference}{9}{section.5.2}
+\contentsline {section}{\numberline {5.3}students.\discretionary {-}{}{}forms Namespace Reference}{9}{section.5.3}
+\contentsline {section}{\numberline {5.4}students.\discretionary {-}{}{}linkedin\discretionary {-}{}{}\_\discretionary {-}{}{}connector Namespace Reference}{10}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Function Documentation}{10}{subsection.5.4.1}
+\contentsline {subsubsection}{\numberline {5.4.1.1}linkedin\discretionary {-}{}{}\_\discretionary {-}{}{}extract}{10}{subsubsection.5.4.1.1}
+\contentsline {subsubsection}{\numberline {5.4.1.2}linkedin\discretionary {-}{}{}\_\discretionary {-}{}{}get\discretionary {-}{}{}\_\discretionary {-}{}{}url}{10}{subsubsection.5.4.1.2}
+\contentsline {subsection}{\numberline {5.4.2}Variable Documentation}{10}{subsection.5.4.2}
+\contentsline {subsubsection}{\numberline {5.4.2.1}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}A\discretionary {-}{}{}P\discretionary {-}{}{}I\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}K\discretionary {-}{}{}E\discretionary {-}{}{}Y}{10}{subsubsection.5.4.2.1}
+\contentsline {subsubsection}{\numberline {5.4.2.2}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}A\discretionary {-}{}{}P\discretionary {-}{}{}I\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}S\discretionary {-}{}{}E\discretionary {-}{}{}C\discretionary {-}{}{}R\discretionary {-}{}{}E\discretionary {-}{}{}T}{10}{subsubsection.5.4.2.2}
+\contentsline {subsubsection}{\numberline {5.4.2.3}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}R\discretionary {-}{}{}E\discretionary {-}{}{}T\discretionary {-}{}{}U\discretionary {-}{}{}R\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}U\discretionary {-}{}{}R\discretionary {-}{}{}L}{10}{subsubsection.5.4.2.3}
+\contentsline {section}{\numberline {5.5}students.\discretionary {-}{}{}linkedin\discretionary {-}{}{}\_\discretionary {-}{}{}converter Namespace Reference}{10}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Function Documentation}{11}{subsection.5.5.1}
+\contentsline {subsubsection}{\numberline {5.5.1.1}create\discretionary {-}{}{}Person}{11}{subsubsection.5.5.1.1}
+\contentsline {subsubsection}{\numberline {5.5.1.2}create\discretionary {-}{}{}Sub}{11}{subsubsection.5.5.1.2}
+\contentsline {subsubsection}{\numberline {5.5.1.3}fill\discretionary {-}{}{}Full\discretionary {-}{}{}Profile}{11}{subsubsection.5.5.1.3}
+\contentsline {subsubsection}{\numberline {5.5.1.4}format\discretionary {-}{}{}Date}{11}{subsubsection.5.5.1.4}
+\contentsline {subsubsection}{\numberline {5.5.1.5}from\discretionary {-}{}{}File}{11}{subsubsection.5.5.1.5}
+\contentsline {subsubsection}{\numberline {5.5.1.6}from\discretionary {-}{}{}String}{11}{subsubsection.5.5.1.6}
+\contentsline {subsubsection}{\numberline {5.5.1.7}get}{11}{subsubsection.5.5.1.7}
+\contentsline {subsubsection}{\numberline {5.5.1.8}get\discretionary {-}{}{}Sub}{12}{subsubsection.5.5.1.8}
+\contentsline {subsubsection}{\numberline {5.5.1.9}run}{12}{subsubsection.5.5.1.9}
+\contentsline {section}{\numberline {5.6}students.\discretionary {-}{}{}matchmaking Namespace Reference}{12}{section.5.6}
+\contentsline {subsection}{\numberline {5.6.1}Function Documentation}{12}{subsection.5.6.1}
+\contentsline {subsubsection}{\numberline {5.6.1.1}compare\discretionary {-}{}{}Skills}{12}{subsubsection.5.6.1.1}
+\contentsline {subsubsection}{\numberline {5.6.1.2}compare\discretionary {-}{}{}Skills\discretionary {-}{}{}Full\discretionary {-}{}{}String}{12}{subsubsection.5.6.1.2}
+\contentsline {subsubsection}{\numberline {5.6.1.3}contains\discretionary {-}{}{}String\discretionary {-}{}{}Compare}{13}{subsubsection.5.6.1.3}
+\contentsline {subsubsection}{\numberline {5.6.1.4}load\discretionary {-}{}{}Projects}{13}{subsubsection.5.6.1.4}
+\contentsline {subsubsection}{\numberline {5.6.1.5}load\discretionary {-}{}{}User}{13}{subsubsection.5.6.1.5}
+\contentsline {subsubsection}{\numberline {5.6.1.6}match\discretionary {-}{}{}Lists\discretionary {-}{}{}Of\discretionary {-}{}{}Strings}{13}{subsubsection.5.6.1.6}
+\contentsline {subsubsection}{\numberline {5.6.1.7}parse\discretionary {-}{}{}Skills}{13}{subsubsection.5.6.1.7}
+\contentsline {subsubsection}{\numberline {5.6.1.8}print\discretionary {-}{}{}Projects}{13}{subsubsection.5.6.1.8}
+\contentsline {subsubsection}{\numberline {5.6.1.9}strict\discretionary {-}{}{}Compare}{13}{subsubsection.5.6.1.9}
+\contentsline {subsection}{\numberline {5.6.2}Variable Documentation}{13}{subsection.5.6.2}
+\contentsline {subsubsection}{\numberline {5.6.2.1}n}{13}{subsubsection.5.6.2.1}
+\contentsline {subsubsection}{\numberline {5.6.2.2}path\discretionary {-}{}{}Proj}{13}{subsubsection.5.6.2.2}
+\contentsline {subsubsection}{\numberline {5.6.2.3}path\discretionary {-}{}{}User}{13}{subsubsection.5.6.2.3}
+\contentsline {subsubsection}{\numberline {5.6.2.4}projects}{13}{subsubsection.5.6.2.4}
+\contentsline {subsubsection}{\numberline {5.6.2.5}projects\discretionary {-}{}{}Ordered}{14}{subsubsection.5.6.2.5}
+\contentsline {subsubsection}{\numberline {5.6.2.6}user\discretionary {-}{}{}Skills}{14}{subsubsection.5.6.2.6}
+\contentsline {section}{\numberline {5.7}students.\discretionary {-}{}{}migrations Namespace Reference}{14}{section.5.7}
+\contentsline {section}{\numberline {5.8}students.\discretionary {-}{}{}migrations.0001\discretionary {-}{}{}\_\discretionary {-}{}{}initial Namespace Reference}{14}{section.5.8}
+\contentsline {section}{\numberline {5.9}students.\discretionary {-}{}{}migrations.0002\discretionary {-}{}{}\_\discretionary {-}{}{}auto\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}student\discretionary {-}{}{}\_\discretionary {-}{}{}cv Namespace Reference}{14}{section.5.9}
+\contentsline {section}{\numberline {5.10}students.\discretionary {-}{}{}migrations.0003\discretionary {-}{}{}\_\discretionary {-}{}{}auto\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}student\discretionary {-}{}{}\_\discretionary {-}{}{}line\discretionary {-}{}{}\_\discretionary {-}{}{}of\discretionary {-}{}{}\_\discretionary {-}{}{}study Namespace Reference}{14}{section.5.10}
+\contentsline {section}{\numberline {5.11}students.\discretionary {-}{}{}migrations.0004\discretionary {-}{}{}\_\discretionary {-}{}{}auto\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}student\discretionary {-}{}{}\_\discretionary {-}{}{}education\discretionary {-}{}{}\_\discretionary {-}{}{}level Namespace Reference}{14}{section.5.11}
+\contentsline {section}{\numberline {5.12}students.\discretionary {-}{}{}migrations.0005\discretionary {-}{}{}\_\discretionary {-}{}{}auto\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}student\discretionary {-}{}{}\_\discretionary {-}{}{}times\discretionary {-}{}{}\_\discretionary {-}{}{}logged\discretionary {-}{}{}\_\discretionary {-}{}{}in Namespace Reference}{14}{section.5.12}
+\contentsline {section}{\numberline {5.13}students.\discretionary {-}{}{}models Namespace Reference}{15}{section.5.13}
+\contentsline {subsection}{\numberline {5.13.1}Function Documentation}{15}{subsection.5.13.1}
+\contentsline {subsubsection}{\numberline {5.13.1.1}get\discretionary {-}{}{}\_\discretionary {-}{}{}file\discretionary {-}{}{}\_\discretionary {-}{}{}path}{15}{subsubsection.5.13.1.1}
+\contentsline {subsubsection}{\numberline {5.13.1.2}get\discretionary {-}{}{}\_\discretionary {-}{}{}image\discretionary {-}{}{}\_\discretionary {-}{}{}path}{15}{subsubsection.5.13.1.2}
+\contentsline {subsubsection}{\numberline {5.13.1.3}insert\discretionary {-}{}{}Linked\discretionary {-}{}{}In\discretionary {-}{}{}Profile}{15}{subsubsection.5.13.1.3}
+\contentsline {section}{\numberline {5.14}students.\discretionary {-}{}{}tasks Namespace Reference}{15}{section.5.14}
+\contentsline {subsection}{\numberline {5.14.1}Function Documentation}{15}{subsection.5.14.1}
+\contentsline {subsubsection}{\numberline {5.14.1.1}add}{15}{subsubsection.5.14.1.1}
+\contentsline {subsubsection}{\numberline {5.14.1.2}mul}{15}{subsubsection.5.14.1.2}
+\contentsline {subsubsection}{\numberline {5.14.1.3}xsum}{15}{subsubsection.5.14.1.3}
+\contentsline {section}{\numberline {5.15}students.\discretionary {-}{}{}tests Namespace Reference}{15}{section.5.15}
+\contentsline {section}{\numberline {5.16}students.\discretionary {-}{}{}tests.\discretionary {-}{}{}test\discretionary {-}{}{}\_\discretionary {-}{}{}forms Namespace Reference}{16}{section.5.16}
+\contentsline {section}{\numberline {5.17}students.\discretionary {-}{}{}tests.\discretionary {-}{}{}test\discretionary {-}{}{}\_\discretionary {-}{}{}models Namespace Reference}{16}{section.5.17}
+\contentsline {section}{\numberline {5.18}students.\discretionary {-}{}{}tests.\discretionary {-}{}{}test\discretionary {-}{}{}\_\discretionary {-}{}{}views Namespace Reference}{16}{section.5.18}
+\contentsline {section}{\numberline {5.19}students.\discretionary {-}{}{}urls Namespace Reference}{16}{section.5.19}
+\contentsline {section}{\numberline {5.20}students.\discretionary {-}{}{}views Namespace Reference}{16}{section.5.20}
+\contentsline {subsection}{\numberline {5.20.1}Function Documentation}{17}{subsection.5.20.1}
+\contentsline {subsubsection}{\numberline {5.20.1.1}all\discretionary {-}{}{}\_\discretionary {-}{}{}projects\discretionary {-}{}{}\_\discretionary {-}{}{}filter}{17}{subsubsection.5.20.1.1}
+\contentsline {subsubsection}{\numberline {5.20.1.2}linkedin\discretionary {-}{}{}\_\discretionary {-}{}{}redirect}{17}{subsubsection.5.20.1.2}
+\contentsline {subsubsection}{\numberline {5.20.1.3}login\discretionary {-}{}{}\_\discretionary {-}{}{}check}{17}{subsubsection.5.20.1.3}
+\contentsline {subsubsection}{\numberline {5.20.1.4}sign\discretionary {-}{}{}\_\discretionary {-}{}{}out\discretionary {-}{}{}\_\discretionary {-}{}{}view}{17}{subsubsection.5.20.1.4}
+\contentsline {subsubsection}{\numberline {5.20.1.5}stage}{17}{subsubsection.5.20.1.5}
+\contentsline {subsubsection}{\numberline {5.20.1.6}student\discretionary {-}{}{}\_\discretionary {-}{}{}project\discretionary {-}{}{}\_\discretionary {-}{}{}alter\discretionary {-}{}{}\_\discretionary {-}{}{}contact\discretionary {-}{}{}\_\discretionary {-}{}{}view}{17}{subsubsection.5.20.1.6}
+\contentsline {subsubsection}{\numberline {5.20.1.7}student\discretionary {-}{}{}\_\discretionary {-}{}{}project\discretionary {-}{}{}\_\discretionary {-}{}{}delete\discretionary {-}{}{}\_\discretionary {-}{}{}view}{17}{subsubsection.5.20.1.7}
+\contentsline {subsubsection}{\numberline {5.20.1.8}student\discretionary {-}{}{}\_\discretionary {-}{}{}sign\discretionary {-}{}{}\_\discretionary {-}{}{}up\discretionary {-}{}{}\_\discretionary {-}{}{}success}{17}{subsubsection.5.20.1.8}
+\contentsline {chapter}{\numberline {6}Class Documentation}{19}{chapter.6}
+\contentsline {section}{\numberline {6.1}students.\discretionary {-}{}{}views.\discretionary {-}{}{}All\discretionary {-}{}{}Project\discretionary {-}{}{}Detail\discretionary {-}{}{}View Class Reference}{19}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}Member Function Documentation}{19}{subsection.6.1.1}
+\contentsline {subsubsection}{\numberline {6.1.1.1}dispatch}{19}{subsubsection.6.1.1.1}
+\contentsline {subsubsection}{\numberline {6.1.1.2}get\discretionary {-}{}{}\_\discretionary {-}{}{}context\discretionary {-}{}{}\_\discretionary {-}{}{}data}{19}{subsubsection.6.1.1.2}
+\contentsline {subsubsection}{\numberline {6.1.1.3}get\discretionary {-}{}{}\_\discretionary {-}{}{}object}{19}{subsubsection.6.1.1.3}
+\contentsline {subsection}{\numberline {6.1.2}Member Data Documentation}{19}{subsection.6.1.2}
+\contentsline {subsubsection}{\numberline {6.1.2.1}login\discretionary {-}{}{}\_\discretionary {-}{}{}url}{19}{subsubsection.6.1.2.1}
+\contentsline {subsubsection}{\numberline {6.1.2.2}model}{19}{subsubsection.6.1.2.2}
+\contentsline {subsubsection}{\numberline {6.1.2.3}template\discretionary {-}{}{}\_\discretionary {-}{}{}name}{20}{subsubsection.6.1.2.3}
+\contentsline {section}{\numberline {6.2}students.\discretionary {-}{}{}views.\discretionary {-}{}{}Change\discretionary {-}{}{}Password\discretionary {-}{}{}View Class Reference}{20}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Member Function Documentation}{20}{subsection.6.2.1}
+\contentsline {subsubsection}{\numberline {6.2.1.1}form\discretionary {-}{}{}\_\discretionary {-}{}{}valid}{20}{subsubsection.6.2.1.1}
+\contentsline {subsection}{\numberline {6.2.2}Member Data Documentation}{20}{subsection.6.2.2}
+\contentsline {subsubsection}{\numberline {6.2.2.1}form\discretionary {-}{}{}\_\discretionary {-}{}{}class}{20}{subsubsection.6.2.2.1}
+\contentsline {subsubsection}{\numberline {6.2.2.2}model}{20}{subsubsection.6.2.2.2}
+\contentsline {subsubsection}{\numberline {6.2.2.3}template\discretionary {-}{}{}\_\discretionary {-}{}{}name}{20}{subsubsection.6.2.2.3}
+\contentsline {section}{\numberline {6.3}students.\discretionary {-}{}{}forms.\discretionary {-}{}{}Change\discretionary {-}{}{}User\discretionary {-}{}{}Password Class Reference}{20}{section.6.3}
+\contentsline {subsection}{\numberline {6.3.1}Constructor \& Destructor Documentation}{21}{subsection.6.3.1}
+\contentsline {subsubsection}{\numberline {6.3.1.1}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}init\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}{21}{subsubsection.6.3.1.1}
+\contentsline {subsection}{\numberline {6.3.2}Member Function Documentation}{21}{subsection.6.3.2}
+\contentsline {subsubsection}{\numberline {6.3.2.1}clean\discretionary {-}{}{}\_\discretionary {-}{}{}old\discretionary {-}{}{}\_\discretionary {-}{}{}password}{21}{subsubsection.6.3.2.1}
+\contentsline {subsubsection}{\numberline {6.3.2.2}clean\discretionary {-}{}{}\_\discretionary {-}{}{}password2}{21}{subsubsection.6.3.2.2}
+\contentsline {subsubsection}{\numberline {6.3.2.3}save}{21}{subsubsection.6.3.2.3}
+\contentsline {subsection}{\numberline {6.3.3}Member Data Documentation}{21}{subsection.6.3.3}
+\contentsline {subsubsection}{\numberline {6.3.3.1}helper}{21}{subsubsection.6.3.3.1}
+\contentsline {subsubsection}{\numberline {6.3.3.2}old\discretionary {-}{}{}\_\discretionary {-}{}{}password}{21}{subsubsection.6.3.3.2}
+\contentsline {subsubsection}{\numberline {6.3.3.3}password1}{21}{subsubsection.6.3.3.3}
+\contentsline {subsubsection}{\numberline {6.3.3.4}password2}{21}{subsubsection.6.3.3.4}
+\contentsline {section}{\numberline {6.4}students.\discretionary {-}{}{}models.\discretionary {-}{}{}Course Class Reference}{22}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}Detailed Description}{22}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Member Function Documentation}{22}{subsection.6.4.2}
+\contentsline {subsubsection}{\numberline {6.4.2.1}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}unicode\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}{22}{subsubsection.6.4.2.1}
+\contentsline {subsubsection}{\numberline {6.4.2.2}get\discretionary {-}{}{}\_\discretionary {-}{}{}course}{22}{subsubsection.6.4.2.2}
+\contentsline {subsection}{\numberline {6.4.3}Member Data Documentation}{22}{subsection.6.4.3}
+\contentsline {subsubsection}{\numberline {6.4.3.1}name}{22}{subsubsection.6.4.3.1}
+\contentsline {subsubsection}{\numberline {6.4.3.2}profile}{22}{subsubsection.6.4.3.2}
+\contentsline {section}{\numberline {6.5}students.\discretionary {-}{}{}linkedin\discretionary {-}{}{}\_\discretionary {-}{}{}converter.\discretionary {-}{}{}Course Class Reference}{22}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}Detailed Description}{23}{subsection.6.5.1}
+\contentsline {subsection}{\numberline {6.5.2}Member Data Documentation}{23}{subsection.6.5.2}
+\contentsline {subsubsection}{\numberline {6.5.2.1}cid}{23}{subsubsection.6.5.2.1}
+\contentsline {subsubsection}{\numberline {6.5.2.2}name}{23}{subsubsection.6.5.2.2}
+\contentsline {section}{\numberline {6.6}students.\discretionary {-}{}{}admin.\discretionary {-}{}{}Course\discretionary {-}{}{}Admin Class Reference}{23}{section.6.6}
+\contentsline {subsection}{\numberline {6.6.1}Member Data Documentation}{23}{subsection.6.6.1}
+\contentsline {subsubsection}{\numberline {6.6.1.1}fieldsets}{23}{subsubsection.6.6.1.1}
+\contentsline {subsubsection}{\numberline {6.6.1.2}list\discretionary {-}{}{}\_\discretionary {-}{}{}display}{23}{subsubsection.6.6.1.2}
+\contentsline {subsubsection}{\numberline {6.6.1.3}search\discretionary {-}{}{}\_\discretionary {-}{}{}fields}{23}{subsubsection.6.6.1.3}
+\contentsline {section}{\numberline {6.7}students.\discretionary {-}{}{}models.\discretionary {-}{}{}Education Class Reference}{24}{section.6.7}
+\contentsline {subsection}{\numberline {6.7.1}Detailed Description}{24}{subsection.6.7.1}
+\contentsline {subsection}{\numberline {6.7.2}Member Function Documentation}{24}{subsection.6.7.2}
+\contentsline {subsubsection}{\numberline {6.7.2.1}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}unicode\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}{24}{subsubsection.6.7.2.1}
+\contentsline {subsubsection}{\numberline {6.7.2.2}get\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}Of\discretionary {-}{}{}Study}{24}{subsubsection.6.7.2.2}
+\contentsline {subsection}{\numberline {6.7.3}Member Data Documentation}{24}{subsection.6.7.3}
+\contentsline {subsubsection}{\numberline {6.7.3.1}degree}{24}{subsubsection.6.7.3.1}
+\contentsline {subsubsection}{\numberline {6.7.3.2}field\discretionary {-}{}{}Of\discretionary {-}{}{}Study}{24}{subsubsection.6.7.3.2}
+\contentsline {subsubsection}{\numberline {6.7.3.3}profile}{24}{subsubsection.6.7.3.3}
+\contentsline {subsubsection}{\numberline {6.7.3.4}school\discretionary {-}{}{}Name}{24}{subsubsection.6.7.3.4}
+\contentsline {section}{\numberline {6.8}students.\discretionary {-}{}{}linkedin\discretionary {-}{}{}\_\discretionary {-}{}{}converter.\discretionary {-}{}{}Education Class Reference}{24}{section.6.8}
+\contentsline {subsection}{\numberline {6.8.1}Detailed Description}{25}{subsection.6.8.1}
+\contentsline {subsection}{\numberline {6.8.2}Member Data Documentation}{25}{subsection.6.8.2}
+\contentsline {subsubsection}{\numberline {6.8.2.1}degree}{25}{subsubsection.6.8.2.1}
+\contentsline {subsubsection}{\numberline {6.8.2.2}eid}{25}{subsubsection.6.8.2.2}
+\contentsline {subsubsection}{\numberline {6.8.2.3}end\discretionary {-}{}{}Date}{25}{subsubsection.6.8.2.3}
+\contentsline {subsubsection}{\numberline {6.8.2.4}field\discretionary {-}{}{}Of\discretionary {-}{}{}Study}{25}{subsubsection.6.8.2.4}
+\contentsline {subsubsection}{\numberline {6.8.2.5}school\discretionary {-}{}{}Name}{25}{subsubsection.6.8.2.5}
+\contentsline {subsubsection}{\numberline {6.8.2.6}start\discretionary {-}{}{}Date}{25}{subsubsection.6.8.2.6}
+\contentsline {section}{\numberline {6.9}students.\discretionary {-}{}{}admin.\discretionary {-}{}{}Education\discretionary {-}{}{}Admin Class Reference}{25}{section.6.9}
+\contentsline {subsection}{\numberline {6.9.1}Member Data Documentation}{26}{subsection.6.9.1}
+\contentsline {subsubsection}{\numberline {6.9.1.1}fieldsets}{26}{subsubsection.6.9.1.1}
+\contentsline {subsubsection}{\numberline {6.9.1.2}list\discretionary {-}{}{}\_\discretionary {-}{}{}display}{26}{subsubsection.6.9.1.2}
+\contentsline {subsubsection}{\numberline {6.9.1.3}search\discretionary {-}{}{}\_\discretionary {-}{}{}fields}{26}{subsubsection.6.9.1.3}
+\contentsline {section}{\numberline {6.10}students.\discretionary {-}{}{}forms.\discretionary {-}{}{}Email\discretionary {-}{}{}Form Class Reference}{26}{section.6.10}
+\contentsline {subsection}{\numberline {6.10.1}Constructor \& Destructor Documentation}{27}{subsection.6.10.1}
+\contentsline {subsubsection}{\numberline {6.10.1.1}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}init\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}{27}{subsubsection.6.10.1.1}
+\contentsline {subsection}{\numberline {6.10.2}Member Data Documentation}{27}{subsection.6.10.2}
+\contentsline {subsubsection}{\numberline {6.10.2.1}attachment}{27}{subsubsection.6.10.2.1}
+\contentsline {subsubsection}{\numberline {6.10.2.2}body}{27}{subsubsection.6.10.2.2}
+\contentsline {subsubsection}{\numberline {6.10.2.3}helper}{27}{subsubsection.6.10.2.3}
+\contentsline {subsubsection}{\numberline {6.10.2.4}subject}{27}{subsubsection.6.10.2.4}
+\contentsline {section}{\numberline {6.11}students.\discretionary {-}{}{}models.\discretionary {-}{}{}Language Class Reference}{27}{section.6.11}
+\contentsline {subsection}{\numberline {6.11.1}Detailed Description}{27}{subsection.6.11.1}
+\contentsline {subsection}{\numberline {6.11.2}Member Function Documentation}{27}{subsection.6.11.2}
+\contentsline {subsubsection}{\numberline {6.11.2.1}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}unicode\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}{27}{subsubsection.6.11.2.1}
+\contentsline {subsubsection}{\numberline {6.11.2.2}get\discretionary {-}{}{}\_\discretionary {-}{}{}language}{27}{subsubsection.6.11.2.2}
+\contentsline {subsection}{\numberline {6.11.3}Member Data Documentation}{27}{subsection.6.11.3}
+\contentsline {subsubsection}{\numberline {6.11.3.1}level}{28}{subsubsection.6.11.3.1}
+\contentsline {subsubsection}{\numberline {6.11.3.2}name}{28}{subsubsection.6.11.3.2}
+\contentsline {subsubsection}{\numberline {6.11.3.3}profile}{28}{subsubsection.6.11.3.3}
+\contentsline {section}{\numberline {6.12}students.\discretionary {-}{}{}linkedin\discretionary {-}{}{}\_\discretionary {-}{}{}converter.\discretionary {-}{}{}Language Class Reference}{28}{section.6.12}
+\contentsline {subsection}{\numberline {6.12.1}Detailed Description}{28}{subsection.6.12.1}
+\contentsline {subsection}{\numberline {6.12.2}Member Data Documentation}{28}{subsection.6.12.2}
+\contentsline {subsubsection}{\numberline {6.12.2.1}level}{28}{subsubsection.6.12.2.1}
+\contentsline {subsubsection}{\numberline {6.12.2.2}lid}{28}{subsubsection.6.12.2.2}
+\contentsline {subsubsection}{\numberline {6.12.2.3}name}{28}{subsubsection.6.12.2.3}
+\contentsline {section}{\numberline {6.13}students.\discretionary {-}{}{}admin.\discretionary {-}{}{}Language\discretionary {-}{}{}Admin Class Reference}{28}{section.6.13}
+\contentsline {subsection}{\numberline {6.13.1}Member Data Documentation}{29}{subsection.6.13.1}
+\contentsline {subsubsection}{\numberline {6.13.1.1}fieldsets}{29}{subsubsection.6.13.1.1}
+\contentsline {subsubsection}{\numberline {6.13.1.2}list\discretionary {-}{}{}\_\discretionary {-}{}{}display}{29}{subsubsection.6.13.1.2}
+\contentsline {subsubsection}{\numberline {6.13.1.3}search\discretionary {-}{}{}\_\discretionary {-}{}{}fields}{29}{subsubsection.6.13.1.3}
+\contentsline {section}{\numberline {6.14}students.\discretionary {-}{}{}models.\discretionary {-}{}{}Linked\discretionary {-}{}{}In\discretionary {-}{}{}Profile Class Reference}{29}{section.6.14}
+\contentsline {subsection}{\numberline {6.14.1}Detailed Description}{30}{subsection.6.14.1}
+\contentsline {subsection}{\numberline {6.14.2}Member Function Documentation}{30}{subsection.6.14.2}
+\contentsline {subsubsection}{\numberline {6.14.2.1}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}unicode\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}{30}{subsubsection.6.14.2.1}
+\contentsline {subsubsection}{\numberline {6.14.2.2}get\discretionary {-}{}{}\_\discretionary {-}{}{}full\discretionary {-}{}{}\_\discretionary {-}{}{}name}{30}{subsubsection.6.14.2.2}
+\contentsline {subsection}{\numberline {6.14.3}Member Data Documentation}{30}{subsection.6.14.3}
+\contentsline {subsubsection}{\numberline {6.14.3.1}first\discretionary {-}{}{}Name}{30}{subsubsection.6.14.3.1}
+\contentsline {subsubsection}{\numberline {6.14.3.2}last\discretionary {-}{}{}Name}{30}{subsubsection.6.14.3.2}
+\contentsline {subsubsection}{\numberline {6.14.3.3}leapkituser}{30}{subsubsection.6.14.3.3}
+\contentsline {subsubsection}{\numberline {6.14.3.4}linkedin\discretionary {-}{}{}\_\discretionary {-}{}{}id}{30}{subsubsection.6.14.3.4}
+\contentsline {subsubsection}{\numberline {6.14.3.5}modified}{30}{subsubsection.6.14.3.5}
+\contentsline {subsubsection}{\numberline {6.14.3.6}picture\discretionary {-}{}{}Url}{30}{subsubsection.6.14.3.6}
+\contentsline {subsubsection}{\numberline {6.14.3.7}public\discretionary {-}{}{}Profile\discretionary {-}{}{}Url}{30}{subsubsection.6.14.3.7}
+\contentsline {section}{\numberline {6.15}students.\discretionary {-}{}{}admin.\discretionary {-}{}{}Linked\discretionary {-}{}{}In\discretionary {-}{}{}Profile\discretionary {-}{}{}Admin Class Reference}{30}{section.6.15}
+\contentsline {subsection}{\numberline {6.15.1}Member Data Documentation}{31}{subsection.6.15.1}
+\contentsline {subsubsection}{\numberline {6.15.1.1}fieldsets}{31}{subsubsection.6.15.1.1}
+\contentsline {subsubsection}{\numberline {6.15.1.2}list\discretionary {-}{}{}\_\discretionary {-}{}{}display}{31}{subsubsection.6.15.1.2}
+\contentsline {subsubsection}{\numberline {6.15.1.3}readonly\discretionary {-}{}{}\_\discretionary {-}{}{}fields}{31}{subsubsection.6.15.1.3}
+\contentsline {subsubsection}{\numberline {6.15.1.4}search\discretionary {-}{}{}\_\discretionary {-}{}{}fields}{31}{subsubsection.6.15.1.4}
+\contentsline {section}{\numberline {6.16}students.\discretionary {-}{}{}views.\discretionary {-}{}{}List\discretionary {-}{}{}All\discretionary {-}{}{}Projects\discretionary {-}{}{}View Class Reference}{31}{section.6.16}
+\contentsline {subsection}{\numberline {6.16.1}Member Function Documentation}{32}{subsection.6.16.1}
+\contentsline {subsubsection}{\numberline {6.16.1.1}dispatch}{32}{subsubsection.6.16.1.1}
+\contentsline {subsubsection}{\numberline {6.16.1.2}get\discretionary {-}{}{}\_\discretionary {-}{}{}context\discretionary {-}{}{}\_\discretionary {-}{}{}data}{32}{subsubsection.6.16.1.2}
+\contentsline {subsubsection}{\numberline {6.16.1.3}get\discretionary {-}{}{}\_\discretionary {-}{}{}queryset}{32}{subsubsection.6.16.1.3}
+\contentsline {subsection}{\numberline {6.16.2}Member Data Documentation}{32}{subsection.6.16.2}
+\contentsline {subsubsection}{\numberline {6.16.2.1}allow\discretionary {-}{}{}\_\discretionary {-}{}{}empty}{32}{subsubsection.6.16.2.1}
+\contentsline {subsubsection}{\numberline {6.16.2.2}login\discretionary {-}{}{}\_\discretionary {-}{}{}url}{32}{subsubsection.6.16.2.2}
+\contentsline {subsubsection}{\numberline {6.16.2.3}model}{32}{subsubsection.6.16.2.3}
+\contentsline {subsubsection}{\numberline {6.16.2.4}paginate\discretionary {-}{}{}\_\discretionary {-}{}{}by}{32}{subsubsection.6.16.2.4}
+\contentsline {subsubsection}{\numberline {6.16.2.5}template\discretionary {-}{}{}\_\discretionary {-}{}{}name}{32}{subsubsection.6.16.2.5}
+\contentsline {section}{\numberline {6.17}students.\discretionary {-}{}{}forms.\discretionary {-}{}{}Student\discretionary {-}{}{}Log\discretionary {-}{}{}In\discretionary {-}{}{}Form.\discretionary {-}{}{}Meta Class Reference}{32}{section.6.17}
+\contentsline {subsection}{\numberline {6.17.1}Member Data Documentation}{32}{subsection.6.17.1}
+\contentsline {subsubsection}{\numberline {6.17.1.1}model}{32}{subsubsection.6.17.1.1}
+\contentsline {section}{\numberline {6.18}students.\discretionary {-}{}{}forms.\discretionary {-}{}{}Change\discretionary {-}{}{}User\discretionary {-}{}{}Password.\discretionary {-}{}{}Meta Class Reference}{32}{section.6.18}
+\contentsline {subsection}{\numberline {6.18.1}Member Data Documentation}{33}{subsection.6.18.1}
+\contentsline {subsubsection}{\numberline {6.18.1.1}fields}{33}{subsubsection.6.18.1.1}
+\contentsline {subsubsection}{\numberline {6.18.1.2}model}{33}{subsubsection.6.18.1.2}
+\contentsline {section}{\numberline {6.19}students.\discretionary {-}{}{}forms.\discretionary {-}{}{}Student\discretionary {-}{}{}Form.\discretionary {-}{}{}Meta Class Reference}{33}{section.6.19}
+\contentsline {subsection}{\numberline {6.19.1}Member Data Documentation}{33}{subsection.6.19.1}
+\contentsline {subsubsection}{\numberline {6.19.1.1}fields}{33}{subsubsection.6.19.1.1}
+\contentsline {subsubsection}{\numberline {6.19.1.2}model}{33}{subsubsection.6.19.1.2}
+\contentsline {section}{\numberline {6.20}students.\discretionary {-}{}{}forms.\discretionary {-}{}{}Email\discretionary {-}{}{}Form.\discretionary {-}{}{}Meta Class Reference}{33}{section.6.20}
+\contentsline {subsection}{\numberline {6.20.1}Member Data Documentation}{33}{subsection.6.20.1}
+\contentsline {subsubsection}{\numberline {6.20.1.1}model}{33}{subsubsection.6.20.1.1}
+\contentsline {section}{\numberline {6.21}students.\discretionary {-}{}{}forms.\discretionary {-}{}{}Student\discretionary {-}{}{}Project\discretionary {-}{}{}Form.\discretionary {-}{}{}Meta Class Reference}{34}{section.6.21}
+\contentsline {subsection}{\numberline {6.21.1}Member Data Documentation}{34}{subsection.6.21.1}
+\contentsline {subsubsection}{\numberline {6.21.1.1}fields}{34}{subsubsection.6.21.1.1}
+\contentsline {subsubsection}{\numberline {6.21.1.2}model}{34}{subsubsection.6.21.1.2}
+\contentsline {section}{\numberline {6.22}students.\discretionary {-}{}{}forms.\discretionary {-}{}{}Student\discretionary {-}{}{}Creation\discretionary {-}{}{}Form.\discretionary {-}{}{}Meta Class Reference}{34}{section.6.22}
+\contentsline {subsection}{\numberline {6.22.1}Member Data Documentation}{34}{subsection.6.22.1}
+\contentsline {subsubsection}{\numberline {6.22.1.1}fields}{34}{subsubsection.6.22.1.1}
+\contentsline {subsubsection}{\numberline {6.22.1.2}model}{35}{subsubsection.6.22.1.2}
+\contentsline {section}{\numberline {6.23}students.\discretionary {-}{}{}migrations.0001\discretionary {-}{}{}\_\discretionary {-}{}{}initial.Migration Class Reference}{35}{section.6.23}
+\contentsline {subsection}{\numberline {6.23.1}Member Function Documentation}{35}{subsection.6.23.1}
+\contentsline {subsubsection}{\numberline {6.23.1.1}backwards}{35}{subsubsection.6.23.1.1}
+\contentsline {subsubsection}{\numberline {6.23.1.2}forwards}{35}{subsubsection.6.23.1.2}
+\contentsline {subsection}{\numberline {6.23.2}Member Data Documentation}{35}{subsection.6.23.2}
+\contentsline {subsubsection}{\numberline {6.23.2.1}models}{35}{subsubsection.6.23.2.1}
+\contentsline {section}{\numberline {6.24}students.\discretionary {-}{}{}migrations.0002\discretionary {-}{}{}\_\discretionary {-}{}{}auto\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}student\discretionary {-}{}{}\_\discretionary {-}{}{}cv.Migration Class Reference}{35}{section.6.24}
+\contentsline {subsection}{\numberline {6.24.1}Member Function Documentation}{36}{subsection.6.24.1}
+\contentsline {subsubsection}{\numberline {6.24.1.1}backwards}{36}{subsubsection.6.24.1.1}
+\contentsline {subsubsection}{\numberline {6.24.1.2}forwards}{36}{subsubsection.6.24.1.2}
+\contentsline {subsection}{\numberline {6.24.2}Member Data Documentation}{36}{subsection.6.24.2}
+\contentsline {subsubsection}{\numberline {6.24.2.1}models}{36}{subsubsection.6.24.2.1}
+\contentsline {section}{\numberline {6.25}students.\discretionary {-}{}{}migrations.0003\discretionary {-}{}{}\_\discretionary {-}{}{}auto\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}student\discretionary {-}{}{}\_\discretionary {-}{}{}line\discretionary {-}{}{}\_\discretionary {-}{}{}of\discretionary {-}{}{}\_\discretionary {-}{}{}study.Migration Class Reference}{36}{section.6.25}
+\contentsline {subsection}{\numberline {6.25.1}Member Function Documentation}{36}{subsection.6.25.1}
+\contentsline {subsubsection}{\numberline {6.25.1.1}backwards}{36}{subsubsection.6.25.1.1}
+\contentsline {subsubsection}{\numberline {6.25.1.2}forwards}{36}{subsubsection.6.25.1.2}
+\contentsline {subsection}{\numberline {6.25.2}Member Data Documentation}{36}{subsection.6.25.2}
+\contentsline {subsubsection}{\numberline {6.25.2.1}models}{37}{subsubsection.6.25.2.1}
+\contentsline {section}{\numberline {6.26}students.\discretionary {-}{}{}migrations.0004\discretionary {-}{}{}\_\discretionary {-}{}{}auto\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}student\discretionary {-}{}{}\_\discretionary {-}{}{}education\discretionary {-}{}{}\_\discretionary {-}{}{}level.Migration Class Reference}{37}{section.6.26}
+\contentsline {subsection}{\numberline {6.26.1}Member Function Documentation}{37}{subsection.6.26.1}
+\contentsline {subsubsection}{\numberline {6.26.1.1}backwards}{37}{subsubsection.6.26.1.1}
+\contentsline {subsubsection}{\numberline {6.26.1.2}forwards}{37}{subsubsection.6.26.1.2}
+\contentsline {subsection}{\numberline {6.26.2}Member Data Documentation}{37}{subsection.6.26.2}
+\contentsline {subsubsection}{\numberline {6.26.2.1}models}{37}{subsubsection.6.26.2.1}
+\contentsline {section}{\numberline {6.27}students.\discretionary {-}{}{}migrations.0005\discretionary {-}{}{}\_\discretionary {-}{}{}auto\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}student\discretionary {-}{}{}\_\discretionary {-}{}{}times\discretionary {-}{}{}\_\discretionary {-}{}{}logged\discretionary {-}{}{}\_\discretionary {-}{}{}in.Migration Class Reference}{37}{section.6.27}
+\contentsline {subsection}{\numberline {6.27.1}Member Function Documentation}{38}{subsection.6.27.1}
+\contentsline {subsubsection}{\numberline {6.27.1.1}backwards}{38}{subsubsection.6.27.1.1}
+\contentsline {subsubsection}{\numberline {6.27.1.2}forwards}{38}{subsubsection.6.27.1.2}
+\contentsline {subsection}{\numberline {6.27.2}Member Data Documentation}{38}{subsection.6.27.2}
+\contentsline {subsubsection}{\numberline {6.27.2.1}models}{38}{subsubsection.6.27.2.1}
+\contentsline {section}{\numberline {6.28}students.\discretionary {-}{}{}linkedin\discretionary {-}{}{}\_\discretionary {-}{}{}converter.\discretionary {-}{}{}Person Class Reference}{38}{section.6.28}
+\contentsline {subsection}{\numberline {6.28.1}Detailed Description}{39}{subsection.6.28.1}
+\contentsline {subsection}{\numberline {6.28.2}Member Function Documentation}{39}{subsection.6.28.2}
+\contentsline {subsubsection}{\numberline {6.28.2.1}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}str\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}{39}{subsubsection.6.28.2.1}
+\contentsline {subsection}{\numberline {6.28.3}Member Data Documentation}{39}{subsection.6.28.3}
+\contentsline {subsubsection}{\numberline {6.28.3.1}courses}{39}{subsubsection.6.28.3.1}
+\contentsline {subsubsection}{\numberline {6.28.3.2}educations}{39}{subsubsection.6.28.3.2}
+\contentsline {subsubsection}{\numberline {6.28.3.3}first\discretionary {-}{}{}Name}{39}{subsubsection.6.28.3.3}
+\contentsline {subsubsection}{\numberline {6.28.3.4}languages}{39}{subsubsection.6.28.3.4}
+\contentsline {subsubsection}{\numberline {6.28.3.5}last\discretionary {-}{}{}Name}{39}{subsubsection.6.28.3.5}
+\contentsline {subsubsection}{\numberline {6.28.3.6}location}{39}{subsubsection.6.28.3.6}
+\contentsline {subsubsection}{\numberline {6.28.3.7}maiden\discretionary {-}{}{}Name}{39}{subsubsection.6.28.3.7}
+\contentsline {subsubsection}{\numberline {6.28.3.8}picture\discretionary {-}{}{}Url}{39}{subsubsection.6.28.3.8}
+\contentsline {subsubsection}{\numberline {6.28.3.9}pid}{39}{subsubsection.6.28.3.9}
+\contentsline {subsubsection}{\numberline {6.28.3.10}positions}{39}{subsubsection.6.28.3.10}
+\contentsline {subsubsection}{\numberline {6.28.3.11}public\discretionary {-}{}{}Profile\discretionary {-}{}{}Url}{39}{subsubsection.6.28.3.11}
+\contentsline {subsubsection}{\numberline {6.28.3.12}skills}{39}{subsubsection.6.28.3.12}
+\contentsline {subsubsection}{\numberline {6.28.3.13}specialities}{39}{subsubsection.6.28.3.13}
+\contentsline {section}{\numberline {6.29}students.\discretionary {-}{}{}models.\discretionary {-}{}{}Position Class Reference}{39}{section.6.29}
+\contentsline {subsection}{\numberline {6.29.1}Detailed Description}{40}{subsection.6.29.1}
+\contentsline {subsection}{\numberline {6.29.2}Member Function Documentation}{40}{subsection.6.29.2}
+\contentsline {subsubsection}{\numberline {6.29.2.1}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}unicode\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}{40}{subsubsection.6.29.2.1}
+\contentsline {subsubsection}{\numberline {6.29.2.2}get\discretionary {-}{}{}\_\discretionary {-}{}{}jobtitle}{40}{subsubsection.6.29.2.2}
+\contentsline {subsection}{\numberline {6.29.3}Member Data Documentation}{40}{subsection.6.29.3}
+\contentsline {subsubsection}{\numberline {6.29.3.1}company}{40}{subsubsection.6.29.3.1}
+\contentsline {subsubsection}{\numberline {6.29.3.2}end\discretionary {-}{}{}Date}{40}{subsubsection.6.29.3.2}
+\contentsline {subsubsection}{\numberline {6.29.3.3}is\discretionary {-}{}{}Current}{40}{subsubsection.6.29.3.3}
+\contentsline {subsubsection}{\numberline {6.29.3.4}jobtitle}{40}{subsubsection.6.29.3.4}
+\contentsline {subsubsection}{\numberline {6.29.3.5}profile}{40}{subsubsection.6.29.3.5}
+\contentsline {subsubsection}{\numberline {6.29.3.6}start\discretionary {-}{}{}Date}{40}{subsubsection.6.29.3.6}
+\contentsline {section}{\numberline {6.30}students.\discretionary {-}{}{}linkedin\discretionary {-}{}{}\_\discretionary {-}{}{}converter.\discretionary {-}{}{}Position Class Reference}{40}{section.6.30}
+\contentsline {subsection}{\numberline {6.30.1}Detailed Description}{41}{subsection.6.30.1}
+\contentsline {subsection}{\numberline {6.30.2}Member Data Documentation}{41}{subsection.6.30.2}
+\contentsline {subsubsection}{\numberline {6.30.2.1}company}{41}{subsubsection.6.30.2.1}
+\contentsline {subsubsection}{\numberline {6.30.2.2}end\discretionary {-}{}{}Date}{41}{subsubsection.6.30.2.2}
+\contentsline {subsubsection}{\numberline {6.30.2.3}is\discretionary {-}{}{}Current}{41}{subsubsection.6.30.2.3}
+\contentsline {subsubsection}{\numberline {6.30.2.4}pid}{41}{subsubsection.6.30.2.4}
+\contentsline {subsubsection}{\numberline {6.30.2.5}start\discretionary {-}{}{}Date}{41}{subsubsection.6.30.2.5}
+\contentsline {subsubsection}{\numberline {6.30.2.6}summary}{41}{subsubsection.6.30.2.6}
+\contentsline {subsubsection}{\numberline {6.30.2.7}title}{41}{subsubsection.6.30.2.7}
+\contentsline {section}{\numberline {6.31}students.\discretionary {-}{}{}admin.\discretionary {-}{}{}Position\discretionary {-}{}{}Admin Class Reference}{41}{section.6.31}
+\contentsline {subsection}{\numberline {6.31.1}Member Data Documentation}{42}{subsection.6.31.1}
+\contentsline {subsubsection}{\numberline {6.31.1.1}fieldsets}{42}{subsubsection.6.31.1.1}
+\contentsline {subsubsection}{\numberline {6.31.1.2}list\discretionary {-}{}{}\_\discretionary {-}{}{}display}{42}{subsubsection.6.31.1.2}
+\contentsline {subsubsection}{\numberline {6.31.1.3}search\discretionary {-}{}{}\_\discretionary {-}{}{}fields}{42}{subsubsection.6.31.1.3}
+\contentsline {section}{\numberline {6.32}students.\discretionary {-}{}{}views.\discretionary {-}{}{}Send\discretionary {-}{}{}Mail\discretionary {-}{}{}View Class Reference}{42}{section.6.32}
+\contentsline {subsection}{\numberline {6.32.1}Member Function Documentation}{42}{subsection.6.32.1}
+\contentsline {subsubsection}{\numberline {6.32.1.1}form\discretionary {-}{}{}\_\discretionary {-}{}{}valid}{42}{subsubsection.6.32.1.1}
+\contentsline {subsubsection}{\numberline {6.32.1.2}get\discretionary {-}{}{}\_\discretionary {-}{}{}context\discretionary {-}{}{}\_\discretionary {-}{}{}data}{42}{subsubsection.6.32.1.2}
+\contentsline {subsection}{\numberline {6.32.2}Member Data Documentation}{42}{subsection.6.32.2}
+\contentsline {subsubsection}{\numberline {6.32.2.1}form\discretionary {-}{}{}\_\discretionary {-}{}{}class}{43}{subsubsection.6.32.2.1}
+\contentsline {subsubsection}{\numberline {6.32.2.2}template\discretionary {-}{}{}\_\discretionary {-}{}{}name}{43}{subsubsection.6.32.2.2}
+\contentsline {section}{\numberline {6.33}students.\discretionary {-}{}{}models.\discretionary {-}{}{}Skill Class Reference}{43}{section.6.33}
+\contentsline {subsection}{\numberline {6.33.1}Detailed Description}{43}{subsection.6.33.1}
+\contentsline {subsection}{\numberline {6.33.2}Member Function Documentation}{43}{subsection.6.33.2}
+\contentsline {subsubsection}{\numberline {6.33.2.1}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}unicode\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}{43}{subsubsection.6.33.2.1}
+\contentsline {subsubsection}{\numberline {6.33.2.2}get\discretionary {-}{}{}\_\discretionary {-}{}{}skill}{43}{subsubsection.6.33.2.2}
+\contentsline {subsection}{\numberline {6.33.3}Member Data Documentation}{43}{subsection.6.33.3}
+\contentsline {subsubsection}{\numberline {6.33.3.1}name}{43}{subsubsection.6.33.3.1}
+\contentsline {subsubsection}{\numberline {6.33.3.2}profile}{43}{subsubsection.6.33.3.2}
+\contentsline {section}{\numberline {6.34}students.\discretionary {-}{}{}linkedin\discretionary {-}{}{}\_\discretionary {-}{}{}converter.\discretionary {-}{}{}Skill Class Reference}{44}{section.6.34}
+\contentsline {subsection}{\numberline {6.34.1}Detailed Description}{44}{subsection.6.34.1}
+\contentsline {subsection}{\numberline {6.34.2}Member Data Documentation}{44}{subsection.6.34.2}
+\contentsline {subsubsection}{\numberline {6.34.2.1}name}{44}{subsubsection.6.34.2.1}
+\contentsline {subsubsection}{\numberline {6.34.2.2}sid}{44}{subsubsection.6.34.2.2}
+\contentsline {section}{\numberline {6.35}students.\discretionary {-}{}{}admin.\discretionary {-}{}{}Skill\discretionary {-}{}{}Admin Class Reference}{44}{section.6.35}
+\contentsline {subsection}{\numberline {6.35.1}Member Data Documentation}{45}{subsection.6.35.1}
+\contentsline {subsubsection}{\numberline {6.35.1.1}fieldsets}{45}{subsubsection.6.35.1.1}
+\contentsline {subsubsection}{\numberline {6.35.1.2}list\discretionary {-}{}{}\_\discretionary {-}{}{}display}{45}{subsubsection.6.35.1.2}
+\contentsline {subsubsection}{\numberline {6.35.1.3}search\discretionary {-}{}{}\_\discretionary {-}{}{}fields}{45}{subsubsection.6.35.1.3}
+\contentsline {section}{\numberline {6.36}students.\discretionary {-}{}{}models.\discretionary {-}{}{}Student Class Reference}{45}{section.6.36}
+\contentsline {subsection}{\numberline {6.36.1}Member Function Documentation}{46}{subsection.6.36.1}
+\contentsline {subsubsection}{\numberline {6.36.1.1}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}unicode\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}{46}{subsubsection.6.36.1.1}
+\contentsline {subsubsection}{\numberline {6.36.1.2}get\discretionary {-}{}{}\_\discretionary {-}{}{}absolute\discretionary {-}{}{}\_\discretionary {-}{}{}update\discretionary {-}{}{}\_\discretionary {-}{}{}url}{46}{subsubsection.6.36.1.2}
+\contentsline {subsubsection}{\numberline {6.36.1.3}get\discretionary {-}{}{}\_\discretionary {-}{}{}absolute\discretionary {-}{}{}\_\discretionary {-}{}{}url}{46}{subsubsection.6.36.1.3}
+\contentsline {subsubsection}{\numberline {6.36.1.4}get\discretionary {-}{}{}\_\discretionary {-}{}{}full\discretionary {-}{}{}\_\discretionary {-}{}{}name}{46}{subsubsection.6.36.1.4}
+\contentsline {subsubsection}{\numberline {6.36.1.5}get\discretionary {-}{}{}\_\discretionary {-}{}{}short\discretionary {-}{}{}\_\discretionary {-}{}{}name}{46}{subsubsection.6.36.1.5}
+\contentsline {subsubsection}{\numberline {6.36.1.6}save}{46}{subsubsection.6.36.1.6}
+\contentsline {subsubsection}{\numberline {6.36.1.7}send\discretionary {-}{}{}\_\discretionary {-}{}{}activation\discretionary {-}{}{}\_\discretionary {-}{}{}email}{46}{subsubsection.6.36.1.7}
+\contentsline {subsubsection}{\numberline {6.36.1.8}unique\discretionary {-}{}{}\_\discretionary {-}{}{}slugify}{46}{subsubsection.6.36.1.8}
+\contentsline {subsection}{\numberline {6.36.2}Member Data Documentation}{46}{subsection.6.36.2}
+\contentsline {subsubsection}{\numberline {6.36.2.1}B\discretionary {-}{}{}A\discretionary {-}{}{}C\discretionary {-}{}{}H\discretionary {-}{}{}E\discretionary {-}{}{}L\discretionary {-}{}{}O\discretionary {-}{}{}R}{46}{subsubsection.6.36.2.1}
+\contentsline {subsubsection}{\numberline {6.36.2.2}city}{46}{subsubsection.6.36.2.2}
+\contentsline {subsubsection}{\numberline {6.36.2.3}country}{47}{subsubsection.6.36.2.3}
+\contentsline {subsubsection}{\numberline {6.36.2.4}courses}{47}{subsubsection.6.36.2.4}
+\contentsline {subsubsection}{\numberline {6.36.2.5}cv}{47}{subsubsection.6.36.2.5}
+\contentsline {subsubsection}{\numberline {6.36.2.6}date\discretionary {-}{}{}\_\discretionary {-}{}{}joined}{47}{subsubsection.6.36.2.6}
+\contentsline {subsubsection}{\numberline {6.36.2.7}date\discretionary {-}{}{}\_\discretionary {-}{}{}of\discretionary {-}{}{}\_\discretionary {-}{}{}birth}{47}{subsubsection.6.36.2.7}
+\contentsline {subsubsection}{\numberline {6.36.2.8}department}{47}{subsubsection.6.36.2.8}
+\contentsline {subsubsection}{\numberline {6.36.2.9}description}{47}{subsubsection.6.36.2.9}
+\contentsline {subsubsection}{\numberline {6.36.2.10}education\discretionary {-}{}{}\_\discretionary {-}{}{}level}{48}{subsubsection.6.36.2.10}
+\contentsline {subsubsection}{\numberline {6.36.2.11}E\discretionary {-}{}{}D\discretionary {-}{}{}U\discretionary {-}{}{}C\discretionary {-}{}{}T\discretionary {-}{}{}A\discretionary {-}{}{}T\discretionary {-}{}{}I\discretionary {-}{}{}O\discretionary {-}{}{}N\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}L\discretionary {-}{}{}E\discretionary {-}{}{}V\discretionary {-}{}{}E\discretionary {-}{}{}L}{48}{subsubsection.6.36.2.11}
+\contentsline {subsubsection}{\numberline {6.36.2.12}F\discretionary {-}{}{}E\discretionary {-}{}{}M\discretionary {-}{}{}A\discretionary {-}{}{}L\discretionary {-}{}{}E}{48}{subsubsection.6.36.2.12}
+\contentsline {subsubsection}{\numberline {6.36.2.13}first\discretionary {-}{}{}\_\discretionary {-}{}{}name}{48}{subsubsection.6.36.2.13}
+\contentsline {subsubsection}{\numberline {6.36.2.14}gender}{48}{subsubsection.6.36.2.14}
+\contentsline {subsubsection}{\numberline {6.36.2.15}image}{48}{subsubsection.6.36.2.15}
+\contentsline {subsubsection}{\numberline {6.36.2.16}image}{48}{subsubsection.6.36.2.16}
+\contentsline {subsubsection}{\numberline {6.36.2.17}institution}{48}{subsubsection.6.36.2.17}
+\contentsline {subsubsection}{\numberline {6.36.2.18}last\discretionary {-}{}{}\_\discretionary {-}{}{}name}{48}{subsubsection.6.36.2.18}
+\contentsline {subsubsection}{\numberline {6.36.2.19}line\discretionary {-}{}{}\_\discretionary {-}{}{}of\discretionary {-}{}{}\_\discretionary {-}{}{}study}{48}{subsubsection.6.36.2.19}
+\contentsline {subsubsection}{\numberline {6.36.2.20}M\discretionary {-}{}{}A\discretionary {-}{}{}L\discretionary {-}{}{}E}{49}{subsubsection.6.36.2.20}
+\contentsline {subsubsection}{\numberline {6.36.2.21}M\discretionary {-}{}{}A\discretionary {-}{}{}S\discretionary {-}{}{}T\discretionary {-}{}{}E\discretionary {-}{}{}R}{49}{subsubsection.6.36.2.21}
+\contentsline {subsubsection}{\numberline {6.36.2.22}modified}{49}{subsubsection.6.36.2.22}
+\contentsline {subsubsection}{\numberline {6.36.2.23}region}{49}{subsubsection.6.36.2.23}
+\contentsline {subsubsection}{\numberline {6.36.2.24}S\discretionary {-}{}{}E\discretionary {-}{}{}X}{49}{subsubsection.6.36.2.24}
+\contentsline {subsubsection}{\numberline {6.36.2.25}slug}{49}{subsubsection.6.36.2.25}
+\contentsline {subsubsection}{\numberline {6.36.2.26}street}{49}{subsubsection.6.36.2.26}
+\contentsline {subsubsection}{\numberline {6.36.2.27}times\discretionary {-}{}{}\_\discretionary {-}{}{}logged\discretionary {-}{}{}\_\discretionary {-}{}{}in}{49}{subsubsection.6.36.2.27}
+\contentsline {subsubsection}{\numberline {6.36.2.28}user}{49}{subsubsection.6.36.2.28}
+\contentsline {subsubsection}{\numberline {6.36.2.29}zip\discretionary {-}{}{}\_\discretionary {-}{}{}code}{49}{subsubsection.6.36.2.29}
+\contentsline {section}{\numberline {6.37}students.\discretionary {-}{}{}admin.\discretionary {-}{}{}Student\discretionary {-}{}{}Admin Class Reference}{50}{section.6.37}
+\contentsline {subsection}{\numberline {6.37.1}Member Data Documentation}{50}{subsection.6.37.1}
+\contentsline {subsubsection}{\numberline {6.37.1.1}fieldsets}{50}{subsubsection.6.37.1.1}
+\contentsline {subsubsection}{\numberline {6.37.1.2}list\discretionary {-}{}{}\_\discretionary {-}{}{}display}{50}{subsubsection.6.37.1.2}
+\contentsline {subsubsection}{\numberline {6.37.1.3}list\discretionary {-}{}{}\_\discretionary {-}{}{}filter}{50}{subsubsection.6.37.1.3}
+\contentsline {subsubsection}{\numberline {6.37.1.4}search\discretionary {-}{}{}\_\discretionary {-}{}{}fields}{50}{subsubsection.6.37.1.4}
+\contentsline {section}{\numberline {6.38}students.\discretionary {-}{}{}forms.\discretionary {-}{}{}Student\discretionary {-}{}{}Creation\discretionary {-}{}{}Form Class Reference}{50}{section.6.38}
+\contentsline {subsection}{\numberline {6.38.1}Constructor \& Destructor Documentation}{51}{subsection.6.38.1}
+\contentsline {subsubsection}{\numberline {6.38.1.1}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}init\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}{51}{subsubsection.6.38.1.1}
+\contentsline {subsection}{\numberline {6.38.2}Member Function Documentation}{51}{subsection.6.38.2}
+\contentsline {subsubsection}{\numberline {6.38.2.1}clean\discretionary {-}{}{}\_\discretionary {-}{}{}email}{51}{subsubsection.6.38.2.1}
+\contentsline {subsubsection}{\numberline {6.38.2.2}clean\discretionary {-}{}{}\_\discretionary {-}{}{}password2}{51}{subsubsection.6.38.2.2}
+\contentsline {subsubsection}{\numberline {6.38.2.3}save}{51}{subsubsection.6.38.2.3}
+\contentsline {subsection}{\numberline {6.38.3}Member Data Documentation}{51}{subsection.6.38.3}
+\contentsline {subsubsection}{\numberline {6.38.3.1}email}{51}{subsubsection.6.38.3.1}
+\contentsline {subsubsection}{\numberline {6.38.3.2}helper}{51}{subsubsection.6.38.3.2}
+\contentsline {subsubsection}{\numberline {6.38.3.3}password1}{51}{subsubsection.6.38.3.3}
+\contentsline {subsubsection}{\numberline {6.38.3.4}password2}{51}{subsubsection.6.38.3.4}
+\contentsline {section}{\numberline {6.39}students.\discretionary {-}{}{}views.\discretionary {-}{}{}Student\discretionary {-}{}{}F\discretionary {-}{}{}A\discretionary {-}{}{}Q\discretionary {-}{}{}View Class Reference}{52}{section.6.39}
+\contentsline {subsection}{\numberline {6.39.1}Member Function Documentation}{52}{subsection.6.39.1}
+\contentsline {subsubsection}{\numberline {6.39.1.1}get\discretionary {-}{}{}\_\discretionary {-}{}{}queryset}{52}{subsubsection.6.39.1.1}
+\contentsline {subsection}{\numberline {6.39.2}Member Data Documentation}{52}{subsection.6.39.2}
+\contentsline {subsubsection}{\numberline {6.39.2.1}login\discretionary {-}{}{}\_\discretionary {-}{}{}url}{52}{subsubsection.6.39.2.1}
+\contentsline {subsubsection}{\numberline {6.39.2.2}model}{52}{subsubsection.6.39.2.2}
+\contentsline {subsubsection}{\numberline {6.39.2.3}template\discretionary {-}{}{}\_\discretionary {-}{}{}name}{52}{subsubsection.6.39.2.3}
+\contentsline {section}{\numberline {6.40}students.\discretionary {-}{}{}views.\discretionary {-}{}{}Student\discretionary {-}{}{}Feed\discretionary {-}{}{}Back Class Reference}{52}{section.6.40}
+\contentsline {subsection}{\numberline {6.40.1}Member Function Documentation}{53}{subsection.6.40.1}
+\contentsline {subsubsection}{\numberline {6.40.1.1}form\discretionary {-}{}{}\_\discretionary {-}{}{}invalid}{53}{subsubsection.6.40.1.1}
+\contentsline {subsubsection}{\numberline {6.40.1.2}form\discretionary {-}{}{}\_\discretionary {-}{}{}valid}{53}{subsubsection.6.40.1.2}
+\contentsline {subsection}{\numberline {6.40.2}Member Data Documentation}{53}{subsection.6.40.2}
+\contentsline {subsubsection}{\numberline {6.40.2.1}form\discretionary {-}{}{}\_\discretionary {-}{}{}class}{53}{subsubsection.6.40.2.1}
+\contentsline {subsubsection}{\numberline {6.40.2.2}login\discretionary {-}{}{}\_\discretionary {-}{}{}url}{53}{subsubsection.6.40.2.2}
+\contentsline {subsubsection}{\numberline {6.40.2.3}model}{53}{subsubsection.6.40.2.3}
+\contentsline {subsubsection}{\numberline {6.40.2.4}template\discretionary {-}{}{}\_\discretionary {-}{}{}name}{53}{subsubsection.6.40.2.4}
+\contentsline {section}{\numberline {6.41}students.\discretionary {-}{}{}forms.\discretionary {-}{}{}Student\discretionary {-}{}{}Form Class Reference}{53}{section.6.41}
+\contentsline {subsection}{\numberline {6.41.1}Constructor \& Destructor Documentation}{54}{subsection.6.41.1}
+\contentsline {subsubsection}{\numberline {6.41.1.1}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}init\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}{54}{subsubsection.6.41.1.1}
+\contentsline {subsection}{\numberline {6.41.2}Member Data Documentation}{54}{subsection.6.41.2}
+\contentsline {subsubsection}{\numberline {6.41.2.1}helper}{54}{subsubsection.6.41.2.1}
+\contentsline {section}{\numberline {6.42}students.\discretionary {-}{}{}forms.\discretionary {-}{}{}Student\discretionary {-}{}{}Log\discretionary {-}{}{}In\discretionary {-}{}{}Form Class Reference}{54}{section.6.42}
+\contentsline {subsection}{\numberline {6.42.1}Constructor \& Destructor Documentation}{54}{subsection.6.42.1}
+\contentsline {subsubsection}{\numberline {6.42.1.1}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}init\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}{54}{subsubsection.6.42.1.1}
+\contentsline {subsection}{\numberline {6.42.2}Member Data Documentation}{54}{subsection.6.42.2}
+\contentsline {subsubsection}{\numberline {6.42.2.1}helper}{54}{subsubsection.6.42.2.1}
+\contentsline {section}{\numberline {6.43}students.\discretionary {-}{}{}views.\discretionary {-}{}{}Student\discretionary {-}{}{}Log\discretionary {-}{}{}In\discretionary {-}{}{}View Class Reference}{55}{section.6.43}
+\contentsline {subsection}{\numberline {6.43.1}Member Function Documentation}{55}{subsection.6.43.1}
+\contentsline {subsubsection}{\numberline {6.43.1.1}form\discretionary {-}{}{}\_\discretionary {-}{}{}invalid}{55}{subsubsection.6.43.1.1}
+\contentsline {subsubsection}{\numberline {6.43.1.2}form\discretionary {-}{}{}\_\discretionary {-}{}{}valid}{55}{subsubsection.6.43.1.2}
+\contentsline {subsection}{\numberline {6.43.2}Member Data Documentation}{55}{subsection.6.43.2}
+\contentsline {subsubsection}{\numberline {6.43.2.1}form\discretionary {-}{}{}\_\discretionary {-}{}{}class}{55}{subsubsection.6.43.2.1}
+\contentsline {subsubsection}{\numberline {6.43.2.2}model}{55}{subsubsection.6.43.2.2}
+\contentsline {subsubsection}{\numberline {6.43.2.3}template\discretionary {-}{}{}\_\discretionary {-}{}{}name}{55}{subsubsection.6.43.2.3}
+\contentsline {section}{\numberline {6.44}students.\discretionary {-}{}{}views.\discretionary {-}{}{}Student\discretionary {-}{}{}Own\discretionary {-}{}{}Project\discretionary {-}{}{}List\discretionary {-}{}{}View Class Reference}{55}{section.6.44}
+\contentsline {subsection}{\numberline {6.44.1}Member Function Documentation}{56}{subsection.6.44.1}
+\contentsline {subsubsection}{\numberline {6.44.1.1}dispatch}{56}{subsubsection.6.44.1.1}
+\contentsline {subsubsection}{\numberline {6.44.1.2}get\discretionary {-}{}{}\_\discretionary {-}{}{}context\discretionary {-}{}{}\_\discretionary {-}{}{}data}{56}{subsubsection.6.44.1.2}
+\contentsline {subsubsection}{\numberline {6.44.1.3}get\discretionary {-}{}{}\_\discretionary {-}{}{}queryset}{56}{subsubsection.6.44.1.3}
+\contentsline {subsection}{\numberline {6.44.2}Member Data Documentation}{56}{subsection.6.44.2}
+\contentsline {subsubsection}{\numberline {6.44.2.1}login\discretionary {-}{}{}\_\discretionary {-}{}{}url}{56}{subsubsection.6.44.2.1}
+\contentsline {subsubsection}{\numberline {6.44.2.2}model}{56}{subsubsection.6.44.2.2}
+\contentsline {subsubsection}{\numberline {6.44.2.3}template\discretionary {-}{}{}\_\discretionary {-}{}{}name}{56}{subsubsection.6.44.2.3}
+\contentsline {section}{\numberline {6.45}students.\discretionary {-}{}{}tests.\discretionary {-}{}{}test\discretionary {-}{}{}\_\discretionary {-}{}{}models.\discretionary {-}{}{}Student\discretionary {-}{}{}Profile\discretionary {-}{}{}Test Class Reference}{56}{section.6.45}
+\contentsline {subsection}{\numberline {6.45.1}Member Function Documentation}{57}{subsection.6.45.1}
+\contentsline {subsubsection}{\numberline {6.45.1.1}create\discretionary {-}{}{}\_\discretionary {-}{}{}profile}{57}{subsubsection.6.45.1.1}
+\contentsline {subsubsection}{\numberline {6.45.1.2}set\discretionary {-}{}{}Up}{57}{subsubsection.6.45.1.2}
+\contentsline {subsubsection}{\numberline {6.45.1.3}test\discretionary {-}{}{}\_\discretionary {-}{}{}student\discretionary {-}{}{}\_\discretionary {-}{}{}profile\discretionary {-}{}{}\_\discretionary {-}{}{}creation}{57}{subsubsection.6.45.1.3}
+\contentsline {subsubsection}{\numberline {6.45.1.4}test\discretionary {-}{}{}\_\discretionary {-}{}{}user\discretionary {-}{}{}\_\discretionary {-}{}{}exists}{57}{subsubsection.6.45.1.4}
+\contentsline {subsection}{\numberline {6.45.2}Member Data Documentation}{57}{subsection.6.45.2}
+\contentsline {subsubsection}{\numberline {6.45.2.1}user}{57}{subsubsection.6.45.2.1}
+\contentsline {section}{\numberline {6.46}students.\discretionary {-}{}{}models.\discretionary {-}{}{}Student\discretionary {-}{}{}Project Class Reference}{57}{section.6.46}
+\contentsline {subsection}{\numberline {6.46.1}Detailed Description}{57}{subsection.6.46.1}
+\contentsline {subsection}{\numberline {6.46.2}Member Data Documentation}{57}{subsection.6.46.2}
+\contentsline {subsubsection}{\numberline {6.46.2.1}objects}{57}{subsubsection.6.46.2.1}
+\contentsline {subsubsection}{\numberline {6.46.2.2}project\discretionary {-}{}{}\_\discretionary {-}{}{}owner}{57}{subsubsection.6.46.2.2}
+\contentsline {section}{\numberline {6.47}students.\discretionary {-}{}{}admin.\discretionary {-}{}{}Student\discretionary {-}{}{}Project\discretionary {-}{}{}Admin Class Reference}{58}{section.6.47}
+\contentsline {subsection}{\numberline {6.47.1}Member Data Documentation}{58}{subsection.6.47.1}
+\contentsline {subsubsection}{\numberline {6.47.1.1}fieldsets}{58}{subsubsection.6.47.1.1}
+\contentsline {subsubsection}{\numberline {6.47.1.2}list\discretionary {-}{}{}\_\discretionary {-}{}{}display}{58}{subsubsection.6.47.1.2}
+\contentsline {subsubsection}{\numberline {6.47.1.3}list\discretionary {-}{}{}\_\discretionary {-}{}{}filter}{58}{subsubsection.6.47.1.3}
+\contentsline {subsubsection}{\numberline {6.47.1.4}search\discretionary {-}{}{}\_\discretionary {-}{}{}fields}{58}{subsubsection.6.47.1.4}
+\contentsline {section}{\numberline {6.48}students.\discretionary {-}{}{}views.\discretionary {-}{}{}Student\discretionary {-}{}{}Project\discretionary {-}{}{}Creation\discretionary {-}{}{}View Class Reference}{59}{section.6.48}
+\contentsline {subsection}{\numberline {6.48.1}Member Function Documentation}{59}{subsection.6.48.1}
+\contentsline {subsubsection}{\numberline {6.48.1.1}dispatch}{59}{subsubsection.6.48.1.1}
+\contentsline {subsubsection}{\numberline {6.48.1.2}form\discretionary {-}{}{}\_\discretionary {-}{}{}valid}{59}{subsubsection.6.48.1.2}
+\contentsline {subsection}{\numberline {6.48.2}Member Data Documentation}{59}{subsection.6.48.2}
+\contentsline {subsubsection}{\numberline {6.48.2.1}form\discretionary {-}{}{}\_\discretionary {-}{}{}class}{59}{subsubsection.6.48.2.1}
+\contentsline {subsubsection}{\numberline {6.48.2.2}login\discretionary {-}{}{}\_\discretionary {-}{}{}url}{59}{subsubsection.6.48.2.2}
+\contentsline {subsubsection}{\numberline {6.48.2.3}model}{59}{subsubsection.6.48.2.3}
+\contentsline {subsubsection}{\numberline {6.48.2.4}template\discretionary {-}{}{}\_\discretionary {-}{}{}name}{59}{subsubsection.6.48.2.4}
+\contentsline {section}{\numberline {6.49}students.\discretionary {-}{}{}views.\discretionary {-}{}{}Student\discretionary {-}{}{}Project\discretionary {-}{}{}Detail\discretionary {-}{}{}View Class Reference}{59}{section.6.49}
+\contentsline {subsection}{\numberline {6.49.1}Member Function Documentation}{60}{subsection.6.49.1}
+\contentsline {subsubsection}{\numberline {6.49.1.1}get\discretionary {-}{}{}\_\discretionary {-}{}{}queryset}{60}{subsubsection.6.49.1.1}
+\contentsline {subsection}{\numberline {6.49.2}Member Data Documentation}{60}{subsection.6.49.2}
+\contentsline {subsubsection}{\numberline {6.49.2.1}login\discretionary {-}{}{}\_\discretionary {-}{}{}url}{60}{subsubsection.6.49.2.1}
+\contentsline {subsubsection}{\numberline {6.49.2.2}model}{60}{subsubsection.6.49.2.2}
+\contentsline {subsubsection}{\numberline {6.49.2.3}template\discretionary {-}{}{}\_\discretionary {-}{}{}name}{60}{subsubsection.6.49.2.3}
+\contentsline {section}{\numberline {6.50}students.\discretionary {-}{}{}forms.\discretionary {-}{}{}Student\discretionary {-}{}{}Project\discretionary {-}{}{}Form Class Reference}{60}{section.6.50}
+\contentsline {subsection}{\numberline {6.50.1}Constructor \& Destructor Documentation}{61}{subsection.6.50.1}
+\contentsline {subsubsection}{\numberline {6.50.1.1}\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}init\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}}{61}{subsubsection.6.50.1.1}
+\contentsline {subsection}{\numberline {6.50.2}Member Function Documentation}{61}{subsection.6.50.2}
+\contentsline {subsubsection}{\numberline {6.50.2.1}clean\discretionary {-}{}{}\_\discretionary {-}{}{}image}{61}{subsubsection.6.50.2.1}
+\contentsline {subsubsection}{\numberline {6.50.2.2}clean\discretionary {-}{}{}\_\discretionary {-}{}{}students\discretionary {-}{}{}\_\discretionary {-}{}{}needed}{61}{subsubsection.6.50.2.2}
+\contentsline {subsection}{\numberline {6.50.3}Member Data Documentation}{61}{subsection.6.50.3}
+\contentsline {subsubsection}{\numberline {6.50.3.1}end\discretionary {-}{}{}\_\discretionary {-}{}{}date}{61}{subsubsection.6.50.3.1}
+\contentsline {subsubsection}{\numberline {6.50.3.2}helper}{61}{subsubsection.6.50.3.2}
+\contentsline {subsubsection}{\numberline {6.50.3.3}start\discretionary {-}{}{}\_\discretionary {-}{}{}date}{61}{subsubsection.6.50.3.3}
+\contentsline {section}{\numberline {6.51}students.\discretionary {-}{}{}models.\discretionary {-}{}{}Student\discretionary {-}{}{}Project\discretionary {-}{}{}Manager Class Reference}{61}{section.6.51}
+\contentsline {subsection}{\numberline {6.51.1}Member Function Documentation}{62}{subsection.6.51.1}
+\contentsline {subsubsection}{\numberline {6.51.1.1}get\discretionary {-}{}{}\_\discretionary {-}{}{}own\discretionary {-}{}{}\_\discretionary {-}{}{}drafts\discretionary {-}{}{}\_\discretionary {-}{}{}queryset}{62}{subsubsection.6.51.1.1}
+\contentsline {subsubsection}{\numberline {6.51.1.2}get\discretionary {-}{}{}\_\discretionary {-}{}{}own\discretionary {-}{}{}\_\discretionary {-}{}{}projects}{62}{subsubsection.6.51.1.2}
+\contentsline {subsubsection}{\numberline {6.51.1.3}get\discretionary {-}{}{}\_\discretionary {-}{}{}own\discretionary {-}{}{}\_\discretionary {-}{}{}published\discretionary {-}{}{}\_\discretionary {-}{}{}queryset}{62}{subsubsection.6.51.1.3}
+\contentsline {subsubsection}{\numberline {6.51.1.4}get\discretionary {-}{}{}\_\discretionary {-}{}{}published\discretionary {-}{}{}\_\discretionary {-}{}{}queryset}{62}{subsubsection.6.51.1.4}
+\contentsline {section}{\numberline {6.52}students.\discretionary {-}{}{}views.\discretionary {-}{}{}Student\discretionary {-}{}{}Project\discretionary {-}{}{}Update\discretionary {-}{}{}View Class Reference}{62}{section.6.52}
+\contentsline {subsection}{\numberline {6.52.1}Member Function Documentation}{62}{subsection.6.52.1}
+\contentsline {subsubsection}{\numberline {6.52.1.1}form\discretionary {-}{}{}\_\discretionary {-}{}{}valid}{62}{subsubsection.6.52.1.1}
+\contentsline {subsection}{\numberline {6.52.2}Member Data Documentation}{62}{subsection.6.52.2}
+\contentsline {subsubsection}{\numberline {6.52.2.1}form\discretionary {-}{}{}\_\discretionary {-}{}{}class}{62}{subsubsection.6.52.2.1}
+\contentsline {subsubsection}{\numberline {6.52.2.2}login\discretionary {-}{}{}\_\discretionary {-}{}{}url}{62}{subsubsection.6.52.2.2}
+\contentsline {subsubsection}{\numberline {6.52.2.3}model}{62}{subsubsection.6.52.2.3}
+\contentsline {subsubsection}{\numberline {6.52.2.4}template\discretionary {-}{}{}\_\discretionary {-}{}{}name}{62}{subsubsection.6.52.2.4}
+\contentsline {section}{\numberline {6.53}students.\discretionary {-}{}{}views.\discretionary {-}{}{}Student\discretionary {-}{}{}Sign\discretionary {-}{}{}Up\discretionary {-}{}{}View Class Reference}{63}{section.6.53}
+\contentsline {subsection}{\numberline {6.53.1}Member Function Documentation}{63}{subsection.6.53.1}
+\contentsline {subsubsection}{\numberline {6.53.1.1}form\discretionary {-}{}{}\_\discretionary {-}{}{}invalid}{63}{subsubsection.6.53.1.1}
+\contentsline {subsubsection}{\numberline {6.53.1.2}form\discretionary {-}{}{}\_\discretionary {-}{}{}valid}{63}{subsubsection.6.53.1.2}
+\contentsline {subsection}{\numberline {6.53.2}Member Data Documentation}{63}{subsection.6.53.2}
+\contentsline {subsubsection}{\numberline {6.53.2.1}form\discretionary {-}{}{}\_\discretionary {-}{}{}class}{63}{subsubsection.6.53.2.1}
+\contentsline {subsubsection}{\numberline {6.53.2.2}model}{63}{subsubsection.6.53.2.2}
+\contentsline {subsubsection}{\numberline {6.53.2.3}template\discretionary {-}{}{}\_\discretionary {-}{}{}name}{63}{subsubsection.6.53.2.3}
+\contentsline {section}{\numberline {6.54}students.\discretionary {-}{}{}views.\discretionary {-}{}{}Student\discretionary {-}{}{}Terms\discretionary {-}{}{}Of\discretionary {-}{}{}Usage Class Reference}{63}{section.6.54}
+\contentsline {subsection}{\numberline {6.54.1}Member Data Documentation}{64}{subsection.6.54.1}
+\contentsline {subsubsection}{\numberline {6.54.1.1}template\discretionary {-}{}{}\_\discretionary {-}{}{}name}{64}{subsubsection.6.54.1.1}
+\contentsline {section}{\numberline {6.55}students.\discretionary {-}{}{}views.\discretionary {-}{}{}Student\discretionary {-}{}{}View Class Reference}{64}{section.6.55}
+\contentsline {subsection}{\numberline {6.55.1}Member Function Documentation}{64}{subsection.6.55.1}
+\contentsline {subsubsection}{\numberline {6.55.1.1}dispatch}{64}{subsubsection.6.55.1.1}
+\contentsline {subsubsection}{\numberline {6.55.1.2}get\discretionary {-}{}{}\_\discretionary {-}{}{}context\discretionary {-}{}{}\_\discretionary {-}{}{}data}{64}{subsubsection.6.55.1.2}
+\contentsline {subsection}{\numberline {6.55.2}Member Data Documentation}{64}{subsection.6.55.2}
+\contentsline {subsubsection}{\numberline {6.55.2.1}login\discretionary {-}{}{}\_\discretionary {-}{}{}url}{64}{subsubsection.6.55.2.1}
+\contentsline {subsubsection}{\numberline {6.55.2.2}model}{64}{subsubsection.6.55.2.2}
+\contentsline {subsubsection}{\numberline {6.55.2.3}template\discretionary {-}{}{}\_\discretionary {-}{}{}name}{64}{subsubsection.6.55.2.3}
+\contentsline {section}{\numberline {6.56}students.\discretionary {-}{}{}views.\discretionary {-}{}{}Update\discretionary {-}{}{}Student\discretionary {-}{}{}Profile\discretionary {-}{}{}View Class Reference}{65}{section.6.56}
+\contentsline {subsection}{\numberline {6.56.1}Member Function Documentation}{65}{subsection.6.56.1}
+\contentsline {subsubsection}{\numberline {6.56.1.1}form\discretionary {-}{}{}\_\discretionary {-}{}{}invalid}{65}{subsubsection.6.56.1.1}
+\contentsline {subsubsection}{\numberline {6.56.1.2}form\discretionary {-}{}{}\_\discretionary {-}{}{}valid}{65}{subsubsection.6.56.1.2}
+\contentsline {subsection}{\numberline {6.56.2}Member Data Documentation}{65}{subsection.6.56.2}
+\contentsline {subsubsection}{\numberline {6.56.2.1}form\discretionary {-}{}{}\_\discretionary {-}{}{}class}{65}{subsubsection.6.56.2.1}
+\contentsline {subsubsection}{\numberline {6.56.2.2}login\discretionary {-}{}{}\_\discretionary {-}{}{}url}{65}{subsubsection.6.56.2.2}
+\contentsline {subsubsection}{\numberline {6.56.2.3}model}{65}{subsubsection.6.56.2.3}
+\contentsline {subsubsection}{\numberline {6.56.2.4}template\discretionary {-}{}{}\_\discretionary {-}{}{}name}{65}{subsubsection.6.56.2.4}
+\contentsline {chapter}{\numberline {7}File Documentation}{67}{chapter.7}
+\contentsline {section}{\numberline {7.1}leapkit/students/\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}init\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}.py File Reference}{67}{section.7.1}
+\contentsline {section}{\numberline {7.2}leapkit/students/migrations/\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}init\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}.py File Reference}{67}{section.7.2}
+\contentsline {section}{\numberline {7.3}leapkit/students/tests/\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}init\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}.py File Reference}{67}{section.7.3}
+\contentsline {section}{\numberline {7.4}leapkit/students/admin.py File Reference}{67}{section.7.4}
+\contentsline {section}{\numberline {7.5}leapkit/students/forms.py File Reference}{68}{section.7.5}
+\contentsline {section}{\numberline {7.6}leapkit/students/linkedin\discretionary {-}{}{}\_\discretionary {-}{}{}connector.py File Reference}{68}{section.7.6}
+\contentsline {section}{\numberline {7.7}leapkit/students/linkedin\discretionary {-}{}{}\_\discretionary {-}{}{}converter.py File Reference}{68}{section.7.7}
+\contentsline {section}{\numberline {7.8}leapkit/students/matchmaking.py File Reference}{69}{section.7.8}
+\contentsline {section}{\numberline {7.9}leapkit/students/migrations/0001\discretionary {-}{}{}\_\discretionary {-}{}{}initial.py File Reference}{69}{section.7.9}
+\contentsline {section}{\numberline {7.10}leapkit/students/migrations/0002\discretionary {-}{}{}\_\discretionary {-}{}{}auto\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}student\discretionary {-}{}{}\_\discretionary {-}{}{}cv.py File Reference}{70}{section.7.10}
+\contentsline {section}{\numberline {7.11}leapkit/students/migrations/0003\discretionary {-}{}{}\_\discretionary {-}{}{}auto\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}student\discretionary {-}{}{}\_\discretionary {-}{}{}line\discretionary {-}{}{}\_\discretionary {-}{}{}of\discretionary {-}{}{}\_\discretionary {-}{}{}study.py File Reference}{70}{section.7.11}
+\contentsline {section}{\numberline {7.12}leapkit/students/migrations/0004\discretionary {-}{}{}\_\discretionary {-}{}{}auto\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}student\discretionary {-}{}{}\_\discretionary {-}{}{}education\discretionary {-}{}{}\_\discretionary {-}{}{}level.py File Reference}{70}{section.7.12}
+\contentsline {section}{\numberline {7.13}leapkit/students/migrations/0005\discretionary {-}{}{}\_\discretionary {-}{}{}auto\discretionary {-}{}{}\_\discretionary {-}{}{}\discretionary {-}{}{}\_\discretionary {-}{}{}add\discretionary {-}{}{}\_\discretionary {-}{}{}field\discretionary {-}{}{}\_\discretionary {-}{}{}student\discretionary {-}{}{}\_\discretionary {-}{}{}times\discretionary {-}{}{}\_\discretionary {-}{}{}logged\discretionary {-}{}{}\_\discretionary {-}{}{}in.py File Reference}{70}{section.7.13}
+\contentsline {section}{\numberline {7.14}leapkit/students/models.py File Reference}{71}{section.7.14}
+\contentsline {section}{\numberline {7.15}leapkit/students/static/students/js/intro\discretionary {-}{}{}\_\discretionary {-}{}{}tour.js File Reference}{71}{section.7.15}
+\contentsline {subsection}{\numberline {7.15.1}Function Documentation}{71}{subsection.7.15.1}
+\contentsline {subsubsection}{\numberline {7.15.1.1}ready}{71}{subsubsection.7.15.1.1}
+\contentsline {section}{\numberline {7.16}leapkit/students/tasks.py File Reference}{71}{section.7.16}
+\contentsline {section}{\numberline {7.17}leapkit/students/tests/test\discretionary {-}{}{}\_\discretionary {-}{}{}forms.py File Reference}{72}{section.7.17}
+\contentsline {section}{\numberline {7.18}leapkit/students/tests/test\discretionary {-}{}{}\_\discretionary {-}{}{}models.py File Reference}{72}{section.7.18}
+\contentsline {section}{\numberline {7.19}leapkit/students/tests/test\discretionary {-}{}{}\_\discretionary {-}{}{}views.py File Reference}{72}{section.7.19}
+\contentsline {section}{\numberline {7.20}leapkit/students/urls.py File Reference}{72}{section.7.20}
+\contentsline {section}{\numberline {7.21}leapkit/students/views.py File Reference}{72}{section.7.21}
+\contentsline {chapter}{Index}{74}{section*.165}

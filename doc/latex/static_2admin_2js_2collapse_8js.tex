@@ -1,0 +1,42 @@
+\hypertarget{static_2admin_2js_2collapse_8js}{\section{leapkit/static/admin/js/collapse.js File Reference}
+\label{static_2admin_2js_2collapse_8js}\index{leapkit/static/admin/js/collapse.\-js@{leapkit/static/admin/js/collapse.\-js}}
+}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+function \hyperlink{jquery_8init_8js_a5d0aa9b95d8a7b71511a47bcd5b04bf9}{django} \hyperlink{static_2admin_2js_2collapse_8js_a553f19986e9326c0174e07c1700f214b}{j\-Query}
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{static_2admin_2js_2collapse_8js_a553f19986e9326c0174e07c1700f214b}{\index{static/admin/js/collapse.\-js@{static/admin/js/collapse.\-js}!j\-Query@{j\-Query}}
+\index{j\-Query@{j\-Query}!static/admin/js/collapse.js@{static/admin/js/collapse.\-js}}
+\subsubsection[{j\-Query}]{\setlength{\rightskip}{0pt plus 5cm}function {\bf django} j\-Query}}\label{static_2admin_2js_2collapse_8js_a553f19986e9326c0174e07c1700f214b}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+\{
+    $(\hyperlink{root_2static_2root_2js_2headroom_8min_8js_aa14f8e0338cced6720590fd2ea13bd4b}{document}).\hyperlink{companies_2static_2companies_2js_2intro__tour_8js_aa15770c6bf2c5547e869e0d028531f23}{ready}(\textcolor{keyword}{function}() \{
+        
+        $(\textcolor{stringliteral}{"fieldset.collapse"}).\hyperlink{root_2static_2root_2js_2bootstrap_2jquery-ui-1_810_84_8custom_8min_8js_a4195f9b3a1a6e34d9e977c2c195131f8}{each}(\textcolor{keyword}{function}(\hyperlink{root_2static_2root_2js_2bootstrap_2jquery-ui-1_810_84_8custom_8min_8js_aba29173262d28394924f99eb2ed5b31b}{i}, elem) \{
+            
+            \textcolor{keywordflow}{if} ($(elem).\hyperlink{jquery-1_89_81_8min_8js_a572df68e1d402c86c9b056706df5cbd1}{find}(\textcolor{stringliteral}{"div.errors"}).length == 0) \{
+                $(elem).addClass(\textcolor{stringliteral}{"collapsed"}).find(\textcolor{stringliteral}{"h2"}).first().append(\textcolor{stringliteral}{' (<a id="fieldsetcollapser'} +
+                    \hyperlink{root_2static_2root_2js_2bootstrap_2jquery-ui-1_810_84_8custom_8min_8js_aba29173262d28394924f99eb2ed5b31b}{i} +\textcolor{stringliteral}{'" class="collapse-toggle" href="#">'} + gettext(\textcolor{stringliteral}{"Show"}) +
+                    \textcolor{stringliteral}{'</a>)'});
+            \}
+        \});
+        
+        $(\textcolor{stringliteral}{"fieldset.collapse a.collapse-toggle"}).click(\textcolor{keyword}{function}(ev) \{
+            \textcolor{keywordflow}{if} ($(\textcolor{keyword}{this}).closest(\textcolor{stringliteral}{"fieldset"}).hasClass(\textcolor{stringliteral}{"collapsed"})) \{
+                
+                $(\textcolor{keyword}{this}).\hyperlink{jquery-1_89_81_8min_8js_a854119a448e4d7458c60a3f890333d5e}{text}(gettext(\textcolor{stringliteral}{"Hide"})).closest(\textcolor{stringliteral}{"fieldset"}).removeClass(\textcolor{stringliteral}{"collapsed"}).trigger(\textcolor{stringliteral}{"
+      show.fieldset"}, [$(\textcolor{keyword}{this}).\hyperlink{jquery-1_89_81_8min_8js_a69c08fa54182d9901222ec75859626f8}{attr}(\textcolor{stringliteral}{"id"})]);
+            \} \textcolor{keywordflow}{else} \{
+                
+                $(\textcolor{keyword}{this}).\hyperlink{jquery-1_89_81_8min_8js_a854119a448e4d7458c60a3f890333d5e}{text}(gettext(\textcolor{stringliteral}{"Show"})).closest(\textcolor{stringliteral}{"fieldset"}).addClass(\textcolor{stringliteral}{"collapsed"}).trigger(\textcolor{stringliteral}{"
+      hide.fieldset"}, [$(\textcolor{keyword}{this}).\hyperlink{jquery-1_89_81_8min_8js_a69c08fa54182d9901222ec75859626f8}{attr}(\textcolor{stringliteral}{"id"})]);
+            \}
+            \textcolor{keywordflow}{return} \textcolor{keyword}{false};
+        \});
+    \})
+\end{DoxyCode}
