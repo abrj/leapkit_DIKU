@@ -20,19 +20,14 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Files", null, [
-      [ "File List", "files.html", "files" ],
-      [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ]
-      ] ]
+      [ "File List", "files.html", "files" ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"0001__initial_8py.html",
-"namespacestudents_1_1migrations_1_10002__auto____add__field__student__cv.html"
+"admin_8py.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

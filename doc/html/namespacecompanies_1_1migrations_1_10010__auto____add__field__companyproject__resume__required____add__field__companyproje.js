@@ -1,4 +1,0 @@
-var namespacecompanies_1_1migrations_1_10010__auto____add__field__companyproject__resume__required____add__field__companyproje =
-[
-    [ "Migration", "classcompanies_1_1migrations_1_10010__auto____add__field__companyproject__resume__required____ad54079406128046e412e93b8ceaae2c1d.html", "classcompanies_1_1migrations_1_10010__auto____add__field__companyproject__resume__required____ad54079406128046e412e93b8ceaae2c1d" ]
-];

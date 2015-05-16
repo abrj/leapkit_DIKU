@@ -1,12 +1,7 @@
 var searchData=
 [
-  ['_5f_5fapi_5fkey',['__API_KEY',['../namespacestudents_1_1linkedin__connector.html#ab7ab81b54306450170bb51f2eb78634c',1,'students::linkedin_connector']]],
-  ['_5f_5fapi_5fsecret',['__API_SECRET',['../namespacestudents_1_1linkedin__connector.html#aa15a5de7951fe6f777b1937c042aeefe',1,'students::linkedin_connector']]],
-  ['_5f_5finit_5f_5f',['__init__',['../classstudents_1_1forms_1_1_student_form.html#a2cfb0cfcdd792efec48f8936f8289365',1,'students.forms.StudentForm.__init__()'],['../classstudents_1_1forms_1_1_student_project_form.html#ae9df8bc4e1e2227f05ff0007adfd9e54',1,'students.forms.StudentProjectForm.__init__()'],['../classstudents_1_1forms_1_1_student_creation_form.html#a354056c98aeeab7ca25a38c804a814b0',1,'students.forms.StudentCreationForm.__init__()'],['../classstudents_1_1forms_1_1_student_log_in_form.html#a00a3aca2c23b93a806a8e0a908e5cd14',1,'students.forms.StudentLogInForm.__init__()'],['../classstudents_1_1forms_1_1_change_user_password.html#a400af3a93c05d7d6e3ea1158f31bd7f3',1,'students.forms.ChangeUserPassword.__init__()'],['../classstudents_1_1forms_1_1_email_form.html#a4eb033bcad97e7be2130240400d707bf',1,'students.forms.EmailForm.__init__()']]],
-  ['_5f_5finit_5f_5f_2epy',['__init__.py',['../____init_____8py.html',1,'']]],
-  ['_5f_5finit_5f_5f_2epy',['__init__.py',['../migrations_2____init_____8py.html',1,'']]],
-  ['_5f_5finit_5f_5f_2epy',['__init__.py',['../tests_2____init_____8py.html',1,'']]],
-  ['_5f_5freturn_5furl',['__RETURN_URL',['../namespacestudents_1_1linkedin__connector.html#a6e93c6f0f7a20a83ff1808d3f139f8a5',1,'students::linkedin_connector']]],
-  ['_5f_5fstr_5f_5f',['__str__',['../classstudents_1_1linkedin__converter_1_1_person.html#a76d56276758c7b0e878fddb0d2653db2',1,'students::linkedin_converter::Person']]],
-  ['_5f_5funicode_5f_5f',['__unicode__',['../classstudents_1_1models_1_1_student.html#a9d4928c942577b10f9d2ba8a99c21fee',1,'students.models.Student.__unicode__()'],['../classstudents_1_1models_1_1_linked_in_profile.html#a625f309407380b0239ed0ba4a8fcd8f8',1,'students.models.LinkedInProfile.__unicode__()'],['../classstudents_1_1models_1_1_language.html#a656e053c3a3adce525fb3a3b000d08b1',1,'students.models.Language.__unicode__()'],['../classstudents_1_1models_1_1_course.html#afcde6983ecb364eb3d26811950f531b0',1,'students.models.Course.__unicode__()'],['../classstudents_1_1models_1_1_skill.html#aef95ddd6ca24a649025dca066439af78',1,'students.models.Skill.__unicode__()'],['../classstudents_1_1models_1_1_education.html#a359443228da9a61334cc9d640292b2c1',1,'students.models.Education.__unicode__()'],['../classstudents_1_1models_1_1_position.html#a9801bf25c27f58f0d7306f8df13b400e',1,'students.models.Position.__unicode__()']]]
+  ['admin_2epy',['admin.py',['../admin_8py.html',1,'']]],
+  ['all_5fprojects_5ffilter',['all_projects_filter',['../namespacestudents_1_1views.html#a021cba8bff39e0d31e6a5357dba3e328',1,'students::views']]],
+  ['allow_5fempty',['allow_empty',['../classstudents_1_1views_1_1_list_all_projects_view.html#a9976aeeb2c980ed4ecc8715d52a1fe17',1,'students::views::ListAllProjectsView']]],
+  ['allprojectdetailview',['AllProjectDetailView',['../classstudents_1_1views_1_1_all_project_detail_view.html',1,'students::views']]]
 ];

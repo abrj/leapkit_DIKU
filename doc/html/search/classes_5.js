@@ -1,7 +1,22 @@
 var searchData=
 [
-  ['person',['Person',['../classstudents_1_1linkedin__converter_1_1_person.html',1,'students::linkedin_converter']]],
-  ['position',['Position',['../classstudents_1_1models_1_1_position.html',1,'students::models']]],
-  ['position',['Position',['../classstudents_1_1linkedin__converter_1_1_position.html',1,'students::linkedin_converter']]],
-  ['positionadmin',['PositionAdmin',['../classstudents_1_1admin_1_1_position_admin.html',1,'students::admin']]]
+  ['sendmailview',['SendMailView',['../classstudents_1_1views_1_1_send_mail_view.html',1,'students::views']]],
+  ['skill',['Skill',['../classstudents_1_1linkedin__converter_1_1_skill.html',1,'students::linkedin_converter']]],
+  ['skill',['Skill',['../classstudents_1_1models_1_1_skill.html',1,'students::models']]],
+  ['skilladmin',['SkillAdmin',['../classstudents_1_1admin_1_1_skill_admin.html',1,'students::admin']]],
+  ['student',['Student',['../classstudents_1_1models_1_1_student.html',1,'students::models']]],
+  ['studentadmin',['StudentAdmin',['../classstudents_1_1admin_1_1_student_admin.html',1,'students::admin']]],
+  ['studentfaqview',['StudentFAQView',['../classstudents_1_1views_1_1_student_f_a_q_view.html',1,'students::views']]],
+  ['studentfeedback',['StudentFeedBack',['../classstudents_1_1views_1_1_student_feed_back.html',1,'students::views']]],
+  ['studentloginview',['StudentLogInView',['../classstudents_1_1views_1_1_student_log_in_view.html',1,'students::views']]],
+  ['studentownprojectlistview',['StudentOwnProjectListView',['../classstudents_1_1views_1_1_student_own_project_list_view.html',1,'students::views']]],
+  ['studentproject',['StudentProject',['../classstudents_1_1models_1_1_student_project.html',1,'students::models']]],
+  ['studentprojectadmin',['StudentProjectAdmin',['../classstudents_1_1admin_1_1_student_project_admin.html',1,'students::admin']]],
+  ['studentprojectcreationview',['StudentProjectCreationView',['../classstudents_1_1views_1_1_student_project_creation_view.html',1,'students::views']]],
+  ['studentprojectdetailview',['StudentProjectDetailView',['../classstudents_1_1views_1_1_student_project_detail_view.html',1,'students::views']]],
+  ['studentprojectmanager',['StudentProjectManager',['../classstudents_1_1models_1_1_student_project_manager.html',1,'students::models']]],
+  ['studentprojectupdateview',['StudentProjectUpdateView',['../classstudents_1_1views_1_1_student_project_update_view.html',1,'students::views']]],
+  ['studentsignupview',['StudentSignUpView',['../classstudents_1_1views_1_1_student_sign_up_view.html',1,'students::views']]],
+  ['studenttermsofusage',['StudentTermsOfUsage',['../classstudents_1_1views_1_1_student_terms_of_usage.html',1,'students::views']]],
+  ['studentview',['StudentView',['../classstudents_1_1views_1_1_student_view.html',1,'students::views']]]
 ];

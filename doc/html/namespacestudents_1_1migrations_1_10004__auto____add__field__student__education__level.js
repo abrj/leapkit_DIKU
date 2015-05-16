@@ -1,4 +1,0 @@
-var namespacestudents_1_1migrations_1_10004__auto____add__field__student__education__level =
-[
-    [ "Migration", "classstudents_1_1migrations_1_10004__auto____add__field__student__education__level_1_1_migration.html", "classstudents_1_1migrations_1_10004__auto____add__field__student__education__level_1_1_migration" ]
-];

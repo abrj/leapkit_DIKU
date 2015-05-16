@@ -1,4 +1,0 @@
-var namespaceprojects_1_1migrations_1_10012__auto____add__field__project__detail__views =
-[
-    [ "Migration", "classprojects_1_1migrations_1_10012__auto____add__field__project__detail__views_1_1_migration.html", "classprojects_1_1migrations_1_10012__auto____add__field__project__detail__views_1_1_migration" ]
-];

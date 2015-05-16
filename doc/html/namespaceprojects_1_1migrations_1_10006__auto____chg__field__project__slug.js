@@ -1,4 +1,0 @@
-var namespaceprojects_1_1migrations_1_10006__auto____chg__field__project__slug =
-[
-    [ "Migration", "classprojects_1_1migrations_1_10006__auto____chg__field__project__slug_1_1_migration.html", "classprojects_1_1migrations_1_10006__auto____chg__field__project__slug_1_1_migration" ]
-];

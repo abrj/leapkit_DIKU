@@ -1,5 +1,0 @@
-var classcompanies_1_1migrations_1_10011__auto____del__field__companyproject__open__for__applications_1_1_migration =
-[
-    [ "backwards", "classcompanies_1_1migrations_1_10011__auto____del__field__companyproject__open__for__applications_1_1_migration.html#a266562d4ccb813eafeb7004bd2d3604d", null ],
-    [ "forwards", "classcompanies_1_1migrations_1_10011__auto____del__field__companyproject__open__for__applications_1_1_migration.html#a0a147390d8459d9e951911cd05455830", null ]
-];

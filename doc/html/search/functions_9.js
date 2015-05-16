@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['matchlistsofstrings',['matchListsOfStrings',['../namespacestudents_1_1matchmaking.html#af3e519980cd77aceb9fe2a6843ed0eac',1,'students::matchmaking']]],
-  ['mul',['mul',['../namespacestudents_1_1tasks.html#a450c9bee6f3154447de9637ef1ee3305',1,'students::tasks']]]
+  ['parseskills',['parseSkills',['../namespacestudents_1_1matchmaking.html#aac73f2cefa7cada176cc1d3896416edc',1,'students::matchmaking']]],
+  ['printprojects',['printProjects',['../namespacestudents_1_1matchmaking.html#a3f28ed62649ae8f076cebb31d838a64a',1,'students::matchmaking']]]
 ];

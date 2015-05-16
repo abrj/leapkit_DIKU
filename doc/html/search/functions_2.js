@@ -1,4 +1,8 @@
 var searchData=
 [
-  ['backwards',['backwards',['../classstudents_1_1migrations_1_10001__initial_1_1_migration.html#a0bef6d594d4301d31809f74f12b4b765',1,'students.migrations.0001_initial.Migration.backwards()'],['../classstudents_1_1migrations_1_10002__auto____add__field__student__cv_1_1_migration.html#ae492244bf15cb25ccf6aaec16e6629a9',1,'students.migrations.0002_auto__add_field_student_cv.Migration.backwards()'],['../classstudents_1_1migrations_1_10003__auto____add__field__student__line__of__study_1_1_migration.html#af6244739d0541193d6658b834716c9ea',1,'students.migrations.0003_auto__add_field_student_line_of_study.Migration.backwards()'],['../classstudents_1_1migrations_1_10004__auto____add__field__student__education__level_1_1_migration.html#a24114a5c2f9de7676ba5e5d8fc70406c',1,'students.migrations.0004_auto__add_field_student_education_level.Migration.backwards()'],['../classstudents_1_1migrations_1_10005__auto____add__field__student__times__logged__in_1_1_migration.html#a14280cab7177a420441ed1e484422d97',1,'students.migrations.0005_auto__add_field_student_times_logged_in.Migration.backwards()']]]
+  ['compareskills',['compareSkills',['../namespacestudents_1_1matchmaking.html#aa3c57417f509579aa72e905cc90bac71',1,'students::matchmaking']]],
+  ['compareskillsfullstring',['compareSkillsFullString',['../namespacestudents_1_1matchmaking.html#a48857c2224c4e283e8745d574b6ab63d',1,'students::matchmaking']]],
+  ['containsstringcompare',['containsStringCompare',['../namespacestudents_1_1matchmaking.html#a839ce39a9ca3f80d43e51e190d5bf4a4',1,'students::matchmaking']]],
+  ['createperson',['createPerson',['../namespacestudents_1_1linkedin__converter.html#a508bd54255263358fc9b89c527b0be7f',1,'students::linkedin_converter']]],
+  ['createsub',['createSub',['../namespacestudents_1_1linkedin__converter.html#a9b47375845c60cee3339c9a402730503',1,'students::linkedin_converter']]]
 ];

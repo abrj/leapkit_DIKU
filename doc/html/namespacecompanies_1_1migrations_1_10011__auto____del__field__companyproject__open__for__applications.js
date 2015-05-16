@@ -1,4 +1,0 @@
-var namespacecompanies_1_1migrations_1_10011__auto____del__field__companyproject__open__for__applications =
-[
-    [ "Migration", "classcompanies_1_1migrations_1_10011__auto____del__field__companyproject__open__for__applications_1_1_migration.html", "classcompanies_1_1migrations_1_10011__auto____del__field__companyproject__open__for__applications_1_1_migration" ]
-];

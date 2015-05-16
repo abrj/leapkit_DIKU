@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['helper',['helper',['../classstudents_1_1forms_1_1_student_form.html#a4a28a9682e6d190c1957fb9fb29fdb0e',1,'students.forms.StudentForm.helper()'],['../classstudents_1_1forms_1_1_student_project_form.html#adc6a7a4cceaee86d2cf8370f4993ae99',1,'students.forms.StudentProjectForm.helper()'],['../classstudents_1_1forms_1_1_student_creation_form.html#ae1155eb425b3d6d3367af8f8f09dc239',1,'students.forms.StudentCreationForm.helper()'],['../classstudents_1_1forms_1_1_student_log_in_form.html#a326cea774299d9fa1e8bcf89644c7c49',1,'students.forms.StudentLogInForm.helper()'],['../classstudents_1_1forms_1_1_change_user_password.html#a3a93705cd4e07df9ffc88668c9c4197d',1,'students.forms.ChangeUserPassword.helper()'],['../classstudents_1_1forms_1_1_email_form.html#a23d2d15aeb526e44e16a34f2a92a7ee6',1,'students.forms.EmailForm.helper()']]]
+  ['image',['image',['../classstudents_1_1models_1_1_student.html#a37eca324de73539147a0083dfdf735ac',1,'students.models.Student.image()'],['../classstudents_1_1models_1_1_student.html#a6f81eac38fb0a6074eb663b3cab8055e',1,'students.models.Student.image()']]],
+  ['institution',['institution',['../classstudents_1_1models_1_1_student.html#a41718377a531d1677d8196ac292ccb43',1,'students::models::Student']]],
+  ['iscurrent',['isCurrent',['../classstudents_1_1linkedin__converter_1_1_position.html#adac50b99cf25ff1739c0ef8e47790513',1,'students.linkedin_converter.Position.isCurrent()'],['../classstudents_1_1models_1_1_position.html#a5946dc44ba06da0bc7e92d7e2b3c3cab',1,'students.models.Position.isCurrent()']]]
 ];

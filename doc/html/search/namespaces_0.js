@@ -1,23 +1,11 @@
 var searchData=
 [
-  ['0001_5finitial',['0001_initial',['../namespacestudents_1_1migrations_1_10001__initial.html',1,'students::migrations']]],
-  ['0002_5fauto_5f_5fadd_5ffield_5fstudent_5fcv',['0002_auto__add_field_student_cv',['../namespacestudents_1_1migrations_1_10002__auto____add__field__student__cv.html',1,'students::migrations']]],
-  ['0003_5fauto_5f_5fadd_5ffield_5fstudent_5fline_5fof_5fstudy',['0003_auto__add_field_student_line_of_study',['../namespacestudents_1_1migrations_1_10003__auto____add__field__student__line__of__study.html',1,'students::migrations']]],
-  ['0004_5fauto_5f_5fadd_5ffield_5fstudent_5feducation_5flevel',['0004_auto__add_field_student_education_level',['../namespacestudents_1_1migrations_1_10004__auto____add__field__student__education__level.html',1,'students::migrations']]],
-  ['0005_5fauto_5f_5fadd_5ffield_5fstudent_5ftimes_5flogged_5fin',['0005_auto__add_field_student_times_logged_in',['../namespacestudents_1_1migrations_1_10005__auto____add__field__student__times__logged__in.html',1,'students::migrations']]],
   ['admin',['admin',['../namespacestudents_1_1admin.html',1,'students']]],
-  ['forms',['forms',['../namespacestudents_1_1forms.html',1,'students']]],
   ['linkedin_5fconnector',['linkedin_connector',['../namespacestudents_1_1linkedin__connector.html',1,'students']]],
   ['linkedin_5fconverter',['linkedin_converter',['../namespacestudents_1_1linkedin__converter.html',1,'students']]],
   ['matchmaking',['matchmaking',['../namespacestudents_1_1matchmaking.html',1,'students']]],
-  ['migrations',['migrations',['../namespacestudents_1_1migrations.html',1,'students']]],
   ['models',['models',['../namespacestudents_1_1models.html',1,'students']]],
   ['students',['students',['../namespacestudents.html',1,'']]],
-  ['tasks',['tasks',['../namespacestudents_1_1tasks.html',1,'students']]],
-  ['test_5fforms',['test_forms',['../namespacestudents_1_1tests_1_1test__forms.html',1,'students::tests']]],
-  ['test_5fmodels',['test_models',['../namespacestudents_1_1tests_1_1test__models.html',1,'students::tests']]],
-  ['test_5fviews',['test_views',['../namespacestudents_1_1tests_1_1test__views.html',1,'students::tests']]],
-  ['tests',['tests',['../namespacestudents_1_1tests.html',1,'students']]],
   ['urls',['urls',['../namespacestudents_1_1urls.html',1,'students']]],
   ['views',['views',['../namespacestudents_1_1views.html',1,'students']]]
 ];

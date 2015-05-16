@@ -1,5 +1,0 @@
-var classcompanies_1_1migrations_1_10009__auto____del__field__company__countryaddress____add__field__company__address_1_1_migration =
-[
-    [ "backwards", "classcompanies_1_1migrations_1_10009__auto____del__field__company__countryaddress____add__field__company__address_1_1_migration.html#aa37971b834c6534459145015e42436d8", null ],
-    [ "forwards", "classcompanies_1_1migrations_1_10009__auto____del__field__company__countryaddress____add__field__company__address_1_1_migration.html#ab9f9722bf000e868d7dbf7ab0dc0e9fc", null ]
-];
