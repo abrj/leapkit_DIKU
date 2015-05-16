@@ -433,15 +433,15 @@ class Position(models.Model):
     def get_jobtitle(self):
         return "%s" % (self.jobtitle)
 
-def insertLinkedInProfile(p_json, LeapkitUsername):
+def insert_linkedin_profile(p_json, leapkit_username):
     """
-    Takes a JSON string and a LeapkitUsername and parses the JSON string for
+    Takes a JSON string and a leapkit_username and parses the JSON string for
     usefull data and inserts it into the database using the supplied username.
     """
     try:
         p = fromString(p_json) # Converts json data to the 'desired' structure
 
-        user = User.objects.get(username=LeapkitUsername)
+        user = User.objects.get(username=leapkit_username)
         # Checks if linkedin data already exists
         if LinkedInProfile.objects.filter(leapkituser = user):
             # If exists, profile is updated

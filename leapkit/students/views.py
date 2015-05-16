@@ -11,7 +11,7 @@ from django.views.generic import DetailView, CreateView, FormView, UpdateView, L
 from braces.views import LoginRequiredMixin
 
 from forms import StudentCreationForm, StudentLogInForm, ChangeUserPassword, StudentForm, StudentProjectForm, EmailForm
-from models import Student, StudentProject, insertLinkedInProfile, LinkedInProfile, Skill, Language, Education, Course, Position
+from models import Student, StudentProject, insert_linkedin_profile, LinkedInProfile, Skill, Language, Education, Course, Position
 from companies.models import CompanyProject
 from queries.models import FAQuestion, UserQuestion
 from queries.forms import ContactForm
@@ -604,7 +604,7 @@ def stage(request):
 
     LeapkitUsername = request.user
     # TODO: Redo the insert function to work with a dict instead of the data string. It's much more fun and secure.
-    if insertLinkedInProfile(str(data), LeapkitUsername):
+    if insert_linkedin_profile(str(data), LeapkitUsername):
         messages.add_message(request, messages.SUCCESS,
                 "Successfully extracted data from LinkedIn",
                 extra_tags="alert-success")
