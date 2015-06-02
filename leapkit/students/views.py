@@ -601,7 +601,44 @@ def stage(request):
         data = linkedin_connector.linkedin_extract(code, return_url)
         if len(data) <= 1:
             raise Exception
-        
+
+
+        LeapkitUsername = request.user
+        # TODO: Redo the insert function to work with a dict instead of the data string. It's much more fun and secure.
+        if insert_linkedin_profile(str(data), LeapkitUsername):
+            messages.add_message(request, messages.SUCCESS,
+                        "Successfully extracted data from LinkedIn",
+                        extra_tags="alert-success")
+        else:
+            raise Exception
+
+
+    except MultiValueDictKeyError:
+        error_description = request.GET['error_description']
+        messages.add_message(request, messages.ERROR,
+            ("LinkedIn returned the following error: " + error_description), extra_tags="alert-danger")
+    except Exception:
+        messages.add_message(request, messages.ERROR,
+            ("Failed to insert linkedin information."), extra_tags="alert-danger")
+
+    return redirect(reverse("students:profile", args=(slug, )))
+
+def demo(request):
+    """
+    Reads JSON info from a file and performs normal operations. Done to demo the
+    LinkedIn functions without actually calling linkedin APIs.
+    """
+    logger = logging.getLogger("debug_logger")
+    #slug = request.GET['u']
+    slug = Student.objects.get(user=request.user).slug
+    try:
+        f = open("students/linkedInResult.json","r")
+        data = f.read()
+        f.close()
+
+        if len(data) <= 1:
+            raise Exception
+
 
         LeapkitUsername = request.user
         # TODO: Redo the insert function to work with a dict instead of the data string. It's much more fun and secure.

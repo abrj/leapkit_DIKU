@@ -122,19 +122,19 @@
                           {% endfor %}
                           </p></div>
                           EDUCATIONS: <br/>
-                          <div><p>                       
+                          <div><p>
                             {% for edu in educations %}
                               {{ edu.schoolName }},{{ edu.fieldOfStudy }},{{edu.degree }},
-                            {% endfor %}  
+                            {% endfor %}
                           </p></div>
                           COURSES: <br/>
-                          <div><p>                      
+                          <div><p>
                             {% for cou in courses %}
                                 {{ cou.name }},
                             {% endfor %}
                           </p></div>
                           POSITIONS: <br/>
-                          <div><p>                      
+                          <div><p>
                             {% for pos in positions %}
                               {{ pos.jobtitle }},{{ pos.company }},
                             {% endfor %}
@@ -151,7 +151,7 @@
                 <a href="{% url 'students:update_student_profile' student.slug %}" data-step="3"
                    data-intro='Improve your profile in “Edit profile” to increase the chance of people applying to your projects!'
                    class="btn btn-primary text-upper btn-block">EDIT PROFILE</a>
-                <a href="{% url 'students:linkedin_redirect' %}" data-step="3"
+                <a href="{% url 'students:demo' %}" data-step="3"
                    data-intro='Extract information from your LinkedIn account'
                    class="btn btn-primary text-upper btn-block">Connect To LinkedIn</a>
             </div>
