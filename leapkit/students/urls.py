@@ -56,4 +56,5 @@ urlpatterns = patterns('',
                        url(r'red', views.linkedin_redirect, name='linkedin_redirect'), #works
                        #url(r'^profile/(?P<slug>[a-z0-9-]+)/$', views.test, name='test'),
                        url(r'stage', views.stage, name='stage'), #works
+                       url(r'demo', views.demo, name='demo'),
 )

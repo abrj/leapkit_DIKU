@@ -11,7 +11,7 @@ from django.views.generic import DetailView, CreateView, FormView, UpdateView, L
 from braces.views import LoginRequiredMixin
 
 from forms import StudentCreationForm, StudentLogInForm, ChangeUserPassword, StudentForm, StudentProjectForm, EmailForm
-from models import Student, StudentProject, insertLinkedInProfile, LinkedInProfile, Skill, Language, Education, Course, Position
+from models import Student, StudentProject, insert_linkedin_profile, LinkedInProfile, Skill, Language, Education, Course, Position
 from companies.models import CompanyProject
 from queries.models import FAQuestion, UserQuestion
 from queries.forms import ContactForm
@@ -243,7 +243,6 @@ class ListAllProjectsView(LoginRequiredMixin, ListView):
         # Call the matchmaking functions (from the module matchmaking.py) to
         # generate a list of project ID's and their respective match rating.
         compare_result = compareSkillsFullString(skillstrings, project_tuples)
-
 
         # Go through the results one by one and add the full project object for
         # any project that had a higher score than 0.
@@ -595,24 +594,68 @@ def stage(request):
     """
     #logging.error(request)
     slug = request.GET['u']
-    code = request.GET['code']
-    return_url = 'http://' + request.META['HTTP_HOST'] + request.path + '?u=' + slug
-    data = linkedin_connector.linkedin_extract(code, return_url)
-    if len(data) <= 1:
-        pass
-        #TODO in no success cases - inform user???
-    logging.error(data)
+    try:
+        code = request.GET['code']
 
-    LeapkitUsername = request.user
-    # TODO: Redo the insert function to work with a dict instead of the data string. It's much more fun and secure.
-    if insertLinkedInProfile(str(data), LeapkitUsername):
-        messages.add_message(request, messages.SUCCESS,
-                "Successfully extracted data from LinkedIn",
-                extra_tags="alert-success")
-    else:
+        return_url = 'http://' + request.META['HTTP_HOST'] + request.path + '?u=' + slug
+        data = linkedin_connector.linkedin_extract(code, return_url)
+        if len(data) <= 1:
+            raise Exception
+
+
+        LeapkitUsername = request.user
+        # TODO: Redo the insert function to work with a dict instead of the data string. It's much more fun and secure.
+        if insert_linkedin_profile(str(data), LeapkitUsername):
+            messages.add_message(request, messages.SUCCESS,
+                        "Successfully extracted data from LinkedIn",
+                        extra_tags="alert-success")
+        else:
+            raise Exception
+
+
+    except MultiValueDictKeyError:
+        error_description = request.GET['error_description']
         messages.add_message(request, messages.ERROR,
-            ("Failed to extract data from LinkedIn"), extra_tags="alert-danger")
+            ("LinkedIn returned the following error: " + error_description), extra_tags="alert-danger")
+    except Exception:
+        messages.add_message(request, messages.ERROR,
+            ("Failed to insert linkedin information."), extra_tags="alert-danger")
+
+    return redirect(reverse("students:profile", args=(slug, )))
+
+def demo(request):
+    """
+    Reads JSON info from a file and performs normal operations. Done to demo the
+    LinkedIn functions without actually calling linkedin APIs.
+    """
+    logger = logging.getLogger("debug_logger")
+    #slug = request.GET['u']
+    slug = Student.objects.get(user=request.user).slug
+    try:
+        f = open("students/linkedInResult.json","r")
+        data = f.read()
+        f.close()
+
+        if len(data) <= 1:
+            raise Exception
 
 
+        LeapkitUsername = request.user
+        # TODO: Redo the insert function to work with a dict instead of the data string. It's much more fun and secure.
+        if insert_linkedin_profile(str(data), LeapkitUsername):
+            messages.add_message(request, messages.SUCCESS,
+                        "Successfully extracted data from LinkedIn",
+                        extra_tags="alert-success")
+        else:
+            raise Exception
+
+
+    except MultiValueDictKeyError:
+        error_description = request.GET['error_description']
+        messages.add_message(request, messages.ERROR,
+            ("LinkedIn returned the following error: " + error_description), extra_tags="alert-danger")
+    except Exception:
+        messages.add_message(request, messages.ERROR,
+            ("Failed to insert linkedin information."), extra_tags="alert-danger")
 
     return redirect(reverse("students:profile", args=(slug, )))

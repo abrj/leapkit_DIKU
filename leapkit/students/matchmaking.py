@@ -2,7 +2,8 @@
 
 """@matchmaking 
 
-This package implements the needed functionaloty to match projects with a student.
+This package implements the needed functionaloty to match projects with a 
+student.
 """
 
 
@@ -35,7 +36,9 @@ def matchListsOfStrings(sourceList, targetList, compareFun):
 
 
 def strictCompare(string, stringList):
-    """Returns 1 if string is equal to a string in stringList, otherwise 0."""
+    """
+    Returns 1 if string is equal to a string in stringList, otherwise 0.
+    """
     return any(string.lower() == s.lower() for s in stringList)
 
 def containsStringCompare(string, stringList):
@@ -55,7 +58,9 @@ def compareSkills(userSkills, projects, stringComparefunction=strictCompare):
     Defaults to using strictCompare if no other function is given.
     """
 
-    sortedProjectList = [(projId, matchListsOfStrings(userSkills, projSkills, stringComparefunction) ) for projId, projSkills in projects]
+    sortedProjectList = [(projId, matchListsOfStrings(userSkills, projSkills, 
+                          stringComparefunction) ) 
+                         for projId, projSkills in projects]
     sortedProjectList.sort(key=lambda tup: tup[1], reverse=True)
 
     return sortedProjectList
@@ -66,12 +71,19 @@ def compareSkillsFullString(userSkills, projects):
     Returns list project names ordered by matching degree.
     Only take skills into account, not languages, etc.
 
-    Used for comparing skills when there is a chance that some skills have a space.
+    Used for comparing skills when there is a chance that some skills have a 
+    space.
     """
 
     userSkillsWithSpaces = list(filter(lambda s : " " in s, userSkills))
 
-    sortedProjectList = [(projId, matchListsOfStrings(userSkills, projSkills, strictCompare) +  matchListsOfStrings(userSkillsWithSpaces, projDescription, containsStringCompare)) for projId, projSkills, projDescription in projects]
+    sortedProjectList = [(projId, 
+                          matchListsOfStrings(userSkills, projSkills, 
+                                              strictCompare) +  
+                          matchListsOfStrings(userSkillsWithSpaces, 
+                                              projDescription, 
+                                              containsStringCompare)) 
+                         for projId, projSkills, projDescription in projects]
     sortedProjectList.sort(key=lambda tup: tup[1], reverse=True)
 
     return sortedProjectList
@@ -128,7 +140,8 @@ if __name__ == "__main__":
     n = len(sys.argv)
 
     if n <= 2:
-        print("Path to user and project not provieded. Please give two args with paths to these.")
+        print("Path to user and project not provieded. \
+              Please give two args with paths to these.")
         sys.exit(0)
     elif n == 3:
         pathUser = sys.argv[1]

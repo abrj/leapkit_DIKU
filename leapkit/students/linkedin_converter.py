@@ -3,14 +3,9 @@ from pprint import pprint
 import ast
 import logging
 
-##############################
-##      Data Structure      ##
-##############################
-
 class Person(object):
     """A person is used to structure a json string"""
 
-    """Constructor that initiates all the basic person values"""
     pid = "" 
     firstName = ""
     maidenName = ""
@@ -29,36 +24,58 @@ class Person(object):
 
     def __str__(self):
         """Returns a string with all information from that user"""
-        ret = "pid = " + self.pid + "\nname = " + self.firstName + " " + self.maidenName + " " + self.lastName + ".\n"
+        ret = ("pid = " + self.pid + "\nname = " + self.firstName + " " +
+            self.maidenName + " " + self.lastName + ".\n")
+
         ret += "\nSkills:\n"
+
         for skill in self.skills:
-            ret += "    cid = " + str(skill.sid) + ", name = " + skill.name + "\n"
+            ret += ("    cid = " + str(skill.sid) + ", name = " +
+                skill.name + "\n")
+
         ret += "\nLanguages:\n"
         for language in self.languages:
-            "    lid = " + str(language.lid) + ", name = " + language.name + "\n level = " + language.level + "\n"
+            ("    lid = " + str(language.lid) +
+            ", name = " + language.name +
+            "\n level = " + language.level + "\n")
+
         ret += "\nEducations:\n"
         for education in self.educations:
-            ret += "    eid = " + str(education.eid) + ", degree = " + education.degree + " in " + education.fieldOfStudy +"\n"
+            ret += ("    eid = " + str(education.eid) +
+            ", degree = " + education.degree +
+            " in " + education.fieldOfStudy +"\n")
+
         ret += "\nPositions:\n"
         for position in self.positions:
-            ret += "    pid = " + str(position.pid) + ", isCurrent = " + str(position.isCurrent) + ", starter " + position.startDate + " and ended " + position.endDate + " worked for company " + position.company + "\n" + "        title was: " + position.title + "\n"
+            ret += ("    pid = " + str(position.pid) +
+            ", isCurrent = " + str(position.isCurrent) +
+            ", starter " + position.startDate +
+            " and ended " + position.endDate +
+            " worked for company " + position.company + "\n" +
+            "        title was: " + position.title + "\n")
+
         ret += "\nCourses:\n"
         for course in self.courses:
-            ret += "    cid = " + str(course.cid) + ", name = " + course.name + "\n"
+            ret += ("    cid = " + str(course.cid) +
+            ", name = " + course.name + "\n")
+
         return ret 
 
 class Language(object):
-    """A Language is used to hold the languages and profifiency the person knows."""
+    """
+    A Language is used to hold the languages and profifiency the person knows.
+    """
 
-    """Constructor that initiates all the basic language values"""
     lid = ""
     name = ""
     level = ""
 
 class Position(object):
-    """A Position is used to hold the company positions and employment dration a person knows."""
+    """
+    A Position is used to hold the company positions and employment dration a
+    person knows.
+    """
 
-    """Constructor that initiates all the basic position values"""
     endDate = ""
     startDate = ""
     isCurrent = ""
@@ -70,14 +87,12 @@ class Position(object):
 class Course(object):
     """A Course is used to hold what courses a person has completed."""
 
-    """Constructor that initiates all the basic course values"""
     cid  = ""
     name   = ""
 
 class Skill(object):
     """Skill is used to hold what skills a person has."""
 
-    """Constructor that initiates all the basic skill values"""
     sid = ""
     name = ""
 
@@ -85,7 +100,6 @@ class Education(object):
     """Education hold what educations a person has completed, what degree it
     gives and from where it was given."""
 
-    """Constructor that initiates all the basic education values"""
     eid = ""
     schoolName = ""
     fieldOfStudy = ""
@@ -98,7 +112,9 @@ class Education(object):
 ################################
 
 def get(data, query):
-    """returns a piece of data if it exists, otherwise returns an empy string"""
+    """
+    returns a piece of data if it exists, otherwise returns an empy string.
+    """
     if(query in data):
         return data[query]
     else:
@@ -173,7 +189,9 @@ def fillFullProfile(data):
     return person
 
 def createSub(name, className, data):
-    """Fills a sublist name with the information given in the data json string"""
+    """
+    Fills a sublist name with the information given in the data json string
+    """
     variables = [s for s in dir(className) if s[0] != '_']
     classInstance = className()
     for var in variables:
@@ -183,7 +201,10 @@ def createSub(name, className, data):
             classInstance.endDate = formatDate(get(data, var))
         elif(var == "isCurrent" and name == "positions"):
             classInstance.isCurrent= get(data,var)
-        elif(var == "name" and (name == "languages" or name == "skills" or name == "publishers")):
+        elif(var == "name" and
+                 (name == "languages" or
+                  name == "skills" or
+                  name == "publishers")):
             classInstance.name = get(get(data,name[:-1]),var)
         elif(var == "name" and name == "courses"):
             classInstance.name = get(data,var)
