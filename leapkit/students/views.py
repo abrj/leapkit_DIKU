@@ -563,22 +563,34 @@ def student_sign_up_success(request, slug):
 """
 
 def linkedin_scrape(request):
+    """
+    Calls the scraper and retrieves a list of skills from the URL specified in the users profile.
+    """
     logger = logging.getLogger("debug_logger")
+    leapkit_username = request.user
+    slug = Student.objects.get(user=leapkit_username).slug
+
     try:
-        leapkit_username = request.user
-        slug = Student.objects.get(user=leapkit_username).slug
         url = Student.objects.get(user=leapkit_username).linkedin_url
+
+        if len(url) < 10: # Magic number ohoy
+            messages.add_message(request, messages.WARNING, "No LinkedIn URL found in your profile. Please add a URL by clicking the 'Edit Profile' button.", extra_tags="alert-warning")
+        return redirect(reverse("students:profile", args=(slug, )))
+
 
         extractor = SkillExtractor()
         p_skills = extractor.scrape_skills(url)
         insert_skills(p_skills, leapkit_username)
 
-        messages.add_message(self.request, messages.SUCCESS, "The LiknedIn profile information was collected.", extra_tags="alert-success")
+        if len(p_skills) > 0:
+            messages.add_message(request, messages.SUCCESS, "The LiknedIn profile information was collected.", extra_tags="alert-success")
+        else:
+            messages.add_message(request, messages.WARNING, "Unable to find any skills in profile on url: " + url, extra_tags="alert-warning")
         return redirect(reverse("students:profile", args=(slug, )))
 
     except Exception as ex:
         logger.debug("Something went terribly wrong:")
         logger.debug(ex)
 
-        messages.add_message(self.request, messages.SUCCESS, "Unable to parse LinkedIn profile: " + str(ex), extra_tags="alert-success")
+        messages.add_message(request, messages.ERROR, "There was some problems when trying to retrieve the data.",extra_tags="alert-error")
         return redirect(reverse("students:profile", args=(slug, )))
