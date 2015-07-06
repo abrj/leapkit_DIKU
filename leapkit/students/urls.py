@@ -48,13 +48,7 @@ urlpatterns = patterns('',
                        url(r'^profile/update/(?P<slug>[a-z0-9-]+)/$', views.UpdateStudentProfileView.as_view(),
                            name='update_student_profile'),
                        url(r'^profile/(?P<slug>[a-z0-9-]+)/$', views.StudentView.as_view(), name='profile'),
-                       #url('www.google.com', views.test, name='test'),
-                       #url('', RedirectView.as_view(url='www.google.com', permanent=False), name='test'),
-                       #url(r'^$', views.test, name='test'),
 
-                       #url(r'^test/$', views.test, name='test'), #works
-                       url(r'red', views.linkedin_redirect, name='linkedin_redirect'), #works
-                       #url(r'^profile/(?P<slug>[a-z0-9-]+)/$', views.test, name='test'),
-                       url(r'stage', views.stage, name='stage'), #works
-                       url(r'demo', views.demo, name='demo'),
+                       url(r'linkedin_scrape', views.linkedin_scrape, name='linkedin_scrape'),
+
 )

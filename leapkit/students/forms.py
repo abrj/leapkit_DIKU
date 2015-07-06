@@ -33,7 +33,8 @@ class StudentForm(forms.ModelForm):
                 'country',
                 'line_of_study',
                 'description',
-                'cv'
+                'cv',
+                'linkedin_url'
             ),
             ButtonHolder(
                 Submit('submit', 'Update', css_class="col-md-4 col-xs-4 col-xs-offset-4 col-md-offset-4")
@@ -50,7 +51,8 @@ class StudentForm(forms.ModelForm):
             'country',
             'description',
             'line_of_study',
-            'cv'
+            'cv',
+            'linkedin_url'
         )
 
 

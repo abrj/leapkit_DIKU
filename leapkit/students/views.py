@@ -11,7 +11,7 @@ from django.views.generic import DetailView, CreateView, FormView, UpdateView, L
 from braces.views import LoginRequiredMixin
 
 from forms import StudentCreationForm, StudentLogInForm, ChangeUserPassword, StudentForm, StudentProjectForm, EmailForm
-from models import Student, StudentProject, insert_linkedin_profile, LinkedInProfile, Skill, Language, Education, Course, Position
+from models import Student, StudentProject, Skill, insert_skills
 from companies.models import CompanyProject
 from queries.models import FAQuestion, UserQuestion
 from queries.forms import ContactForm
@@ -19,9 +19,9 @@ from projects.models import Project
 from institutions.models import Institution, FieldOfStudy
 
 import logging
-import linkedin_connector
+import sys
 from matchmaking import compareSkillsFullString
-
+from skill_extractor import SkillExtractor
 
 """
     ------------------------------------------------------------------------
@@ -57,14 +57,11 @@ class StudentView(LoginRequiredMixin, DetailView):
         context['project_list'] = project_list
         logger.debug(project_list)
         context['published_projects'] = project_list.filter(published=True)
-        if LinkedInProfile.objects.filter(leapkituser=self.request.user):
-            linked = LinkedInProfile.objects.get(leapkituser=self.request.user)
-            context['linked'] = linked
-            context['skills'] = Skill.objects.filter(profile=linked)
-            context['educations'] = Education.objects.filter(profile=linked)
-            context['languages'] = Language.objects.filter(profile=linked)
-            context['courses'] = Course.objects.filter(profile=linked)
-            context['positions'] = Position.objects.filter(profile=linked)
+
+        # TODO: DET ER HER DER SKER GODE TING.
+        if Student.objects.filter(user=self.request.user):
+            context['linkedin_url'] = Student.objects.get(user=self.request.user).linkedin_url
+            context['linkedin_skills'] = Skill.objects.filter(user=self.request.user)
 
         return context
 
@@ -227,9 +224,7 @@ class ListAllProjectsView(LoginRequiredMixin, ListView):
 
         all_projects = Project.objects.filter(is_active=True, published=True)
 
-        # Retrieve the skills from the relevant linkedin profile.
-        linkedin_profile = LinkedInProfile.objects.filter(leapkituser=self.request.user)
-        skills = Skill.objects.filter(profile=linkedin_profile)
+        skills = Skill.objects.filter(user=self.request.user)
         skillstrings = []
         for skill in skills:
             skillstrings.append(skill.name)
@@ -567,95 +562,23 @@ def student_sign_up_success(request, slug):
     -------------------------------------------------------------------------
 """
 
-def linkedin_redirect(request):
-    """
-    Redirects the user to a login form in LinkedIn to retrieve a sign in code.
-    """
-    #logging.error(request)
-    #logging.error("\nrequest.user = " + str(request.user))
-    try:
-        #path = request.META['HTTP_REFERER']
-        slug = Student.objects.get(user=request.user).slug
-        #path = 'http://www.leapkit.com?u=' + slug
-        path = 'http://' + request.META['HTTP_HOST'] + '/students/stage?u=' + slug
-        #logging.error("\nurl:" + path)
-        linkedin_url = linkedin_connector.linkedin_get_url(path)
-    except:
-        return redirect(reverse("students:log_in"))
-
-
-    return HttpResponseRedirect(linkedin_url)
-
-def stage(request):
-    """
-    Creates a connection to LinkedIn and retrieves the users LinkedIn profile
-    information in a JSON format and then parses the information and saves it in
-    the local database before returning to the students profile pages.
-    """
-    #logging.error(request)
-    slug = request.GET['u']
-    try:
-        code = request.GET['code']
-
-        return_url = 'http://' + request.META['HTTP_HOST'] + request.path + '?u=' + slug
-        data = linkedin_connector.linkedin_extract(code, return_url)
-        if len(data) <= 1:
-            raise Exception
-
-
-        LeapkitUsername = request.user
-        # TODO: Redo the insert function to work with a dict instead of the data string. It's much more fun and secure.
-        if insert_linkedin_profile(str(data), LeapkitUsername):
-            messages.add_message(request, messages.SUCCESS,
-                        "Successfully extracted data from LinkedIn",
-                        extra_tags="alert-success")
-        else:
-            raise Exception
-
-
-    except MultiValueDictKeyError:
-        error_description = request.GET['error_description']
-        messages.add_message(request, messages.ERROR,
-            ("LinkedIn returned the following error: " + error_description), extra_tags="alert-danger")
-    except Exception:
-        messages.add_message(request, messages.ERROR,
-            ("Failed to insert linkedin information."), extra_tags="alert-danger")
-
-    return redirect(reverse("students:profile", args=(slug, )))
-
-def demo(request):
-    """
-    Reads JSON info from a file and performs normal operations. Done to demo the
-    LinkedIn functions without actually calling linkedin APIs.
-    """
+def linkedin_scrape(request):
     logger = logging.getLogger("debug_logger")
-    #slug = request.GET['u']
-    slug = Student.objects.get(user=request.user).slug
     try:
-        f = open("students/linkedInResult.json","r")
-        data = f.read()
-        f.close()
+        leapkit_username = request.user
+        slug = Student.objects.get(user=leapkit_username).slug
+        url = Student.objects.get(user=leapkit_username).linkedin_url
 
-        if len(data) <= 1:
-            raise Exception
+        extractor = SkillExtractor()
+        p_skills = extractor.scrape_skills(url)
+        insert_skills(p_skills, leapkit_username)
 
+        messages.add_message(self.request, messages.SUCCESS, "The LiknedIn profile information was collected.", extra_tags="alert-success")
+        return redirect(reverse("students:profile", args=(slug, )))
 
-        LeapkitUsername = request.user
-        # TODO: Redo the insert function to work with a dict instead of the data string. It's much more fun and secure.
-        if insert_linkedin_profile(str(data), LeapkitUsername):
-            messages.add_message(request, messages.SUCCESS,
-                        "Successfully extracted data from LinkedIn",
-                        extra_tags="alert-success")
-        else:
-            raise Exception
+    except Exception as ex:
+        logger.debug("Something went terribly wrong:")
+        logger.debug(ex)
 
-
-    except MultiValueDictKeyError:
-        error_description = request.GET['error_description']
-        messages.add_message(request, messages.ERROR,
-            ("LinkedIn returned the following error: " + error_description), extra_tags="alert-danger")
-    except Exception:
-        messages.add_message(request, messages.ERROR,
-            ("Failed to insert linkedin information."), extra_tags="alert-danger")
-
-    return redirect(reverse("students:profile", args=(slug, )))
+        messages.add_message(self.request, messages.SUCCESS, "Unable to parse LinkedIn profile: " + str(ex), extra_tags="alert-success")
+        return redirect(reverse("students:profile", args=(slug, )))

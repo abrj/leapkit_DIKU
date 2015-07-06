@@ -23,7 +23,7 @@ from projects.models import Project
 from leapkit import settings
 
 # LinkedIn conversion.
-from students.linkedin_converter import fromString
+#from students.linkedin_converter import fromString
 
 
 
@@ -140,7 +140,7 @@ class Student(models.Model):
                           help_text="Please choose an file of your choice to upload and show to other users.")
 
     # LinkedIn profile url for the scraper to run off.
-    linkedin_url = models.CharField(max_length=80,
+    linkedin_url = models.CharField(max_length=120,
                                     blank=True,
                                     null=True,
                                     help_text="The URL of your LinkedIn profile.")
@@ -399,13 +399,24 @@ class Skill(models.Model):
     Model that represents a skill on LinkedIn.
     """
     name = models.CharField(max_length = 81)
-    profile = models.ForeignKey(User)
+    user = models.ForeignKey(User)
 
     def __unicode__(self):
         return self.get_skill()
 
     def get_skill(self):
         return "%s" % (self.name)
+
+def insert_skills(skill_list, leapkit_username):
+
+    user = User.objects.get(username=leapkit_username)
+
+    Skill.objects.filter(user = user).delete()
+
+    for s in skill_list:
+        skill = Skill(name = s, user = user)
+        skill.save()
+
 
 # class Education(models.Model):
 #     """
@@ -527,7 +538,7 @@ class Skill(models.Model):
 #             for s in p.skills:
 #                 ski = Skill(name = s.name, profile = profile)
 #                 ski.save()
-# 
+#
 #             for l in p.languages:
 #                 lang = Language(name = l.name, level = l.level,
 #                         profile = profile)

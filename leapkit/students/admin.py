@@ -1,7 +1,6 @@
 from django.contrib import admin
 
-from models import (Student, StudentProject, LinkedInProfile, Skill, Language,
-    Course, Education,Position)
+from models import (Student, StudentProject, Skill)
 
 # class LinkedInProfileAdmin(admin.ModelAdmin):
 #     fieldsets = [
@@ -23,9 +22,9 @@ from models import (Student, StudentProject, LinkedInProfile, Skill, Language,
 # admin.site.register(LinkedInProfile, LinkedInProfileAdmin)
 
 class SkillAdmin(admin.ModelAdmin):
-  fieldsets = [(None, {'fields' : ['name', 'profile']}),]
-  list_display = ('name', 'profile')
-  search_fields = ['name','profile']
+  fieldsets = [(None, {'fields' : ['name', 'user']}),]
+  list_display = ('name', 'user')
+  search_fields = ['name','user']
 
 admin.site.register(Skill, SkillAdmin)
 #
