@@ -139,6 +139,12 @@ class Student(models.Model):
                           blank=True,
                           help_text="Please choose an file of your choice to upload and show to other users.")
 
+    # LinkedIn profile url for the scraper to run off.
+    linkedin_url = models.CharField(max_length=80,
+                                    blank=True,
+                                    null=True,
+                                    help_text="The URL of your LinkedIn profile.")
+
     def __unicode__(self):
         return "%s %s" % (self.first_name, self.last_name)
 
@@ -330,70 +336,70 @@ class StudentProject(Project):
     project_owner = models.ForeignKey(Student)
     objects = StudentProjectManager()
 
-class LinkedInProfile(models.Model):
-
-    """
-    This model is used to represent a students LinkedIn information.
-    """
-    # The userid/link to a specific user
-    leapkituser = models.OneToOneField(User)
-
-    # Last time the data was modified/updated.
-    modified = models.DateTimeField('modified', auto_now=True)
-
-    # Profile ID from linkedIn.
-    linkedin_id = models.TextField()
-
-    # Name information from LinkedIn
-    firstName =  models.TextField()
-    lastName = models.TextField()
-
-    # Misc information from LinkedIn
-    pictureUrl = models.TextField(null=True, blank=True)
-    publicProfileUrl = models.TextField(null=True, blank=True)
-
-    def __unicode__(self):
-        return self.get_full_name()
-
-    def get_full_name(self):
-        """
-        :return: First name + last name, with a space in between
-        """
-        return "%s %s" % (self.firstName, self.lastName)
-
-class Language(models.Model):
-    """
-    Model that represents a language on LinkedIn.
-    """
-    name = models.CharField(max_length = 30)
-    level = models.CharField(max_length = 30)
-    profile = models.ForeignKey(LinkedInProfile)
-
-    def __unicode__(self):
-        return self.get_language()
-
-    def get_language(self):
-        return "%s" % (self.name)
-
-class Course(models.Model):
-    """
-    Model that represents a course on LinkedIn.
-    """
-    name = models.CharField(max_length = 81)
-    profile = models.ForeignKey(LinkedInProfile)
-
-    def __unicode__(self):
-        return self.get_course()
-
-    def get_course(self):
-        return "%s" % (self.name)
+# class LinkedInProfile(models.Model):
+#
+#     """
+#     This model is used to represent a students LinkedIn information.
+#     """
+#     # The userid/link to a specific user
+#     leapkituser = models.OneToOneField(User)
+#
+#     # Last time the data was modified/updated.
+#     modified = models.DateTimeField('modified', auto_now=True)
+#
+#     # Profile ID from linkedIn.
+#     linkedin_id = models.TextField()
+#
+#     # Name information from LinkedIn
+#     firstName =  models.TextField()
+#     lastName = models.TextField()
+#
+#     # Misc information from LinkedIn
+#     pictureUrl = models.TextField(null=True, blank=True)
+#     publicProfileUrl = models.TextField(null=True, blank=True)
+#
+#     def __unicode__(self):
+#         return self.get_full_name()
+#
+#     def get_full_name(self):
+#         """
+#         :return: First name + last name, with a space in between
+#         """
+#         return "%s %s" % (self.firstName, self.lastName)
+#
+# class Language(models.Model):
+#     """
+#     Model that represents a language on LinkedIn.
+#     """
+#     name = models.CharField(max_length = 30)
+#     level = models.CharField(max_length = 30)
+#     profile = models.ForeignKey(LinkedInProfile)
+#
+#     def __unicode__(self):
+#         return self.get_language()
+#
+#     def get_language(self):
+#         return "%s" % (self.name)
+#
+# class Course(models.Model):
+#     """
+#     Model that represents a course on LinkedIn.
+#     """
+#     name = models.CharField(max_length = 81)
+#     profile = models.ForeignKey(LinkedInProfile)
+#
+#     def __unicode__(self):
+#         return self.get_course()
+#
+#     def get_course(self):
+#         return "%s" % (self.name)
 
 class Skill(models.Model):
     """
     Model that represents a skill on LinkedIn.
     """
     name = models.CharField(max_length = 81)
-    profile = models.ForeignKey(LinkedInProfile)
+    profile = models.ForeignKey(User)
 
     def __unicode__(self):
         return self.get_skill()
@@ -401,143 +407,142 @@ class Skill(models.Model):
     def get_skill(self):
         return "%s" % (self.name)
 
-class Education(models.Model):
-    """
-    Model that represents a education on LinkedIn.
-    """
-    schoolName = models.CharField(max_length=100)
-    fieldOfStudy = models.CharField(max_length=100)
-    degree = models.CharField(max_length=100)
-    profile = models.ForeignKey(LinkedInProfile)
-
-    def __unicode__(self):
-        return self.get_fieldOfStudy()
-
-    def get_fieldOfStudy(self):
-        return "%s" % (self.fieldOfStudy)
-
-class Position(models.Model):
-    """
-    Model that represents a job position on LinkedIn.
-    """
-    startDate = models.CharField(max_length=20)
-    endDate = models.CharField(max_length=20)
-    company = models.CharField(max_length=100)
-    jobtitle = models.CharField(max_length=100)
-    isCurrent = models.BooleanField(default=False)
-    profile = models.ForeignKey(LinkedInProfile)
-
-    def __unicode__(self):
-        return self.get_jobtitle()
-
-    def get_jobtitle(self):
-        return "%s" % (self.jobtitle)
-
-def insert_linkedin_profile(p_json, leapkit_username):
-    """
-    Takes a JSON string and a leapkit_username and parses the JSON string for
-    usefull data and inserts it into the database using the supplied username.
-    """
-    try:
-        p = fromString(p_json) # Converts json data to the 'desired' structure
-
-        user = User.objects.get(username=leapkit_username)
-        # Checks if linkedin data already exists
-        if LinkedInProfile.objects.filter(leapkituser = user):
-            # If exists, profile is updated
-            profile = LinkedInProfile.objects.get(leapkituser=user)
-            profile.__dict__.update(linkedin_id = p.pid,
-                                      firstName = p.firstName,
-                                      lastName = p.lastName,
-                                      pictureUrl = p.pictureUrl,
-                                      publicProfileUrl = p.publicProfileUrl)
-            profile.save()
-
-            # Seemed useful at the time
-            try:
-                Skill.objects.filter(profile=profile).delete()
-            except:
-                logging.error("Skills not deleted")
-            try:
-                Education.objects.filter(profile=profile).delete()
-            except:
-                logging.error("Education not deleted")
-            try:
-                Language.objects.filter(profile=profile).delete()
-            except:
-                logging.error("Language not deleted")
-            try:
-                Course.objects.filter(profile=profile).delete()
-            except:
-                logging.error("Course not deleted")
-            try:
-                Position.objects.filter(profile=profile).delete()
-            except:
-                logging.error("Position not deleted")
-
-            for ps in p.positions:
-                pos = Position(startDate = ps.startDate, endDate = ps.endDate,
-                        company = ps.company, jobtitle = ps.title,
-                        isCurrent = ps.isCurrent, profile = profile)
-                pos.save()
-
-            for s in p.skills:
-                ski = Skill(name = s.name, profile = profile)
-                ski.save()
-
-            for l in p.languages:
-                lang = Language(name = l.name, level = l.level,
-                        profile = profile)
-                lang.save()
-
-            for e in p.educations:
-                edu = Education(schoolName = e.schoolName,
-                        fieldOfStudy = e.fieldOfStudy, degree = e.degree,
-                        profile = profile)
-                edu.save()
-
-            for c in p.courses:
-                cou = Course(name = c.name, profile = profile)
-                cou.save()
-
-            return True
-
-        else:
-            # Creates new LinkedInProfile
-            profile = LinkedInProfile(leapkituser = user,
-                                      linkedin_id = p.pid,
-                                      firstName = p.firstName,
-                                      lastName = p.lastName,
-                                      pictureUrl = p.pictureUrl,
-                                      publicProfileUrl = p.publicProfileUrl)
-            profile.save()
-
-            for ps in p.positions:
-                pos = Position(startDate = ps.startDate, endDate = ps.endDate,
-                        company = ps.company, jobtitle = ps.title,
-                        isCurrent = ps.isCurrent, profile = profile)
-                pos.save()
-
-            for s in p.skills:
-                ski = Skill(name = s.name, profile = profile)
-                ski.save()
-
-            for l in p.languages:
-                lang = Language(name = l.name, level = l.level,
-                        profile = profile)
-                lang.save()
-
-            for e in p.educations:
-                edu = Education(schoolName = e.schoolName,
-                        fieldOfStudy = e.fieldOfStudy, degree = e.degree,
-                        profile = profile)
-                edu.save()
-
-            for c in p.courses:
-                cou = Course(name = c.name, profile = profile)
-                cou.save()
-
-            return True
-    except:
-        return False
-
+# class Education(models.Model):
+#     """
+#     Model that represents a education on LinkedIn.
+#     """
+#     schoolName = models.CharField(max_length=100)
+#     fieldOfStudy = models.CharField(max_length=100)
+#     degree = models.CharField(max_length=100)
+#     profile = models.ForeignKey(LinkedInProfile)
+#
+#     def __unicode__(self):
+#         return self.get_fieldOfStudy()
+#
+#     def get_fieldOfStudy(self):
+#         return "%s" % (self.fieldOfStudy)
+#
+# class Position(models.Model):
+#     """
+#     Model that represents a job position on LinkedIn.
+#     """
+#     startDate = models.CharField(max_length=20)
+#     endDate = models.CharField(max_length=20)
+#     company = models.CharField(max_length=100)
+#     jobtitle = models.CharField(max_length=100)
+#     isCurrent = models.BooleanField(default=False)
+#     profile = models.ForeignKey(LinkedInProfile)
+#
+#     def __unicode__(self):
+#         return self.get_jobtitle()
+#
+#     def get_jobtitle(self):
+#         return "%s" % (self.jobtitle)
+#
+# def insert_linkedin_profile(p_json, leapkit_username):
+#     """
+#     Takes a JSON string and a leapkit_username and parses the JSON string for
+#     usefull data and inserts it into the database using the supplied username.
+#     """
+#     try:
+#         p = fromString(p_json) # Converts json data to the 'desired' structure
+#
+#         user = User.objects.get(username=leapkit_username)
+#         # Checks if linkedin data already exists
+#         if LinkedInProfile.objects.filter(leapkituser = user):
+#             # If exists, profile is updated
+#             profile = LinkedInProfile.objects.get(leapkituser=user)
+#             profile.__dict__.update(linkedin_id = p.pid,
+#                                       firstName = p.firstName,
+#                                       lastName = p.lastName,
+#                                       pictureUrl = p.pictureUrl,
+#                                       publicProfileUrl = p.publicProfileUrl)
+#             profile.save()
+#
+#             # Seemed useful at the time
+#             try:
+#                 Skill.objects.filter(profile=profile).delete()
+#             except:
+#                 logging.error("Skills not deleted")
+#             try:
+#                 Education.objects.filter(profile=profile).delete()
+#             except:
+#                 logging.error("Education not deleted")
+#             try:
+#                 Language.objects.filter(profile=profile).delete()
+#             except:
+#                 logging.error("Language not deleted")
+#             try:
+#                 Course.objects.filter(profile=profile).delete()
+#             except:
+#                 logging.error("Course not deleted")
+#             try:
+#                 Position.objects.filter(profile=profile).delete()
+#             except:
+#                 logging.error("Position not deleted")
+#
+#             for ps in p.positions:
+#                 pos = Position(startDate = ps.startDate, endDate = ps.endDate,
+#                         company = ps.company, jobtitle = ps.title,
+#                         isCurrent = ps.isCurrent, profile = profile)
+#                 pos.save()
+#
+#             for s in p.skills:
+#                 ski = Skill(name = s.name, profile = profile)
+#                 ski.save()
+#
+#             for l in p.languages:
+#                 lang = Language(name = l.name, level = l.level,
+#                         profile = profile)
+#                 lang.save()
+#
+#             for e in p.educations:
+#                 edu = Education(schoolName = e.schoolName,
+#                         fieldOfStudy = e.fieldOfStudy, degree = e.degree,
+#                         profile = profile)
+#                 edu.save()
+#
+#             for c in p.courses:
+#                 cou = Course(name = c.name, profile = profile)
+#                 cou.save()
+#
+#             return True
+#
+#         else:
+#             # Creates new LinkedInProfile
+#             profile = LinkedInProfile(leapkituser = user,
+#                                       linkedin_id = p.pid,
+#                                       firstName = p.firstName,
+#                                       lastName = p.lastName,
+#                                       pictureUrl = p.pictureUrl,
+#                                       publicProfileUrl = p.publicProfileUrl)
+#             profile.save()
+#
+#             for ps in p.positions:
+#                 pos = Position(startDate = ps.startDate, endDate = ps.endDate,
+#                         company = ps.company, jobtitle = ps.title,
+#                         isCurrent = ps.isCurrent, profile = profile)
+#                 pos.save()
+#
+#             for s in p.skills:
+#                 ski = Skill(name = s.name, profile = profile)
+#                 ski.save()
+# 
+#             for l in p.languages:
+#                 lang = Language(name = l.name, level = l.level,
+#                         profile = profile)
+#                 lang.save()
+#
+#             for e in p.educations:
+#                 edu = Education(schoolName = e.schoolName,
+#                         fieldOfStudy = e.fieldOfStudy, degree = e.degree,
+#                         profile = profile)
+#                 edu.save()
+#
+#             for c in p.courses:
+#                 cou = Course(name = c.name, profile = profile)
+#                 cou.save()
+#
+#             return True
+#     except:
+#         return False
